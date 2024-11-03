@@ -8,6 +8,6 @@ Prowadzący:
 - dr inż. Marcin Kawalerowicz
 
 Skład zespołu:
-- Kamil Bońkowski, 252727, @KamilB
+- Kamil Bońkowski, 252727, @KamilB00
 - Szymaon Walasik, 283393, @SzymonWalasik
 - Jakub Wierzchowiec, 252738, @wrzchwc
