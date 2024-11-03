@@ -107,4 +107,4 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS (ang. software as a service
 - Klient, który zarezerwuje zasób nie może anulować rezerwacji, jeśli do rozpoczęcia rezerwacji pozostało mniej niż 24 godziny.
 - Klienci "z ulicy" i klienci "stali" mogą mieć maksymalnie 5 aktywnych rezerwacji jednocześnie.
 - Kolejka do danego zasobu trwa do momentu, gdy potencjalny rezerwujący (ostatni w kolejce który otrzymał możliwość rezerwacji) nie zaakceptuje oferty rezerwacji.
-<!-- - Jako właściciel Deskly chciałbym, żeby w momencie, gdy zasób został zarezerwowany, ale jest do niego kolejka to kolejka została rozwiązana, jeśli czas rozpoczęcia rezerwacji będzie mniejszy niż 24 godziny. -->
+- Kolejka do zarezerwoanego zasobu zostaje rozwiązana jezeli akceptacja rezerwacji następuje mniej niz 24 godziny przed planowaną datą rezerwacji.
