@@ -9,7 +9,7 @@
 Celem projektu jest stworzenie systemu wspomagającego prowadzenie współdzielonych przestrzeni roboczych (ang. co-working area), oraz rezerwację dostępnych w nich zasobów sprzętowych oraz pomieszczeń biurowych. 
 Zakres projektu obejmuje:
 - Zarządzanie przestrzeniami biurowymi pod kątem inwentaryzacji zasobów, ich dostępnością, a także kosztami rezerwacji
-- Obsługa procesu rezerwacji zasobów biurowych
+- Usprawninie procesu rezerwacji zasobów biurowych
 - Obsługa zawierania umów długoterminowego wynajmu zasobów i przestrzeni biurowych
 
 ### Strategia biznesowa
@@ -21,13 +21,16 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS (ang. software as a service
 | Termin | Definicja terminu |
 |--------|-------------------|
 | Klient „z ulicy” | Klient, który nie chce wiązać się umowami. Osoba fizyczna. Wykorzystanie zasoby naliczane jest po aktualnym cenniku. Potrzebuje dostępu od zaraz na to co jest aktualnie dostępne bez gwarancji dostępności |
-| Klient stały | Klient, który ma podpisana umowę z gwarancją cen na zasoby na rok. Osoba fizyczna. Wykorzystanie zasobów naliczane jest po cenniku zawartym w umowie. Potrzebuje dostępu od zaraz na to co jest aktualnie dostępne bez gwarancji dostępności |
+| Klient stały | Klient, który ma podpisaną umowę z gwarancją cen na zasoby na rok. Osoba fizyczna. Wykorzystanie zasobów naliczane jest po cenniku zawartym w umowie. Potrzebuje dostępu od zaraz na to co jest aktualnie dostępne bez gwarancji dostępności |
 | Klient biznesowy | Firma, która ma podpisaną umowę z gwarancją na zasoby i ceny na 12 miesięcy. Klient, który wie jakie zasoby dokładnie potrzebuje i na jaką długość czasu |
 | Potencjalny klient | Każda osoba lub firma, która chce rozpocząć korzystanie z przestrzeni co-working |
 | Booking Manager | Pracownik Deskly odpowiadający za ciągłość w rezerwacji zasobów. Śledzi wykorzystanie zasobów. Jego rolą jest optymalizacja rezerwacji w celu maksymalizacji zysków i rozwiązywanie problemów związanych z rezerwacjami. Prowadzi negocjacje z klientami biznesowymi i akceptuje lub odrzuca umowy. Może zarządzać jedną lub wieloma lokacjami. |
 | Location Manager	| Pracownik Deskly odpowiadający za stan zasobów oferowanych w jednej lub wielu lokacjach. Zleca kupno i konserwację zasobów. Negocjuje i podpisuje umowy z właścicielami nowych lokacji |
 | Cennik | Zbiór cen wypozyczenia zasobów na godzinę |	
-| Topologia | Układ pomieszczeń i biurek w lokacji |	
+| Topologia | Układ pomieszczeń i biurek w lokacji w postacji schematu |
+| Zasób | Sprzęt biurowy lub miejsce pracy (biurko lub sala konferencyjna) |
+| Lokacja | Miejsce, w którym mozna korzystać z zarezerwowanych zasobów |
+| Kolejka | Uporządkowana grupa osób oczekująca na mozliwosc zarezerwowania zasobu |	
 
 ## Specyfikacja i analiza wymagań
 
@@ -42,21 +45,21 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS (ang. software as a service
     2. Jako klient Deskly jeśli zarezerwowałem salkę konferencyjną to chciałbym móc otworzyć salkę konferencyjną tym samym kodem QR co do otwarcia drzwi wejściowych
     3. Jako klient Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji
     4. Jako klient Deskly chciałbym mieć możliwość rezerwacji zasobu w dowolnie wybranej lokacji wybierając biurko hotdesk/biuro prywatne/salkę ze schematu ułożenia zasobów w danej lokacji
-    5. Jako klient Deskly chciałbym anulować rezerwację na dany zasób, jeśli czas do rozpoczęcia rezerwacji jest dłuży niż 24 h
     6. Jako klient Deskly chciałbym zapisać się na listę oczekujących na zasób w danym terminie (jeśli jest już zarezerwowany przez kogoś innego) gdy czas do rozpoczęcia rezerwacji jest dłuży niż 24 h
-    7. Jako klient Deskly chciałbym móc wypisać się z kolejki oczekujących na dany zasób w dowolnym momencie
+    7. Jako klient Deskly chciałbym móc wypisać się z kolejki oczekujących na dany zasób w dowolnym momencie.
     8. Jako klient Deskly oczekujący w kolejce na zasób chciałbym zostać poinformowany o rozwiązaniu kolejki i otrzymać propozycję rezerwacji/zakolejkowania się na tożsamy zasób.
     9. Jako klient Deskly chciałbym zostać poinformowany mailowo o zbliżającym się końcu umowy (jeśli to nie jest klient z ulicy).
     10.	Jako klient Deskly chciałbym otrzymać propozycję automatycznego przedłużenia umowy (wraz ze szczegółami o aktualnym cenniku)
 3. Klient Deskly Biznesowy
     1. Jako klient biznesowy Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji
     2. Jako klient biznesowy Deskly chciałbym, żeby po akceptacji umowy przez Booking Managera wynegocjowane zasoby zostały zarezerwowane w imieniu firmy z datą rozpoczęcia umowy dla wskazanych pracowników firmy (case dla klientów biznesowych) i żeby dla tych pracowników zostały automatycznie wygenerowane konta użytkownika z dostępem do zasobów.
-    3. Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla danych pracowników. Jako klient biznesowy Deskly jeśli wśród zarezerwowanych zasobów znajduje się salkę konferencyjna to chciałbym móc otworzyć salkę konferencyjną (lub moi pracownicy) tym samym kodem QR co do otwarcia drzwi wejściowych
-    4. Jako klient biznesowy Deskly chciałby móc stworzyć konto nowemu pracownikowi i nadać mu uprawnienia do korzystania z zarezerwowanych zasobów
-    5. Jako klient biznesowy Deskly chciałbym, żeby moi pracownicy nie mogli korzystać z innych zasobów Deskly niż te które zostały wynegocjowane przez firmę
-    6. Jako klient biznesowy Deskly chciałbym, żeby moi pracownicy mogli korzystać z wynegocjowanych zasobów bez konieczności rezerwacji i kolejkowania się na te zasoby
+    3. Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika, które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla danych pracowników. 
+    4. Jako klient biznesowy Deskly jeśli wśród zarezerwowanych zasobów znajduje się salkę konferencyjna, to chciałbym móc otworzyć salkę konferencyjną (lub moi pracownicy) tym samym kodem QR co do otwarcia drzwi wejściowych.
+    5. Jako klient biznesowy Deskly chciałby móc stworzyć konto nowemu pracownikowi i nadać mu uprawnienia do korzystania z zarezerwowanych zasobów.
+    6. Jako klient biznesowy Deskly chciałbym, żeby moi pracownicy nie mogli korzystać z innych zasobów Deskly niż te które zostały wynegocjowane przez firmę.
+    7. Jako klient biznesowy Deskly chciałbym, żeby moi pracownicy mogli korzystać z wynegocjowanych zasobów bez konieczności rezerwacji i kolejkowania się na te zasoby.
 4. Location Manager
-    1. Jako Location Manager chciałbym móc stworzyć lokację i zdefiniować zasoby w danej lokacji (rodzaj zasobu, zdjęcie, dane seryjne (jeśli jakieś biurko, albo monitor), metraż (jeśli salka) itd.)
+    1. Jako Location Manager chciałbym móc stworzyć lokację i zdefiniować zasoby w danej lokacji (rodzaj zasobu, zdjęcie, dane seryjne (w przyadku biurek oraz sprzętu audio-wideo), liczba miejsc (w przypadku sali konferencyjnej))
     2. Jako Location Manager mogę zlecić konserwacje zasobu.
     3. Jako Location Manager mogę zlecić automatyczną konserwację dla konkretnego typu zasobu (np. po każdym wynajęciu salki 30 min na sprzątanie)
     4. Jako Location Manager mogę wyłączyć dany zasób z użytkowania (nawet jeśli jest aktualnie zarezerwowany)
@@ -65,21 +68,21 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS (ang. software as a service
     7. Jako Location Manager chciałbym zdefiniować cennik zasobów w danej lokacji (dodać/usunąć/zmodyfikować). Zdefiniowany cennik może obowiązywać dopiero od zdefiniowanej daty
     8. Jako Location Manager chciałbym móc zdefiniować topologię zasobów w danej lokacji (dodać/usunąć/modyfikować)
 5. Finance Manager
-    1. Jako Finance Manager chciałbym mieć podgląd do klientów, którzy nie uregulowali faktury na czas
-    2. Jako Finance Manager chciałbym wysłać fakturę do klienta zgodną z rzeczywistym wykorzystaniem przez niego zasobów w danym okresie rozliczeniowym
-    3. Jako Finance Manager chciałbym mieć podgląd do wszystkich wystawionych faktur
-    4. Jako Finance Manager chciałbym mieć podgląd do cenników, według których naliczane są opłaty w danej lokacji dla danych klientów
-    5. Jako Finance Manager chciałbym mieć wgląd do wszystkich zawartych umów
+    1. Jako Finance Manager chciałbym mieć podgląd do klientów, którzy nie uregulowali faktury na czas.
+    2. Jako Finance Manager chciałbym wysłać fakturę do klienta zgodną z rzeczywistym wykorzystaniem przez niego zasobów w danym okresie rozliczeniowym.
+    3. Jako Finance Manager chciałbym mieć podgląd do wszystkich wystawionych faktur.
+    4. Jako Finance Manager chciałbym mieć podgląd do cenników, według których naliczane są opłaty w danej lokacji dla danych klientów.
+    5. Jako Finance Manager chciałbym mieć wgląd do wszystkich zawartych umów.
 6. Booking Manager
-    1. Jako Booking Manager chciałbym przesuwać dowolnych klientów w kolejce na oczekiwany zasób
-    2. Jako Booking Manager chciałbym mieć możliwość wysłania do edycji wersji roboczej umowy do wcześniej zweryfikowanego klienta
-    3. Jako Booking Manager chciałbym mieć możliwość akceptacji zmian, proponowania zmian w udostępnionej umowie klientowi
+    1. Jako Booking Manager chciałbym przesuwać dowolnych klientów w kolejce na oczekiwany zasób.
+    2. Jako Booking Manager chciałbym mieć możliwość wysłania do edycji wersji roboczej umowy do wcześniej zweryfikowanego klienta.
+    3. Jako Booking Manager chciałbym mieć możliwość akceptacji zmian, proponowania zmian w udostępnionej umowie klientowi.
     4. Jako Booking Manager chciałbym mieć możliwość akceptacji oraz odrzucenia umowy z potencjalnym klientem.
-    5. Jako Booking Manager chciałbym mieć podgląd do obłożenia rezerwacjami w danej lokacji (ile aktualnie jest zarezerwowanych zasobów przez kogo i na jak długo)
+    5. Jako Booking Manager chciałbym mieć podgląd do obłożenia rezerwacjami w danej lokacji (ile aktualnie jest zarezerwowanych zasobów przez kogo i na jak długo).
     6. Jako Booking Manager chciałbym mieć możliwość przeniesienia rezerwacji klienta na tożsamy zasób.
-    7. Jako Booking Manager chciałbym mieć możliwość dodania/usunięcia z puli zasobów klienta biznesowego
+    7. Jako Booking Manager chciałbym mieć możliwość dodania/usunięcia z puli zasobów klienta biznesowego.
 7. Potencjalny Klient
-    1. Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika
+    1. Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
     2. Jako potencjalny klient Deskly chciałbym mieć możliwość akceptacji umowy/proponowania zmian w umowie/odrzucenia umowy.
 
 ## Definicja wymagań niefunkcjonalnych
@@ -104,7 +107,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS (ang. software as a service
 
 ## Prototypy interfejsów użytkownika
 - Klienci którzy nie uregulowali opłaty po 7 dniach od wystawienia faktury, tracą dostęp do zasobów Deskly i rozpoczyna się naliczanie odsetek od niezapłaconej faktury.
-- Klient, który zarezerwuje zasób nie może anulować rezerwacji, jeśli do rozpoczęcia rezerwacji pozostało mniej niż 24 godziny.
+- Klient (stały lub "z ulicy"), który zarezerwuje zasób nie może anulować rezerwacji, jeśli do rozpoczęcia rezerwacji pozostało mniej niż 24 godziny. W przeciwnym przypadku anulowanie rezerwacji jest mozliwe.
 - Klienci "z ulicy" i klienci "stali" mogą mieć maksymalnie 5 aktywnych rezerwacji jednocześnie.
 - Kolejka do danego zasobu trwa do momentu, gdy potencjalny rezerwujący (ostatni w kolejce który otrzymał możliwość rezerwacji) nie zaakceptuje oferty rezerwacji.
-- Kolejka do zarezerwoanego zasobu zostaje rozwiązana jezeli akceptacja rezerwacji następuje mniej niz 24 godziny przed planowaną datą rezerwacji.
+- Kolejka do zarezerwoanego zasobu zostaje rozwiązana jezeli akceptacja rezerwacji następuje mniej niz 24 godziny przed planowaną datą rezerwacji. 
