@@ -3,10 +3,11 @@
 ## Model biznesowy
 
 ### Lista symboli, oznaczeń i akronimów
+- SaaS - software as a service
 
 ### Cel i zakres projektu
 
-Celem projektu jest stworzenie systemu wspomagającego prowadzenie współdzielonych przestrzeni roboczych (ang. co-working area), oraz rezerwację dostępnych w nich zasobów sprzętowych oraz pomieszczeń biurowych. 
+Celem projektu jest stworzenie systemu wspomagającego prowadzenie współdzielonych przestrzeni roboczych (ang. coworking area), oraz rezerwację dostępnych w nich zasobów sprzętowych oraz pomieszczeń biurowych. 
 Zakres projektu obejmuje:
 - Zarządzanie przestrzeniami biurowymi pod kątem inwentaryzacji zasobów, ich dostępnością, a także kosztami rezerwacji
 - Usprawninie procesu rezerwacji zasobów biurowych
@@ -14,7 +15,7 @@ Zakres projektu obejmuje:
 
 ### Strategia biznesowa
 
-Końcowy produkt będzie dystrybuowany w modelu SaaS (ang. software as a service). Docelowi klienci to firmy prowadzące lub chcące rozpocząć działalność co-workingową.
+Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy prowadzące lub chcące rozpocząć działalność coworkingową.
 
 ### Słownik pojęć
 
@@ -23,7 +24,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS (ang. software as a service
 | Klient „z ulicy” | Klient, który nie chce wiązać się umowami. Osoba fizyczna. Wykorzystanie zasoby naliczane jest po aktualnym cenniku. Potrzebuje dostępu od zaraz na to co jest aktualnie dostępne bez gwarancji dostępności |
 | Klient stały | Klient, który ma podpisaną umowę z gwarancją cen na zasoby na rok. Osoba fizyczna. Wykorzystanie zasobów naliczane jest po cenniku zawartym w umowie. Potrzebuje dostępu od zaraz na to co jest aktualnie dostępne bez gwarancji dostępności |
 | Klient biznesowy | Firma, która ma podpisaną umowę z gwarancją na zasoby i ceny na 12 miesięcy. Klient, który wie jakie zasoby dokładnie potrzebuje i na jaką długość czasu |
-| Potencjalny klient | Każda osoba lub firma, która chce rozpocząć korzystanie z przestrzeni co-working |
+| Potencjalny klient | Każda osoba lub firma, która chce rozpocząć korzystanie z przestrzeni coworking |
 | Booking Manager | Pracownik Deskly odpowiadający za ciągłość w rezerwacji zasobów. Śledzi wykorzystanie zasobów. Jego rolą jest optymalizacja rezerwacji w celu maksymalizacji zysków i rozwiązywanie problemów związanych z rezerwacjami. Prowadzi negocjacje z klientami biznesowymi i akceptuje lub odrzuca umowy. Może zarządzać jedną lub wieloma lokacjami. |
 | Location Manager	| Pracownik Deskly odpowiadający za stan zasobów oferowanych w jednej lub wielu lokacjach. Zleca kupno i konserwację zasobów. Negocjuje i podpisuje umowy z właścicielami nowych lokacji |
 | Cennik | Zbiór cen wypozyczenia zasobów na godzinę |	
