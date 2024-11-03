@@ -23,12 +23,11 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS (ang. software as a service
 | Klient „z ulicy” | Klient, który nie chce wiązać się umowami. Osoba fizyczna. Wykorzystanie zasoby naliczane jest po aktualnym cenniku. Potrzebuje dostępu od zaraz na to co jest aktualnie dostępne bez gwarancji dostępności |
 | Klient stały | Klient, który ma podpisana umowę z gwarancją cen na zasoby na rok. Osoba fizyczna. Wykorzystanie zasobów naliczane jest po cenniku zawartym w umowie. Potrzebuje dostępu od zaraz na to co jest aktualnie dostępne bez gwarancji dostępności |
 | Klient biznesowy | Firma, która ma podpisaną umowę z gwarancją na zasoby i ceny na 12 miesięcy. Klient, który wie jakie zasoby dokładnie potrzebuje i na jaką długość czasu |
-| Potencjalny klient | Każda osoba lub firma, która chce rozpocząć korzystanie z przestrzeni co-working
-| Właściciel Deskly	| Interesariusze/Inwestorzy w firmie wykorzystującej Deskly jako narzędzie do rezerwacji i zarządzania w ich przestrzeniach co-workingowych |
+| Potencjalny klient | Każda osoba lub firma, która chce rozpocząć korzystanie z przestrzeni co-working |
 | Booking Manager | Pracownik Deskly odpowiadający za ciągłość w rezerwacji zasobów. Śledzi wykorzystanie zasobów. Jego rolą jest optymalizacja rezerwacji w celu maksymalizacji zysków i rozwiązywanie problemów związanych z rezerwacjami. Prowadzi negocjacje z klientami biznesowymi i akceptuje lub odrzuca umowy. Może zarządzać jedną lub wieloma lokacjami. |
 | Location Manager	| Pracownik Deskly odpowiadający za stan zasobów oferowanych w jednej lub wielu lokacjach. Zleca kupno i konserwację zasobów. Negocjuje i podpisuje umowy z właścicielami nowych lokacji |
-| Cennik | |	
-| Topologia | |	
+| Cennik | Zbiór cen wypozyczenia zasobów na godzinę |	
+| Topologia | Układ pomieszczeń i biurek w lokacji |	
 
 ## Specyfikacja i analiza wymagań
 
@@ -82,12 +81,6 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS (ang. software as a service
 7. Potencjalny Klient
     1. Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika
     2. Jako potencjalny klient Deskly chciałbym mieć możliwość akceptacji umowy/proponowania zmian w umowie/odrzucenia umowy.
-8. Właściciel Deskly
-    1. Jako właściciel Deskly chciałbym, żeby klientom, którzy nie uregulowali opłaty po 7 dniach od wystawienia faktury odebrano automatycznie dostęp do zasobów Deskly i rozpoczęto naliczanie odsetek.
-    2. Jako właściciel Deskly chciałbym, żeby klient, który zarezerwuje zasób nie mógł anulować rezerwacji, jeśli termin wynosi mniej niż 24 godziny od daty rozpoczęcia rezerwacji.
-    3. Jako właściciel Deskly chciałbym, żeby klienci "z ulicy" i klienci "stali" mogli mieć maksymalnie 5 aktywnych rezerwacji jednocześnie.
-    4.	Jako właściciel Deskly chciałbym, żeby w momencie, gdy do danego zasobu jest kolejka to, żeby trwała ona aż do momentu, gdy potencjalny rezerwujący (ostatni w kolejce który otrzymał możliwość rezerwacji) nie zaakceptuje oferty rezerwacji.
-    5.	Jako właściciel Deskly chciałbym, żeby w momencie, gdy zasób został zarezerwowany, ale jest do niego kolejka to kolejka została rozwiązana, jeśli czas rozpoczęcia rezerwacji będzie mniejszy niż 24 h
 
 ## Definicja wymagań niefunkcjonalnych
 
@@ -110,3 +103,8 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS (ang. software as a service
 ## Reguły biznesowe i ograniczenia systemowe
 
 ## Prototypy interfejsów użytkownika
+- Klienci którzy nie uregulowali opłaty po 7 dniach od wystawienia faktury, tracą dostęp do zasobów Deskly i rozpoczyna się naliczanie odsetek od niezapłaconej faktury.
+- Klient, który zarezerwuje zasób nie może anulować rezerwacji, jeśli do rozpoczęcia rezerwacji pozostało mniej niż 24 godziny.
+- Klienci "z ulicy" i klienci "stali" mogą mieć maksymalnie 5 aktywnych rezerwacji jednocześnie.
+- Kolejka do danego zasobu trwa do momentu, gdy potencjalny rezerwujący (ostatni w kolejce który otrzymał możliwość rezerwacji) nie zaakceptuje oferty rezerwacji.
+<!-- - Jako właściciel Deskly chciałbym, żeby w momencie, gdy zasób został zarezerwowany, ale jest do niego kolejka to kolejka została rozwiązana, jeśli czas rozpoczęcia rezerwacji będzie mniejszy niż 24 godziny. -->
