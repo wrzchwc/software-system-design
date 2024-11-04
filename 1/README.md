@@ -120,5 +120,20 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 
 ### Jako klient Deskly chciałbym mieć możliwość zalogować się do swojego konta użytkownika (Personal Account lub Corporate Account)
 
-![Strona domowa](./images/home-page.png)
-![Strona logowania](./images/sign-in-page.png)
+Mapa nawigacyjna
+
+Strona domowa
+![Strona domowa](./images/user-interfaces/home-page.png)
+
+Strona logowania
+![Strona logowania](./images/user-interfaces/sign-in-page.png)
+
+### Jako klient Deskly chciałbym móc wylogować się z konta użytkownika
+
+Wylogowanie będzie mozliwe dzięki kliknięciu przycisku znajdującego się po prawej stronie górnego paska nawigacyjnego.
+
+![Wylogowanie](./images/user-interfaces/header-sign-out.png)
+
+### Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika
+
+![qr-code](./images/user-interfaces/qr-code.png)
