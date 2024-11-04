@@ -117,3 +117,8 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 - Kolejka do zarezerwoanego zasobu zostaje rozwiązana jezeli akceptacja rezerwacji następuje mniej niz 24 godziny przed planowaną datą rezerwacji. 
 
 ## Prototypy interfejsów użytkownika
+
+### Jako klient Deskly chciałbym mieć możliwość zalogować się do swojego konta użytkownika (Personal Account lub Corporate Account)
+
+![Strona domowa](./images/home-page.png)
+![Strona logowania](./images/sign-in-page.png)
