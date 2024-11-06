@@ -40,52 +40,53 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 ## Definicja wymagań funkcjonalnych
 
 1. Klient Deskly (wspólne)
-    1. Jako klient Deskly chciałbym mieć możliwość zalogować się do swojego konta użytkownika (Personal Account lub Corporate Account)
-    2. Jako klient Deskly chciałbym móc wylogować się z konta użytkownika
-    3. Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika
-2. Klient Deskly "z ulicy" i "stały"
-    1. Jako klient Deskly po rezerwacji zasobu chciałbym otrzymać kod QR na maila umożliwiający otwarcie drzwi wejściowych do danej lokacji 24 h przed rozpoczęciem rezerwacji
-    2. Jako klient Deskly jeśli zarezerwowałem salkę konferencyjną to chciałbym móc otworzyć salkę konferencyjną tym samym kodem QR co do otwarcia drzwi wejściowych
-    3. Jako klient Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji
-    4. Jako klient Deskly chciałbym mieć możliwość rezerwacji zasobu w dowolnie wybranej lokacji wybierając biurko hotdesk/biuro prywatne/salkę ze schematu ułożenia zasobów w danej lokacji
-    6. Jako klient Deskly chciałbym zapisać się na listę oczekujących na zasób w danym terminie (jeśli jest już zarezerwowany przez kogoś innego) gdy czas do rozpoczęcia rezerwacji jest dłuży niż 24 h
-    7. Jako klient Deskly chciałbym móc wypisać się z kolejki oczekujących na dany zasób w dowolnym momencie.
-    8. Jako klient Deskly oczekujący w kolejce na zasób chciałbym zostać poinformowany o rozwiązaniu kolejki i otrzymać propozycję rezerwacji/zakolejkowania się na tożsamy zasób.
-    9. Jako klient Deskly chciałbym zostać poinformowany mailowo o zbliżającym się końcu umowy (jeśli to nie jest klient z ulicy).
-    10.	Jako klient Deskly chciałbym otrzymać propozycję automatycznego przedłużenia umowy (wraz ze szczegółami o aktualnym cenniku)
-3. Klient Deskly Biznesowy
+    1. Jako klient Deskly chciałbym mieć możliwość zalogować się do/wylogować się ze swojego konta użytkownika.
+    2. Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika.
+2. Klient Deskly "z ulicy" i stały
+    1. Jako klient Deskly po rezerwacji zasobu chciałbym otrzymać kod QR na maila umożliwiający otwarcie drzwi wejściowych do danej lokacji 24 godziny przed rozpoczęciem rezerwacji.
+    2. Jako klient Deskly chciałbym mieć mozliwość otwarcia drzwi do zarezerwowanej przeze mnie sali konferencyjnej kodem QR, którego uzyję do otwarci drzwi do lokacji.
+    3. Jako klient Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
+    4. Jako klient Deskly chciałbym mieć możliwość rezerwacji zasobu w dowolnie wybranej lokacji.
+    5. Jako klient Deskly chciałbym podczas rezerwacji biurka lub sali konferencyjnej być w stanie wybrać interesujący mnie zasób korzystając ze schematu topologii lokacji.
+    5. Jako klient Deskly chciałbym zapisać się na listę oczekujących na zasób w danym terminie (jeśli jest już zarezerwowany przez kogoś innego), gdy czas do rozpoczęcia rezerwacji jest dłuży niż 24 godziny.
+    6. Jako klient Deskly chciałbym móc wypisać się z kolejki oczekujących na dany zasób w dowolnym momencie.
+    7. Jako klient Deskly oczekujący w kolejce na zasób chciałbym zostać poinformowany o rozwiązaniu kolejki i otrzymać propozycję rezerwacji/zakolejkowania się na tożsamy zasób.
+3. Klient stały
+    1. Jako klient stały chciałbym zostać poinformowany mailowo o zbliżającym się końcu umowy.
+    2. Jako klient stały chciałbym otrzymać propozycję automatycznego przedłużenia umowy wraz ze szczegółami o aktualnym cenniku. 
+4. Klient Deskly Biznesowy
     1. Jako klient biznesowy Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji
     2. Jako klient biznesowy Deskly chciałbym, żeby po akceptacji umowy przez Contract Managera wynegocjowane zasoby zostały zarezerwowane w imieniu firmy z datą rozpoczęcia umowy dla wskazanych pracowników firmy (case dla klientów biznesowych) i żeby dla tych pracowników zostały automatycznie wygenerowane konta użytkownika z dostępem do zasobów.
     3. Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika, które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla danych pracowników. 
-    4. Jako klient biznesowy Deskly jeśli wśród zarezerwowanych zasobów znajduje się salkę konferencyjna, to chciałbym móc otworzyć salkę konferencyjną (lub moi pracownicy) tym samym kodem QR co do otwarcia drzwi wejściowych.
+    4. Jako klient biznesowy Deskly jeśli wśród zarezerwowanych zasobów znajduje się sala konferencyjna, to chciałbym móc otworzyć salę konferencyjną (lub moi pracownicy) tym samym kodem QR co do otwarcia drzwi wejściowych.
     5. Jako klient biznesowy Deskly chciałbym móc stworzyć konto nowemu pracownikowi i nadać mu uprawnienia do korzystania z zarezerwowanych zasobów.
     6. Jako klient biznesowy Deskly chciałbym, żeby moi pracownicy nie mogli korzystać z innych zasobów Deskly niż te które zostały wynegocjowane przez firmę.
     7. Jako klient biznesowy Deskly chciałbym, żeby moi pracownicy mogli korzystać z wynegocjowanych zasobów bez konieczności rezerwacji i kolejkowania się na te zasoby.
-4. Location Manager
+5. Location Manager
     1. Jako Location Manager chciałbym móc dodać lokację i zdefiniować zasoby w danej lokacji (rodzaj zasobu, zdjęcia, dane seryjne (w przyadku biurek oraz sprzętu audio-wideo), liczba miejsc (w przypadku sali konferencyjnej), opis).
     2. Jako Location Manager mogę zlecić konserwację zasobu.
-    3. Jako Location Manager mogę zlecić automatyczną konserwację dla konkretnego typu zasobu (np. po każdym wynajęciu salki 30 min na sprzątanie)
+    3. Jako Location Manager mogę zlecić automatyczną konserwację dla konkretnego typu zasobu (np. po każdym wynajęciu sali 30 minut na sprzątanie)
     4. Jako Location Manager mogę wyłączyć dany zasób z użytkowania (nawet jeśli jest aktualnie zarezerwowany).
     5. Jako Location Manager mogę rozwiązać kolejkę oczekującą na zasób.
     6. Jako Location Manager chciałbym zdefiniować godziny otwarcia danej lokacji
     7. Jako Location Manager chciałbym móc zdefiniować topologię zasobów w danej lokacji (dodać/usunąć/modyfikować)
     8. Jako Location Manager chiałbym mieć mozliwosc aktualizacacji danych lokalizacji oraz dostępnych zasobów.
-5. Contract Manager
+6. Contract Manager
     1. Jako Contract Manager chciałbym mieć możliwość wysłania do edycji wersji roboczej umowy do wcześniej zweryfikowanego klienta.
     2. Jako Contract Manager chciałbym mieć możliwość akceptacji oraz proponowania zmian w umowie udostępnionej klientowi.
     3. Jako Contract Manager chciałbym mieć możliwość akceptacji oraz odrzucenia umowy z potencjalnym klientem.     
-6. Finance Manager
+7. Finance Manager
     1. Jako Finance Manager chciałbym mieć podgląd do klientów, którzy nie uregulowali faktury na czas.
     2. Jako Finance Manager chciałbym wysłać fakturę do klienta zgodną z rzeczywistym wykorzystaniem przez niego zasobów w danym okresie rozliczeniowym.
     3. Jako Finance Manager chciałbym mieć podgląd do wszystkich wystawionych faktur.
     4. Jako Finance Manager chciałbym mieć podgląd do cenników, według których naliczane są opłaty w danej lokacji dla danych klientów.
     5. Jako Finance Manager chciałbym mieć wgląd do wszystkich zawartych umów.
-6. Booking Manager
+8. Booking Manager
     1. Jako Booking Manager chciałbym przesuwać dowolnych klientów w kolejce na oczekiwany zasób.
     2. Jako Booking Manager chciałbym mieć podgląd do obłożenia rezerwacjami w danej lokacji (ile aktualnie jest zarezerwowanych zasobów przez kogo i na jak długo).
     3. Jako Booking Manager chciałbym mieć możliwość przeniesienia rezerwacji klienta na tożsamy zasób.
     4. Jako Booking Manager chciałbym mieć możliwość dodania/usunięcia z puli zasobów klienta biznesowego.
-8. Potencjalny Klient
+9. Potencjalny Klient
     1. Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
     2. Jako potencjalny klient Deskly chciałbym mieć możliwość akceptacji umowy/proponowania zmian w umowie/odrzucenia umowy.
 
@@ -118,7 +119,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 
 ## Prototypy interfejsów użytkownika
 
-### Jako klient Deskly chciałbym mieć możliwość zalogować się do swojego konta użytkownika (Personal Account lub Corporate Account)
+### Jako klient Deskly chciałbym mieć możliwość zalogować się do/wylogować się ze swojego konta użytkownika.
 
 Mapa nawigacyjna
 
@@ -128,12 +129,35 @@ Strona domowa
 Strona logowania
 ![Strona logowania](./images/user-interfaces/sign-in-page.png)
 
-### Jako klient Deskly chciałbym móc wylogować się z konta użytkownika
+<!-- ekran domowy -->
 
-Wylogowanie będzie mozliwe dzięki kliknięciu przycisku znajdującego się po prawej stronie górnego paska nawigacyjnego.
+### Jako klient Deskly chciałbym móc wylogować się z konta użytkownika
 
 ![Wylogowanie](./images/user-interfaces/header-sign-out.png)
 
 ### Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika
 
-![qr-code](./images/user-interfaces/qr-code.png)
+Strona domowa
+![Strona domowa](./images/user-interfaces/home-page.png)
+
+Podgląd kodu QR
+![Kod QR](./images/user-interfaces/qr-code.png)
+
+### Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
+
+Panel rejestracji
+![Panel rejestracji](./images/user-interfaces/sign-up-page.png)
+
+### Jako klient Deskly po rezerwacji zasobu chciałbym otrzymać na maila kod QR umożliwiający otwarcie drzwi wejściowych do danej lokacji 24 godziny przed rozpoczęciem rezerwacji.
+
+Przykład wiadomości e-mail
+![E-mail kod QR](./images/user-interfaces/email-qr.png)
+
+### Jako klient stały chciałbym zostać poinformowany mailowo o zbliżającym się końcu umowy.
+### Jako klient stały chciałbym otrzymać propozycję automatycznego przedłużenia umowy wraz ze szczegółami o aktualnym cenniku.
+
+Przykład wiadomości e-mail
+![E-mail koniec umowy](./images/user-interfaces/contract-end.png)
+
+<!-- propozycja nowej umowy UI -->
+
