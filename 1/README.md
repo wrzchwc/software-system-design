@@ -157,7 +157,7 @@ Przykład wiadomości e-mail
 ### Jako klient stały chciałbym otrzymać propozycję automatycznego przedłużenia umowy wraz ze szczegółami o aktualnym cenniku.
 
 Przykład wiadomości e-mail
-![E-mail koniec umowy](./images/user-interfaces/contract-end.png)
+![E-mail koniec umowy](./images/user-interfaces/contract-end-email.png)
 
 <!-- propozycja nowej umowy UI -->
 
