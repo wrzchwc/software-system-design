@@ -85,7 +85,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
     2. Jako Booking Manager chciałbym mieć podgląd do obłożenia rezerwacjami w danej lokacji (ile aktualnie jest zarezerwowanych zasobów przez kogo i na jak długo).
     3. Jako Booking Manager chciałbym mieć możliwość przeniesienia rezerwacji klienta na tożsamy zasób.
     4. Jako Booking Manager chciałbym mieć możliwość dodania/usunięcia z puli zasobów klienta biznesowego.
-    5. Jako Location Manager mogę rozwiązać kolejkę oczekującą na zasób.
+    5. Jako Booking Manager mogę rozwiązać kolejkę oczekującą na zasób.
 9. Potencjalny Klient
     1. Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
     2. Jako potencjalny klient Deskly chciałbym mieć możliwość akceptacji umowy/proponowania zmian w umowie/odrzucenia umowy.
