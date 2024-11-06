@@ -168,3 +168,21 @@ Strona rezerwacji
 Modal kolejkowania się
 ![Modal kolejkowwania się](./images/user-interfaces/enqueue-modal.png)
 
+
+### Jako klient Deskly chciałbym móc wypisać się z kolejki oczekujących na dany zasób w dowolnym momencie.
+
+Kolejki na zasoby
+![Kolejki](./images/user-interfaces/queues-page.png)
+
+Podgląd zakolejkowanego zasobu
+![Podgląd zakolejkowanego zasobu](./images/user-interfaces/queue-item.png)
+
+
+### Jako klient Deskly oczekujący w kolejce na zasób chciałbym zostać poinformowany o rozwiązaniu kolejki i otrzymać propozycję rezerwacji/zakolejkowania się na tożsamy zasób.
+
+Przykład wiadomości e-mail
+![Kolejka rozwiązana](./images/user-interfaces/queue-cancelled-email.png)
+
+Alternatywa rezerwacja
+![Alternatywna rezerwacja](./images/user-interfaces/alternate-booking.png)
+
