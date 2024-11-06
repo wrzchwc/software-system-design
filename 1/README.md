@@ -131,18 +131,6 @@ Strona logowania
 
 <!-- ekran domowy -->
 
-### Jako klient Deskly chciałbym móc wylogować się z konta użytkownika
-
-![Wylogowanie](./images/user-interfaces/header-sign-out.png)
-
-### Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika
-
-Strona domowa
-![Strona domowa](./images/user-interfaces/home-page.png)
-
-Podgląd kodu QR
-![Kod QR](./images/user-interfaces/qr-code.png)
-
 ### Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
 
 Panel rejestracji
@@ -160,4 +148,13 @@ Przykład wiadomości e-mail
 ![E-mail koniec umowy](./images/user-interfaces/contract-end-email.png)
 
 <!-- propozycja nowej umowy UI -->
+
+### Jako klient Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
+### Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika.
+
+Lista rezerwacji
+![List rezerwacji](./images/user-interfaces/reservations-list-page.png)
+
+Podgląd rezerwacji
+![Podgląd rezerwacji](./images/user-interfaces/booking-details.png)
 
