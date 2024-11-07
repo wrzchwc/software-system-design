@@ -186,6 +186,12 @@ Przykład wiadomości e-mail
 Alternatywa rezerwacja
 ![Alternatywna rezerwacja](./images/user-interfaces/alternate-booking.png)
 
+### Jako Contract Manager chciałbym mieć możliwość wysłania do edycji wersji roboczej umowy do wcześniej zweryfikowanego klienta.
+### Jako Contract Manager chciałbym mieć możliwość akceptacji oraz proponowania zmian w umowie udostępnionej klientowi.
+### Jako Contract Manager chciałbym mieć możliwość akceptacji oraz odrzucenia umowy z potencjalnym klientem.
+
+![Draft version of the contract](https://github.com/user-attachments/assets/73e4bcdc-0935-4bcd-b40d-6e4671b2acb7)
+
 ### Jako Finance Manager chciałbym mieć podgląd do klientów, którzy nie uregulowali faktury na czas.
 ### Jako Finance Manager chciałbym wysłać fakturę do klienta zgodną z rzeczywistym wykorzystaniem przez niego zasobów w danym okresie rozliczeniowym.
 
