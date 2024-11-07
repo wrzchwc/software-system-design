@@ -186,3 +186,19 @@ Przykład wiadomości e-mail
 Alternatywa rezerwacja
 ![Alternatywna rezerwacja](./images/user-interfaces/alternate-booking.png)
 
+### Jako Finance Manager chciałbym mieć podgląd do klientów, którzy nie uregulowali faktury na czas.
+### Jako Finance Manager chciałbym wysłać fakturę do klienta zgodną z rzeczywistym wykorzystaniem przez niego zasobów w danym okresie rozliczeniowym.
+
+![List of clients](https://github.com/user-attachments/assets/69bd9e3f-421a-42d1-b38a-ca542ea38652)
+
+### Jako Finance Manager chciałbym mieć podgląd do wszystkich wystawionych faktur.
+
+![List of invoices](https://github.com/user-attachments/assets/3f7e45e6-4005-4bf0-b4c6-a99c930423b4)
+
+### Jako Finance Manager chciałbym mieć podgląd do cenników, według których naliczane są opłaty w danej lokacji dla danych klientów.
+
+![Costs preview](https://github.com/user-attachments/assets/80f0786f-dcf6-430b-98d3-8e7be0559eac)
+
+### Jako Finance Manager chciałbym mieć wgląd do wszystkich zawartych umów.
+
+![List od contracts](https://github.com/user-attachments/assets/ad18204d-1cbd-42a4-9cf5-bbbd4f0241c3)
