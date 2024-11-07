@@ -202,3 +202,24 @@ Alternatywa rezerwacja
 ### Jako Finance Manager chciałbym mieć wgląd do wszystkich zawartych umów.
 
 ![List od contracts](https://github.com/user-attachments/assets/ad18204d-1cbd-42a4-9cf5-bbbd4f0241c3)
+
+### Jako Booking Manager chciałbym przesuwać dowolnych klientów w kolejce na oczekiwany zasób.
+
+![Queue for resource](https://github.com/user-attachments/assets/0b829526-53ea-498e-ba7f-fda2104d3b8a)
+
+### Jako Booking Manager chciałbym mieć podgląd do obłożenia rezerwacjami w danej lokacji (ile aktualnie jest zarezerwowanych zasobów przez kogo i na jak długo).
+
+![List of booked resources](https://github.com/user-attachments/assets/76414cf6-28b7-4315-bcc1-c669bdc69155)
+
+### Jako Booking Manager chciałbym mieć możliwość przeniesienia rezerwacji klienta na tożsamy zasób.
+### Jako Booking Manager chciałbym mieć możliwość dodania/usunięcia z puli zasobów klienta biznesowego.
+
+![List of business clients](https://github.com/user-attachments/assets/0512dc7a-8212-48dd-845c-79cd8a105da1)
+![List of resources for client (1)](https://github.com/user-attachments/assets/ce63f4b1-3263-440c-9bc0-21ad60040a12)
+![Add resource for client dialog](https://github.com/user-attachments/assets/a2cb6c37-ef56-44ed-b111-8d8ecb2eb283)
+
+### Jako Booking Manager mogę rozwiązać kolejkę oczekującą na zasób.
+
+![List of queued resources](https://github.com/user-attachments/assets/1d217779-a866-41de-9dcd-ed4631df88f6)
+
+
