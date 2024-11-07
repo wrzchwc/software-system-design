@@ -148,7 +148,7 @@ Przykład wiadomości e-mail
 ![E-mail koniec umowy](./images/user-interfaces/contract-end-email.png)
 
 Ekran przedłuzenia umowy
-![Ekran przedłuzenia umowy](./images/user-intefaces/contract-extension.png)
+![Ekran przedłuzenia umowy](./images/user-interfaces/contract-extension.png)
 
 ### Jako klient Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
 ### Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika.
