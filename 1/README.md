@@ -160,7 +160,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
     - Dostawca inforamcji, zachowń, konceptów, zmian do kontestów które są z nim w realcji Downstream
     - Ma większą kontrolę w relacji Upstream - Downstream ponieważ nie jest zależny od Downstream
   
-- Downastream
+- Downstream
     - Kontekst zależy od informacji z kontektu Upstream
     - Nie wpływa na kontekst który jest z nim relacji Upstream
 
@@ -171,7 +171,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
  
 - Customer - Supplier
     - Wzorzez organizacyjny, nie techniczny 
-    - Typ relacji gdzie downastream może mieć wpływ na upstream
+    - Typ relacji gdzie downstream może mieć wpływ na upstream
     - Wymagania przekazane przez downstream powinny być wzięte pod uwagę przez upstream team
 
 - PL (Published Language)
