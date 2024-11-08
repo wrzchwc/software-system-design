@@ -326,7 +326,7 @@ Nowy pracownik
 ### Jako klient biznesowy Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
 
 Mapa nawigacyjna
-![Zasoby firmowe](./images/navigation-maps/enterprise-bookings.png)
+![Zasoby firmowe](./images/navigation-maps/enterprise-resources.png)
 
 Zarezerwowane zasoby
 ![Zarezerwowane zasoby](./images/user-interfaces/booked-resources.png)
