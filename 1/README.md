@@ -264,6 +264,10 @@ Alternatywa rezerwacja
 
 ![List od contracts](https://github.com/user-attachments/assets/ad18204d-1cbd-42a4-9cf5-bbbd4f0241c3)
 
+### Mapa nawigacyjna - FinanceManager
+
+![FinanseManager drawio](https://github.com/user-attachments/assets/d05a599d-7e86-4b6e-b64b-7555cf224cdf)
+
 ### Jako Booking Manager chciałbym przesuwać dowolnych klientów w kolejce na oczekiwany zasób.
 
 ![Queue for resource](https://github.com/user-attachments/assets/0b829526-53ea-498e-ba7f-fda2104d3b8a)
