@@ -19,21 +19,42 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 
 ### Słownik pojęć
 
-| Termin | Definicja terminu |
-|--------|-------------------|
-| Klient „z ulicy” | Klient, który nie chce wiązać się umowami. Osoba fizyczna. Wykorzystanie zasoby naliczane jest po aktualnym cenniku. Potrzebuje dostępu od zaraz na to co jest aktualnie dostępne bez gwarancji dostępności |
-| Klient stały | Klient, który ma podpisaną umowę z gwarancją cen na zasoby na rok. Osoba fizyczna. Wykorzystanie zasobów naliczane jest po cenniku zawartym w umowie. Potrzebuje dostępu od zaraz na to co jest aktualnie dostępne bez gwarancji dostępności |
-| Klient biznesowy | Firma, która ma podpisaną umowę z gwarancją na zasoby i ceny na 12 miesięcy. Klient, który wie jakie zasoby dokładnie potrzebuje i na jaką długość czasu |
-| Potencjalny klient | Każda osoba lub firma, która chce rozpocząć korzystanie z przestrzeni coworking |
-| Booking Manager | Pracownik Deskly odpowiadający za ciągłość w rezerwacji zasobów. Śledzi wykorzystanie zasobów. Jego rolą jest optymalizacja rezerwacji w celu maksymalizacji zysków i rozwiązywanie problemów związanych z rezerwacjami. Prowadzi negocjacje z klientami biznesowymi i akceptuje lub odrzuca umowy. Może zarządzać jedną lub wieloma lokacjami. |
-| Location Manager	| Pracownik Deskly odpowiadający za stan zasobów oferowanych w jednej lub wielu lokacjach. Zleca kupno i konserwację zasobów. Negocjuje i podpisuje umowy z właścicielami nowych lokacji |
-| Contract Manager | Pracownik Deskly odpowiedzialny za pozyskiwanie nowych klientów. Przygotowuje wersje robocze umów oraz prowadzi negacjacje warunków umów. Podejmuje ostateczną decyzję o podpisaniu umowy z klientem. |
-| Cennik | Zbiór cen wypozyczenia zasobów na daną jednostkę czasu (godzina, doba, miesiąc). Moze byc to cennik biezacy lub zdefinionwany w ramach umowy |	
-| Topologia | Układ pomieszczeń i biurek w lokacji |
-| Zasób | Sprzęt biurowy lub miejsce pracy (biurko lub sala konferencyjna) |
-| Lokacja | Miejsce, w którym mozna korzystać z zarezerwowanych zasobów Deskly |
-| Kolejka | Uporządkowana grupa osób oczekująca na mozliwość zarezerwowania zasobu |
-| Umowa | Porozumienie pomiędzy Deskly, a klientem. Definiuje koszty korzystania z zasobów.  |	
+| Termin | Kontekst | Definicja terminu |
+|--------|-----------|-------------------|
+| Klient „z ulicy” || Klient, który nie chce wiązać się umowami. Osoba fizyczna. Wykorzystanie zasoby naliczane jest po aktualnym cenniku. Potrzebuje dostępu od zaraz na to co jest aktualnie dostępne bez gwarancji dostępności |
+| Klient stały | |Klient, który ma podpisaną umowę z gwarancją cen na zasoby na rok. Osoba fizyczna. Wykorzystanie zasobów naliczane jest po cenniku zawartym w umowie. Potrzebuje dostępu od zaraz na to co jest aktualnie dostępne bez gwarancji dostępności |
+| Klient biznesowy | |Firma, która ma podpisaną umowę z gwarancją na zasoby i ceny na 12 miesięcy. Klient, który wie jakie zasoby dokładnie potrzebuje i na jaką długość czasu |
+| Potencjalny klient | | Każda osoba lub firma, która chce rozpocząć korzystanie z przestrzeni coworking |
+| Booking Manager | |Pracownik Deskly odpowiadający za ciągłość w rezerwacji zasobów. Śledzi wykorzystanie zasobów. Jego rolą jest optymalizacja rezerwacji w celu maksymalizacji zysków i rozwiązywanie problemów związanych z rezerwacjami. Prowadzi negocjacje z klientami biznesowymi i akceptuje lub odrzuca umowy. Może zarządzać jedną lub wieloma lokacjami. |
+| Location Manager	| |Pracownik Deskly odpowiadający za stan zasobów oferowanych w jednej lub wielu lokacjach. Zleca kupno i konserwację zasobów. Negocjuje i podpisuje umowy z właścicielami nowych lokacji |
+| Contract Manager | |Pracownik Deskly odpowiedzialny za pozyskiwanie nowych klientów. Przygotowuje wersje robocze umów oraz prowadzi negacjacje warunków umów. Podejmuje ostateczną decyzję o podpisaniu umowy z klientem. |
+| Cennik | |Zbiór cen wypozyczenia zasobów na daną jednostkę czasu (godzina, doba, miesiąc). Moze byc to cennik biezacy lub zdefinionwany w ramach umowy |
+| Cena | | Kwota po której klient będzie kasowany po rozpoczęciu rezerwacji |
+| Topologia | |Układ pomieszczeń i biurek w lokacji |
+| Lokacja | |Miejsce, w którym mozna korzystać z zarezerwowanych zasobów Deskly |
+| Kolejka | |Uporządkowana grupa osób oczekująca na mozliwość zarezerwowania zasobu |
+| Dostępność zasobu | |Rozkład dostępności zasobu w czasie |
+| Kalendarz | |Sposób reprezentacji dostępności zasobu w czasie |
+| Zasób | Lokacja | Sprzęt biurowy lub miejsce pracy (biurko lub sala konferencyjna) |
+| Zasób | Dostępność | Dobro które użytkownicy mogą rezerwować jeśli jest dostępny  |
+| Zasób | Negocjacja Kontraktu | Dobro podlegające negocjacji |
+| Zasób | Kontrola Dostępu | Dobro do którego nadawane lub odbierane są uprawnienia |
+| Zasób | Lista Oczekujących | Dobro na którego rezerwację oczekują użytkownicy |
+| Szkic umowy | |Przygotowany szkic umowy gotowy do udostępnienia klientowi do negocjacji lub podpisania |
+| Negocjacja | | Udostępniony klientowi biznesowemu szkic umowy w trakcie negocjowania warunków |
+| Umowa | Kontraktowanie | Podpisane przez klienta warunki korzystania z zasobów oferowanych w Deskly |
+| Umowa | Negocjacja kontraktu| Zatwierdzone przez klienta i Contract Managera ostateczne warunki negocjacji 
+| Parametr umowy | | Najmniejsza jednostwa podlegająca negocjacji w umowie |
+| Oferta | | Złożona propozycja zmiany parametru umowy. Podlega akceptacji |
+| Użytkownik | Kontrola dostępu | Osoba której przyznawany lub dobierany jest dostęp do zasobu |
+| Użytkownik | Lista Oczekujących | Osoba która oczekuje na rezerwację zasobu |
+| Dostęp | | Uprawnienie do korzystania z zasobu w danej lokacji Deskly |
+| Rezerwacja Tymczasowa | | Rezerwacja podlagająca akceptacji, anulowaniu, tworzona gdy czas do rezerwacji zasobu jest dłuższy niż 24h, oferowana jest klientom oczekującym w kolejce. Blokuje zasób |
+| Rezerwacja | | Rezerwacja po akcpetacji Rezerwacji Tymczasowej (manualnej lub automatycznej gdy czas do rozpoczęcia rezerwacji mniejszy niż 24h). Wiąże się z rozpoczęciem naliczania opłat, nie można jej przenieść ani anulować. |
+| Opłata | | Kwota do zapłaty przez klienta wynikająca z czasu rezerwacji konkretnego zasobu |
+| Faktura | | Dokument wystawiany klientowi w celu zapłaty należności za dany okres rozliczeniowy |
+| Zarobek | | Kwota zarobiona w danym okresie rozliczeniowym w danej lokacji Deskly |
+| Dłużnik | | Klient który nie opłacił faktury po 10 dniach od momentu jej wystawienia |
 
 ## Specyfikacja i analiza wymagań
 
@@ -126,7 +147,32 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 - System powinien mieć wdrożony proces wsparcia technicznego dla klientów z możliwiwością zgłoszeń przez aplikację
 - Zautomatyzowane monitorowanie wydajności i dostępności aplikacji oraz natychmiastowe powiadomienia dla zespołu wsparcia w przypadku wykrycia anomalii
 
-## Model informacyjny (Mapa kontekstów)
+## Mapa kontekstów
+
+### Definicja Wzorców mapowania kontekstów
+- OHS (Open Host Service)
+    - Oferuje wspólny model i wspólną funkcjonalność dla wielu zastosowań
+    - Może być rozumiany jako publiczne API dla wielu konsumentów
+ 
+- Customer - Supplier
+    - Wzorzez organizacyjny, nie techniczny 
+    - Typ relacji gdzie downastream może mieć wpływ na upstream
+    - Wymagania przekazane przez downstream powinny być wzięte pod uwagę przez upstream team
+
+- PL (Published Language)
+    - Dobrze udokumentowany język współdzielony przez konteksty
+    - Każdy kontekst może tłumaczyć na jego język
+ 
+- Partnership
+    - Wzorzec organizacyjny, nie techniczny
+    - Polega na sytuacji gdzie dwa zespoły wspólnie koordunują procesem i tylko rezem mogą dostarczać wartość biznesową
+ 
+- ACL (Anti-Corruption Layer)
+    - Strefa zgniotu - propagacja logiki do innego modelu w celu jej przemapowania na język tego modelu
+    - Miejsce przetłumaczenia innego modelu na swój tym samym redukcja ryzyka zmiany do jednej cienkiej warstwy
+    - Często stosowany żeby odgrodzić logikę modelu od modelu legacy lub po prostu logiki innego modelu
+ 
+
 
 ## Reguły biznesowe i ograniczenia systemowe
 
