@@ -151,7 +151,9 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 
 ![Screenshot 2024-11-08 at 12 28 21](https://github.com/user-attachments/assets/4888586b-b3bc-46cb-9733-9f6ca45f9625)
 
-[Mapa kontekstów na Miro](https://miro.com/app/board/uXjVNLyFXXE=/?share_link_id=140829908257&shareablePresentation=1) 
+[Mapa kontekstów Miro](https://miro.com/app/board/uXjVNLyFXXE=/?share_link_id=140829908257&shareablePresentation=1)
+
+[Event Storming Miro](https://miro.com/app/board/uXjVNLyFXXE=/?share_link_id=990063407702)
 
 ### Definicja relacji pomiędzy kontekstami
 - Upstream
