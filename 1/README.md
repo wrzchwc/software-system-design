@@ -145,7 +145,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 
 ### Jako klient Deskly chciałbym mieć możliwość zalogować się do/wylogować się ze swojego konta użytkownika.
 
-Mapa nawigacyjna
+Mapa nawigacyjna\
 ![Auth](./images/navigation-maps/auth.png)
 
 Strona domowa
@@ -159,7 +159,7 @@ Ekran domowy (szablon)
 
 ### Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
 
-Mapa nawigacyjna
+Mapa nawigacyjna\
 ![Register](./images/navigation-maps/register.png)
 
 Panel rejestracji
@@ -173,7 +173,7 @@ Przykład wiadomości e-mail
 ### Jako klient stały chciałbym zostać poinformowany mailowo o zbliżającym się końcu umowy.
 ### Jako klient stały chciałbym otrzymać propozycję automatycznego przedłużenia umowy wraz ze szczegółami o aktualnym cenniku.
 
-Mapa nawigacyjna
+Mapa nawigacyjna\
 ![Przedłuzenie kontraktu](./images/navigation-maps/contract-extension.png)
 
 Przykład wiadomości e-mail
@@ -185,7 +185,7 @@ Ekran przedłuzenia umowy
 ### Jako klient Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
 ### Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika.
 
-Mapa nawigacyjna
+Mapa nawigacyjna\
 ![Rezerwacje](./images/navigation-maps/bookings.png)
 
 Lista rezerwacji
@@ -198,7 +198,7 @@ Podgląd rezerwacji
 ### Jako klient Deskly chciałbym podczas rezerwacji biurka lub sali konferencyjnej być w stanie wybrać interesujący mnie zasób korzystając ze schematu topologii lokacji.
 ### Jako klient Deskly chciałbym zapisać się na listę oczekujących na zasób w danym terminie (jeśli jest już zarezerwowany przez kogoś innego), gdy czas do rozpoczęcia rezerwacji jest dłuży niż 24 godziny.
 
-Mapa nawigacyjna
+Mapa nawigacyjna\
 ![Rezewacja zasobu](./images/navigation-maps/booking.png)
 
 Strona rezerwacji
@@ -209,7 +209,7 @@ Modal kolejkowania się
 
 ### Jako klient Deskly chciałbym móc wypisać się z kolejki oczekujących na dany zasób w dowolnym momencie.
 
-Mapa nawigacyjna
+Mapa nawigacyjna\
 ![Kolejki na zasoby](./images/navigation-maps/queues.png)
 
 Kolejki na zasoby
@@ -220,7 +220,7 @@ Podgląd zakolejkowanego zasobu
 
 ### Jako klient Deskly oczekujący w kolejce na zasób chciałbym zostać poinformowany o rozwiązaniu kolejki i otrzymać propozycję rezerwacji/zakolejkowania się na tożsamy zasób.
 
-Mapa nawigacyjna
+Mapa nawigacyjna\
 ![Alternatywna rezerwacja](./images/navigation-maps/alternate-booking.png)
 
 Przykład wiadomości e-mail
@@ -252,8 +252,7 @@ Alternatywa rezerwacja
 ![Edit location (2)](https://github.com/user-attachments/assets/9133f42e-5923-4cf0-a455-a0b437331768)
 ![Resources in location](https://github.com/user-attachments/assets/493005a1-11fb-411a-95b7-a68c0fc499e6)
 
-### Mapa nawigacyjna - Location Manager
-
+Mapa nawigacyjna\
 ![LocationManager drawio (1)](https://github.com/user-attachments/assets/df4bf010-c895-4477-b0dd-ff7549ed3de8)
 
 ### Jako Contract Manager chciałbym mieć możliwość wysłania do edycji wersji roboczej umowy do wcześniej zweryfikowanego klienta.
@@ -262,8 +261,7 @@ Alternatywa rezerwacja
 
 ![Draft version of the contract](https://github.com/user-attachments/assets/73e4bcdc-0935-4bcd-b40d-6e4671b2acb7)
 
-### Mapa nawigacyjna - Contract Manager
-
+Mapa nawigacyjna\
 ![ContractManager drawio](https://github.com/user-attachments/assets/269610bd-4fd5-4c98-8183-7bb0e956989d)
 
 ### Jako Finance Manager chciałbym mieć podgląd do klientów, którzy nie uregulowali faktury na czas.
@@ -283,8 +281,7 @@ Alternatywa rezerwacja
 
 ![List od contracts](https://github.com/user-attachments/assets/ad18204d-1cbd-42a4-9cf5-bbbd4f0241c3)
 
-### Mapa nawigacyjna - FinanceManager
-
+Mapa nawigacyjna\
 ![FinanseManager drawio](https://github.com/user-attachments/assets/d05a599d-7e86-4b6e-b64b-7555cf224cdf)
 
 ### Jako Booking Manager chciałbym przesuwać dowolnych klientów w kolejce na oczekiwany zasób.
@@ -306,13 +303,12 @@ Alternatywa rezerwacja
 
 ![List of queued resources](https://github.com/user-attachments/assets/1d217779-a866-41de-9dcd-ed4631df88f6)
 
-### Mapa nawigacyjna - Booking Manager
-
+Mapa nawigacyjna\
 ![BookingManager drawio](https://github.com/user-attachments/assets/698070d9-e2ed-4640-8e1e-7fd2011bcd0f)
 
 ### Jako klient biznesowy Deskly chciałbym móc stworzyć konto nowemu pracownikowi i nadać mu uprawnienia do korzystania z zarezerwowanych zasobów.
 
-Mapa nawigacyjna
+Mapa nawigacyjna\
 ![Pracownicy](./images/navigation-maps/employees.png)
 
 Wszyscy pracownicy
@@ -325,7 +321,7 @@ Nowy pracownik
 ### Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika, które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla pracowników.
 ### Jako klient biznesowy Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
 
-Mapa nawigacyjna
+Mapa nawigacyjna\
 ![Zasoby firmowe](./images/navigation-maps/enterprise-resources.png)
 
 Zarezerwowane zasoby
