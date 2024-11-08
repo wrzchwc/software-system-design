@@ -149,7 +149,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 
 ## Mapa kontekstów
 
-![Screenshot 2024-11-08 at 12 10 22](https://github.com/user-attachments/assets/5823c825-4018-4be6-b901-20f1462f7d9a)
+![Screenshot 2024-11-08 at 12 28 21](https://github.com/user-attachments/assets/4888586b-b3bc-46cb-9733-9f6ca45f9625)
 
 [Mapa kontekstów na Miro](https://miro.com/app/board/uXjVNLyFXXE=/?share_link_id=140829908257&shareablePresentation=1) 
 
@@ -184,7 +184,6 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
     - Strefa zgniotu - propagacja logiki do innego modelu w celu jej przemapowania na język tego modelu
     - Miejsce przetłumaczenia innego modelu na swój tym samym redukcja ryzyka zmiany do jednej cienkiej warstwy
     - Często stosowany żeby odgrodzić logikę modelu od modelu legacy lub po prostu logiki innego modelu
- 
 
 
 ## Reguły biznesowe i ograniczenia systemowe
