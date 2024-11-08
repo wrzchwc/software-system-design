@@ -225,7 +225,7 @@ Alternatywa rezerwacja
 ### Jako Location Manager mogę wyłączyć dany zasób z użytkowania (nawet jeśli jest aktualnie zarezerwowany).
 
 ![Order maintenance](https://github.com/user-attachments/assets/76e29ad1-fc7e-4bca-a2e0-0633bb5f49b1)
-![Order maintenance dialog](https://github.com/user-attachments/assets/8a658cfb-a26a-4012-9b74-0c5ac980a703)
+![Order maintenance dialog](https://github.com/user-attachments/assets/cc1241c8-c49b-4888-8052-c4413ce1887e)
 
 ### Jako Location Manager chciałbym móc zdefiniować topologię zasobów w danej lokacji (dodać/usunąć/modyfikować)
 ### Jako Location Manager chiałbym mieć mozliwosc aktualizacacji danych lokalizacji oraz dostępnych zasobów.
