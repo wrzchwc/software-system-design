@@ -146,6 +146,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 ### Jako klient Deskly chciałbym mieć możliwość zalogować się do/wylogować się ze swojego konta użytkownika.
 
 Mapa nawigacyjna
+![Auth](./images/navigation-maps/auth.png)
 
 Strona domowa
 ![Strona domowa](./images/user-interfaces/home-page.png)
@@ -158,6 +159,9 @@ Ekran domowy (szablon)
 
 ### Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
 
+Mapa nawigacyjna
+![Register](./images/navigation-maps/register.png)
+
 Panel rejestracji
 ![Panel rejestracji](./images/user-interfaces/sign-up-page.png)
 
@@ -169,6 +173,9 @@ Przykład wiadomości e-mail
 ### Jako klient stały chciałbym zostać poinformowany mailowo o zbliżającym się końcu umowy.
 ### Jako klient stały chciałbym otrzymać propozycję automatycznego przedłużenia umowy wraz ze szczegółami o aktualnym cenniku.
 
+Mapa nawigacyjna
+![Przedłuzenie kontraktu](./images/navigation-maps/contract-extension.png)
+
 Przykład wiadomości e-mail
 ![E-mail koniec umowy](./images/user-interfaces/contract-end-email.png)
 
@@ -177,6 +184,9 @@ Ekran przedłuzenia umowy
 
 ### Jako klient Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
 ### Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika.
+
+Mapa nawigacyjna
+![Rezerwacje](./images/navigation-maps/bookings.png)
 
 Lista rezerwacji
 ![List rezerwacji](./images/user-interfaces/reservations-list-page.png)
@@ -188,6 +198,9 @@ Podgląd rezerwacji
 ### Jako klient Deskly chciałbym podczas rezerwacji biurka lub sali konferencyjnej być w stanie wybrać interesujący mnie zasób korzystając ze schematu topologii lokacji.
 ### Jako klient Deskly chciałbym zapisać się na listę oczekujących na zasób w danym terminie (jeśli jest już zarezerwowany przez kogoś innego), gdy czas do rozpoczęcia rezerwacji jest dłuży niż 24 godziny.
 
+Mapa nawigacyjna
+![Rezewacja zasobu](./images/navigation-maps/booking.png)
+
 Strona rezerwacji
 ![Strona rezerwacji zasobu](./images/user-interfaces/booking-page.png)
 
@@ -196,6 +209,9 @@ Modal kolejkowania się
 
 ### Jako klient Deskly chciałbym móc wypisać się z kolejki oczekujących na dany zasób w dowolnym momencie.
 
+Mapa nawigacyjna
+![Kolejki na zasoby](./images/navigation-maps/queues.png)
+
 Kolejki na zasoby
 ![Kolejki](./images/user-interfaces/queues-page.png)
 
@@ -203,6 +219,9 @@ Podgląd zakolejkowanego zasobu
 ![Podgląd zakolejkowanego zasobu](./images/user-interfaces/queue-item.png)
 
 ### Jako klient Deskly oczekujący w kolejce na zasób chciałbym zostać poinformowany o rozwiązaniu kolejki i otrzymać propozycję rezerwacji/zakolejkowania się na tożsamy zasób.
+
+Mapa nawigacyjna
+![Alternatywna rezerwacja](./images/navigation-maps/alternate-booking.png)
 
 Przykład wiadomości e-mail
 ![Kolejka rozwiązana](./images/user-interfaces/queue-cancelled-email.png)
@@ -292,6 +311,9 @@ Alternatywa rezerwacja
 ![BookingManager drawio](https://github.com/user-attachments/assets/698070d9-e2ed-4640-8e1e-7fd2011bcd0f)
 
 ### Jako klient biznesowy Deskly chciałbym móc stworzyć konto nowemu pracownikowi i nadać mu uprawnienia do korzystania z zarezerwowanych zasobów.
+
+Mapa nawigacyjna
+![Pracownicy](./images/navigation-maps/employees.png)
 
 Wszyscy pracownicy
 ![Pracownicy](./images/user-interfaces/employees-list.png)
