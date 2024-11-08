@@ -149,6 +149,19 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 
 ## Mapa kontekstów
 
+![Screenshot 2024-11-08 at 12 10 22](https://github.com/user-attachments/assets/5823c825-4018-4be6-b901-20f1462f7d9a)
+
+[Mapa kontekstów na Miro](https://miro.com/app/board/uXjVNLyFXXE=/?share_link_id=140829908257&shareablePresentation=1) 
+
+### Definicja relacji pomiędzy kontekstami
+- Upstream
+    - Dostawca inforamcji, zachowń, konceptów, zmian do kontestów które są z nim w realcji Downstream
+    - Ma większą kontrolę w relacji Upstream - Downstream ponieważ nie jest zależny od Downstream
+  
+- Downastream
+    - Kontekst zależy od informacji z kontektu Upstream
+    - Nie wpływa na kontekst który jest z nim relacji Upstream
+
 ### Definicja Wzorców mapowania kontekstów
 - OHS (Open Host Service)
     - Oferuje wspólny model i wspólną funkcjonalność dla wielu zastosowań
