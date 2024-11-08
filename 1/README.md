@@ -287,6 +287,10 @@ Alternatywa rezerwacja
 
 ![List of queued resources](https://github.com/user-attachments/assets/1d217779-a866-41de-9dcd-ed4631df88f6)
 
+### Mapa nawigacyjna - Booking Manager
+
+![BookingManager drawio](https://github.com/user-attachments/assets/698070d9-e2ed-4640-8e1e-7fd2011bcd0f)
+
 ### Jako klient biznesowy Deskly chciałbym móc stworzyć konto nowemu pracownikowi i nadać mu uprawnienia do korzystania z zarezerwowanych zasobów.
 
 Wszyscy pracownicy
