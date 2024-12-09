@@ -87,11 +87,10 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 5. Location Manager
     1. Jako Location Manager chciałbym móc dodać lokację i zdefiniować zasoby w danej lokacji (rodzaj zasobu, zdjęcia, dane seryjne (w przyadku biurek oraz sprzętu audio-wideo), liczba miejsc (w przypadku sali konferencyjnej), opis).
     2. Jako Location Manager mogę zlecić konserwację zasobu.
-    3. Jako Location Manager mogę zlecić automatyczną konserwację dla konkretnego typu zasobu (np. po każdym wynajęciu sali 30 minut na sprzątanie)
-    4. Jako Location Manager mogę wyłączyć dany zasób z użytkowania (nawet jeśli jest aktualnie zarezerwowany).
-    5. Jako Location Manager chciałbym zdefiniować godziny otwarcia danej lokacji.
-    6. Jako Location Manager chciałbym móc zdefiniować topologię zasobów w danej lokacji (dodać/usunąć/modyfikować)
-    7. Jako Location Manager chiałbym mieć możliwość aktualizacji danych lokalizacji oraz dostępnych zasobów.
+    3. Jako Location Manager mogę wyłączyć dany zasób z użytkowania (nawet jeśli jest aktualnie zarezerwowany).
+    4. Jako Location Manager chciałbym zdefiniować godziny otwarcia danej lokacji.
+    5. Jako Location Manager chciałbym móc zdefiniować topologię zasobów w danej lokacji (dodać/usunąć/modyfikować)
+    6. Jako Location Manager chiałbym mieć możliwość aktualizacji danych lokalizacji oraz dostępnych zasobów.
 6. Contract Manager
     1. Jako Contract Manager chciałbym mieć możliwość wysłania do edycji wersji roboczej umowy do wcześniej zweryfikowanego klienta.
     2. Jako Contract Manager chciałbym mieć możliwość akceptacji oraz proponowania zmian w umowie udostępnionej klientowi.
@@ -339,7 +338,6 @@ Dialog dodawania prywatnego pokoju
 ![Add private room dialog](https://github.com/user-attachments/assets/3d98f72c-2276-49b2-a3bd-12321a3196c1)
 
 - Jako Location Manager mogę zlecić konserwację zasobu.
-- Jako Location Manager mogę zlecić automatyczną konserwację dla konkretnego typu zasobu (np. po każdym wynajęciu sali 30 minut na sprzątanie)
 - Jako Location Manager mogę wyłączyć dany zasób z użytkowania (nawet jeśli jest aktualnie zarezerwowany).
 
 Widok zasobów lokalizacji
@@ -348,7 +346,7 @@ Dialog zlecenia konserwacji
 ![Schedule maintenance dialog (2)](https://github.com/user-attachments/assets/ce6674e8-99bd-42e8-b059-d4e61a68b946)
 
 - Jako Location Manager chciałbym móc zdefiniować topologię zasobów w danej lokacji (dodać/usunąć/modyfikować)
-- Jako Location Manager chiałbym mieć mozliwosc aktualizacacji danych lokalizacji oraz dostępnych zasobów.
+- Jako Location Manager chiałbym mieć mozliwość aktualizacacji danych lokalizacji oraz dostępnych zasobów.
 
 Dialog modyfikacji lokalizacji
 ![Edit location (2)](https://github.com/user-attachments/assets/9133f42e-5923-4cf0-a455-a0b437331768)
