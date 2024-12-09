@@ -115,11 +115,11 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 ## Definicja wymagań niefunkcjonalnych
 
 ###	Wymagania systemowe
-1. System działa na urządzeniach z systemem operacyjnym Linux (Ubuntu od wersji 20.04 LTS), MacOS (od wersji 15.0), Windows (Windows 10, Windows 11) oraz przeglądarkach internetowych (Chrome, Frirefox, Safari, Edge)
-2. System działa na urządzeniach mobilnych z systemem operacyjnym Android(od wersji 11.0) oraz iOS (od wersji 15.0)
-3. System powinien obsługiwać bazę danych o wysokiej wydajności, wspierającą relację pomiędzy obiektami (PostgreSQL, Oracle, MSSQL, MySQL)
-4. Wszystkie usługi powinny działać w chmurze AWS i wspierać mechanizmy auto-skalowania
-5. System powinien integrować się z zewnętrznymi dostawcami poczty elektorniczne oraz systemami kontroli dostępu (generowanie kodów QR)
+1. System działa na urządzeniach z systemem operacyjnym macOS (od wersji 15.0) oraz Windows (Windows 10, Windows 11) oraz przeglądarkach internetowych (Google Chrome od wersji 132, Safari od wersji 18, Microsoft Edge od wersji 130)
+2. System działa na urządzeniach mobilnych z systemem operacyjnym Android (od wersji 11.0) oraz iOS (od wersji 15.0)
+3. System powinien obsługiwać bazę danych o wysokiej wydajności, wspierającą relację pomiędzy obiektami (PostgreSQL 17.2).
+4. Wszystkie usługi powinny działać w chmurze AWS i wspierać mechanizmy auto-skalowania.
+5. System powinien integrować się z zewnętrznymi dostawcami poczty elektorniczne oraz systemami kontroli dostępu (generowanie kodów QR).
 
 ###	Wydajność
 1. System powinien być w stanie obsłużyć jednoczesne logowanie i rezerwacje dokonywane przez co najmniej 10.000 użytkowników (1000 zapytań na sekundę przy założeniu że użytkownik wykonuje zapytanie średnio co 10 sekund) 
