@@ -340,7 +340,7 @@ Dialog dodawania prywatnego pokoju
 Widok zasobów lokalizacji
 ![Order maintenance](https://github.com/user-attachments/assets/76e29ad1-fc7e-4bca-a2e0-0633bb5f49b1)
 Dialog zlecenia konserwacji
-![Schedule maintenance dialog](https://github.com/user-attachments/assets/97440306-cada-4b7f-8c4b-4f25d299f40c)
+![Schedule maintenance dialog (2)](https://github.com/user-attachments/assets/ce6674e8-99bd-42e8-b059-d4e61a68b946)
 
 - Jako Location Manager chciałbym móc zdefiniować topologię zasobów w danej lokacji (dodać/usunąć/modyfikować)
 - Jako Location Manager chiałbym mieć mozliwosc aktualizacacji danych lokalizacji oraz dostępnych zasobów.
