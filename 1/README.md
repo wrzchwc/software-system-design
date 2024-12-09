@@ -1,8 +1,13 @@
 # Wyniki etapu I - Modelowanie biznesowe i specyfikacja wymagań
 
+Kamil Bońkowski, 252727
+Szymon Walasik, 283393
+Jakub Wierzchowiec, 252738
+
 ## Model biznesowy
 
 ### Lista symboli, oznaczeń i akronimów
+
 - SaaS - software as a service
 
 ### Cel i zakres projektu
