@@ -340,7 +340,7 @@ Dialog dodawania prywatnego pokoju
 Widok zasobów lokalizacji
 ![Order maintenance](https://github.com/user-attachments/assets/76e29ad1-fc7e-4bca-a2e0-0633bb5f49b1)
 Dialog zlecenia konserwacji
-![Order maintenance dialog](https://github.com/user-attachments/assets/cc1241c8-c49b-4888-8052-c4413ce1887e)
+![Schedule maintenance dialog](https://github.com/user-attachments/assets/97440306-cada-4b7f-8c4b-4f25d299f40c)
 
 - Jako Location Manager chciałbym móc zdefiniować topologię zasobów w danej lokacji (dodać/usunąć/modyfikować)
 - Jako Location Manager chiałbym mieć mozliwosc aktualizacacji danych lokalizacji oraz dostępnych zasobów.
@@ -380,7 +380,9 @@ Widok listy klientów
 - Jako Finance Manager chciałbym mieć podgląd do wszystkich wystawionych faktur.
 
 Lista wszystkich faktur
-![List of invoices](https://github.com/user-attachments/assets/3f7e45e6-4005-4bf0-b4c6-a99c930423b4)
+![List of invoices](https://github.com/user-attachments/assets/81490ed5-5c7d-45fa-9d9c-191b09cce150)
+Dialog dodawania faktury
+![Add invoice dialog](https://github.com/user-attachments/assets/b2d36873-bbe8-4ce7-bba1-e8aedb0197ce)
 
 - Jako Finance Manager chciałbym mieć podgląd do cenników, według których naliczane są opłaty w danej lokacji dla danych klientów.
 
