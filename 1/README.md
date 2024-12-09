@@ -314,6 +314,7 @@ Alternatywa rezerwacja
 ### Location Manager
 
 Mapa nawigacyjna
+
 ![LocationManager drawio](https://github.com/user-attachments/assets/a7df18e1-b4ca-4a30-9616-7b39069098ea)
 
 - Jako Location Manager chciałbym móc dodać lokację i zdefiniować zasoby w danej lokacji (rodzaj zasobu, zdjęcia, dane seryjne (w przyadku biurek oraz sprzętu audio-wideo), liczba miejsc (w przypadku sali konferencyjnej), opis).
@@ -335,6 +336,7 @@ Dialog dodawania prywatnego pokoju
 - Jako Location Manager mogę zlecić konserwację zasobu.
 - Jako Location Manager mogę zlecić automatyczną konserwację dla konkretnego typu zasobu (np. po każdym wynajęciu sali 30 minut na sprzątanie)
 - Jako Location Manager mogę wyłączyć dany zasób z użytkowania (nawet jeśli jest aktualnie zarezerwowany).
+
 Widok zasobów lokalizacji
 ![Order maintenance](https://github.com/user-attachments/assets/76e29ad1-fc7e-4bca-a2e0-0633bb5f49b1)
 Dialog zlecenia konserwacji
@@ -351,6 +353,7 @@ Widok listy zasobów lokalizacji
 ### Contract Manager
 
 Mapa nawigacyjna
+
 ![ContractManager drawio](https://github.com/user-attachments/assets/2a583893-09f0-41df-bdb8-834927111509)
 
 - Jako Contract Manager chciałbym mieć możliwość wysłania do edycji wersji roboczej umowy do wcześniej zweryfikowanego klienta.
@@ -365,6 +368,7 @@ Podgląd draftu umowy
 ### Finance Manager
 
 Mapa nawigacyjna
+
 ![FinanseManager drawio](https://github.com/user-attachments/assets/5a83b23d-07a4-4b19-9c6a-f2b7bdfca37a)
 
 - Jako Finance Manager chciałbym mieć podgląd do klientów, którzy nie uregulowali faktury na czas.
@@ -391,6 +395,7 @@ Widok wszystkich zawartych umów
 ### Booking Manager
 
 Mapa nawigacyjna
+
 ![BookingManager drawio](https://github.com/user-attachments/assets/99d9888c-a1be-4a00-98fd-3fdf9efab71b)
 
 - Jako Booking Manager chciałbym przesuwać dowolnych klientów w kolejce na oczekiwany zasób.
