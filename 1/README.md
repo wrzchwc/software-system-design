@@ -1,8 +1,8 @@
 # Wyniki etapu I - Modelowanie biznesowe i specyfikacja wymagań
 
-Kamil Bońkowski, 252727
-Szymon Walasik, 283393
-Jakub Wierzchowiec, 252738
+- Kamil Bońkowski, 252727
+- Szymon Walasik, 283393
+- Jakub Wierzchowiec, 252738
 
 ## Model biznesowy
 
