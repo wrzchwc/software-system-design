@@ -203,7 +203,8 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 
 ## Prototypy interfejsów użytkownika
 
-### Jako klient Deskly chciałbym mieć możliwość zalogować się do/wylogować się ze swojego konta użytkownika.
+### Klient Deskly
+- Jako klient Deskly chciałbym mieć możliwość zalogować się do/wylogować się ze swojego konta użytkownika.
 
 Mapa nawigacyjna
 
@@ -221,7 +222,7 @@ Ekran domowy (szablon)
 
 ![Ekran domowy](./images/user-interfaces/sign-out.png)
 
-### Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
+- Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
 
 Mapa nawigacyjna
 
@@ -230,14 +231,14 @@ Mapa nawigacyjna
 Panel rejestracji
 ![Panel rejestracji](./images/user-interfaces/sign-up-page.png)
 
-### Jako klient Deskly po rezerwacji zasobu chciałbym otrzymać na maila kod QR umożliwiający otwarcie drzwi wejściowych do danej lokacji 24 godziny przed rozpoczęciem rezerwacji.
+- Jako klient Deskly po rezerwacji zasobu chciałbym otrzymać na maila kod QR umożliwiający otwarcie drzwi wejściowych do danej lokacji 24 godziny przed rozpoczęciem rezerwacji.
 
 Przykład wiadomości e-mail
 
 ![E-mail kod QR](./images/user-interfaces/email-qr.png)
 
-### Jako klient stały chciałbym zostać poinformowany mailowo o zbliżającym się końcu umowy.
-### Jako klient stały chciałbym otrzymać propozycję automatycznego przedłużenia umowy wraz ze szczegółami o aktualnym cenniku.
+- Jako klient stały chciałbym zostać poinformowany mailowo o zbliżającym się końcu umowy.
+- Jako klient stały chciałbym otrzymać propozycję automatycznego przedłużenia umowy wraz ze szczegółami o aktualnym cenniku.
 
 Mapa nawigacyjna
 
@@ -251,8 +252,8 @@ Ekran przedłuzenia umowy
 
 ![Ekran przedłuzenia umowy](./images/user-interfaces/contract-extension.png)
 
-### Jako klient Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
-### Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika.
+- Jako klient Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
+- Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika.
 
 Mapa nawigacyjna
 
@@ -266,9 +267,9 @@ Podgląd rezerwacji
 
 ![Podgląd rezerwacji](./images/user-interfaces/booking-details.png)
 
-### Jako klient Deskly chciałbym mieć możliwość rezerwacji zasobu w dowolnie wybranej lokacji.
-### Jako klient Deskly chciałbym podczas rezerwacji biurka lub sali konferencyjnej być w stanie wybrać interesujący mnie zasób korzystając ze schematu topologii lokacji.
-### Jako klient Deskly chciałbym zapisać się na listę oczekujących na zasób w danym terminie (jeśli jest już zarezerwowany przez kogoś innego), gdy czas do rozpoczęcia rezerwacji jest dłuży niż 24 godziny.
+- Jako klient Deskly chciałbym mieć możliwość rezerwacji zasobu w dowolnie wybranej lokacji.
+- Jako klient Deskly chciałbym podczas rezerwacji biurka lub sali konferencyjnej być w stanie wybrać interesujący mnie zasób korzystając ze schematu topologii lokacji.
+- Jako klient Deskly chciałbym zapisać się na listę oczekujących na zasób w danym terminie (jeśli jest już zarezerwowany przez kogoś innego), gdy czas do rozpoczęcia rezerwacji jest dłuży niż 24 godziny.
 
 Mapa nawigacyjna
 
@@ -282,7 +283,7 @@ Modal kolejkowania się
 
 ![Modal kolejkowwania się](./images/user-interfaces/enqueue-modal.png)
 
-### Jako klient Deskly chciałbym móc wypisać się z kolejki oczekujących na dany zasób w dowolnym momencie.
+- Jako klient Deskly chciałbym móc wypisać się z kolejki oczekujących na dany zasób w dowolnym momencie.
 
 Mapa nawigacyjna
 
@@ -296,7 +297,7 @@ Podgląd zakolejkowanego zasobu
 
 ![Podgląd zakolejkowanego zasobu](./images/user-interfaces/queue-item.png)
 
-### Jako klient Deskly oczekujący w kolejce na zasób chciałbym zostać poinformowany o rozwiązaniu kolejki i otrzymać propozycję rezerwacji/zakolejkowania się na tożsamy zasób.
+- Jako klient Deskly oczekujący w kolejce na zasób chciałbym zostać poinformowany o rozwiązaniu kolejki i otrzymać propozycję rezerwacji/zakolejkowania się na tożsamy zasób.
 
 Mapa nawigacyjna
 
@@ -310,88 +311,116 @@ Alternatywa rezerwacja
 
 ![Alternatywna rezerwacja](./images/user-interfaces/alternate-booking.png)
 
-### Jako Location Manager chciałbym móc dodać lokację i zdefiniować zasoby w danej lokacji (rodzaj zasobu, zdjęcia, dane seryjne (w przyadku biurek oraz sprzętu audio-wideo), liczba miejsc (w przypadku sali konferencyjnej), opis).
-### Jako Location Manager chciałbym zdefiniować godziny otwarcia danej lokacji.
+### Location Manager
 
+Mapa nawigacyjna
+![LocationManager drawio](https://github.com/user-attachments/assets/a7df18e1-b4ca-4a30-9616-7b39069098ea)
+
+- Jako Location Manager chciałbym móc dodać lokację i zdefiniować zasoby w danej lokacji (rodzaj zasobu, zdjęcia, dane seryjne (w przyadku biurek oraz sprzętu audio-wideo), liczba miejsc (w przypadku sali konferencyjnej), opis).
+- Jako Location Manager chciałbym zdefiniować godziny otwarcia danej lokacji.
+
+Dialog dodawania lokalizacji
 ![Add location dialog](https://github.com/user-attachments/assets/2ad35499-2453-4a74-a25b-ca813a0400ae)
+Dialog dodawania hot deska
 ![Add hot desk dialog](https://github.com/user-attachments/assets/54832443-811b-4d73-a5cb-86fdeb10a563)
+Dialog dodawania sali konferencyjnej
 ![Add conference room dialog](https://github.com/user-attachments/assets/efe69261-00d4-48cd-b255-bbd3d84eab9d)
+Dialog dodawania urządzenia audio video
 ![Add audio device dialog](https://github.com/user-attachments/assets/098eca8a-5cf5-4cfb-ba3b-74e96ce2fe0f)
+Dialog dodawania prywatnego biurka
 ![Add private desk dialog](https://github.com/user-attachments/assets/58751d0a-5b8c-4ed7-920a-323afb7971bb)
+Dialog dodawania prywatnego pokoju
 ![Add private room dialog](https://github.com/user-attachments/assets/3d98f72c-2276-49b2-a3bd-12321a3196c1)
 
-### Jako Location Manager mogę zlecić konserwację zasobu.
-### Jako Location Manager mogę zlecić automatyczną konserwację dla konkretnego typu zasobu (np. po każdym wynajęciu sali 30 minut na sprzątanie)
-### Jako Location Manager mogę wyłączyć dany zasób z użytkowania (nawet jeśli jest aktualnie zarezerwowany).
-
+- Jako Location Manager mogę zlecić konserwację zasobu.
+- Jako Location Manager mogę zlecić automatyczną konserwację dla konkretnego typu zasobu (np. po każdym wynajęciu sali 30 minut na sprzątanie)
+- Jako Location Manager mogę wyłączyć dany zasób z użytkowania (nawet jeśli jest aktualnie zarezerwowany).
+Widok zasobów lokalizacji
 ![Order maintenance](https://github.com/user-attachments/assets/76e29ad1-fc7e-4bca-a2e0-0633bb5f49b1)
+Dialog zlecenia konserwacji
 ![Order maintenance dialog](https://github.com/user-attachments/assets/cc1241c8-c49b-4888-8052-c4413ce1887e)
 
-### Jako Location Manager chciałbym móc zdefiniować topologię zasobów w danej lokacji (dodać/usunąć/modyfikować)
-### Jako Location Manager chiałbym mieć mozliwosc aktualizacacji danych lokalizacji oraz dostępnych zasobów.
+- Jako Location Manager chciałbym móc zdefiniować topologię zasobów w danej lokacji (dodać/usunąć/modyfikować)
+- Jako Location Manager chiałbym mieć mozliwosc aktualizacacji danych lokalizacji oraz dostępnych zasobów.
 
+Dialog modyfikacji lokalizacji
 ![Edit location (2)](https://github.com/user-attachments/assets/9133f42e-5923-4cf0-a455-a0b437331768)
+Widok listy zasobów lokalizacji
 ![Resources in location](https://github.com/user-attachments/assets/493005a1-11fb-411a-95b7-a68c0fc499e6)
 
-Mapa nawigacyjna
-
-![LocationManager drawio (1)](https://github.com/user-attachments/assets/df4bf010-c895-4477-b0dd-ff7549ed3de8)
-
-### Jako Contract Manager chciałbym mieć możliwość wysłania do edycji wersji roboczej umowy do wcześniej zweryfikowanego klienta.
-### Jako Contract Manager chciałbym mieć możliwość akceptacji oraz proponowania zmian w umowie udostępnionej klientowi.
-### Jako Contract Manager chciałbym mieć możliwość akceptacji oraz odrzucenia umowy z potencjalnym klientem.
-
-![Draft version of the contract](https://github.com/user-attachments/assets/73e4bcdc-0935-4bcd-b40d-6e4671b2acb7)
+### Contract Manager
 
 Mapa nawigacyjna
+![ContractManager drawio](https://github.com/user-attachments/assets/2a583893-09f0-41df-bdb8-834927111509)
 
-![ContractManager drawio](https://github.com/user-attachments/assets/269610bd-4fd5-4c98-8183-7bb0e956989d)
+- Jako Contract Manager chciałbym mieć możliwość wysłania do edycji wersji roboczej umowy do wcześniej zweryfikowanego klienta.
+- Jako Contract Manager chciałbym mieć możliwość akceptacji oraz proponowania zmian w umowie udostępnionej klientowi.
+- Jako Contract Manager chciałbym mieć możliwość akceptacji oraz odrzucenia umowy z potencjalnym klientem.
 
-### Jako Finance Manager chciałbym mieć podgląd do klientów, którzy nie uregulowali faktury na czas.
-### Jako Finance Manager chciałbym wysłać fakturę do klienta zgodną z rzeczywistym wykorzystaniem przez niego zasobów w danym okresie rozliczeniowym.
+Widok draftu umowy
+![Draft version of the contract (1)](https://github.com/user-attachments/assets/5622bd87-e000-4b5f-9da1-435242701edb)
+Podgląd draftu umowy
+![Preview of draft](https://github.com/user-attachments/assets/45552738-fce3-4eed-9d2e-aa0220e1b375)
 
+### Finance Manager
+
+Mapa nawigacyjna
+![FinanseManager drawio](https://github.com/user-attachments/assets/5a83b23d-07a4-4b19-9c6a-f2b7bdfca37a)
+
+- Jako Finance Manager chciałbym mieć podgląd do klientów, którzy nie uregulowali faktury na czas.
+- Jako Finance Manager chciałbym wysłać fakturę do klienta zgodną z rzeczywistym wykorzystaniem przez niego zasobów w danym okresie rozliczeniowym.
+
+Widok listy klientów
 ![List of clients](https://github.com/user-attachments/assets/69bd9e3f-421a-42d1-b38a-ca542ea38652)
 
-### Jako Finance Manager chciałbym mieć podgląd do wszystkich wystawionych faktur.
+- Jako Finance Manager chciałbym mieć podgląd do wszystkich wystawionych faktur.
 
+Lista wszystkich faktur
 ![List of invoices](https://github.com/user-attachments/assets/3f7e45e6-4005-4bf0-b4c6-a99c930423b4)
 
-### Jako Finance Manager chciałbym mieć podgląd do cenników, według których naliczane są opłaty w danej lokacji dla danych klientów.
+- Jako Finance Manager chciałbym mieć podgląd do cenników, według których naliczane są opłaty w danej lokacji dla danych klientów.
 
+Widok podglądu cenników
 ![Costs preview](https://github.com/user-attachments/assets/80f0786f-dcf6-430b-98d3-8e7be0559eac)
 
-### Jako Finance Manager chciałbym mieć wgląd do wszystkich zawartych umów.
+- Jako Finance Manager chciałbym mieć wgląd do wszystkich zawartych umów.
 
+Widok wszystkich zawartych umów
 ![List od contracts](https://github.com/user-attachments/assets/ad18204d-1cbd-42a4-9cf5-bbbd4f0241c3)
 
+### Booking Manager
+
 Mapa nawigacyjna
+![BookingManager drawio](https://github.com/user-attachments/assets/99d9888c-a1be-4a00-98fd-3fdf9efab71b)
 
-![FinanseManager drawio](https://github.com/user-attachments/assets/d05a599d-7e86-4b6e-b64b-7555cf224cdf)
+- Jako Booking Manager chciałbym przesuwać dowolnych klientów w kolejce na oczekiwany zasób.
 
-### Jako Booking Manager chciałbym przesuwać dowolnych klientów w kolejce na oczekiwany zasób.
+Widok kolejki na zasób
+![Queue for resource](https://github.com/user-attachments/assets/9d8cdc18-dc35-4af5-924f-2df942fc4e9c)
 
-![Queue for resource](https://github.com/user-attachments/assets/0b829526-53ea-498e-ba7f-fda2104d3b8a)
+- Jako Booking Manager chciałbym mieć podgląd do obłożenia rezerwacjami w danej lokacji (ile aktualnie jest zarezerwowanych zasobów przez kogo i na jak długo).
 
-### Jako Booking Manager chciałbym mieć podgląd do obłożenia rezerwacjami w danej lokacji (ile aktualnie jest zarezerwowanych zasobów przez kogo i na jak długo).
+Lista zarezerwowanych zasobów
+![List of bookings](https://github.com/user-attachments/assets/c6bfb0ec-f897-416c-adfc-a7de35cd08ec)
 
-![List of booked resources](https://github.com/user-attachments/assets/76414cf6-28b7-4315-bcc1-c669bdc69155)
+- Jako Booking Manager chciałbym mieć możliwość przeniesienia rezerwacji klienta na tożsamy zasób.
+- Jako Booking Manager chciałbym mieć możliwość dodania/usunięcia z puli zasobów klienta biznesowego.
 
-### Jako Booking Manager chciałbym mieć możliwość przeniesienia rezerwacji klienta na tożsamy zasób.
-### Jako Booking Manager chciałbym mieć możliwość dodania/usunięcia z puli zasobów klienta biznesowego.
-
+Widok listy klientów biznesowych
 ![List of business clients (1)](https://github.com/user-attachments/assets/fe9dcefa-363c-46be-a165-5df038bce244)
+Widok listy rezerwacji klienta
 ![List of resources for client (1)](https://github.com/user-attachments/assets/ce63f4b1-3263-440c-9bc0-21ad60040a12)
+Dialog dodawania zasobu dla klienta
 ![Add resource for client dialog](https://github.com/user-attachments/assets/a2cb6c37-ef56-44ed-b111-8d8ecb2eb283)
 
-### Jako Booking Manager mogę rozwiązać kolejkę oczekującą na zasób.
+- Jako Booking Manager mogę rozwiązać kolejkę oczekującą na zasób.
 
-![List of queued resources](https://github.com/user-attachments/assets/1d217779-a866-41de-9dcd-ed4631df88f6)
+Widok listy kolejek
+![List of queues](https://github.com/user-attachments/assets/926061fd-0181-4873-b429-4b004f247372)
 
-Mapa nawigacyjna
+### Klient biznesowy Deskly
 
-![BookingManager drawio](https://github.com/user-attachments/assets/698070d9-e2ed-4640-8e1e-7fd2011bcd0f)
-
-### Jako klient biznesowy Deskly chciałbym móc stworzyć konto nowemu pracownikowi i nadać mu uprawnienia do korzystania z zarezerwowanych zasobów.
+- Jako klient biznesowy Deskly chciałbym móc stworzyć konto nowemu pracownikowi i nadać mu uprawnienia do korzystania z zarezerwowanych zasobów.
 
 Mapa nawigacyjna
 
@@ -405,9 +434,8 @@ Nowy pracownik
 
 ![Nowy pracownik](./images/user-interfaces/employee-enrollment.png)
 
-
-### Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika, które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla pracowników.
-### Jako klient biznesowy Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
+- Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika, które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla pracowników.
+- Jako klient biznesowy Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
 
 Mapa nawigacyjna
 
