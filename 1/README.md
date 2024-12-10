@@ -85,7 +85,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
     3. Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika, które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla pracowników. 
     4. Jako klient biznesowy Deskly chciałbym móc stworzyć konto nowemu pracownikowi i nadać mu uprawnienia do korzystania z zarezerwowanych zasobów.
 5. Location Manager
-    1. Jako Location Manager chciałbym móc dodać lokację i zdefiniować zasoby w danej lokacji (rodzaj zasobu, zdjęcia, dane seryjne (w przyadku biurek oraz sprzętu audio-wideo), liczba miejsc (w przypadku sali konferencyjnej), opis).
+    1. Jako Location Manager chciałbym móc dodać lokację, zdefiniować cennik zasobów oraz zdefiniować zasoby w danej lokacji (rodzaj zasobu, zdjęcia, dane seryjne (w przyadku biurek oraz sprzętu audio-wideo), liczba miejsc (w przypadku sali konferencyjnej), opis).
     2. Jako Location Manager mogę zlecić konserwację zasobu.
     3. Jako Location Manager mogę wyłączyć dany zasób z użytkowania (nawet jeśli jest aktualnie zarezerwowany).
     4. Jako Location Manager chciałbym zdefiniować godziny otwarcia danej lokacji.
@@ -363,8 +363,10 @@ Mapa nawigacyjna
 - Jako Contract Manager chciałbym mieć możliwość akceptacji oraz proponowania zmian w umowie udostępnionej klientowi.
 - Jako Contract Manager chciałbym mieć możliwość akceptacji oraz odrzucenia umowy z potencjalnym klientem.
 
-Widok draftu umowy
-![Draft version of the contract (1)](https://github.com/user-attachments/assets/5622bd87-e000-4b5f-9da1-435242701edb)
+Widok draftu umowy - klient abonamentowy
+![Draft version of the contract (2)](https://github.com/user-attachments/assets/24843e42-2302-4e97-bb49-249cdaf28da6)
+Widok draftu umowy - klient biznesowy
+![Draft version of the contract - business client](https://github.com/user-attachments/assets/c7b3d4bb-3bae-453a-a980-294e08d8da44)
 Podgląd draftu umowy
 ![Preview of draft](https://github.com/user-attachments/assets/45552738-fce3-4eed-9d2e-aa0220e1b375)
 
@@ -375,12 +377,12 @@ Mapa nawigacyjna
 ![FinanseManager drawio](https://github.com/user-attachments/assets/5a83b23d-07a4-4b19-9c6a-f2b7bdfca37a)
 
 - Jako Finance Manager chciałbym mieć podgląd do klientów, którzy nie uregulowali faktury na czas.
-- Jako Finance Manager chciałbym wysłać fakturę do klienta zgodną z rzeczywistym wykorzystaniem przez niego zasobów w danym okresie rozliczeniowym.
 
 Widok listy klientów
-![List of clients](https://github.com/user-attachments/assets/69bd9e3f-421a-42d1-b38a-ca542ea38652)
+![List of clients](https://github.com/user-attachments/assets/79454072-523f-447d-873c-9c2397483fc4)
 
 - Jako Finance Manager chciałbym mieć podgląd do wszystkich wystawionych faktur.
+- Jako Finance Manager chciałbym wysłać fakturę do klienta zgodną z rzeczywistym wykorzystaniem przez niego zasobów w danym okresie rozliczeniowym.
 
 Lista wszystkich faktur
 ![List of invoices](https://github.com/user-attachments/assets/81490ed5-5c7d-45fa-9d9c-191b09cce150)
@@ -395,7 +397,7 @@ Widok podglądu cenników
 - Jako Finance Manager chciałbym mieć wgląd do wszystkich zawartych umów.
 
 Widok wszystkich zawartych umów
-![List od contracts](https://github.com/user-attachments/assets/ad18204d-1cbd-42a4-9cf5-bbbd4f0241c3)
+![List od contracts](https://github.com/user-attachments/assets/77252565-128e-470e-b845-1c4091f3cabb)
 
 ### Booking Manager
 
@@ -419,9 +421,9 @@ Lista zarezerwowanych zasobów
 Widok listy klientów biznesowych
 ![List of business clients (1)](https://github.com/user-attachments/assets/fe9dcefa-363c-46be-a165-5df038bce244)
 Widok listy rezerwacji klienta
-![List of resources for client (1)](https://github.com/user-attachments/assets/ce63f4b1-3263-440c-9bc0-21ad60040a12)
+![List of resources for client](https://github.com/user-attachments/assets/065ea2b9-df69-4e8d-b8e2-75614d96d688)
 Dialog dodawania zasobu dla klienta
-![Add resource for client dialog](https://github.com/user-attachments/assets/a2cb6c37-ef56-44ed-b111-8d8ecb2eb283)
+![Add resource for client dialog](https://github.com/user-attachments/assets/898fcd99-c41a-4f28-8d51-1dc42d332d30)
 
 - Jako Booking Manager mogę rozwiązać kolejkę oczekującą na zasób.
 
