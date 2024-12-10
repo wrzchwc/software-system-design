@@ -224,7 +224,7 @@ Strona logowania
 
 Ekran domowy
 
-![Ekran domowy](./images/user-interfaces/home-page.png)
+![Ekran domowy](./images/user-interfaces/home.png)
 
 Modal wylogowania
 
