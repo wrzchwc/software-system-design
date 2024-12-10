@@ -446,6 +446,10 @@ Nowy pracownik
 
 ![Nowy pracownik](./images/user-interfaces/employee-enrollment.png)
 
+Dostęp do zasobów
+
+![Dostęp do zasobów](./images/user-interfaces/resouce-access.png)
+
 - Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika, które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla pracowników.
 - Jako klient biznesowy Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
 
