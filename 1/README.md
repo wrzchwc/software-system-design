@@ -325,7 +325,7 @@ Mapa nawigacyjna
 - Jako Location Manager chciałbym zdefiniować godziny otwarcia danej lokacji.
 
 Dialog dodawania lokalizacji
-![Add location dialog](https://github.com/user-attachments/assets/2ad35499-2453-4a74-a25b-ca813a0400ae)
+![Add location dialog](https://github.com/user-attachments/assets/5d684195-6c07-4f69-9733-d148a84d0ced)
 Dialog dodawania hot deska
 ![Add hot desk dialog](https://github.com/user-attachments/assets/54832443-811b-4d73-a5cb-86fdeb10a563)
 Dialog dodawania sali konferencyjnej
@@ -349,7 +349,7 @@ Dialog zlecenia konserwacji
 - Jako Location Manager chiałbym mieć mozliwość aktualizacacji danych lokalizacji oraz dostępnych zasobów.
 
 Dialog modyfikacji lokalizacji
-![Edit location (2)](https://github.com/user-attachments/assets/9133f42e-5923-4cf0-a455-a0b437331768)
+![Edit location dialog](https://github.com/user-attachments/assets/0470bb29-272e-4095-9d72-05dabb03e8b3)
 Widok listy zasobów lokalizacji
 ![Resources in location](https://github.com/user-attachments/assets/493005a1-11fb-411a-95b7-a68c0fc499e6)
 
