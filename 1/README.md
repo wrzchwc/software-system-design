@@ -222,9 +222,13 @@ Strona logowania
 
 ![Strona logowania](./images/user-interfaces/sign-in-page.png)
 
-Ekran domowy (szablon)
+Ekran domowy
 
-![Ekran domowy](./images/user-interfaces/sign-out.png)
+![Ekran domowy](./images/user-interfaces/home-page.png)
+
+Modal wylogowania
+
+![Modal wylogowania](./images/user-interfaces/sign-out.png)
 
 - Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
 
