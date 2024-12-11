@@ -208,6 +208,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 ## Prototypy interfejsów użytkownika
 
 ### Klient Deskly
+
 - Jako klient Deskly chciałbym mieć możliwość zalogować się do/wylogować się ze swojego konta użytkownika.
 
 Mapa nawigacyjna
@@ -230,35 +231,11 @@ Modal wylogowania
 
 ![Modal wylogowania](./images/user-interfaces/sign-out.png)
 
-- Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
-
-Mapa nawigacyjna
-
-![Register](./images/navigation-maps/register.png)
-
-Panel rejestracji
-![Panel rejestracji](./images/user-interfaces/sign-up-page.png)
-
 - Jako klient Deskly po rezerwacji zasobu chciałbym otrzymać na maila kod QR umożliwiający otwarcie drzwi wejściowych do danej lokacji 24 godziny przed rozpoczęciem rezerwacji.
 
 Przykład wiadomości e-mail
 
 ![E-mail kod QR](./images/user-interfaces/email-qr.png)
-
-- Jako klient stały chciałbym zostać poinformowany mailowo o zbliżającym się końcu umowy.
-- Jako klient stały chciałbym otrzymać propozycję automatycznego przedłużenia umowy wraz ze szczegółami o aktualnym cenniku.
-
-Mapa nawigacyjna
-
-![Przedłuzenie kontraktu](./images/navigation-maps/contract-extension.png)
-
-Przykład wiadomości e-mail
-
-![E-mail koniec umowy](./images/user-interfaces/contract-end-email.png)
-
-Ekran przedłuzenia umowy
-
-![Ekran przedłuzenia umowy](./images/user-interfaces/contract-extension.png)
 
 - Jako klient Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
 - Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika.
@@ -308,6 +285,34 @@ Przykład wiadomości e-mail
 Alternatywa rezerwacja
 
 ![Alternatywna rezerwacja](./images/user-interfaces/alternate-booking.png)
+
+### Potencjalny klient
+
+- Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
+
+Mapa nawigacyjna
+
+![Register](./images/navigation-maps/register.png)
+
+Panel rejestracji
+![Panel rejestracji](./images/user-interfaces/sign-up-page.png)
+
+### Klient stały
+
+- Jako klient stały chciałbym zostać poinformowany mailowo o zbliżającym się końcu umowy.
+- Jako klient stały chciałbym otrzymać propozycję automatycznego przedłużenia umowy wraz ze szczegółami o aktualnym cenniku.
+
+Mapa nawigacyjna
+
+![Przedłuzenie kontraktu](./images/navigation-maps/contract-extension.png)
+
+Przykład wiadomości e-mail
+
+![E-mail koniec umowy](./images/user-interfaces/contract-end-email.png)
+
+Ekran przedłuzenia umowy
+
+![Ekran przedłuzenia umowy](./images/user-interfaces/contract-extension.png)
 
 ### Location Manager
 
