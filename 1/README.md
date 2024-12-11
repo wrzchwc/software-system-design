@@ -262,10 +262,14 @@ Ekran przedłuzenia umowy
 
 - Jako klient Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
 - Jako klient Deskly chciałbym mieć podgląd kodu QR do otwarcia drzwi z poziomu konta użytkownika.
+- Jako klient Deskly chciałbym mieć możliwość rezerwacji zasobu w dowolnie wybranej lokacji.
+- Jako klient Deskly chciałbym podczas rezerwacji biurka lub sali konferencyjnej być w stanie wybrać interesujący mnie zasób korzystając ze schematu topologii lokacji.
+- Jako klient Deskly chciałbym zapisać się na listę oczekujących na zasób w danym terminie (jeśli jest już zarezerwowany przez kogoś innego), gdy czas do rozpoczęcia rezerwacji jest dłuży niż 24 godziny.
+- Jako klient Deskly chciałbym móc wypisać się z kolejki oczekujących na dany zasób w dowolnym momencie.
 
 Mapa nawigacyjna
 
-![Rezerwacje](./images/navigation-maps/deskly-client.png)
+![Klient Deskly](./images/navigation-maps/deskly-client.png)
 
 Lista rezerwacji
 
@@ -275,10 +279,6 @@ Podgląd rezerwacji
 
 ![Podgląd rezerwacji](./images/user-interfaces/booking-details.png)
 
-- Jako klient Deskly chciałbym mieć możliwość rezerwacji zasobu w dowolnie wybranej lokacji.
-- Jako klient Deskly chciałbym podczas rezerwacji biurka lub sali konferencyjnej być w stanie wybrać interesujący mnie zasób korzystając ze schematu topologii lokacji.
-- Jako klient Deskly chciałbym zapisać się na listę oczekujących na zasób w danym terminie (jeśli jest już zarezerwowany przez kogoś innego), gdy czas do rozpoczęcia rezerwacji jest dłuży niż 24 godziny.
-
 Strona rezerwacji
 
 ![Strona rezerwacji zasobu](./images/user-interfaces/booking-page.png)
@@ -286,8 +286,6 @@ Strona rezerwacji
 Modal kolejkowania się
 
 ![Modal kolejkowwania się](./images/user-interfaces/enqueue-modal.png)
-
-- Jako klient Deskly chciałbym móc wypisać się z kolejki oczekujących na dany zasób w dowolnym momencie.
 
 Kolejki na zasoby
 
