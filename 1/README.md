@@ -432,10 +432,12 @@ Widok listy kolejek
 ### Klient biznesowy Deskly
 
 - Jako klient biznesowy Deskly chciałbym móc stworzyć konto nowemu pracownikowi i nadać mu uprawnienia do korzystania z zarezerwowanych zasobów.
+- Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika, które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla pracowników.
+- Jako klient biznesowy Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
 
 Mapa nawigacyjna
 
-![Pracownicy](./images/navigation-maps/employees.png)
+![Klient biznesowy](./images/navigation-maps/bussiness-client.png)
 
 Wszyscy pracownicy
 
@@ -448,13 +450,6 @@ Nowy pracownik
 Dostęp do zasobów
 
 ![Dostęp do zasobów](./images/user-interfaces/resouce-access.png)
-
-- Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika, które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla pracowników.
-- Jako klient biznesowy Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.
-
-Mapa nawigacyjna
-
-![Zasoby firmowe](./images/navigation-maps/enterprise-resources.png)
 
 Zarezerwowane zasoby
 
