@@ -265,7 +265,7 @@ Ekran przedłuzenia umowy
 
 Mapa nawigacyjna
 
-![Rezerwacje](./images/navigation-maps/bookings.png)
+![Rezerwacje](./images/navigation-maps/deskly-client.png)
 
 Lista rezerwacji
 
@@ -279,10 +279,6 @@ Podgląd rezerwacji
 - Jako klient Deskly chciałbym podczas rezerwacji biurka lub sali konferencyjnej być w stanie wybrać interesujący mnie zasób korzystając ze schematu topologii lokacji.
 - Jako klient Deskly chciałbym zapisać się na listę oczekujących na zasób w danym terminie (jeśli jest już zarezerwowany przez kogoś innego), gdy czas do rozpoczęcia rezerwacji jest dłuży niż 24 godziny.
 
-Mapa nawigacyjna
-
-![Rezewacja zasobu](./images/navigation-maps/booking.png)
-
 Strona rezerwacji
 
 ![Strona rezerwacji zasobu](./images/user-interfaces/booking-page.png)
@@ -292,10 +288,6 @@ Modal kolejkowania się
 ![Modal kolejkowwania się](./images/user-interfaces/enqueue-modal.png)
 
 - Jako klient Deskly chciałbym móc wypisać się z kolejki oczekujących na dany zasób w dowolnym momencie.
-
-Mapa nawigacyjna
-
-![Kolejki na zasoby](./images/navigation-maps/queues.png)
 
 Kolejki na zasoby
 
