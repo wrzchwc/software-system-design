@@ -8,8 +8,6 @@
 
 ## Cel i organizacja
 
-## Decyzje i ich uzasadnienie
-
 ## Mechanizmy architektoniczne
 
 ## Widoki architekotniczne
