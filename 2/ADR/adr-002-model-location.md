@@ -1,21 +1,35 @@
 # Architecture Decision Record: Model Location
 
 ## Kontekst
-Opis sytuacji lub problemu który wymaga decyzji. 
-
-Przykład:
-The system needs to expose functionality to third-party applications. Various integration patterns were evaluated to determine the most scalable and secure approach.
+System potrzebuje modelu który będzie słuzył jako źródło prawdy na temat szczegółów odnośnie lokacji i zasobów którymi dysponuje klient. Ponadto model powinien efektywnie realizować wymgania funkcjonalne dotyczące: 
+- Tworzenia/Modyfikacji/Archiwizacji lokacji
+- Tworzenia/Modyfikacji/Archiwizacji zasobu
+- Przypisywani zasobu do lokacji
+- Wypisywania zasobu z lokacji
 
 ## Decyzja
+- Metadane dotyczące zasobów oraz lokacji powinny być razem odczytywane, modyfikowane i zapisywane.
+- Inforamcje dotyczące relacji pomiędzy zasobami i lokacjami powinny być razem odczytywane, modyfikowane i zapisywane.
+- Informacje dotyczące godzin otwarcia powinny być razem odczytywane modyfikowane i zapisywane.
 
-Przykład:
-We will implement a REST API using JSON as the data format, secured with OAuth 2.0 for authentication.
+### Uzasadnienie
+- Klasa problemu
+  - CRUD
 
-### Przesłanki
-Wyjaśnij dlaczego podjąłęś taką decyzję
+- Akcje wpływające na inne komponenety systemu
+  - Przypisanie zasobu do lokacji
+  - Wypisanie zasobu z lokacji
+  - Modyfikacja godzin otwarcia lokacji
+  - Archiwizacja lokacji (wiąże sie z wypisaniem zasobu z lokacji)
+  - Archiwiazcja zasobu (wiąże sie z wypisaniem zasobu z lokacji)
 
-Przykład: 
-REST was chosen for its simplicity, wide adoption, and compatibility with existing client libraries. SOAP was rejected due to higher complexity and lack of alignment with team expertise.
+- Akcje nie wpływające na inne komponenety systemu
+  - Stworzenie nowego zasobu
+  - Stworzenie nowej lokacji
+  - Modyfikacja metadanych zasobu: nazwa, zdjęcia, typ, atrybuty
+  - Modyfikacja metadanych lokacji: nazwa, opis, zdjęcia, email, adres, numer telefonu
+
+Operacje tworzenia lokacji i zasobów oraz ich modyfikacji nie wpływają na inne elementy systemu (są stabilne) wiąc powinny zmieniać się i być odczytywane razem. Przypisanie/wypisanie zasobu do/z lokacji powoduje przeliczenie dostęności zasobu, stąd te dane muszą zmieniać się oddzielnie od metadanych ponieważ w przeciwnym razie każda zmiana metadanych wiązała by się z potancjalną zmianą w innych miejscach systemu na które mają wpływ operacje przypisania i wypisania. Podobnie jest z modyfikajcą/zdefiniowaniem godzin otwarcia lokacji. Dane te również muszą zmieniać się oddzielnie ponieważ również wpływaja na przeliczenie dostępności zasobu.
 
 ## Status
 
@@ -24,20 +38,19 @@ Zaakceptowane
 ## Konsekwencje
 
 ### Pozytywne
-### Negatywne
+- Separacja operacji stabilnych od niestabilnych.
+- Operacje tworzenia i modyfikowania metadanych dla zasobów i lokacji nie wpływają na resztę systemu.
+- Informawanie innych komponentów systemu jedynie o fakcie przypisania/wypisania zasobu do/z lokacji oraz zmianach godzin otwarcia.
+- Szybsze odczyty i zapisy przy operacjach na metadanch.
 
-Przykład: 
-Positive: Broad compatibility with modern tools and clients.
-Negative: Increased effort to handle non-standard client requirements manually.
+### Negatywne
+- Większa złożoność systemu
 
 ## Referencje
 
-Include links or citations to supporting materials:
-- Research papers
-- Meeting notes
-- Alternatives comparison
-- Standards or guidelines
+- [Mapa kontekstów](https://github.com/wrzchwc/software-system-design/blob/main/1/README.md#mapa-kontekst%C3%B3w)
+
 
 ## Data
 
-`` 15/12/2024``
+``15/12/2024``
