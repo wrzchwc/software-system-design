@@ -1,7 +1,7 @@
 # Architecture Decision Record: Model Location
 
 ## Kontekst
-System potrzebuje modelu który będzie słuzył jako źródło prawdy na temat szczegółów odnośnie lokacji i zasobów którymi dysponuje klient. Ponadto model powinien efektywnie realizować wymgania funkcjonalne dotyczące: 
+System potrzebuje modelu który będzie służył jako źródło prawdy na temat szczegółów odnośnie lokacji i zasobów którymi dysponuje klient. Ponadto model powinien efektywnie realizować wymgania funkcjonalne dotyczące: 
 - Tworzenia/Modyfikacji/Archiwizacji lokacji
 - Tworzenia/Modyfikacji/Archiwizacji zasobu
 - Przypisywani zasobu do lokacji
@@ -13,6 +13,9 @@ System potrzebuje modelu który będzie słuzył jako źródło prawdy na temat 
 - Informacje dotyczące godzin otwarcia powinny być razem odczytywane modyfikowane i zapisywane.
 
 ### Uzasadnienie
+- Typ modelu
+  - Product
+
 - Klasa problemu
   - CRUD
 
@@ -38,7 +41,7 @@ Zaakceptowane
 ## Konsekwencje
 
 ### Pozytywne
-- Separacja operacji stabilnych od niestabilnych.
+- Odseparowanie operacji stabilnych od niestabilnych.
 - Operacje tworzenia i modyfikowania metadanych dla zasobów i lokacji nie wpływają na resztę systemu.
 - Informawanie innych komponentów systemu jedynie o fakcie przypisania/wypisania zasobu do/z lokacji oraz zmianach godzin otwarcia.
 - Szybsze odczyty i zapisy przy operacjach na metadanch.
