@@ -1,10 +1,8 @@
 # Architecture Decision Record: Model Resource Access Control
 
 ## Kontekst
-Opis sytuacji lub problemu który wymaga decyzji. 
 
-Przykład:
-The system needs to expose functionality to third-party applications. Various integration patterns were evaluated to determine the most scalable and secure approach.
+System pojedyńczego źródła prawdy zawierającego informację na temat uprawnień do zasobów. 
 
 ## Decyzja
 
