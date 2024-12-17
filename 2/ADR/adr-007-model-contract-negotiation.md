@@ -1,21 +1,21 @@
 # Architecture Decision Record: Model Contract Negotiations
 
 ## Kontekst
-Opis sytuacji lub problemu który wymaga decyzji. 
-
-Przykład:
-The system needs to expose functionality to third-party applications. Various integration patterns were evaluated to determine the most scalable and secure approach.
+System musi realizować wymagania biznesowe związane z negocjowaniem kontraktu z klientami biznesowymi.
 
 ## Decyzja
 
-Przykład:
-We will implement a REST API using JSON as the data format, secured with OAuth 2.0 for authentication.
+Logika związana z negocjacjami kontraktu będzie realizowana przez osobny model.
 
 ### Uzasadnienie
-Wyjaśnij dlaczego podjąłęś taką decyzję
 
-Przykład: 
-REST was chosen for its simplicity, wide adoption, and compatibility with existing client libraries. SOAP was rejected due to higher complexity and lack of alignment with team expertise.
+Typ
+- Product
+
+Klasa problemu:
+- Konkurencja o zasoby
+
+W wyniku event stormingu zauważono że negocjacja kontraktu potrzbuje osobnego modelu niż ten do zarządzania dokumentami. Pomimo tego że jest to dokument którego pola podlegają negocjacji to operacje które przez to można na nim wykonywać są zupełnie inne niż w przypadku tworzenia draftów umowy. Ponadto wymagana jest przy tym spójność na poziomie transakcyjnym ponieważ negocjowana umowa może być modyfikowana przez wiele osób jednocześnie i wiąże się z blokowaniem zasobów na czas negocjacji.
 
 ## Status
 
@@ -24,19 +24,17 @@ Zaakceptowane
 ## Konsekwencje
 
 ### Pozytywne
-### Negatywne
+- Brak splątania klas problemów
+- Separacja odpowiedzialności
+- Elastyczność i łatwość zmian
 
-Przykład: 
-Positive: Broad compatibility with modern tools and clients.
-Negative: Increased effort to handle non-standard client requirements manually.
+### Negatywne
+- Wymaga dobrego zrozumienia wielowątkowości i problemów związanych z konkurencją o zasoby
+
 
 ## Referencje
 
-Include links or citations to supporting materials:
-- Research papers
-- Meeting notes
-- Alternatives comparison
-- Standards or guidelines
+- [Mapa kontekstów](https://github.com/wrzchwc/software-system-design/blob/main/1/README.md#mapa-kontekst%C3%B3w)
 
 ## Data
 
