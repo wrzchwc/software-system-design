@@ -2,18 +2,24 @@
 
 ## Kontekst
 
-System pojedyńczego źródła prawdy zawierającego informację na temat uprawnień do zasobów. 
+System pojedyńczego źródła prawdy zawierającego informację na temat uprawnień do zasobów ze względu na wymagania dotyczące nadawania, odbierania uprawnień:
+- Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika, które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla pracowników.
+- Klienci którzy nie uregulowali opłaty po 7 dniach od wystawienia faktury, tracą dostęp do zasobów Deskly i rozpoczyna się naliczanie odsetek od niezapłaconej faktury.
 
 ## Decyzja
 
-Przykład:
-We will implement a REST API using JSON as the data format, secured with OAuth 2.0 for authentication.
+Logika związana z zarządzaniem uprawniniamu do zasobów będzie realizowana przez oddzielny model. 
 
 ### Uzasadnienie
-Wyjaśnij dlaczego podjąłęś taką decyzję
 
-Przykład: 
-REST was chosen for its simplicity, wide adoption, and compatibility with existing client libraries. SOAP was rejected due to higher complexity and lack of alignment with team expertise.
+Typ modelu
+- Product
+
+Klasa problemu
+- CRUD
+
+
+W wyniku analizy event stormingowej zauważono że logika związana z dostępem do zasobów jest wykorzystywana przez wiele procesów biznesowych. Tym samym podjęto decyzję o enkapsulacji tej logiki w oddzielnym modelu.
 
 ## Status
 
@@ -22,19 +28,18 @@ Zaakceptowane
 ## Konsekwencje
 
 ### Pozytywne
-### Negatywne
+- Niski coupling na poziomie modułowym, 
+- Hermetyzacja logiki i pojedyńcze źródło prawdy na temat uprawnień użytkowników do zasobów (Sepracja odpowiedzialności)
+- Większa elastyczność i ponowne użycie
+- Testowalność
 
-Przykład: 
-Positive: Broad compatibility with modern tools and clients.
-Negative: Increased effort to handle non-standard client requirements manually.
+### Negatywne
+- Dodatkowa złożoność
+- Musi być wydajna nawet przy dużym obciążeniu  (overhead implementacyjny)
 
 ## Referencje
 
-Include links or citations to supporting materials:
-- Research papers
-- Meeting notes
-- Alternatives comparison
-- Standards or guidelines
+- [Mapa kontekstów](https://github.com/wrzchwc/software-system-design/blob/main/1/README.md#mapa-kontekst%C3%B3w)
 
 ## Data
 

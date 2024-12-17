@@ -33,7 +33,7 @@ Zaakceptowane
 
 
 ## Referencje
-- Mapa kontekstów
+- [Mapa kontekstów](https://github.com/wrzchwc/software-system-design/blob/main/1/README.md#mapa-kontekst%C3%B3w)
 
 ## Data
 

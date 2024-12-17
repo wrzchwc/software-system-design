@@ -32,11 +32,7 @@ Negative: Increased effort to handle non-standard client requirements manually.
 
 ## Referencje
 
-Include links or citations to supporting materials:
-- Research papers
-- Meeting notes
-- Alternatives comparison
-- Standards or guidelines
+- [Mapa kontekstów](https://github.com/wrzchwc/software-system-design/blob/main/1/README.md#mapa-kontekst%C3%B3w)
 
 ## Data
 

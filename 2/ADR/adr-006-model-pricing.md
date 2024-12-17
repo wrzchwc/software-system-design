@@ -1,21 +1,23 @@
 # Architecture Decision Record: Model Pricing
 
 ## Kontekst
-Opis sytuacji lub problemu który wymaga decyzji. 
 
-Przykład:
-The system needs to expose functionality to third-party applications. Various integration patterns were evaluated to determine the most scalable and secure approach.
+System potrzebuje modelu który będzie źródłem prawdy na temat aktualnych cen, cenników w lokacjach, ceny wynajmu zasobu dla konkretnego klienta.
 
 ## Decyzja
 
-Przykład:
-We will implement a REST API using JSON as the data format, secured with OAuth 2.0 for authentication.
+Logika dotycząca cen będzie realizowana przez osobny model.
+
 
 ### Uzasadnienie
-Wyjaśnij dlaczego podjąłęś taką decyzję
 
-Przykład: 
-REST was chosen for its simplicity, wide adoption, and compatibility with existing client libraries. SOAP was rejected due to higher complexity and lack of alignment with team expertise.
+W przyszłości logika modelu może znacząco się rozszerzyć stąd powinna być enkapsulowana w jednym miejscu. Model ten poimo aktualnych wymagań związanych jedynie z dodawaniem  i modyfikowaniem cennników, będzie przygotowany na wymgania które mogą pojawić się w przyszłości np. obsługa rabatów. 
+
+Typ modelu:
+- Product
+
+Klasa problemu
+- CRUD
 
 ## Status
 
@@ -24,19 +26,17 @@ Zaakceptowane
 ## Konsekwencje
 
 ### Pozytywne
-### Negatywne
+- Separacja odpowiedzialności
+- Elastyczność i łatwość zmian
+- Reużywalność
+- Ograniczone zażądzanie złożonością
 
-Przykład: 
-Positive: Broad compatibility with modern tools and clients.
-Negative: Increased effort to handle non-standard client requirements manually.
+### Negatywne
+- Logika modelu może być złożona i wymagać wiedzy z zakresu finansów
 
 ## Referencje
 
-Include links or citations to supporting materials:
-- Research papers
-- Meeting notes
-- Alternatives comparison
-- Standards or guidelines
+- [Mapa kontekstów](https://github.com/wrzchwc/software-system-design/blob/main/1/README.md#mapa-kontekst%C3%B3w)
 
 ## Data
 
