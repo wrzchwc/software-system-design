@@ -11,7 +11,7 @@ Logika dotycząca cen będzie realizowana przez osobny model.
 
 ### Uzasadnienie
 
-W przyszłości logika modelu może znacząco się rozszerzyć stąd powinna być enkapsulowana w jednym miejscu. Model ten poimo aktualnych wymagań związanych jedynie z dodawaniem  i modyfikowaniem cennników, będzie przygotowany na wymgania które mogą pojawić się w przyszłości np. obsługa rabatów. 
+W przyszłości logika modelu może znacząco się rozszerzyć stąd powinna być enkapsulowana w jednym miejscu. Model ten pomimo aktualnych wymagań związanych jedynie z dodawaniem  i modyfikowaniem cennników, będzie przygotowany na wymagania które mogą pojawić się w przyszłości np. obsługa rabatów. 
 
 Typ modelu:
 - Product
