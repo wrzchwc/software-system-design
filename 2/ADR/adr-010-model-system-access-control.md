@@ -10,7 +10,7 @@ Model będzie realizowany poprzez integrację z AWS Cognito.
 ### Uzasadnienie
 
 Typ:
-- Product
+- Capability
 
 Klasa Problemu:
 - Integracja
