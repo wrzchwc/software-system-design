@@ -1,21 +1,21 @@
 # Architecture Decision Record: Model System Access Control
 
 ## Kontekst
-Opis sytuacji lub problemu który wymaga decyzji. 
-
-Przykład:
-The system needs to expose functionality to third-party applications. Various integration patterns were evaluated to determine the most scalable and secure approach.
+System wymaga modelu który będzie realizował wymagania związane z uwierzytelnianie użytkowników i zarządzaniem ich kontami. 
 
 ## Decyzja
 
-Przykład:
-We will implement a REST API using JSON as the data format, secured with OAuth 2.0 for authentication.
+Model będzie realizowany poprzez integrację z AWS Cognito.
 
 ### Uzasadnienie
-Wyjaśnij dlaczego podjąłęś taką decyzję
 
-Przykład: 
-REST was chosen for its simplicity, wide adoption, and compatibility with existing client libraries. SOAP was rejected due to higher complexity and lack of alignment with team expertise.
+Typ:
+- Product
+
+Klasa Problemu:
+- CRUD
+
+Wybrano integracje z gotowym rozwiązaniem ze względu na mniejsze koszta implementacji. AWS Congito w pełni spełnia wymagania takie jak uwierzytelnianie użytkowników, tworzenie/modyfikowanie/usuwanie kont użytkowników, 2FA, weryfikację konta poprzez email. Rozpatrywano wykorzystanie Spring Security do tych wymagań natomiast implementacja tego okazałaby się droższa pod kątem czasowym. Spring Security dalej będzie wykorzystywane w systemie, ale jedynie do autoryzacji oparacji wykonywanych przez uwierzytelnionych już użytkowników.
 
 ## Status
 
@@ -24,11 +24,12 @@ Zaakceptowane
 ## Konsekwencje
 
 ### Pozytywne
-### Negatywne
+- wykorzystanie gotowego rozwiązania z rynku
+- wysoka konfigurowalność narzędzia
+- mniejsze koszta
 
-Przykład: 
-Positive: Broad compatibility with modern tools and clients.
-Negative: Increased effort to handle non-standard client requirements manually.
+### Negatywne
+- uzależnienie się od dostawcy usług (vendor lock-in)
 
 ## Referencje
 
