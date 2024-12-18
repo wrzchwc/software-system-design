@@ -32,12 +32,9 @@ Zaakceptowane
 - uzależnienie się od dostawcy usług (vendor lock-in)
 
 ## Referencje
+- [Mapa kontekstów](https://github.com/wrzchwc/software-system-design/blob/main/1/README.md#mapa-kontekst%C3%B3w)
+- [AWS Cognito Documentation](https://aws.amazon.com/cognito/)
 
-Include links or citations to supporting materials:
-- Research papers
-- Meeting notes
-- Alternatives comparison
-- Standards or guidelines
 
 ## Data
 
