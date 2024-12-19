@@ -20,6 +20,9 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 
 ### Interfejsy integracyjne
 
+| Status | Planowany |
+||Aplikacja źródłowa | Aplikacja docelowa|
+
 ## Widok funkcyjny (C4 Component)
 
 ## Widok rozmieszczenia (Architekrura Wdrożeniowa)
