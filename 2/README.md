@@ -20,8 +20,9 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 
 ### Interfejsy integracyjne
 
-| Status | Planowany |
 ||Aplikacja źródłowa | Aplikacja docelowa|
+|--------|-----------|-------------------|
+|Nazwa aplikacji| Deskly FE | Deskly Location|
 
 ## Widok funkcyjny (C4 Component)
 
