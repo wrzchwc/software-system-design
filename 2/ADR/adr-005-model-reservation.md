@@ -5,7 +5,7 @@ System wymaga modelu który będzie zajmował się obsługą logiki związanej
 
 ## Decyzja
 
-- Model rezerwacji zasobów będzie wykorzystywał Event Sourcing w celu zapewnienia audytu zmian stanu rezerwacji.
+- Model będzie wykorzystywał Event Sourcing w celu zapewnienia audytu zmian stanu rezerwacji.
 - W celu oddzielenia operacji modyfikujących stan od operacji odczytu zostanie wykorzystane podejście CQRS (Command-Query Responsibility Segregation)
 
 ### Uzasadnienie
