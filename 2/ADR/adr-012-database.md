@@ -2,7 +2,7 @@
 
 ## Kontekst
 
-Projekt wymaga bazy danych, która zapewni wysoką wydajność, niezawodność, zgodność z ACID, a także możliwość skalowania w przyszłości. Wybór odpowiedniego systemu zarządzania bazą danych (DBMS) jest kluczowy dla długoterminowego sukcesu projektu, uwzględniając zarówno aktualne potrzeby, jak i potencjalne przyszłe wymagania.
+System wymaga bazy danych, która zapewni wysoką wydajność, niezawodność, zgodność z ACID, a także możliwość skalowania w przyszłości. Wybór odpowiedniego systemu zarządzania bazą danych (DBMS) jest kluczowy dla długoterminowego sukcesu projektu, uwzględniając zarówno aktualne potrzeby, jak i potencjalne przyszłe wymagania.
 
 ## Decyzja
 

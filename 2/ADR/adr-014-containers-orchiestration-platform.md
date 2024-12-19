@@ -1,21 +1,20 @@
 # Architecture Decision Record: Wybór platformy do orchiestracji kontenerów
 
 ## Kontekst
-Opis sytuacji lub problemu który wymaga decyzji. 
-
-Przykład:
-The system needs to expose functionality to third-party applications. Various integration patterns were evaluated to determine the most scalable and secure approach.
+System wymaga zarządzania kontenerami w sposób skalowalny, elastyczny i niezawodny. Aplikacją, która musi działać w środowisku rozproszonym z możliwością dynamicznego skalowania zasobów w odpowiedzi na zmieniające się obciążenie. Zależy nam na automatyzacji procesów wdrażania, monitorowania i utrzymywania aplikacji.
 
 ## Decyzja
 
-Przykład:
-We will implement a REST API using JSON as the data format, secured with OAuth 2.0 for authentication.
+Wybieramy Amazon Elastic Kubernetes Service (EKS) jako platformę do zarządzania kontenerami.
+
 
 ### Uzasadnienie
-Wyjaśnij dlaczego podjąłęś taką decyzję
 
-Przykład: 
-REST was chosen for its simplicity, wide adoption, and compatibility with existing client libraries. SOAP was rejected due to higher complexity and lack of alignment with team expertise.
+- Eliminuje konieczność samodzielnego zarządzania klastrem Kubernetes, co zmniejsza obciążenie operacyjne.
+- Integruje się z innymi usługami AWS, takimi jak IAM (zarządzanie tożsamościami), CloudWatch (monitorowanie), ALB/ELB (load balancing) czy EBS (dyski).
+- AWS oferuje zaawansowane mechanizmy bezpieczeństwa, w tym izolację sieci (VPC), kontrolę dostępu na poziomie RBAC i integrację z AWS IAM.
+- Automatycznie obsługuje skalowanie w górę i w dół w zależności od obciążenia aplikacji.
+- AWS zapewnia infrastrukturę dostępną w wielu regionach, co pozwala na łatwe wdrożenie aplikacji w różnych lokalizacjach geograficznych.
 
 ## Status
 
@@ -24,19 +23,24 @@ Zaakceptowane
 ## Konsekwencje
 
 ### Pozytywne
-### Negatywne
+- EKS automatyzuje wiele zadań związanych z zarządzaniem Kubernetes, co pozwala zespołowi skupić się na rozwoju aplikacji
+- Wysoka dostępność
+- Lepsza wydajność
+- Bezproblemowa integracja z narzędziami DevOps
+- Skalowalność
+- Wsparcie i społeczność
 
-Przykład: 
-Positive: Broad compatibility with modern tools and clients.
-Negative: Increased effort to handle non-standard client requirements manually.
+### Negatywne
+- EKS generuje koszty za zarządzanie klastrem oraz za inne usługi AWS (np. EC2, S3, CloudWatch), co może być droższe w porównaniu z samodzielnie zarządzanym Kubernetes
+- Zależność od dostawcy usługi (vendor lock-in)
+- Pomimo automatyzacji, EKS dalej jest złożoną platformą do konfigurowania
+- Wymagana wiedza o AWS
 
 ## Referencje
-
-Include links or citations to supporting materials:
-- Research papers
-- Meeting notes
-- Alternatives comparison
-- Standards or guidelines
+- [Amazone Elastic Kubernetes Service](https://aws.amazon.com/eks/)
+- [Kubernetes Documentation](https://kubernetes.io/)
+- [Docker Documentation](https://docs.docker.com/)
+- [What is a container ?](https://www.docker.com/resources/what-container/)
 
 ## Data
 

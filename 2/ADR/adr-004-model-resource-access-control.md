@@ -1,8 +1,7 @@
 # Architecture Decision Record: Model Resource Access Control
 
 ## Kontekst
-
-System pojedyńczego źródła prawdy zawierającego informację na temat uprawnień do zasobów ze względu na wymagania dotyczące nadawania, odbierania uprawnień:
+System wymaga pojedyńczego źródła prawdy zawierającego informację na temat uprawnień do zasobów ze względu na wymagania dotyczące nadawania, odbierania uprawnień:
 - Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika, które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla pracowników.
 - Klienci którzy nie uregulowali opłaty po 7 dniach od wystawienia faktury, tracą dostęp do zasobów Deskly i rozpoczyna się naliczanie odsetek od niezapłaconej faktury.
 

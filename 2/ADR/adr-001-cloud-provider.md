@@ -1,7 +1,6 @@
 # Architecture Decision Record: Wybór dostawcy usług chmurowych
 
 ## Kontekst
-
 Projekt wymaga wdrożenia infrastruktury chmurowej w celu zapewnienia skalowalności, dostępności i elastyczności. Kluczowe wymagania obejmują:
 
 - Wysoką dostępność usług (SLA powyżej 99,9%).
