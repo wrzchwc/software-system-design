@@ -22,8 +22,8 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 
 |Aspekt|Opis|
 |--------|-----------|
-|Aplikacja docelowa|Deskly FE|
-|Aplikacja źródłowa|Deskly Location|
+|Aplikacja źródłowa|Deskly FE|
+|Aplikacja docelowa|Deskly Location|
 |Techinika integracji||
 |Mechanizm uwierzytelniania||
 |Czy interfejs manipuluje na danych wrazliwych||
