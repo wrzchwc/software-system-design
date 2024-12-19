@@ -34,6 +34,10 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 
 ### Frontend
 
+Aplikacja frontendowa zostanie zaimplementowana we frameworku Angular 19. Do zbudowania aplikacji zostanie wykorzystane zostanie narzędzie nx. Aplikacja została podzielona na moduły reprezentujące domeny grupujące funkcjonalności udostępniane uzytkownikom koncowym. Centralnym punktem aplikacji będzie katalog `src` zawierający pliki `index.html` (definiuje wstępną struktruę DOM) oraz  `main.ts` (od tego pliku rozpoczyna sie ładowanie logiki aplikacji). Kazdy z modułów ma zblizoną strukturę obejmującę 1 - 4 katalogów ze zbioru (`feature` - komponenty smart, `ui` - komponenty prezentacyjne, `data` - serwisy biznesowe, zarządzanie stanem, komunikacja z backendem oraz `domain` - modele danych). Moduły są leniwie ładowane, co umozliwia optymalizację wczytywania aplikacji, poprzez ładowanie jedynie tych fragmentów aplikacji, które są potrzebne danemu uzytkownikowi. Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendowej.
+
+![Widok wytwarzania](./images/fe.png)
+
 ### Backend
 
 ## Realizacja przypadku użycia (Przypisanie zasobu do lokacji)
