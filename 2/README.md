@@ -42,7 +42,7 @@ Aplikacja frontendowa zostanie zaimplementowana we frameworku Angular 19. Do zbu
 
 ## Realizacja przypadku użycia (Przypisanie zasobu do lokacji)
 
-Przypisanie zasobu jest inicjowane przez Location Manager z poziomu klienta Deskly. Polega na przesłaniu zapytania POST zawierającego identyfikatory przypisywanych zasobów.
+Przypisanie zasobu jest inicjowane przez Location Managera z poziomu klienta Deskly. Polega na przesłaniu zapytania POST zawierającego identyfikatory przypisywanych zasobów.
 
 Przykład zapytania
 ```
