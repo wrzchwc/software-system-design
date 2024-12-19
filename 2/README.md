@@ -23,6 +23,14 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 ||Aplikacja źródłowa | Aplikacja docelowa|
 |--------|-----------|-------------------|
 |Nazwa aplikacji| Deskly FE | Deskly Location|
+|Techinika integracji|||
+|Mechanizm autentykacji|||
+|Czy interfejs manipuluje na danych wrazliwych||
+|Strona inicujująca||
+|Model komunikacji||
+|Wydajność||
+|Wolumetria||
+|Wymagana dostępność||
 
 ## Widok funkcyjny (C4 Component)
 
