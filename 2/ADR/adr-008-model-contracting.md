@@ -1,21 +1,21 @@
 # Architecture Decision Record: Model Contracting
 
 ## Kontekst
-Opis sytuacji lub problemu który wymaga decyzji. 
-
-Przykład:
-The system needs to expose functionality to third-party applications. Various integration patterns were evaluated to determine the most scalable and secure approach.
+System musi umożliwiać przechowywanie dokumnetów takich jak faktury, drafty umów, podpisane umowy.
 
 ## Decyzja
 
-Przykład:
-We will implement a REST API using JSON as the data format, secured with OAuth 2.0 for authentication.
+Logika składowania dokumentów będzie realizowana przez osobny model i będzie wykorzystywała do tego integrację z AWS S3 Bucket. 
 
 ### Uzasadnienie
-Wyjaśnij dlaczego podjąłęś taką decyzję
 
-Przykład: 
-REST was chosen for its simplicity, wide adoption, and compatibility with existing client libraries. SOAP was rejected due to higher complexity and lack of alignment with team expertise.
+Typ
+- Product
+
+Klasa problemu:
+- CRUD
+
+Implementacja modelu jako integracja z AWS S3 (Simple Storage Service) jest tanim rozwiązaniem pod kątem czasowym. Koszty związane z przechowywaniem plików w tym serwisie również nie są drogie, dla planu S3 Standard za pierwsze 50TB to jedynie 0.023$/GB co miesiąc. Model w takim rozwiązaniu jest wysoce konfigurowalny i gotowy na zmianę wymagań funkcjonalnych w tym zakresie. 
 
 ## Status
 
@@ -24,19 +24,20 @@ Zaakceptowane
 ## Konsekwencje
 
 ### Pozytywne
-### Negatywne
+- Wykorzystanie sprawdzonego rozwiązania z rynku
+- Tanie koszty dewelopmentu i utrzymania
+- Elastyczność i skalowalność
+- S3 zapewnia trawałość danych na poziomie 99,99999999999% co znacząco minimalizuje ryzyko utraty danych
+- Bezpieczeństwo i wysoka wydajność
 
-Przykład: 
-Positive: Broad compatibility with modern tools and clients.
-Negative: Increased effort to handle non-standard client requirements manually.
+### Negatywne
+- Wiązanie się z jednym dostawcą usługi (vendor lock-in)
 
 ## Referencje
 
-Include links or citations to supporting materials:
-- Research papers
-- Meeting notes
-- Alternatives comparison
-- Standards or guidelines
+- [Mapa kontekstów](https://github.com/wrzchwc/software-system-design/blob/main/1/README.md#mapa-kontekst%C3%B3w)
+- [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)
+- [Amazon S3 Overview](https://aws.amazon.com/s3/?nc=sn&loc=0)
 
 ## Data
 
