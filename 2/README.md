@@ -37,6 +37,8 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 ## Widok funkcyjny (C4 Component)
 
 ## Widok rozmieszczenia (Architekrura Wdrożeniowa)
+![image](https://github.com/user-attachments/assets/8854b070-17c7-459a-bbc0-40e0458714e8)
+
 
 ## Widok informacyjny
 
