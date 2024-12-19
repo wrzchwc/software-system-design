@@ -10,10 +10,10 @@ System wymaga modelu który będzie zajmował się obsługą logiki związanej
 
 ### Uzasadnienie
 
-Typ modelu
+Typ modelu:
 - Core Domain
 
-Klasa problemu
+Klasa problemu:
 - Rywalizacja o zasoby
 
 Model rezerwacji to jeden z kluczowych modeli w systemie, który realizuje logikę związaną z tworzeniem rezerwacji. W tym modelu zawarta jest również logika związana z naliczaniem opłat rezerwacji, stąd dzięki audytowalnym zmianom stanu rezerwacji będziemy w stanie odpowiedzieć również na pytania:  

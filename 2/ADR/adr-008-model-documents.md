@@ -9,7 +9,7 @@ Logika składowania dokumentów będzie realizowana przez osobny model i będzie
 
 ### Uzasadnienie
 
-Typ
+Typ modelu:
 - Product
 
 Klasa problemu:

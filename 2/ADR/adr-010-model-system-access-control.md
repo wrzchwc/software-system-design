@@ -9,10 +9,10 @@ Model będzie realizowany poprzez integrację z AWS Cognito.
 
 ### Uzasadnienie
 
-Typ:
+Typ modelu:
 - Capability
 
-Klasa Problemu:
+Klasa problemu:
 - Integracja
 
 Wybrano integracje z gotowym rozwiązaniem ze względu na mniejsze koszta implementacji. AWS Congito w pełni spełnia wymagania takie jak uwierzytelnianie użytkowników, tworzenie/modyfikowanie/usuwanie kont użytkowników, 2FA, weryfikację konta poprzez email. Rozpatrywano wykorzystanie Spring Security do tych wymagań natomiast implementacja tego okazałaby się droższa pod kątem czasowym. Spring Security dalej będzie wykorzystywane w systemie, ale jedynie do autoryzacji oparacji wykonywanych przez uwierzytelnionych już użytkowników.

@@ -13,10 +13,10 @@ System potrzebuje modelu który będzie służył jako źródło prawdy na temat
 - Informacje dotyczące godzin otwarcia powinny być razem odczytywane modyfikowane i zapisywane.
 
 ### Uzasadnienie
-- Typ modelu
+Typ modelu:
   - Product
 
-- Klasa problemu
+Klasa problemu:
   - CRUD
 
 - Akcje wpływające na inne komponenety systemu
@@ -32,7 +32,7 @@ System potrzebuje modelu który będzie służył jako źródło prawdy na temat
   - Modyfikacja metadanych zasobu: nazwa, zdjęcia, typ, atrybuty
   - Modyfikacja metadanych lokacji: nazwa, opis, zdjęcia, email, adres, numer telefonu
 
-Operacje tworzenia lokacji i zasobów oraz ich modyfikacji nie wpływają na inne elementy systemu (są stabilne) wiąc powinny zmieniać się i być odczytywane razem. Przypisanie/wypisanie zasobu do/z lokacji powoduje przeliczenie dostęności zasobu, stąd te dane muszą zmieniać się oddzielnie od metadanych ponieważ w przeciwnym razie każda zmiana metadanych wiązała by się z potancjalną zmianą w innych miejscach systemu na które mają wpływ operacje przypisania i wypisania. Podobnie jest z modyfikajcą/zdefiniowaniem godzin otwarcia lokacji. Dane te również muszą zmieniać się oddzielnie ponieważ również wpływaja na przeliczenie dostępności zasobu.
+Operacje tworzenia lokacji i zasobów oraz ich modyfikacji nie wpływają na inne elementy systemu (są stabilne) wiąc powinny zmieniać się i być odczytywane razem. Przypisanie/wypisanie zasobu do/z lokacji powoduje przeliczenie dostęności zasobu, stąd te dane muszą zmieniać się oddzielnie od metadanych. Podobnie jest z modyfikajcą/zdefiniowaniem godzin otwarcia lokacji. Dane te również muszą zmieniać się oddzielnie ponieważ również wpływaja na przeliczenie dostępności zasobu.
 
 ## Status
 

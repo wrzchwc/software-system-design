@@ -1,21 +1,25 @@
 # Architecture Decision Record: Model Waitlist
 
 ## Kontekst
-Opis sytuacji lub problemu który wymaga decyzji. 
 
-Przykład:
-The system needs to expose functionality to third-party applications. Various integration patterns were evaluated to determine the most scalable and secure approach.
+System musi pozwalać klientom na zakolejkowanie się na dany termin do konkretnego zasobu, a pracownikom na zarządzanie kolejkami tzn. przesuwanie klientów w razie potrzeby lub rozwiązywanie kolejek gdy termin będzie niedostępny z przyczyn niezależnych.  
 
 ## Decyzja
 
-Przykład:
-We will implement a REST API using JSON as the data format, secured with OAuth 2.0 for authentication.
+- Model będzie realizowany z wykorzystaniem priorytetyzowanej kolejki FIFO (First In First Out). 
+- Logika rozwiązywania kolejek będzie realizowana w ramach tego samego kontekstu ale przez inny model. 
 
 ### Uzasadnienie
-Wyjaśnij dlaczego podjąłęś taką decyzję
 
-Przykład: 
-REST was chosen for its simplicity, wide adoption, and compatibility with existing client libraries. SOAP was rejected due to higher complexity and lack of alignment with team expertise.
+Typy modeli:
+- Capability (Model Kolejek)
+- Product (Model Rozwiązywania Kolejek)
+
+Klasy Problemów:
+- CRUD (Model Kolejek)
+- Integracja (Model Rozwiązywanie Kolejek)
+
+Priorytetyzacja kolejki wynika z potrzeby biznesowej przesuwania klientów w kolejce, natomiast każdy klient który zakolejkuje się na dany termin do konkretnego zasoby otrzyma propozycję rezerwacji w zalezności od kolejności zgłoszenia. Model ten jest łatwo rozwijalny, a dzięki priorytetyzacji gotowy na przyjęcie nowych wymagań funkcjonalnych w tym zakresie. Rozwiązywanie kolejek to problem integracyjny stąd zostanie zrealizowany przez inny model, ale w ramach tego samego kontekstu.
 
 ## Status
 
@@ -24,19 +28,17 @@ Zaakceptowane
 ## Konsekwencje
 
 ### Pozytywne
-### Negatywne
+- Brak splątania klas problemów
+- Separacje dopowiedzialności
+- Testowalność
+- W przyszlości możliwe wędzie wydzielenie modelu kolejek w celu reużycia go przez inne modele.
 
-Przykład: 
-Positive: Broad compatibility with modern tools and clients.
-Negative: Increased effort to handle non-standard client requirements manually.
+### Negatywne
+- Większa złożoność
 
 ## Referencje
-
-Include links or citations to supporting materials:
-- Research papers
-- Meeting notes
-- Alternatives comparison
-- Standards or guidelines
+- [Mapa kontekstów](https://github.com/wrzchwc/software-system-design/blob/main/1/README.md#mapa-kontekst%C3%B3w)
+- [Key Data Structures Explained](https://levelup.gitconnected.com/queue-deque-and-priority-queue-key-data-structures-explained-1509f133d4c5)
 
 ## Data
 

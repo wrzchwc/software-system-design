@@ -9,7 +9,7 @@ Logika związana z negocjacjami kontraktu będzie realizowana przez osobny model
 
 ### Uzasadnienie
 
-Typ
+Typ modelu:
 - Product
 
 Klasa problemu:

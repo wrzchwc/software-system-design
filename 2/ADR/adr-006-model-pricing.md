@@ -8,16 +8,15 @@ System potrzebuje modelu który będzie źródłem prawdy na temat aktualnych ce
 
 Logika dotycząca cen będzie realizowana przez osobny model.
 
-
 ### Uzasadnienie
-
-W przyszłości logika modelu może znacząco się rozszerzyć stąd powinna być enkapsulowana w jednym miejscu. Model ten pomimo aktualnych wymagań związanych jedynie z dodawaniem  i modyfikowaniem cennników, będzie przygotowany na wymagania które mogą pojawić się w przyszłości np. obsługa rabatów. 
 
 Typ modelu:
 - Product
 
-Klasa problemu
+Klasa problemu:
 - CRUD
+
+W przyszłości logika modelu może znacząco się rozszerzyć stąd powinna być enkapsulowana w jednym miejscu. Model ten pomimo aktualnych wymagań związanych jedynie z dodawaniem  i modyfikowaniem cennników, będzie przygotowany na wymagania które mogą pojawić się w przyszłości np. obsługa rabatów.
 
 ## Status
 

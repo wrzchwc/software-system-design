@@ -12,12 +12,11 @@ Logika związana z zarządzaniem uprawniniamu do zasobów będzie realizowana pr
 
 ### Uzasadnienie
 
-Typ modelu
+Typ modelu:
 - Product
 
-Klasa problemu
+Klasa problemu:
 - CRUD
-
 
 W wyniku analizy event stormingowej zauważono że logika związana z dostępem do zasobów jest wykorzystywana przez wiele procesów biznesowych. Tym samym podjęto decyzję o enkapsulacji tej logiki w oddzielnym modelu.
 
