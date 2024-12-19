@@ -24,7 +24,7 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 |--------|-----------|-------------------|
 |Nazwa aplikacji| Deskly FE | Deskly Location|
 |Techinika integracji|||
-|Mechanizm autentykacji|||
+|Mechanizm uwierzytelniania|||
 |Czy interfejs manipuluje na danych wrazliwych||
 |Strona inicujująca||
 |Model komunikacji||
