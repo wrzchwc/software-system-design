@@ -15,6 +15,7 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 ## Widoki architekotniczne
 
 ### Widok kontekstowy (C4 Context)
+![structurizr-DesklyContextDiagram](https://github.com/user-attachments/assets/a4ef473a-24a8-4932-a7e9-ac4d6c163e76)
 
 ### Scenariusze interakcji (C4 Container)
 
