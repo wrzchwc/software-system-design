@@ -26,7 +26,7 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 |Aplikacja docelowa|Deskly Location|
 |Techinika integracji||
 |Mechanizm uwierzytelniania||
-|Czy interfejs manipuluje na danych wrazliwych||
+|Manipulacja na danych wrazliwych?||
 |Strona inicujująca||
 |Model komunikacji||
 |Wydajność||
