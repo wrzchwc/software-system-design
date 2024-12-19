@@ -48,3 +48,5 @@ curl --location 'localhost:8080/api/v1/location/6f0a36c6-6814-4e38-b40b-0a65b2f7
 ```
 
 Diagram sekwencji
+
+![Diagram sekwencji](./images/sequence-diagram.png)
