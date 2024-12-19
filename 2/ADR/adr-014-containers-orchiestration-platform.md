@@ -5,16 +5,16 @@ System wymaga zarządzania kontenerami w sposób skalowalny, elastyczny i niezaw
 
 ## Decyzja
 
-Wybieramy Amazon Elastic Kubernetes Service (EKS) jako platformę do zarządzania kontenerami.
+Wybieramy Amazon Elastic Kubernetes Service (EKS) jako platformę do zarządzania kontenerami
 
 
 ### Uzasadnienie
 
-- Eliminuje konieczność samodzielnego zarządzania klastrem Kubernetes, co zmniejsza obciążenie operacyjne.
-- Integruje się z innymi usługami AWS, takimi jak IAM (zarządzanie tożsamościami), CloudWatch (monitorowanie), ALB/ELB (load balancing) czy EBS (dyski).
-- AWS oferuje zaawansowane mechanizmy bezpieczeństwa, w tym izolację sieci (VPC), kontrolę dostępu na poziomie RBAC i integrację z AWS IAM.
-- Automatycznie obsługuje skalowanie w górę i w dół w zależności od obciążenia aplikacji.
-- AWS zapewnia infrastrukturę dostępną w wielu regionach, co pozwala na łatwe wdrożenie aplikacji w różnych lokalizacjach geograficznych.
+- Eliminuje konieczność samodzielnego zarządzania klastrem Kubernetes, co zmniejsza obciążenie operacyjne
+- Integruje się z innymi usługami AWS, takimi jak IAM (zarządzanie tożsamościami), CloudWatch (monitorowanie), ALB/ELB (load balancing) czy EBS (dyski)
+- AWS oferuje zaawansowane mechanizmy bezpieczeństwa, w tym izolację sieci (VPC), kontrolę dostępu na poziomie ról (Role Based Access Control) i integrację z AWS IAM
+- Automatycznie obsługuje skalowanie w górę i w dół w zależności od obciążenia aplikacji
+- AWS zapewnia infrastrukturę dostępną w wielu regionach, co pozwala na łatwe wdrożenie aplikacji w różnych lokalizacjach geograficznych
 
 ## Status
 
