@@ -49,8 +49,11 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 
 ### Model informacyjny
 
-## Deskly Core
+- Deskly Core
 ![Model_Informacyjny1 drawio](https://github.com/user-attachments/assets/bdb216ec-4ee0-4529-af15-78f6e6cd4836)
+
+- Deskly Location
+![Model_Informacyjny2 drawio](https://github.com/user-attachments/assets/95bb310a-07d1-42f1-bf9d-da256896c141)
 
 ### Projekt Bazy Danych
 
