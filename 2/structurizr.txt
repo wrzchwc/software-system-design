@@ -4,13 +4,13 @@ workspace "Name" "Description"
 
     model {
     
-        individualClient = person "Individual Client"
-        organizationManager = person "Organization Manager"
-        organizationMember = person "Organization Member"
-        locationManager = person "Location Manager"
-        contractManager = person "Contract Manager"
-        financeManager = person "Finanse Manager"
-        bookingManager = person "Booking Manager"
+        individualClient = person "Individual Client" "Books and manages office spaces as a single user (eg. recieves QR codes, views active resources, joins waiting lists"
+        organizationManager = person "Organization Manager" "Manages organization reservation, oversees contracts, provisionse employee accounts"
+        organizationMember = person "Organization Member" "Member of the organisation with access ot organisation-reserved resources"
+        locationManager = person "Location Manager" "Defines locations, resources and their availability"
+        contractManager = person "Contract Manager" "Manages contracts with clients and oversees negotiations"
+        financeManager = person "Finanse Manager" "Handles billing, invoices, payment tracking"
+        bookingManager = person "Booking Manager" "Oversees reservations, queues and resource allocations"
         
                  
         identityProviderSystem = softwareSystem "Identity Provider" "Amazon Cognito responsible for handling users authentication and accounts management" "Existing System"
@@ -52,13 +52,13 @@ workspace "Name" "Description"
             db = container "Database" "" "PostgreSQL" "Database"
         }
         
-        individualClient -> desklySystem.desklyForntendContainer "uses"
-        organizationManager -> desklySystem.desklyForntendContainer "uses"
-        organizationMember -> desklySystem.desklyForntendContainer "uses"
-        locationManager -> desklySystem.desklyForntendContainer "uses"
-        contractManager -> desklySystem.desklyForntendContainer "uses"
-        financeManager -> desklySystem.desklyForntendContainer "uses"
-        bookingManager -> desklySystem.desklyForntendContainer "uses"
+        individualClient -> desklySystem.desklyForntendContainer "makes REST API call to"
+        organizationManager -> desklySystem.desklyForntendContainer "makes REST API call to"
+        organizationMember -> desklySystem.desklyForntendContainer "makes REST API call to"
+        locationManager -> desklySystem.desklyForntendContainer "makes REST API call to"
+        contractManager -> desklySystem.desklyForntendContainer "makes REST API call to"
+        financeManager -> desklySystem.desklyForntendContainer "makes REST API call to"
+        bookingManager -> desklySystem.desklyForntendContainer "makes REST API call to"
         
         desklySystem.apiGatewayContainer -> identityProviderSystem "authenticate"
         desklySystem.desklyLocationContainer -> fileStorageSystem "Reads from and writes to"
