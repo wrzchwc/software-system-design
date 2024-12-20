@@ -8,8 +8,27 @@
 
 Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne elementy projektu systemu rozwiązania, które wpływają na jego implementację.
 
-## Cele i ograniczenia architektoniczne
+## Cele architektoniczne
 
+- System będzie udostępniać funkcjonalność rezerwacji zasobów biurowych.
+- System będzie umozliwiać zarządzanie zasobami biurowymi w zakresie mozliwosci ich rezerwacji oraz inwentaryzacji.
+- System będzie umozliwiać zawieranie umów najmu zasobów oraz korzystania z zasobów będących przedmiotem ww. umów.
+- System umozliwi kontakt z klientami za pośrednictwem wiadomości e-mail.
+- Oczekiwana dostępność systemu to 99% czasu jego działania.
+- System powinien być w stanie obsłuzyc zmienną liczbę uzytkowników w ciągu doby, siegajacą 10000 jednoczesnych uzytkowników w godzinach szczytu.
+- System zapewni bezpieczeństwo danych wrazliwych oraz zgodność z przepisami RODO.
+- Archietktura systemu umozliwi łatwe skalowalnie i rozszerzanie rozwiązania.
+- Uytkownicy koncowi będą wchodzić w interakcję z systemem za pośrednictwem intuicyjnych i responsywnych interfejsów uzytkownika.
+
+## Ograniczenia architektoniczne
+
+- System musi działać w oparciu o rozwiązania chmurowe dostarczone przez AWS.
+- Wersja MVP powinna powstać w ciągu 12 miesięcy.
+- Aplikacja frontendowa musi zostać zaimplementowana we frameworku Angular, z wykorzystaniem języka TypeScript.
+- Aplikacje backendowe muszą zostać zaimplementowane we frameworku Spring Boot, z wykorzystaniem języka Java.
+- Warstwa backendowa systemu powstanie w architekturze mikroserwisowej.
+- Średni czas odpowiedzi dla mikroserwisów nie moze przekraczać 10s.
+ 
 ## Mechanizmy architektoniczne
 
 ## Widoki architekotniczne
