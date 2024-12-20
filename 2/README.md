@@ -15,9 +15,12 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 ## Widoki architekotniczne
 
 ### Widok kontekstowy (C4 Context)
-![structurizr-DesklyContextDiagram (2)](https://github.com/user-attachments/assets/8991e28d-f200-4148-a545-687d5024676c)
+![structurizr-SystemContext](https://github.com/user-attachments/assets/da262738-292d-43cf-ba15-03f70b78c461)
 
 ### Scenariusze interakcji (C4 Container)
+![structurizr-Container-001](https://github.com/user-attachments/assets/e7d28b4e-aae6-441e-a1d4-c07a8b7ccf8c)
+
+
 
 ### Interfejsy integracyjne
 
@@ -35,9 +38,13 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 |Wymagana dostępność||
 
 ## Widok funkcyjny (C4 Component)
+![structurizr-Component-001 (1)](https://github.com/user-attachments/assets/36f9e1bf-a9a1-4deb-bf15-8b0a395fba53)
 
 ## Widok rozmieszczenia (Architekrura Wdrożeniowa)
+
 ![image](https://github.com/user-attachments/assets/8854b070-17c7-459a-bbc0-40e0458714e8)
+
+![structurizr-Component-002](https://github.com/user-attachments/assets/50619c36-690b-4ad8-aeee-d7a60bba9579)
 
 
 ## Widok informacyjny
