@@ -8,7 +8,7 @@
 
 Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne elementy projektu systemu rozwiązania, które wpływają na jego implementację.
 
-## Cele i ograniczenia architektoniczen
+## Cele i ograniczenia architektoniczne
 
 ## Mechanizmy architektoniczne
 
@@ -28,14 +28,66 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 |--------|-----------|
 |Aplikacja źródłowa|Deskly FE|
 |Aplikacja docelowa|Deskly Location|
-|Techinika integracji||
-|Mechanizm uwierzytelniania||
-|Manipulacja na danych wrazliwych?||
-|Strona inicujująca||
-|Model komunikacji||
-|Wydajność||
-|Wolumetria||
-|Wymagana dostępność||
+|Techinika integracji|HTTPS|
+|Mechanizm uwierzytelniania|JWT|
+|Manipulacja na danych wrazliwych?|nie|
+|Strona inicujująca|Deskly FE|
+|Model komunikacji|synchroniczny, REST|
+|Wydajność|1000 zapytań / s|
+|Wolumetria|250 kB / s|
+|Wymagana dostępność|99.9%|
+
+|Aspekt|Opis|
+|--------|-----------|
+|Aplikacja źródłowa|Deskly FE|
+|Aplikacja docelowa|Deskly Core|
+|Techinika integracji|HTTPS|
+|Mechanizm uwierzytelniania|JWT|
+|Manipulacja na danych wrazliwych?|tak|
+|Strona inicujująca|Deskly FE|
+|Model komunikacji|synchroniczny, REST|
+|Wydajność|1000 zapytań / s|
+|Wolumetria|250 kB / s|
+|Wymagana dostępność|99.9%|
+
+|Aspekt|Opis|
+|--------|-----------|
+|Aplikacja źródłowa|Deskly Location|
+|Aplikacja docelowa|Deskly Core|
+|Techinika integracji|AWS SDK|
+|Mechanizm uwierzytelniania|access key, secret access key|
+|Manipulacja na danych wrazliwych?|nie|
+|Strona inicujująca|Deskly Location|
+|Model komunikacji|asynchroniczny, SQS|
+|Wydajność|500 zapytań / s|
+|Wolumetria|100 kB / s|
+|Wymagana dostępność|99.9%|
+
+|Aspekt|Opis|
+|--------|-----------|
+|Aplikacja źródłowa|Deskly Core|
+|Aplikacja docelowa|Deskly Location|
+|Techinika integracji|AWS SDK|
+|Mechanizm uwierzytelniania|access key, secret access key|
+|Manipulacja na danych wrazliwych?|nie|
+|Strona inicujująca|Deskly Core|
+|Model komunikacji|asynchorniczny, SQS|
+|Wydajność|500 zapytań / s|
+|Wolumetria|100 kB / s|
+|Wymagana dostępność|99.9%|
+
+|Aspekt|Opis|
+|--------|-----------|
+|Aplikacja źródłowa|Deskly Core, Deskly Location|
+|Aplikacja docelowa|Deskly DB|
+|Techinika integracji|JDBC|
+|Mechanizm uwierzytelniania|nazwa uytkownika, hasło|
+|Manipulacja na danych wrazliwych?|tak|
+|Strona inicujująca|Deskly Core, Deskly Location|
+|Model komunikacji|synchorniczny|
+|Wydajność|500 zapytań / s|
+|Wolumetria|100 kB / s|
+|Wymagana dostępność|99.9%|
 
 ## Widok funkcyjny (C4 Component)
 ![structurizr-Component-001 (1)](https://github.com/user-attachments/assets/36f9e1bf-a9a1-4deb-bf15-8b0a395fba53)
