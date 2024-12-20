@@ -1,0 +1,240 @@
+workspace "Name" "Description"
+
+    !identifiers hierarchical
+
+    model {
+    
+        individualClient = person "Individual Client"
+        organizationManager = person "Organization Manager"
+        organizationMember = person "Organization Member"
+        locationManager = person "Location Manager"
+        contractManager = person "Contract Manager"
+        financeManager = person "Finanse Manager"
+        bookingManager = person "Booking Manager"
+        
+                 
+        identityProviderSystem = softwareSystem "Identity Provider" "Amazon Cognito responsible for handling users authentication and accounts management" "Existing System"
+        
+        fileStorageSystem = softwareSystem "File Storage" "Amazon S3 responsible for storing files" "Existing System"
+        
+        messageBroker = softwareSystem "Message Broker" "Amazon SQS responsible for asynchronous communication between microservices" "Existing System"
+          
+        desklySystem = softwareSystem "Deskly" "" "Software System" {
+            apiGatewayContainer = container "API Gateway" "" "Amazon API Gateway"
+            applicationLoadBalancerContainer = container "Application Load Balancer" "" "Amazon ALB"
+            desklyForntendContainer = container "Deskly Single-Page Application" "Provides all Deskly functionalities to customers via web browser" "TypeScript and Angular" "Web Browser"
+            desklyCoreContainer = container "Deskly Core" "Microservice responsible for handling core deskly functionalities" "Java and Spring Boot" {
+                eventListener = component "Event Listener" "Listens to incomming events" "Spring Bean Cron Job"
+                availabilityAPI = component "Availability API" "Allows other componets to communicate with Availability Module" "Java Interface"
+                availabilityFacade = component "Availability Facade" "Provides functionality related to blocking and unlocking certain time slots." "Spring Bean"
+                reservationController = component "Reservation Controller" "Allows user to make operations related with reservaitons" "Spring MVC Rest Controller"
+                reservationFacade = component "Reservation Facade" "Provides business rules related to creating/canceling reservation in system" "Spring Bean"
+                resourceAccessControlController = component "Resource Access Control Controller" "Allow user to make operations related with resource permissions" "Spring MVC REST Ccontroller"
+                resourceAccessControlFacade = component "Resource Access Control Facade" "Provides business logic rules related to user permissions to resource" "Spring Bean"
+                priceController = component "Priceing Controller" "Allows user to fetch financial data or execute calculations" "Spring MVC Rest Controller" "Spring MVC Rest Controller"
+                priceFacade = component "Priceing Facade" "Provides functionalities related to financial data caluculation and data read models presentation" "Spring Bean"
+                waitlistController = component "Waitlist Controller" "Allows user to queue and deque on giver resource or for administraion users resolve the queue" "Spring MVC Rest Controller"
+                waitlistFacade = component "Waitlist Facade" "Provides business logic related with queueing on resource, moving users in the queue" "Spring Bean"
+                waitlistResolver = component "Waitlist Resolver" "Providese busines logic related to resolving queue" "Spring Bean"
+                documentController = component "Document Controller" "Allows user to store documents" "Spring MVC Rest Controller"
+                documentFacade = component "Document Facade" "Handles business logic related with uploading and downloading files. Provides costrains in terms of size, extension, type" "Spring Bean"
+                negotiationController = component "Negotiation Controller" "Allows user to bid during negotiations, start nagotiations, cancel negotiations" "Spring MVC Rest Controller"
+                negotiationFacade = component "Negotiation Facade" "Handles business logic related with negotiations" "Spring Bean"
+            }
+            desklyLocationContainer = container "Deskly Location" "Microservice responsible for handling location management logic" "Java and Spring Boot" {
+                locationController = component "Location Controller" "Allows user to make oparations related with location management" "Spring MVC Rest Controller"
+                resourceController = component "Resource Controller" "Allows user to make oparations related with resource management " "Spring MVC Rest Controller"
+                locationFacade = component "Location Facade" "Provides functinality related to adding, modifying, archiving locations" "Spring Bean"
+                resourceFacade = component "Resource Facade" "Provides functinality related to adding, modifying, archiving resources" "Spring Bean"
+                assignmentFacade  = component "Resource Location Assignment Facade" "Provides functinality related to assigning and unassigning resource from location" "Spring Bean"
+                eventPublisher = component "Evnet Publisher" "Handles posting events to message broker" "Spring Bean"
+            }
+            db = container "Database" "" "PostgreSQL" "Database"
+        }
+        
+        individualClient -> desklySystem.desklyForntendContainer "uses"
+        organizationManager -> desklySystem.desklyForntendContainer "uses"
+        organizationMember -> desklySystem.desklyForntendContainer "uses"
+        locationManager -> desklySystem.desklyForntendContainer "uses"
+        contractManager -> desklySystem.desklyForntendContainer "uses"
+        financeManager -> desklySystem.desklyForntendContainer "uses"
+        bookingManager -> desklySystem.desklyForntendContainer "uses"
+        
+        desklySystem.apiGatewayContainer -> identityProviderSystem "authenticate"
+        desklySystem.desklyLocationContainer -> fileStorageSystem "Reads from and writes to"
+    
+
+        desklySystem.desklyForntendContainer -> desklySystem.apiGatewayContainer "forward API Call to"
+        desklySystem.apiGatewayContainer -> desklySystem.applicationLoadBalancerContainer "forward API call to"
+        desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer "forward API call to"
+        desklySystem.desklyCoreContainer -> desklySystem.db "Reads from and writes to"
+        desklySystem.desklyLocationContainer -> desklySystem.db "Reads from and writes to"
+        
+        
+        desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyLocationContainer.resourceController "forward API call"
+        desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyLocationContainer.locationController "forward API call"
+        desklySystem.desklyLocationContainer.locationController -> desklySystem.desklyLocationContainer.locationFacade "uses"
+        desklySystem.desklyLocationContainer.locationController -> desklySystem.desklyLocationContainer.assignmentFacade "uses"
+        desklySystem.desklyLocationContainer.resourceController -> desklySystem.desklyLocationContainer.resourceFacade "uses"
+        
+        desklySystem.desklyLocationContainer.locationFacade -> desklySystem.db "Reads from and writes to "
+        desklySystem.desklyLocationContainer.resourceFacade -> desklySystem.db "Reads from and writes to "
+        desklySystem.desklyLocationContainer.assignmentFacade -> desklySystem.db "Reads from and writes to "
+        desklySystem.desklyLocationContainer.locationFacade -> fileStorageSystem "upload to"
+        desklySystem.desklyLocationContainer.resourceFacade -> fileStorageSystem "upload to"
+        desklySystem.desklyLocationContainer.assignmentFacade -> desklySystem.desklyLocationContainer.eventPublisher "user"
+        desklySystem.desklyLocationContainer.eventPublisher -> messageBroker "send events to"
+        
+        desklySystem.desklyCoreContainer.reservationController -> desklySystem.desklyCoreContainer.reservationFacade "uses"
+        desklySystem.desklyCoreContainer.resourceAccessControlController -> desklySystem.desklyCoreContainer.resourceAccessControlFacade "uses"
+        desklySystem.desklyCoreContainer.priceController -> desklySystem.desklyCoreContainer.priceFacade "uses"
+        desklySystem.desklyCoreContainer.waitlistController -> desklySystem.desklyCoreContainer.waitlistFacade "uses"
+        desklySystem.desklyCoreContainer.waitlistController -> desklySystem.desklyCoreContainer.waitlistResolver "uses"
+        desklySystem.desklyCoreContainer.documentController -> desklySystem.desklyCoreContainer.documentFacade "uses"
+        desklySystem.desklyCoreContainer.negotiationController -> desklySystem.desklyCoreContainer.negotiationFacade "uses"
+        desklySystem.desklyCoreContainer.availabilityAPI -> desklySystem.desklyCoreContainer.availabilityFacade "uses"
+        desklySystem.desklyCoreContainer.reservationFacade -> desklySystem.desklyCoreContainer.availabilityAPI "uses"
+        desklySystem.desklyCoreContainer.availabilityFacade -> desklySystem.desklyCoreContainer.eventListener "uses"
+        desklySystem.desklyCoreContainer.eventListener -> messageBroker "read events from"
+        
+        desklySystem.desklyCoreContainer.negotiationFacade -> desklySystem.db "Reads from and writes to"
+        desklySystem.desklyCoreContainer.documentFacade -> desklySystem.db "Reads from and writes to"
+        desklySystem.desklyCoreContainer.waitlistFacade -> desklySystem.db "Reads from and writes to"
+        desklySystem.desklyCoreContainer.priceFacade -> desklySystem.db "Reads from and writes to"
+        desklySystem.desklyCoreContainer.resourceAccessControlFacade -> desklySystem.db "Reads from and writes to"
+        desklySystem.desklyCoreContainer.reservationFacade -> desklySystem.db "Reads from and writes to"
+        desklySystem.desklyCoreContainer.availabilityFacade -> desklySystem.db "Reads from and writes to"
+        desklySystem.desklyCoreContainer.waitlistResolver -> desklySystem.desklyCoreContainer.availabilityAPI "makes API call to"
+        desklySystem.desklyCoreContainer.waitlistResolver -> desklySystem.desklyLocationContainer.locationController "make REST API calls to"
+        
+        desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer.reservationController "forward API Call to"
+        desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer.resourceAccessControlController  "forward API Call to"
+        desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer.priceController  "forward API Call to"
+        desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer.waitlistController  "forward API Call to"
+        desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer.documentController  "forward API Call to"
+        desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer.negotiationController  "forward API Call to"
+        
+        
+        
+    }
+
+    views {
+      systemcontext desklySystem "SystemContext" {
+            include *
+            animation {
+                desklySystem
+                individualClient
+                organizationManager
+                organizationMember
+                locationManager
+                contractManager
+                financeManager
+                bookingManager
+                identityProviderSystem
+                fileStorageSystem
+            }
+            autoLayout
+            description "The system context diagram for the Internet Banking System."
+            properties {
+                structurizr.groups false
+            }
+        }
+
+        container desklySystem {
+            include *
+            animation {
+                desklySystem.apiGatewayContainer
+                desklySystem.applicationLoadBalancerContainer
+                desklySystem.desklyForntendContainer
+                desklySystem.db
+            }
+            autoLayout
+            description "The container diagram for the Internet Banking System."
+        }
+
+         component desklySystem.desklyLocationContainer {
+             include *
+             animation {
+                 desklySystem.desklyLocationContainer.locationController
+                 desklySystem.desklyLocationContainer.resourceController
+                 desklySystem.desklyLocationContainer.locationFacade
+                 desklySystem.desklyLocationContainer.resourceFacade
+                 desklySystem.desklyLocationContainer.assignmentFacade
+                 desklySystem.desklyLocationContainer.eventPublisher
+             }
+             autoLayout
+             description "The component diagram for the Deskly Location Microservice."
+         }
+        
+         component desklySystem.desklyCoreContainer {
+            include *
+            animation {
+                desklySystem.desklyCoreContainer.eventListener
+                desklySystem.desklyCoreContainer.availabilityAPI
+                desklySystem.desklyCoreContainer.availabilityFacade
+                desklySystem.desklyCoreContainer.reservationController
+                desklySystem.desklyCoreContainer.reservationFacade
+                desklySystem.desklyCoreContainer.resourceAccessControlController
+                desklySystem.desklyCoreContainer.resourceAccessControlFacade
+                desklySystem.desklyCoreContainer.priceController
+                desklySystem.desklyCoreContainer.priceFacade
+                desklySystem.desklyCoreContainer.waitlistController
+                desklySystem.desklyCoreContainer.waitlistFacade
+                desklySystem.desklyCoreContainer.waitlistResolver
+                desklySystem.desklyCoreContainer.documentController
+                desklySystem.desklyCoreContainer.documentFacade
+                desklySystem.desklyCoreContainer.negotiationController
+                desklySystem.desklyCoreContainer.negotiationFacade
+            }
+            autoLayout 
+            description "The component diagram for the Deskly Core Microservice."
+        }
+        
+
+        styles {
+            element "Person" {
+                color #ffffff
+                fontSize 22
+                shape Person
+                background #08427b
+            }
+            element "Customer" {
+                background #08427b
+            }
+            element "Bank Staff" {
+                background #999999
+            }
+            element "Software System" {
+                background #1168bd
+                color #ffffff
+            }
+            element "Existing System" {
+                background #999999
+                color #ffffff
+            }
+            element "Container" {
+                background #438dd5
+                color #ffffff
+            }
+            element "Web Browser" {
+                shape WebBrowser
+            }
+            element "Mobile App" {
+                shape MobileDeviceLandscape
+            }
+            element "Database" {
+                shape Cylinder
+            }
+            element "Component" {
+                background #85bbf0
+                color #000000
+            }
+            element "Failover" {
+                opacity 25
+            }
+        }
+         theme https://static.structurizr.com/themes/amazon-web-services-2020.04.30/theme.json
+       
+    }
+
+}
