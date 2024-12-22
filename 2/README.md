@@ -130,6 +130,8 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 
 ### Projekt Bazy Danych
 
+![deskly-db-diagram drawio](https://github.com/user-attachments/assets/59fc932d-632b-4d6e-acc1-b648746fb154)
+
 ## Widok wytwarzania 
 
 ### Frontend
