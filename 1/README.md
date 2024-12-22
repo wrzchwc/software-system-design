@@ -47,7 +47,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 | Zasób | Lista Oczekujących | Dobro na którego rezerwację oczekują użytkownicy |
 | Szkic umowy | |Przygotowany szkic umowy gotowy do udostępnienia klientowi do negocjacji lub podpisania |
 | Negocjacja | | Udostępniony klientowi biznesowemu szkic umowy w trakcie negocjowania warunków |
-| Umowa | Kontraktowanie | Podpisane przez klienta warunki korzystania z zasobów oferowanych w Deskly |
+| Umowa | Dokument | Podpisane przez klienta warunki korzystania z zasobów oferowanych w Deskly |
 | Umowa | Negocjacja kontraktu| Zatwierdzone przez klienta i Contract Managera ostateczne warunki negocjacji 
 | Parametr umowy | | Najmniejsza jednostwa podlegająca negocjacji w umowie |
 | Oferta | | Złożona propozycja zmiany parametru umowy. Podlega akceptacji |
