@@ -120,7 +120,7 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 
 ### Model informacyjny
 
-![Model_Informacyjny1 drawio (1)](https://github.com/user-attachments/assets/fd92265f-6d38-44a0-8f42-36f447ad6170)
+![Model_Informacyjny1 drawio (2)](https://github.com/user-attachments/assets/c3eb8814-428e-40b2-828d-c305f32d8abc)
 
 ### Projekt Bazy Danych
 
