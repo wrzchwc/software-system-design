@@ -28,8 +28,6 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 - Aplikacje backendowe muszą zostać zaimplementowane we frameworku Spring Boot, z wykorzystaniem języka Java.
 - Warstwa backendowa systemu powstanie w architekturze mikroserwisowej.
 - Średni czas odpowiedzi dla mikroserwisów nie moze przekraczać 10s.
- 
-## Mechanizmy architektoniczne
 
 ## Widoki architekotniczne
 
