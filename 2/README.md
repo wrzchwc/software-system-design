@@ -31,6 +31,17 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
  
 ## Mechanizmy architektoniczne
 
+### Architektura Warstowa
+Dla problemów klasy CRUD zostanie 
+
+### Architektura Heksagonalna 
+
+### ORM
+
+### Spring Security
+
+
+
 ## Widoki architekotniczne
 
 ### Widok kontekstowy (C4 Context)
