@@ -4,7 +4,7 @@
 - Szymon Walasik, 283393
 - Jakub Wierzchowiec, 252738
 
-Niniejszy dokument statnowi ocenę architektury systemu [System biletowy dla komunikacji miejskiej](https://github.com/PWR-ACS-SE-24/SoftwareSystemDesign/tree/main/documentation/course/e2) (stan 19.01.2025r., commit `9106972`).
+Niniejszy dokument stanowi ocenę architektury systemu [System biletowy dla komunikacji miejskiej](https://github.com/PWR-ACS-SE-24/SoftwareSystemDesign/tree/main/documentation/course/e2) (stan 19.01.2025r., commit `9106972`).
 
 ## Lista kontrolna kompletności opisu arechitektury
 
@@ -263,18 +263,27 @@ Charakterystyki jakościowe dobrano zgodnie z normą ISO/IEC 25010. Priorytety o
   <tr>
     <th rowspan="2">wydajność</th>
     <th>wydajność czasowa</th>
+    <td></td>
+  </tr>
+  <tr>
     <th>przepustowość</th>
     <td></td>
   </tr>
   <tr>
     <th rowspan="2">niezawodność</th>
     <th>dostępność</th>
+    <td></td>
+  </tr>
+  <tr>
     <th>odzyskiwalność</th>
     <td></td>
   </tr>
   <tr>
     <th rowspan="2">utrzymywalność</th>
     <th>modularność</th>
+    <td></td>
+  </tr>
+  <tr>
     <th>modyfikowalność</th>
     <td></td>
   </tr>
@@ -565,7 +574,6 @@ Poniżej zaagregowano punkty wrażliwości, kompromisy, ryzyka oraz nie-ryzyka d
 
 ### Punkty wrażliwości
 Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W związku z tym, każdy z punktów wrażliwości został sklasyfikowany jako ryzyko lub nie-ryzyko.
-
 
 ### Kompromisy
 
