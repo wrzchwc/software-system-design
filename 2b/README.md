@@ -322,11 +322,11 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <th>Nie-ryzyko</th>
   </tr>
   <tr>
-    <td><b>decyzja/b></td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code></code></td>
+    <td><b>decyzja</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <th>Analiza</th>
@@ -368,11 +368,11 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <th>Nie-ryzyko</th>
   </tr>
   <tr>
-    <td><b>decyzja/b></td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code></code></td>
+    <td><b>decyzja</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <th>Analiza</th>
@@ -414,11 +414,11 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <th>Nie-ryzyko</th>
   </tr>
   <tr>
-    <td><b>decyzja/b></td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code></code></td>
+    <td><b>decyzja</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <th>Analiza</th>
@@ -460,11 +460,11 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <th>Nie-ryzyko</th>
   </tr>
   <tr>
-    <td><b>decyzja/b></td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code></code></td>
+    <td><b>decyzja</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <th>Analiza</th>
@@ -506,11 +506,11 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <th>Nie-ryzyko</th>
   </tr>
   <tr>
-    <td><b>decyzja/b></td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code></code></td>
+    <td><b>decyzja</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <th>Analiza</th>
@@ -552,11 +552,11 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <th>Nie-ryzyko</th>
   </tr>
   <tr>
-    <td><b>decyzja/b></td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code></code></td>
-    <td><code></code></td>
+    <td><b>decyzja</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
     <th>Analiza</th>
