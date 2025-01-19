@@ -28,8 +28,6 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 - Aplikacje backendowe muszą zostać zaimplementowane we frameworku Spring Boot, z wykorzystaniem języka Java.
 - Warstwa backendowa systemu powstanie w architekturze mikroserwisowej.
 - Średni czas odpowiedzi dla mikroserwisów nie moze przekraczać 10s.
- 
-## Mechanizmy architektoniczne
 
 ### Architektura Warstowa
 Dla problemów klasy CRUD zostanie 
@@ -131,15 +129,11 @@ Dla problemów klasy CRUD zostanie
 
 ### Model informacyjny
 
-- Deskly Core
-
-![Model_Informacyjny1 drawio](https://github.com/user-attachments/assets/bdb216ec-4ee0-4529-af15-78f6e6cd4836)
-
-- Deskly Location
-
-![Model_Informacyjny2 drawio](https://github.com/user-attachments/assets/95bb310a-07d1-42f1-bf9d-da256896c141)
+![Model_Informacyjny1 drawio (2)](https://github.com/user-attachments/assets/c3eb8814-428e-40b2-828d-c305f32d8abc)
 
 ### Projekt Bazy Danych
+
+![deskly-db-diagram drawio (3)](https://github.com/user-attachments/assets/237edf3e-e0eb-480c-b409-7d7b942fb9b8)
 
 ## Widok wytwarzania 
 

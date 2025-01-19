@@ -47,7 +47,7 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 | Zasób | Lista Oczekujących | Dobro na którego rezerwację oczekują użytkownicy |
 | Szkic umowy | |Przygotowany szkic umowy gotowy do udostępnienia klientowi do negocjacji lub podpisania |
 | Negocjacja | | Udostępniony klientowi biznesowemu szkic umowy w trakcie negocjowania warunków |
-| Umowa | Kontraktowanie | Podpisane przez klienta warunki korzystania z zasobów oferowanych w Deskly |
+| Umowa | Dokument | Podpisane przez klienta warunki korzystania z zasobów oferowanych w Deskly |
 | Umowa | Negocjacja kontraktu| Zatwierdzone przez klienta i Contract Managera ostateczne warunki negocjacji 
 | Parametr umowy | | Najmniejsza jednostwa podlegająca negocjacji w umowie |
 | Oferta | | Złożona propozycja zmiany parametru umowy. Podlega akceptacji |
@@ -140,9 +140,9 @@ Końcowy produkt będzie dystrybuowany w modelu SaaS. Docelowi klienci to firmy 
 ## Definicja wymagań niefunkcjonalnych
 
 ###	Wymagania systemowe
-- `NFR/SYS/01` - System działa na urządzeniach z systemem operacyjnym macOS (od wersji 15.0) oraz Windows (Windows 10, Windows 11) oraz przeglądarkach internetowych (Google Chrome od wersji 132, Safari od wersji 18, Microsoft Edge od wersji 130)
+- `NFR/SYS/01` - System działa na urządzeniach z systemem operacyjnym macOS (w najnowszej wersji), Windows (w najnowszej wersji) oraz przeglądarkach internetowych Google Chrome, Safari, Microsoft Edge (w najnowszych wersjach)
 
-- `NFR/SYS/02` - System działa na urządzeniach mobilnych z systemem operacyjnym Android (od wersji 11.0) oraz iOS (od wersji 15.0)
+- `NFR/SYS/02` - System działa na urządzeniach mobilnych z systemem operacyjnym Android (w najnowszej wersji) oraz iOS (w najnowszej wersji)
 - `NFR/SYS/03` - System powinien obsługiwać bazę danych o wysokiej wydajności, wspierającą relację pomiędzy obiektami (PostgreSQL 17.2).
 - `NFR/SYS/04` - Wszystkie usługi powinny działać w chmurze AWS i wspierać mechanizmy auto-skalowania.
 - `NFR/SYS/05` - System powinien integrować się z zewnętrznymi dostawcami poczty elektorniczne oraz systemami kontroli dostępu (generowanie kodów QR).
