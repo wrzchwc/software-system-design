@@ -262,28 +262,19 @@ Charakterystyki jakościowe dobrano zgodnie z normą ISO/IEC 25010. Priorytety o
   </tr>
   <tr>
     <th rowspan="2">wydajność</th>
-    <th rowspan="2">wydajność czasowa</th>
-    <td></td>
-  </tr>
-  <tr>
+    <th>wydajność czasowa</th>
     <th>przepustowość</th>
+    <td></td>
   </tr>
   <tr>
     <th rowspan="2">niezawodność</th>
     <th>dostępność</th>
-  </tr>
-  <tr>
     <th>odzyskiwalność</th>
+    <td></td>
   </tr>
   <tr>
     <th rowspan="2">utrzymywalność</th>
-    <th rowspan="2">modularność</th>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-  </tr>
-  <tr>
+    <th>modularność</th>
     <th>modyfikowalność</th>
     <td></td>
   </tr>
