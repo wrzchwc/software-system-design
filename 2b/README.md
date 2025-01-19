@@ -4,7 +4,7 @@
 - Szymon Walasik, 283393
 - Jakub Wierzchowiec, 252738
 
-Niniejszy dokument stanowi ocenę architektury systemu [System biletowy dla komunikacji miejskiej](https://github.com/PWR-ACS-SE-24/SoftwareSystemDesign/tree/main/documentation/course/e2) (stan 19.01.2025r., commit `9106972`).
+Niniejszy dokument stanowi ocenę architektury systemu [System biletowy dla komunikacji miejskiej](https://github.com/PWR-ACS-SE-24/SoftwareSystemDesign/tree/main/documentation/course/e2) (stan na 19.01.2025r., commit `9106972`).
 
 ## Lista kontrolna kompletności opisu arechitektury
 
