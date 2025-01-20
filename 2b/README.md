@@ -159,7 +159,7 @@ Legenda:
     <th colspan="2">Klient</th>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>1. Czy funkcje inne niż prezentacja są wykonywane na urządzeniu użytkownika?</td>
   </tr>
   <tr>
