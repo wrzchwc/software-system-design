@@ -615,6 +615,15 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - Stosunkowo wysokie wykorzystanie na urządzeniach mobilnych oraz wykorzystanie zasobów sprzętowych (kamera wideo) sugerowałoby implementację w formie PWA lub natywnej aplikacji mobilnej. Wybór Angulara jako technologii frontendowej w tym przypadku może nie być optymalnym wyborem, ze względu na to, że technologia ta tergetowana jest bardziej na urządzenia desktopowe (nie jest tak lightweight jako React/React Native lub Svelte).
 - Różnorodność w doborze technologii backendowych wykorzystuje agnostycyzm technologiczny REST oraz protokołu HTTP, jednak może utrudniać procesy wymiany wiedzy oraz code review pomiędzy członkami zespołu.
 - Deno to niszowe środowisko uruchomieniowe JavaScript, o znacznie mniejszej popularności rynkowej niż Node.js, co może rodzić problemy ze wsparciem oraz kompatybilnością w fazie utrzymania systemu po jego wdrożeniu produkcyjnym.
+- Samodzielna implmentacja istotnych elementów systemu takich jaki API gateway oraz autoryzacja rodzi ryzyko popełnienia błędu oraz może zwiększac poziom trudności utrzymania systemu w fazie utrzymania po jego wdrożeniu produkcyjnym.
+- Dokumentacja nie wskazuje wprost na zastosowanie EKS, czytelnik musi domyślić się tej informacji.
+- Abstrakcyjne nazwy dla podsystemów są elastyczne i mogą zmniejszać koszt utrzymania dokumentacji, jednakże nie informują o domenie, za którą odpowiada dany podsystem, co wymusza opanowanie "słownika nazw" i zwiększa poziom wejścia w architekturę projektu. (personalna opinia)
 
 ## Wnioski
-
+<!-- Przepisać na tekst ciągły, na razie wolny strumień myśli -->
+- Obszerne uzasadnienia dla doboru technologii oraz podejść architekotnicznych, biorące pod uwagę mocne oraz słabe strony rozważanych rozwiązań.
+- Szczegółowa dokumentacja przypadków użycia w formie diagramów sekwencji.
+- Optymalizacja wykorzystania umiejętności członków zespołu poprzez swobodę w wyborze technologii backendowych, co powinno przyspieszyć rozwój systemu w jego początkowej fazie.
+- Dobór stosowanych instancji EC2 oraz RDS w oparciu o precyzjne estymacje oraz dane statystyczne.
+- Całościowy opis strategii testowania systemu.
+- Przejrzyste widoki funkcjonalne.
