@@ -264,7 +264,7 @@ Przegląd sporządzono zgodnie z [ATAM: Method for Architecture Evaluation](http
 - asynchroniczna komunikacja między serwisami
 - automatyczne skalowanie
 - JWT
-- Application Load Balancer
+- load balancing
 - Kubernetes
 - PostgreSQL
 - Spring Boot
