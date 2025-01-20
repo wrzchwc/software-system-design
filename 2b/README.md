@@ -274,6 +274,9 @@ Przegląd sporządzono zgodnie z [ATAM: Method for Architecture Evaluation](http
 - Deno
 - Grafana
 - Health Check API
+- Cypress
+- renderowanie po stronie klienta
+- kody QR
 
 ## Drzewo użyteczności
 
