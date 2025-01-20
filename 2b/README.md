@@ -25,134 +25,134 @@ Legenda:
     <th colspan="2">Ogólne</th>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>1. Jakie inne aplikacje i/lub systemy wymagają integracji z ocenienym systemem?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>2. Opisz poziom integracji i strategię z każdym z nich.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>B</td>
     <td>3. Jak geograficznie rozproszona jest baza użytkowników?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>4. Jakie strategiczne znaczenie ma ten system dla innych społeczności użytkowników wewnątrz lub poza przedsiębiorstwem?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>5. Jakie zasoby komputerowe są potrzebne do świadczenia usług systemu użytkownikom wewnątrz przedsiębiorstwa? Poza przedsiębiorstwem, korzystając z zasobów przedsiębiorstwa? Poza przedsiębiorstwem, korzystając z własnych zasobów?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>6. Jak użytkownicy spoza macierzystego środowiska dostarczania mogą uzyskać dostęp do aplikacji i danych?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>C</td>
     <td>7. Jaki jest oczekiwany okres eksploatacji tej aplikacji?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>B</td>
     <td>8. Opisz projekt, który uwzględnia zmiany w bazie użytkowników, przechowywanych danych i technologii systemu dostarczania.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>9. Jaka jest wielkość bazy użytkowników i ich oczekiwany poziom wydajności?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>10. Jakie techniki testów wydajności i obciążeniowych są używane?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>11. Jaka jest ogólna organizacja komponentów oprogramowania i danych?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>12. Jaka jest ogólna konfiguracja usług i systemu?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>13. Jak są mapowane konfiguracje oprogramowania i danych na konfigurację usług i systemów?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>14. Jakie technologie własnościowe (sprzętowe i programowe) są potrzebne dla tego systemu?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>C</td>
     <td>15. Opisz, w jaki sposób każda wersja oprogramowania może być odtworzona i ponownie wdrożona w czasie.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>B</td>
     <td>16. Opisz obecną bazę użytkowników i jak ta baza może się zmieniać w ciągu najbliższych 3 do 5 lat.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>B</td>
     <td>17. Opisz obecną geograficzną dystrybucję bazy użytkowników i jak ta baza może się zmieniać w ciągu najbliższych 3 do 5 lat.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>18. Opisz, ilu obecnych lub przyszłych użytkowników potrzebuje korzystać z aplikacji mobilnie lub offline.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>19. Opisz, co aplikacja ogólnie robi, główne komponenty aplikacji oraz główne przepływy danych.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>B</td>
     <td>20. Opisz instrumentację zawartą w aplikacji, która pozwala monitorować zdrowie i wydajność aplikacji.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>21. Opisz uzasadnienie biznesowe dla systemu.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>B</td>
     <td>22. Opisz racjonalność wyboru języka rozwoju systemu względem innych opcji, biorąc pod uwagę początkowe koszty rozwoju i długoterminowe koszty utrzymania.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>C</td>
     <td>23. Opisz proces analizy systemu, który został wykorzystany do opracowania architektury systemu i wyboru produktu w fazie projektowania architektury systemu.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>C</td>
     <td>24. Kto poza pierwotnym klientem może korzystać z tego systemu lub czerpać z niego korzyści?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>C</td>
     <td>25. Jaki procent użytkowników korzysta z systemu w trybie przeglądania, a jaki w trybie aktualizacji?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>26. Jaka jest typowa długość żądań transakcyjnych?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>27. Czy potrzebujesz gwarantowanego dostarczania lub aktualizacji danych, czy system toleruje awarie?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>28. Jakie są wymagania dotyczące dostępności systemu?</td>
   </tr>
   <tr>
-    <td></td>
-    <td>29. Opisz, gdzie architektura systemu przestrzega lub nie przestrzega staardów.</td>
+    <td>ND</td>
+    <td>29. Opisz, gdzie architektura systemu przestrzega lub nie przestrzega standardów.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>C</td>
     <td>30. Opisz podejście do planowania projektu i analizy użyte w projekcie.</td>
   </tr>
   <tr>
     <th colspan="2">Procesory/Serwery/Klienci</th>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>1. Opisz architekturę aplikacji Klient/Serwer.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>2. Dodaj ilustrację do obrazu, aby pokazać, gdzie wykonywane są funkcje aplikacji.</td>
   </tr>
   <tr>
@@ -163,85 +163,85 @@ Legenda:
     <td>1. Czy funkcje inne niż prezentacja są wykonywane na urządzeniu użytkownika?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>C</td>
     <td>2. Opisz dane i procesy związane z pomocą udostępnianą użytkownikom.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>3. Opisz technikę nawigacji ekran po ekranie.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>4. Opisz, jak użytkownik nawigował między tą a innymi aplikacjami.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>5. Jak uruchamiane są ta i inne aplikacje z urządzenia użytkownika?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>6. Czy istnieją możliwości współdzielenia danych i procesów między aplikacjami? Jeśli tak, opisz, co jest współdzielone i za pomocą jakiej techniki/technologii.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>C</td>
     <td>7. Opisz wolumeny danych przesyłanych do klienta.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>8. Jakie są dodatkowe wymagania dotyczące lokalnego przechowywania danych wspierających aplikację?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>9. Jakie są dodatkowe wymagania dotyczące lokalnego przechowywania oprogramowania/pamięci wspierających aplikację?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>10. Czy znane są konflikty sprzętowe/programowe lub ograniczenia pojemności spowodowane wymaganiami innych aplikacji, które mogłyby wpłynąć na użytkowników aplikacji?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>C</td>
     <td>11. Opisz, jak wygląd i działanie warstwy prezentacji systemu porównują się z wyglądem i działaniem innych istniejących aplikacji.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>B</td>
     <td>12. Opisz w jakim stopniu klient musi wspierać komunikację asynchroniczną i/lub synchroniczną.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>B</td>
     <td>13. Opisz, jak warstwa prezentacji systemu jest oddzielona od innych warstw obliczeniowych lub transferu danych systemu.</td>
   </tr>
   <tr>
     <th colspan="2">Serwer aplikacji</th>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>1. Czy warstwa prezentacji i warstwa aplikacji mogą działają na oddzielnych procesorach?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>2. Czy warstwa aplikacji i warstwa dostępu do danych mogą działać na oddzielnych procesorach?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>C</td>
     <td>3. Czy aplikacja może być umieszczona na serwerze aplikacji niezależnie od wszystkich innych aplikacji? Jeśli nie, wyjaśnij zależności.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>A</td>
     <td>4. Czy można łatwo dodać dodatkowe równoległe serwery aplikacji? Jeśli tak, jaki jest mechanizm równoważenia obciążenia?</td>
   </tr>
   <tr>
-    <td></td>
+    <td>B</td>
     <td>5. Czy zmierzono zapotrzebowanie aplikacji na zasoby i jaka jest wartość? Jeśli tak, czy potwierdzono pojemność planowanego serwera na poziomie aplikacji i poziomie agregacji?</td>
   </tr>
   <tr>
     <th colspan="2">Serwer danych</th>
   </tr>
   <tr>
-    <td></td>
+    <td>ND</td>
     <td>1. Czy istnieją inne aplikacje, które muszą współdzielić serwer danych? Jeśli tak, proszę je zidentyfikować i opisać wymagania dotyczące danych i dostępu do danych.</td>
   </tr>
   <tr>
-    <td></td>
+    <td>B</td>
     <td>2. Czy zmierzono zapotrzebowanie aplikacji na zasoby i jaka jest wartość? Jeśli tak, czy potwierdzono pojemność planowanego serwera na poziomie aplikacji i poziomie agregacji?</td>
   </tr>
 </table>
