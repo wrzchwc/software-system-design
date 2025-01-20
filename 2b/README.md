@@ -250,6 +250,31 @@ Legenda:
 
 Przegląd sporządzono zgodnie z [ATAM: Method for Architecture Evaluation](https://insights.sei.cmu.edu/documents/629/2000_005_001_13706.pdf).
 
+- architektura mikroserwisów
+- AWS
+- AWS SQS
+- AWS RDS
+- AWS CloudWatch
+- AWS EKS
+- AWS SES
+- AWS Lambda
+- wzorzec API Gateway
+- wzorzec sidecar
+- wzorce projektowe (adapter, łańcuch odpowiedzialności, komenda, strategia)
+- asynchroniczna komunikacja między serwisami
+- automatyczne skalowanie
+- JWT
+- Application Load Balancer
+- Kubernetes
+- PostgreSQL
+- Spring Boot
+- Angular
+- NestJS
+- Hono
+- Deno
+- Grafana
+- Health Check API
+
 ## Drzewo użyteczności
 
 Charakterystyki jakościowe dobrano zgodnie z normą ISO/IEC 25010. Priorytety określono zgodnie ze wzorem `(BG, D)`, gdzie `BG` oznacza korzyść biznesową (`H` (wysoka), `M` (średnia) lub `L` (niska)), a `D` oznacza trudność implmentacyjną (`H` (wysoka), `M` (średnia) lub `L` (niska)).
