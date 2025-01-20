@@ -613,7 +613,7 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 
 - Rezygnację z SSR dla aplikacji klienckiej należy uznać za rozwiązanie mocno kompromisowe ze względu na gorsze wsparcie dla SEO (aplikacja użytku publicznego) oraz dłuższy czas renderowania aplikacji (pogorszenie web vitals). 
 - Stosunkowo wysokie wykorzystanie na urządzeniach mobilnych oraz wykorzystanie zasobów sprzętowych (kamera wideo) sugerowałoby implementację w formie PWA lub natywnej aplikacji mobilnej. Wybór Angulara jako technologii frontendowej w tym przypadku może nie być optymalnym wyborem, ze względu na to, że technologia ta tergetowana jest bardziej na urządzenia desktopowe (nie jest tak lightweight jako React/React Native lub Svelte).
-- Różnorodność w doborze technologii backendowych wykorzystuje agnostycyzm technologiczny REST oraz protokołu HTTP, jednak może utrudniać proces wymiany wiedzy pomiędzy członkami zespołu oraz code review.
+- Różnorodność w doborze technologii backendowych wykorzystuje agnostycyzm technologiczny REST oraz protokołu HTTP, jednak może utrudniać procesy wymiany wiedzy oraz code review pomiędzy członkami zespołu.
 - Deno to niszowe środowisko uruchomieniowe JavaScript, o znacznie mniejszej popularności rynkowej niż Node.js, co może rodzić problemy ze wsparciem oraz kompatybilnością w fazie utrzymania systemu po jego wdrożeniu produkcyjnym.
 
 ## Wnioski
