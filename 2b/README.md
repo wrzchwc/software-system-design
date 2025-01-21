@@ -313,7 +313,7 @@ Charakterystyki jakościowe dobrano zgodnie z normą ISO/IEC 25010. Priorytety o
   </tr>
   <tr>
     <th>modyfikowalność</th>
-    <td>Wdrożenie nowej funkcjonalności nie powinno zajmować więcej niż 10 tygodni roboczych.</td>
+    <td>Wdrożenie nowej funkcjonalności nie powinno zajmować więcej niż 10 tygodni roboczych. (M, L)</td>
   </tr>
 </table>
 
@@ -332,15 +332,15 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Środowisko</th>
-    <td colspan="4">środowisko</td>
+    <td colspan="4">Normalna praca systemu</td>
   </tr>
   <tr>
     <th>Przyczyna</th>
-    <td colspan="4">przyczyna</td>
+    <td colspan="4">Użytkownik wysyła zapytanie związane z biletami (np. dokonuje zakupu biletu).</td>
   </tr>
   <tr>
     <th>Odpowiedź</th>
-    <td colspan="4">odpowiedź</td>
+    <td colspan="4">Zapytanie jest obsługiwane w czasie nie większym niż 1 sekunda.</td>
   </tr>
   <tr>
     <th>Decyzje architektoniczne</th>
@@ -378,15 +378,15 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Środowisko</th>
-    <td colspan="4">środowisko</td>
+    <td colspan="4">Normalna praca systemu</td>
   </tr>
   <tr>
     <th>Przyczyna</th>
-    <td colspan="4">przyczyna</td>
+    <td colspan="4">5000 użytkowników korzysta jednocześnie z systemu</td>
   </tr>
   <tr>
     <th>Odpowiedź</th>
-    <td colspan="4">odpowiedź</td>
+    <td colspan="4">Transakcje są obsługiwane prawidłowo i nie obserwuje się spadków w ogólnej wydajności systemu.</td>
   </tr>
   <tr>
     <th>Decyzje architektoniczne</th>
@@ -424,15 +424,15 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Środowisko</th>
-    <td colspan="4">środowisko</td>
+    <td colspan="4">Niezależnie od stanu środowiska</td>
   </tr>
   <tr>
     <th>Przyczyna</th>
-    <td colspan="4">przyczyna</td>
+    <td colspan="4">Chęć skorzystania przez użytkownika z systemu</td>
   </tr>
   <tr>
     <th>Odpowiedź</th>
-    <td colspan="4">odpowiedź</td>
+    <td colspan="4">Dostępność systemu przez 99.9%</td>
   </tr>
   <tr>
     <th>Decyzje architektoniczne</th>
@@ -470,15 +470,15 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Środowisko</th>
-    <td colspan="4">środowisko</td>
+    <td colspan="4">Normalna praca systemu</td>
   </tr>
   <tr>
     <th>Przyczyna</th>
-    <td colspan="4">przyczyna</td>
+    <td colspan="4">Awaria systemu lub jego części znaczenie wpływająca na pracę reszty systemu</td>
   </tr>
   <tr>
     <th>Odpowiedź</th>
-    <td colspan="4">odpowiedź</td>
+    <td colspan="4">Czas wymagany do przywrócenia pełnej sprawności systemu nie przekracza 1 godziny.</td>
   </tr>
   <tr>
     <th>Decyzje architektoniczne</th>
@@ -617,7 +617,8 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - Deno to niszowe środowisko uruchomieniowe JavaScript, o znacznie niższej popularności rynkowej niż Node.js, co może rodzić problemy ze wsparciem oraz kompatybilnością w fazie utrzymania systemu po jego wdrożeniu produkcyjnym.
 - Samodzielna implmentacja istotnych elementów systemu, takich jaki API gateway oraz autoryzacja rodzi ryzyko wystąpienia podatności oraz może zwiększać poziom trudności utrzymania systemu po jego wdrożeniu produkcyjnym.
 - Dokumentacja nie wskazuje wprost na zastosowanie EKS, czytelnik musi domyślić się tej informacji.
-- Abstrakcyjne nazwy dla podsystemów są elastyczne i mogą zmniejszać koszt utrzymania dokumentacji, jednakże nie informują o domenie, za którą odpowiada dany podsystem, co wymusza opanowanie "słownika nazw" i zwiększa poziom wejścia w architekturę projektu. (personalna opinia)
+- Abstrakcyjne nazwy dla podsystemów są elastyczne i mogą zmniejszać koszt utrzymania dokumentacji, jednakże nie informują o domenie, za którą odpowiada dany podsystem, co wymusza opanowanie "słownika nazw" i zwiększa poziom wejścia w architekturę projektu. (personalna opinia).
+- Wymaganie niefunkcjonalne `NF/PRF/01` wymaga doprecyzowania. Zdefiniowano maksymalne czasy odpowiedzi dla 90% przypadków, nie zdefiniowano jakie są maksymalne czasy dla 10% pozostałych przypadków (nieskończone czasy są nieakceptowalne; dobrze byłoby podać estymacje lub określić czasy dla szerszych zakresów, najlepiej 99.9% lub więcej).
 
 ## Wnioski
 <!-- Przepisać na tekst ciągły, na razie wolny strumień myśli -->
