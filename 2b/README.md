@@ -291,29 +291,29 @@ Charakterystyki jakościowe dobrano zgodnie z normą ISO/IEC 25010. Priorytety o
   <tr>
     <th rowspan="2">wydajność</th>
     <th>wydajność czasowa</th>
-    <td></td>
+    <td>Użytkownik wysyła zapytanie związane z zakupem biletów w ramach normalnej pracy systemu, czas odpowiedzi nie przekracza 1 sekundy. (H, H)</td>
   </tr>
   <tr>
     <th>przepustowość</th>
-    <td></td>
+    <td>Użytkownicy w liczbie 5000 otwierają system w ramach normalnej pracy systemu, transakcje są obsługiwane bez błędów i spadku wydajności. (H, M)</td>
   </tr>
   <tr>
     <th rowspan="2">niezawodność</th>
     <th>dostępność</th>
-    <td></td>
+    <td>Użytkownik próbuje skorzystać z systemu, niezależnie od stanu środowiska, system jest dostępny przez 99.9% czasu. (H, L)</td>
   </tr>
   <tr>
     <th>odzyskiwalność</th>
-    <td></td>
+    <td>Gdy w systemie wydarzy się awaria, system można przywrócić do działania w ciągu maksymalnie 1h. (H, M)</td>
   </tr>
   <tr>
     <th rowspan="2">utrzymywalność</th>
-    <th>modularność</th>
-    <td></td>
+    <th>testowalność</th>
+    <td>System umożliwia weryfikację poprawności jego działania za pośrednictwem szerokiej gammy testów automatycznych - jednostkowe, integracyjne, E2E, wydajnościowe.</td>
   </tr>
   <tr>
     <th>modyfikowalność</th>
-    <td></td>
+    <td>Wdrożenie nowej funkcjonalności nie powinno zajmować więcej niż 10 tygodni roboczych.</td>
   </tr>
 </table>
 
@@ -324,7 +324,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 <table>
   <tr>
     <th>Scenariusz<code>S1</code></th>
-    <td colspan="4">scenariusz</td>
+    <td colspan="4">Użytkownik wysyła zapytanie związane z zakupem biletów w ramach normalnej pracy systemu, czas odpowiedzi nie przekracza 1 sekundy.</td>
   </tr>
   <tr>
     <th>Atrybut</th>
@@ -370,7 +370,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 <table>
   <tr>
     <th>Scenariusz<code>S2</code></th>
-    <td colspan="4">scenariusz</td>
+    <td colspan="4">Użytkownicy w liczbie 5000 otwierają system w ramach normalnej pracy systemu, transakcje są obsługiwane bez błędów i spadku wydajności.</td>
   </tr>
   <tr>
     <th>Atrybut</th>
@@ -416,7 +416,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 <table>
   <tr>
     <th>Scenariusz<code>S3</code></th>
-    <td colspan="4">scenariusz</td>
+    <td colspan="4">Użytkownik próbuje skorzystać z systemu, niezależnie od stanu środowiska, system jest dostępny przez 99.9% czasu. </td>
   </tr>
   <tr>
     <th>Atrybut</th>
@@ -462,7 +462,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 <table>
   <tr>
     <th>Scenariusz<code>S4</code></th>
-    <td colspan="4">scenariusz</td>
+    <td colspan="4">Gdy w systemie wydarzy się awaria, system można przywrócić do działania w ciągu maksymalnie 1h.</td>
   </tr>
   <tr>
     <th>Atrybut</th>
@@ -508,11 +508,11 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 <table>
   <tr>
     <th>Scenariusz<code>S5</code></th>
-    <td colspan="4">scenariusz</td>
+    <td colspan="4">System umożliwia weryfikację poprawności jego działania za pośrednictwem szerokiej gammy testów automatycznych - jednostkowe, integracyjne, E2E, wydajnościowe.</td>
   </tr>
   <tr>
     <th>Atrybut</th>
-    <td colspan="4">modularność</td>
+    <td colspan="4">testowalność</td>
   </tr>
   <tr>
     <th>Środowisko</th>
@@ -554,7 +554,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 <table>
   <tr>
     <th>Scenariusz<code>S6</code></th>
-    <td colspan="4">scenariusz</td>
+    <td colspan="4">Wdrożenie nowej funkcjonalności nie powinno zajmować więcej niż 10 tygodni roboczych.</td>
   </tr>
   <tr>
     <th>Atrybut</th>
