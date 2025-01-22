@@ -775,15 +775,15 @@ Poniżej zaagregowano punkty wrażliwości, kompromisy, ryzyka oraz nie-ryzyka d
 ### Punkty wrażliwości
 Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W związku z tym, każdy z punktów wrażliwości został sklasyfikowany jako ryzyko (`R`) lub nie-ryzyko (`N`).
 
-- `S1.S1`: Projekt i implementacja architektury mikroserwisowej jest trudniejszy, niż architektury monolitycznej.
-- `S1.S3`: Dobór indeksów bazodanowych może istotnie wpływać na efektywność przetwarzania transakcji, zarówno korzystnie, jak i negatywnie.
-- `S1.S4`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów, algorytm balansowania), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
-- `S2.S1`: Load balancing może zostać źle skonfiguraowany (np. dobór parametrów, algorytm balansowania), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
-- `S2.S2`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
-- `S2.S3`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
-- `S3.S1`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
-- `S4.S2`: CloudWatch to rozbudowane narzędzie do monitoriwania logów, należy je jednak skonfigurować prawidłowo, aby uniknąć fałszywych alarmów (o ile funkcja ta jest używana).
-- `S4.S3`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
+- `S1.S1`: Projekt i implementacja architektury mikroserwisowej jest trudniejszy, niż architektury monolitycznej. (`R`)
+- `S1.S3`: Dobór indeksów bazodanowych może istotnie wpływać na efektywność przetwarzania transakcji, zarówno korzystnie, jak i negatywnie. (`R`)
+- `S1.S4`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów, algorytm balansowania), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji. (`N`)
+- `S2.S1`: Load balancing może zostać źle skonfiguraowany (np. dobór parametrów, algorytm balansowania), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji. (`N`)
+- `S2.S2`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji. (`N`)
+- `S2.S3`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu. (`N`)
+- `S3.S1`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu. (`N`)
+- `S4.S2`: CloudWatch to rozbudowane narzędzie do monitoriwania logów, należy je jednak skonfigurować prawidłowo, aby uniknąć fałszywych alarmów (o ile funkcja ta jest używana). (`R`)
+- `S4.S3`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu. (`N`)
 
 ### Kompromisy
 
