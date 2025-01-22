@@ -18,7 +18,7 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 - System powinien być w stanie obsłuzyc zmienną liczbę uzytkowników w ciągu doby, siegajacą 10000 jednoczesnych uzytkowników w godzinach szczytu.
 - System zapewni bezpieczeństwo danych wrazliwych oraz zgodność z przepisami RODO.
 - Archietktura systemu umozliwi łatwe skalowalnie i rozszerzanie rozwiązania.
-- Uytkownicy koncowi będą wchodzić w interakcję z systemem za pośrednictwem intuicyjnych i responsywnych interfejsów uzytkownika.
+- Uytkownicy końcowi będą wchodzić w interakcję z systemem za pośrednictwem intuicyjnych i responsywnych interfejsów uzytkownika.
 
 ## Ograniczenia architektoniczne
 
@@ -29,15 +29,79 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 - Warstwa backendowa systemu powstanie w architekturze mikroserwisowej.
 - Średni czas odpowiedzi dla mikroserwisów nie moze przekraczać 10s.
 
-### Architektura Warstowa
-Dla problemów klasy CRUD zostanie 
+## Decyzje i ich uzasadnienia
 
-### Architektura Heksagonalna 
+| Drivery architektoniczne | Decyzje                                                                                     |
+| ------------------------ | ------------------------------------------------------------------------------------------ |
+| `asdf`, `asdf`           | [`D/01` Architektura heksagonalna](#architektura-heksagonalna)                             |
+| `asdf`, `asdf`           | [`D/02` Architektura warstwowa](#architektura-warstwowa)                                   |
+| `asdf`, `asdf`           | [`D/03` Architektura mikroserwisowa](#architektura-mikroserwisowa)                         |
+| `asdf`, `asdf`           | [`D/04` Optimistic Locking](#architektura-mikroserwisowa)                                  |
+| `asdf`, `asdf`           | [`D/05` Wzorzec Agregat](#wzorzec-agregat)                                                 |
+| `asdf`, `asdf`           | [`D/06` Wzorzec Fasady](#wzorzec-fasady)                                                   |
+| `asdf`, `asdf`           | [`D/07` Strkuktury Dużej Skali](#struktury-dużej-skali)                                    |
+| `asdf`, `asdf`           | [`D/08` Load Balancing](#load-balancing)                                                   |
+| `asdf`, `asdf`           | [`D/09` Amazon Simple Queue Service](#amazon-simple-queue-service)                         |
+| `asdf`, `asdf`           | [`D/10` Wzorzez API Gateway](#wzorzec-api-gateway)                                         |
+| `asdf`, `asdf`           | [`D/11` Sieć wewnętrzna VPC](#siećwewnętrzna-vpc)                                          |
+| `asdf`, `asdf`           | [`D/12` Oddzielne bazy danych dla mikroserwisów](#oddzielne-bazy-danych-dla-mikroserwisów) |
+| `asdf`, `asdf`           | [`D/13` Amazon S3 Bucket](#amazon-s3-bucket)                                               |
+| `asdf`, `asdf`           | [`D/14` Nat Gateway](#nat-gateway)                                                         |
+| `asdf`, `asdf`           | [`D/15` Amazon Lambda](#amazon-lambda)                                                     |
+| `asdf`, `asdf`           | [`D/16` Internet Gateway](#internet-gateway)                                               |
+| `asdf`, `asdf`           | [`D/17` Autoryzacja z wykorzystaniem JWT](#autoryzacja-z-wykorzystaniem-jwt)               |
+| `asdf`, `asdf`           | [`D/17` Wdrożenie w chmurze AWS](#wdrożenie-w-chmurze-aws)                                 |
 
-### ORM
 
-### Spring Security
 
+## Mechanizmy Architektoniczne
+
+### Infrastrukturalne
+
+#### Wdrożenie w chmurze AWS
+
+#### Load Balancing
+
+#### Amazon Simple Queue Service
+
+#### Architektura mikroserwisowa
+
+#### Wzorzec API Gateway
+
+#### Sieć wewnętrzna VPC
+
+#### Oddzielne bazy danych dla mikroserwisów
+
+#### Amazon S3 Bucket
+
+#### Nat Gateway
+
+#### Amazon Lambda
+
+#### Internet Gateway
+
+#### Autoryzacja z wykorzystaniem JWT
+
+#### Relacyjna baza danych Amazon RDS
+
+#### Amazon Cognito
+
+
+### Aplikacyjne
+
+#### Architektura heksagonalna
+
+#### Architektura warstwowa
+
+#### Event Sourcing
+
+#### Optimistic Locking
+
+#### Wzorzec Agregat
+
+#### Wzorzec Fasady
+
+#### Struktury Dużej Skali
 
 
 ## Widoki architekotniczne
@@ -52,70 +116,70 @@ Dla problemów klasy CRUD zostanie
 
 ### Interfejsy integracyjne
 
-|Aspekt|Opis|
-|--------|-----------|
-|Aplikacja źródłowa|Deskly FE|
-|Aplikacja docelowa|Deskly Location|
-|Techinika integracji|HTTPS|
-|Mechanizm uwierzytelniania|JWT|
-|Manipulacja na danych wrazliwych?|nie|
-|Strona inicujująca|Deskly FE|
-|Model komunikacji|synchroniczny, REST|
-|Wydajność|1000 zapytań / s|
-|Wolumetria|250 kB / s|
-|Wymagana dostępność|99.9%|
+| Aspekt                            | Opis                |
+| --------------------------------- | ------------------- |
+| Aplikacja źródłowa                | Deskly FE           |
+| Aplikacja docelowa                | Deskly Location     |
+| Techinika integracji              | HTTPS               |
+| Mechanizm uwierzytelniania        | JWT                 |
+| Manipulacja na danych wrazliwych? | nie                 |
+| Strona inicujująca                | Deskly FE           |
+| Model komunikacji                 | synchroniczny, REST |
+| Wydajność                         | 1000 zapytań / s    |
+| Wolumetria                        | 250 kB / s          |
+| Wymagana dostępność               | 99.9%               |
 
-|Aspekt|Opis|
-|--------|-----------|
-|Aplikacja źródłowa|Deskly FE|
-|Aplikacja docelowa|Deskly Core|
-|Techinika integracji|HTTPS|
-|Mechanizm uwierzytelniania|JWT|
-|Manipulacja na danych wrazliwych?|tak|
-|Strona inicujująca|Deskly FE|
-|Model komunikacji|synchroniczny, REST|
-|Wydajność|1000 zapytań / s|
-|Wolumetria|250 kB / s|
-|Wymagana dostępność|99.9%|
+| Aspekt                            | Opis                |
+| --------------------------------- | ------------------- |
+| Aplikacja źródłowa                | Deskly FE           |
+| Aplikacja docelowa                | Deskly Core         |
+| Techinika integracji              | HTTPS               |
+| Mechanizm uwierzytelniania        | JWT                 |
+| Manipulacja na danych wrazliwych? | tak                 |
+| Strona inicujująca                | Deskly FE           |
+| Model komunikacji                 | synchroniczny, REST |
+| Wydajność                         | 1000 zapytań / s    |
+| Wolumetria                        | 250 kB / s          |
+| Wymagana dostępność               | 99.9%               |
 
-|Aspekt|Opis|
-|--------|-----------|
-|Aplikacja źródłowa|Deskly Location|
-|Aplikacja docelowa|Deskly Core|
-|Techinika integracji|AWS SDK|
-|Mechanizm uwierzytelniania|access key, secret access key|
-|Manipulacja na danych wrazliwych?|nie|
-|Strona inicujująca|Deskly Location|
-|Model komunikacji|asynchroniczny, SQS|
-|Wydajność|500 zapytań / s|
-|Wolumetria|100 kB / s|
-|Wymagana dostępność|99.9%|
+| Aspekt                            | Opis                          |
+| --------------------------------- | ----------------------------- |
+| Aplikacja źródłowa                | Deskly Location               |
+| Aplikacja docelowa                | Deskly Core                   |
+| Techinika integracji              | AWS SDK                       |
+| Mechanizm uwierzytelniania        | access key, secret access key |
+| Manipulacja na danych wrazliwych? | nie                           |
+| Strona inicujująca                | Deskly Location               |
+| Model komunikacji                 | asynchroniczny, SQS           |
+| Wydajność                         | 500 zapytań / s               |
+| Wolumetria                        | 100 kB / s                    |
+| Wymagana dostępność               | 99.9%                         |
 
-|Aspekt|Opis|
-|--------|-----------|
-|Aplikacja źródłowa|Deskly Core|
-|Aplikacja docelowa|Deskly Location|
-|Techinika integracji|AWS SDK|
-|Mechanizm uwierzytelniania|access key, secret access key|
-|Manipulacja na danych wrazliwych?|nie|
-|Strona inicujująca|Deskly Core|
-|Model komunikacji|asynchorniczny, SQS|
-|Wydajność|500 zapytań / s|
-|Wolumetria|100 kB / s|
-|Wymagana dostępność|99.9%|
+| Aspekt                            | Opis                          |
+| --------------------------------- | ----------------------------- |
+| Aplikacja źródłowa                | Deskly Core                   |
+| Aplikacja docelowa                | Deskly Location               |
+| Techinika integracji              | AWS SDK                       |
+| Mechanizm uwierzytelniania        | access key, secret access key |
+| Manipulacja na danych wrazliwych? | nie                           |
+| Strona inicujująca                | Deskly Core                   |
+| Model komunikacji                 | asynchorniczny, SQS           |
+| Wydajność                         | 500 zapytań / s               |
+| Wolumetria                        | 100 kB / s                    |
+| Wymagana dostępność               | 99.9%                         |
 
-|Aspekt|Opis|
-|--------|-----------|
-|Aplikacja źródłowa|Deskly Core, Deskly Location|
-|Aplikacja docelowa|Deskly DB|
-|Techinika integracji|JDBC|
-|Mechanizm uwierzytelniania|nazwa uytkownika, hasło|
-|Manipulacja na danych wrazliwych?|tak|
-|Strona inicujująca|Deskly Core, Deskly Location|
-|Model komunikacji|synchorniczny|
-|Wydajność|500 zapytań / s|
-|Wolumetria|100 kB / s|
-|Wymagana dostępność|99.9%|
+| Aspekt                            | Opis                         |
+| --------------------------------- | ---------------------------- |
+| Aplikacja źródłowa                | Deskly Core, Deskly Location |
+| Aplikacja docelowa                | Deskly DB                    |
+| Techinika integracji              | JDBC                         |
+| Mechanizm uwierzytelniania        | nazwa uytkownika, hasło      |
+| Manipulacja na danych wrazliwych? | tak                          |
+| Strona inicujująca                | Deskly Core, Deskly Location |
+| Model komunikacji                 | synchorniczny                |
+| Wydajność                         | 500 zapytań / s              |
+| Wolumetria                        | 100 kB / s                   |
+| Wymagana dostępność               | 99.9%                        |
 
 ## Widok funkcyjny (C4 Component)
 ![structurizr-Component-001 (1)](https://github.com/user-attachments/assets/36f9e1bf-a9a1-4deb-bf15-8b0a395fba53)

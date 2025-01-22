@@ -4,9 +4,9 @@
 System wymaga uwierzytelniania i autoryzacji użytkowników. Potrzeby obejmują zarządzanie użytkownikami, obsługę logowania (np. za pomocą Google, Facebooka), skalowalność i zgodność z nowoczesnymi standardami bezpieczeństwa (OAuth2, OpenID Connect).
 
 ## Decyzja
-- Uwierzytelnianie oraz zarzązanie kontami użytwkoników w systemie zostanie rozwiązane poprzez integrację z AWS Cognito
+- Uwierzytelnianie oraz zarzązanie kontami użytwkoników w systemie zostanie rozwiązane poprzez integrację z AWS Cognito oraz API Gateway
 - Uwierzytelnione zapytania będą zawierały token JWT
-- Spring Security zostanie wykorzystane do autoryzacji przychodzących zapytań
+- Autoryzacja tokenu JWT będzie odbywać się przy zapytaniach do API Gateway (sprawdzenie podpisu) oraz przy zapytaniu do konkretnego mikroserwisu (sprawdzenie roli użytwkownika)
 
 ### Uzasadnienie
 
