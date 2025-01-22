@@ -751,3 +751,4 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - Dobór stosowanych instancji EC2 oraz RDS w oparciu o precyzjne estymacje oraz dane statystyczne.
 - Całościowy opis strategii testowania systemu.
 - Przejrzyste widoki funkcjonalne.
+- Szczegółowy plan implementacji indeksów oraz endpointów.
