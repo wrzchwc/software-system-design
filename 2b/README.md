@@ -384,7 +384,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Diagram architektoniczny</th>
-    <td colspan="4"><img src="./images/deployment-diagram.svg" /></td>
+    <td colspan="4"><img src="./images/deployment-diagram.svg"/></td>
   </tr>
 </table>
 
@@ -404,7 +404,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 
 ---
 
-- `S1.S4`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów, algorytm balansowania), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
+- `S1.S4`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
 - `S1.N4`: Mechanizm umożliwia optymalizację zużycia zasobów przy zmiennej liczbie użytkowników jednocześnie korzystających z systemu (np. w czasie porannych lub popołudniowych godzin szczytu).
 
 <table>
@@ -437,49 +437,75 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <td><b>load balancing usług</b></td>
+    <td><code>S2.S1</code></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S2.N1</code></td>
   </tr>
   <tr>
     <td><b>automatyczne skalowanie</b></td>
+    <td><code>S2.S2</code></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S2.N2</code></td>
   </tr>
   <tr>
     <td><b>Kubernetes</b></td>
+    <td><code>S2.S3</code></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S2.N3</code></td>
   </tr>
   <tr>
     <td><b>AWS SQS</b></td>
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
+    <td><code>S2.N4</code></td>
   </tr>
   <tr>
     <td><b>wzorzec API gateway</b></td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S2.T5</code></td>
+    <td><code>S2.R5</code></td>
+    <td><code>S2.N5</code></td>
   </tr>
   <tr>
     <th>Analiza</th>
-    <td colspan="4"></td>
-    </td>
+    <td colspan="4">Ogół podjętych decyzji architektonicznych należy uznać za rozsądny i uzasadniony. Należy jednak dużą wagą nadać poprawnej konfiguracji, gdyż może ona silnie determinować przepustowość sytemu. Samodzielna implementacja API gateway może stanowić wyzwanie impmentacyjne, które można by zredukować korzystając z oferowanego przez AWS API Gateway. Nie wyspecyfikowano wymagań, których usługa nie byłaby w stanie spełnić.</td>
   </tr>
   <tr>
     <th>Diagram architektoniczny</th>
-    <td colspan="4"></td>
+    <td colspan="4">
+      <img src="./images/deployment-diagram.svg"/>
+      <img src="./images/component-diagram-main.svg"/>
+    </td>
   </tr>
 </table>
+
+- `S2.S1`: Load balancing może zostać źle skonfiguraowany (np. dobór parametrów, algorytm balansowania), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
+- `S2.N1`: Mechanizm umożliwia optymalizację zużycia zasobów poprzez równomierne rozdzielenie workloadu, co jest szczególnie przy wysokim obciążeniu systemu.
+
+---
+
+- `S2.S2`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
+- `S2.N2`: Mechanizm umożliwia optymalizację zużycia zasobów przy zmiennej liczbie użytkowników jednocześnie korzystających z systemu (np. w czasie porannych lub popołudniowych godzin szczytu).
+
+---
+
+- `S2.S3`: Kuberenets to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
+- `S2.N3`: Kubernets to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe oraz adaptacyjne.
+
+---
+
+- `S2.N4`: Mechanizm kolejki (realizowany za pośrednictwem SQS) umożliwia rozluźnienie powiązań pomiędzy mikroserwiasmi oraz zapobiega tworzeniu się wąskich gardeł podczas złożonych transakcji.
+
+---
+
+- `S2.T5`: Wzorzec API gateway upraszcza integrację z aplikacjami klienckimi, jednakże wydajność oraz optymalizacja tego komponentu może stanowić wąskie gardło podczas przetwarzania transakcji.
+- `S2.R5`: Samodzielna implementacja API gateway rodzi ryzyko nieoptymalności implementacji oraz może niepotrzebnie komplikować rozwój systemu.
+- `S2.N5`: Wzorzec API gateway sam w sobie to "eleganckie" rozwiązanie pozwalające na uproszczenie integracji z klientami oraz centralizację niektórych funckjonalności systemu (np. uwierzytelnianie).
+
 
 <table>
   <tr>
@@ -716,21 +742,31 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - `S1.S1`: Projekt i implementacja architektury mikroserwisowej jest trudniejszy, niż architektury monolitycznej.
 - `S1.S3`: Dobór indeksów bazodanowych może istotnie wpływać na efektywność przetwarzania transakcji, zarówno korzystnie, jak i negatywnie.
 - `S1.S4`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów, algorytm balansowania), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
+- `S2.S1`: Load balancing może zostać źle skonfiguraowany (np. dobór parametrów, algorytm balansowania), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
+- `S2.S2`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
+- `S2.S3`: Kuberenets to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
 
 ### Kompromisy
 
 - `S1.T2`: Asynchroniczna komunikacja między serwisami zwiększa niezawodność, jednak może wprowadzać opóźnienia związane z transferem danych przez sieć.
 - `S1.T3`: Powszechne zastosowanie PostgreSQL dla wszystkich mikroserwisów ułatwi zarządzanie modelami danych, jednak nie będzie to optymalny wybór pod kątem wydajności dla wszytkich mikroserwisów pod kątem wydajności.
+- `S2.T5`: Wzorzec API gateway upraszcza integrację z aplikacjami klienckimi, jednakże wydajność oraz optymalizacja tego komponentu może stanowić wąskie gardło podczas przetwarzania transakcji.
 
 ### Ryzyka
 
 - `S1.R1`: Architektura mikroserwisowa wprowadza dodatkowe opóźnienie ze względu na przesył danych przez sieć.
 - `S1.R2`: Osiągnięcie czasu realizacji zakupu biletu w czasie nie przekraczającym 1 sekundy może stanowić wyzwanie, ze względu na wykorzystanie co najmniej 3 kolejek.
+- `S2.R5`: Samodzielna implementacja API gateway rodzi ryzyko nieoptymalności implementacji oraz może niepotrzebnie komplikować rozwój systemu.
 
 ### Nie-ryzyka
 
 - `S1.N3`: PostgreSQL to jeden z wiodących systemów do zarządzania relacyjnymi bazami danych, dobrze sprawdzający się w OLTP.
 - `S1.N4`: Mechanizm umożliwia optymalizację zużycia zasobów przy zmiennej liczbie użytkowników jednocześnie korzystających z systemu (np. w czasie porannych lub popołudniowych godzin szczytu).
+- `S2.N1`: Mechanizm umożliwia optymalizację zużycia zasobów poprzez równomierne rozdzielenie workloadu, co jest szczególnie przy wysokim obciążeniu systemu.
+- `S2.N2`: Mechanizm umożliwia optymalizację zużycia zasobów przy zmiennej liczbie użytkowników jednocześnie korzystających z systemu (np. w czasie porannych lub popołudniowych godzin szczytu).
+- `S2.N3`: Kubernets to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe oraz adaptacyjne.
+- `S2.N4`: Mechanizm kolejki (realizowany za pośrednictwem SQS) umożliwia rozluźnienie powiązań pomiędzy mikroserwiasmi oraz zapobiega tworzeniu się wąskich gardeł podczas złożonych transakcji.
+- `S2.N5`: Wzorzec API gateway sam w sobie to "eleganckie" rozwiązanie pozwalające na uproszczenie integracji z klientami oraz centralizację niektórych funckjonalności systemu (np. uwierzytelnianie).
 
 ## Inne problemy oraz wątpliwości
 
