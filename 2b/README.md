@@ -365,10 +365,10 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <td><b>PostgreSQL</b></td>
-    <td>S1.S3</td>
-    <td>S1.T3</td>
+    <td><code>S1.S3</code></td>
+    <td><code>S1.T3</code></td>
     <td></td>
-    <td>S1.N3</td>
+    <td><code>S1.N3</code></td>
   </tr>
   <tr>
     <td><b>automatyczne skalowanie</b></td>
@@ -624,7 +624,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <td><b>Health Check API</b></td>
     <td></td>
     <td><code>S4.T1</code></td>
-    <td><code>S4.R1<code></td>
+    <td><code>S4.R1</code></td>
     <td></td>
   </tr>
   <tr>
