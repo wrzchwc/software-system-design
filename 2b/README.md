@@ -445,6 +445,13 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <td></td>
   </tr>
   <tr>
+    <td><b>wzorzec API gateway</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
     <th>Analiza</th>
     <td colspan="4"></td>
     </td>
@@ -491,14 +498,21 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <td></td>
   </tr>
   <tr>
-    <td><b>load balancing usług</b></td>
+    <td><b>AWS</b></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td><b>automatyczne skalowanie</b></td>
+    <td><b>architektura mikroserwisów</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+   <tr>
+    <td><b>wzorzec API gateway</b></td>
     <td></td>
     <td></td>
     <td></td>
