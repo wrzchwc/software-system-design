@@ -711,7 +711,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 Poniżej zaagregowano punkty wrażliwości, kompromisy, ryzyka oraz nie-ryzyka dla analizowanch scenariuszy.
 
 ### Punkty wrażliwości
-Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W związku z tym, każdy z punktów wrażliwości został sklasyfikowany jako ryzyko lub nie-ryzyko.
+Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W związku z tym, każdy z punktów wrażliwości został sklasyfikowany jako ryzyko (`R`) lub nie-ryzyko (`N`).
 
 - `S1.S1`: Projekt i implementacja architektury mikroserwisowej jest trudniejszy, niż architektury monolitycznej.
 - `S1.S3`: Dobór indeksów bazodanowych może istotnie wpływać na efektywność przetwarzania transakcji, zarówno korzystnie, jak i negatywnie.
