@@ -650,7 +650,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Analiza</th>
-    <td colspan="4"></td>
+    <td colspan="4">Decyzja o skorzystaniu z usług AWS nie stanowi ryzyka w kontekście odzyskiwalności. Zastosowanie Health Check API to kompromis pomiędzy monitorowaniem systemu (które jest jak najbardziej potrzebne), a fałszywie pozytywnymi odczytami stanu systemu. Należy jednak dobrać interwał sprawdzeń w taki sposób, aby nie obciążać systemu przy zachowaniu wiarygoności odczytów. Zastosowanie Kubernetesa również można rozpatrywać jako dobrą praktykę, pomimo złożoności tego narzędzia.</td>
     </td>
   </tr>
   <tr>
@@ -661,7 +661,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
 </table>
 
-- `S4.T1`: HC API generuje niewielki narzut na monitorwany system/podsystem, może jednak generować fałszywie pozytywne alaramy.
+- `S4.T1`: Health Check API wspomaga monitrowanie stanu system generująć niewielki narzut na monitorwany system/podsystem, może jednak generować fałszywie pozytywne alaramy.
 - `S4.R1`: System może raportować prawidłowe działanie, pomimo, że jego działanie może być zaburzone pomiędzy sprawdzeniami.
 
 ---
