@@ -565,7 +565,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Analiza</th>
-    <td colspan="4"></td>
+    <td colspan="4">Decyzja o korzystaniu z usług zewnętrznego dostawcy usług chmurowych to kompromis, jednakże znajdujący racjonalne uzasadnienie w przypadku analizowanego systemu. Architekutra mikroserwisowa korzystnie wpłynie na dostępność systemu tworząc układ o wielu POF. Zastosowanie Kubernetesa należy uznać za uzasdnione biorąc pod uwagę skalę systemu oraz wymagania dotyczace jego niezawaodności. K8s posiada wiele rozwiązań takich jak np. ReplicaSet, które zwiększają poziom niezawodności systemu gwarantując szybkie zastępowanie niesprawnych podów. Samodzielna implementacja API gateway to duża odpowiedzialność w kontekście zapewnienie wysokiej dostępności systemu.</td>
     </td>
   </tr>
   <tr>
@@ -623,30 +623,30 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   <tr>
     <td><b>Health Check API</b></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S4.T1</code></td>
+    <td><code>S4.R1<code></td>
     <td></td>
   </tr>
   <tr>
     <td><b>AWS CloudWatch</b></td>
-    <td></td>
+    <td><code>S4.S2</code></td>
     <td></td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td><b>Kubernetes</b></td>
+    <td><code>S4.S3</code></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S4.N4</code></td>
   </tr>
   <tr>
     <td><b>AWS</b></td>
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
+    <td><code>S4.N5</code></td>
   </tr>
   <tr>
     <th>Analiza</th>
@@ -655,9 +655,27 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Diagram architektoniczny</th>
-    <td colspan="4"></td>
+    <td colspan="4">
+      <img src="./images/deployment-diagram.svg"/>
+    </td>
   </tr>
 </table>
+
+- `S4.T1`: HC API generuje niewielki narzut na monitorwany system/podsystem, może jednak generować fałszywie pozytywne alaramy.
+- `S4.R1`: System może raportować prawidłowe działanie, pomimo, że jego działanie może być zaburzone pomiędzy sprawdzeniami.
+
+---
+
+- `S4.S2`: CloudWatch to rozbudowane narzędzie do monitoriwania logów, należy je jednak skonfigurować prawidłowo, aby uniknąć fałszywych alarmów (o ile funkcja ta jest używana).
+
+---
+
+- `S4.S3`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
+- `S4.N4`: Kubernets to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe (np. ReplicaSet).
+
+---
+
+- `S4.N5`: AWS zoobowiązuje się do zapewnienia wysokiej dostępności swoim usług (pod rygorem odszkodowań), ponadto oferuje kompleksowe wsparcie techniczne dla kluczowych usług.
 
 <table>
   <tr>
@@ -764,6 +782,8 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - `S2.S2`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
 - `S2.S3`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
 - `S3.S1`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
+- `S4.S2`: CloudWatch to rozbudowane narzędzie do monitoriwania logów, należy je jednak skonfigurować prawidłowo, aby uniknąć fałszywych alarmów (o ile funkcja ta jest używana).
+- `S4.S3`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
 
 ### Kompromisy
 
@@ -772,6 +792,7 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - `S2.T5`: Wzorzec API gateway upraszcza integrację z aplikacjami klienckimi, jednakże wydajność oraz optymalizacja tego komponentu może stanowić wąskie gardło podczas przetwarzania transakcji.
 - `S3.T2`: Korzystanie z usług zewnętrznego dostawcy chmurowych częściowo ogranicza swobodę implementacyjną oraz w zależności od skali przedsięwzięcia może być mniej opłacalne ekonomicznie, jednakże pozwala na ograniczenie wydatków związanych z infrastruktrą, i co ważniejsze, redukuje wyzwania dla zespołu inżynierskiego związane z zapewnieniem wysokiej dostępności.
 - `S3.T4`: API gateway upraszcza integrację części backendowej z klientami, jednakże awaria tego kompentu odcina klientów od części backendowej systemu.
+- `S4.T1`: HC API generuje niewielki narzut na monitorwany system/podsystem, może jednak generować fałszywie pozytywne alaramy.
 
 ### Ryzyka
 
@@ -780,6 +801,7 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - `S2.R5`: Samodzielna implementacja API gateway rodzi ryzyko nieoptymalności implementacji oraz może niepotrzebnie komplikować rozwój systemu.
 - `S3.R3`: Awaria jednego mikroserwisu może wpływać na fukcjonowanie innego, który jest od niego zależny.
 - `S3.R4`: Samodzielna implementacja API gateway rodzi ryzyko błędów w implementacji. Ten komponent jest szczególnie istotny w kontekście dostępności, dlatego, że stanowi pojedynczy POF.
+- `S4.R1`: System może raportować prawidłowe działanie, pomimo, że jego działanie może być zaburzone pomiędzy sprawdzeniami.
 
 ### Nie-ryzyka
 
@@ -793,6 +815,8 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - `S3.N1`: Kubernets to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe (np. ReplicaSet).
 - `S3.N2`: AWS to lider usług chmurowych, oferujących szeroką gammę rozwiązań zwiększającą dostępność systemów informatycznych oraz globalną siatkę centrów danych oraz serwerowni.
 - `S3.N3`: Architektura mikroserwisowa korzystnie wpływa na zapewnienie wysokiej dostępności, tworząc układ o wielu POFs (ang. points of failure).
+- `S4.N4`: Kubernets to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe (np. ReplicaSet).
+- `S4.N5`: AWS zoobowiązuje się do zapewnienia wysokiej dostępności swoim usług (pod rygorem odszkodowań), ponadto oferuje kompleksowe wsparcie techniczne dla kluczowych usług.
 
 ## Inne problemy oraz wątpliwości
 
