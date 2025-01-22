@@ -565,6 +565,13 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <td></td>
   </tr>
   <tr>
+    <td><b>AWS CloudWatch</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
     <td><b>Kubernetes</b></td>
     <td></td>
     <td></td>
@@ -572,7 +579,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <td></td>
   </tr>
   <tr>
-    <td><b>load balancing usług</b></td>
+    <td><b>AWS</b></td>
     <td></td>
     <td></td>
     <td></td>
