@@ -493,7 +493,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 
 ---
 
-- `S2.S3`: Kuberenets to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
+- `S2.S3`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
 - `S2.N3`: Kubernets to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe oraz adaptacyjne.
 
 ---
@@ -526,7 +526,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Odpowiedź</th>
-    <td colspan="4">Dostępność systemu przez 99.9%</td>
+    <td colspan="4">Dostępność systemu przez 99.9% czasu</td>
   </tr>
   <tr>
     <th>Decyzje architektoniczne</th>
@@ -537,30 +537,30 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <td><b>Kubernetes</b></td>
+    <td><code>S3.S1</code></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S3.N1</code></td>
   </tr>
   <tr>
     <td><b>AWS</b></td>
     <td></td>
+    <td><code>S3.T2</code></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S3.N2</code></td>
   </tr>
   <tr>
     <td><b>architektura mikroserwisów</b></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S3.R3</code></td>
+    <td><code>S3.N3</code></td>
   </tr>
    <tr>
     <td><b>wzorzec API gateway</b></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S3.T4</code></td>
+    <td><code>S3.R4</code></td>
     <td></td>
   </tr>
   <tr>
@@ -570,9 +570,27 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Diagram architektoniczny</th>
-    <td colspan="4"></td>
+    <td colspan="4"><img src="./images/deployment-diagram.svg"/></td>
   </tr>
 </table>
+
+- `S3.S1`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
+- `S3.N1`: Kubernets to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe (np. ReplicaSet).
+
+---
+
+- `S3.T2`: Korzystanie z usług zewnętrznego dostawcy chmurowych częściowo ogranicza swobodę implementacyjną oraz w zależności od skali przedsięwzięcia może być mniej opłacalne ekonomicznie, jednakże pozwala na ograniczenie wydatków związanych z infrastruktrą, i co ważniejsze, redukuje wyzwania dla zespołu inżynierskiego związane z zapewnieniem wysokiej dostępności.
+- `S3.N2`: AWS to lider usług chmurowych, oferujących szeroką gammę rozwiązań zwiększającą dostępność systemów informatycznych oraz globalną siatkę centrów danych oraz serwerowni.
+
+---
+
+- `S3.R3`: Awaria jednego mikroserwisu może wpływać na fukcjonowanie innego, który jest od niego zależny.
+- `S3.N3`: Architektura mikroserwisowa korzystnie wpływa na zapewnienie wysokiej dostępności, tworząc układ o wielu POFs (ang. points of failure).
+
+---
+
+- `S3.T4`: API gateway upraszcza integrację części backendowej z klientami, jednakże awaria tego kompentu odcina klientów od części backendowej systemu.
+- `S3.R4`: Samodzielna implementacja API gateway rodzi ryzyko błędów w implementacji. Ten komponent jest szczególnie istotny w kontekście dostępności, dlatego, że stanowi pojedynczy POF.
 
 <table>
   <tr>
@@ -744,19 +762,24 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - `S1.S4`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów, algorytm balansowania), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
 - `S2.S1`: Load balancing może zostać źle skonfiguraowany (np. dobór parametrów, algorytm balansowania), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
 - `S2.S2`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
-- `S2.S3`: Kuberenets to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
+- `S2.S3`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
+- `S3.S1`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu.
 
 ### Kompromisy
 
 - `S1.T2`: Asynchroniczna komunikacja między serwisami zwiększa niezawodność, jednak może wprowadzać opóźnienia związane z transferem danych przez sieć.
 - `S1.T3`: Powszechne zastosowanie PostgreSQL dla wszystkich mikroserwisów ułatwi zarządzanie modelami danych, jednak nie będzie to optymalny wybór pod kątem wydajności dla wszytkich mikroserwisów pod kątem wydajności.
 - `S2.T5`: Wzorzec API gateway upraszcza integrację z aplikacjami klienckimi, jednakże wydajność oraz optymalizacja tego komponentu może stanowić wąskie gardło podczas przetwarzania transakcji.
+- `S3.T2`: Korzystanie z usług zewnętrznego dostawcy chmurowych częściowo ogranicza swobodę implementacyjną oraz w zależności od skali przedsięwzięcia może być mniej opłacalne ekonomicznie, jednakże pozwala na ograniczenie wydatków związanych z infrastruktrą, i co ważniejsze, redukuje wyzwania dla zespołu inżynierskiego związane z zapewnieniem wysokiej dostępności.
+- `S3.T4`: API gateway upraszcza integrację części backendowej z klientami, jednakże awaria tego kompentu odcina klientów od części backendowej systemu.
 
 ### Ryzyka
 
 - `S1.R1`: Architektura mikroserwisowa wprowadza dodatkowe opóźnienie ze względu na przesył danych przez sieć.
 - `S1.R2`: Osiągnięcie czasu realizacji zakupu biletu w czasie nie przekraczającym 1 sekundy może stanowić wyzwanie, ze względu na wykorzystanie co najmniej 3 kolejek.
 - `S2.R5`: Samodzielna implementacja API gateway rodzi ryzyko nieoptymalności implementacji oraz może niepotrzebnie komplikować rozwój systemu.
+- `S3.R3`: Awaria jednego mikroserwisu może wpływać na fukcjonowanie innego, który jest od niego zależny.
+- `S3.R4`: Samodzielna implementacja API gateway rodzi ryzyko błędów w implementacji. Ten komponent jest szczególnie istotny w kontekście dostępności, dlatego, że stanowi pojedynczy POF.
 
 ### Nie-ryzyka
 
@@ -767,6 +790,9 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - `S2.N3`: Kubernets to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe oraz adaptacyjne.
 - `S2.N4`: Mechanizm kolejki (realizowany za pośrednictwem SQS) umożliwia rozluźnienie powiązań pomiędzy mikroserwiasmi oraz zapobiega tworzeniu się wąskich gardeł podczas złożonych transakcji.
 - `S2.N5`: Wzorzec API gateway sam w sobie to "eleganckie" rozwiązanie pozwalające na uproszczenie integracji z klientami oraz centralizację niektórych funckjonalności systemu (np. uwierzytelnianie).
+- `S3.N1`: Kubernets to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe (np. ReplicaSet).
+- `S3.N2`: AWS to lider usług chmurowych, oferujących szeroką gammę rozwiązań zwiększającą dostępność systemów informatycznych oraz globalną siatkę centrów danych oraz serwerowni.
+- `S3.N3`: Architektura mikroserwisowa korzystnie wpływa na zapewnienie wysokiej dostępności, tworząc układ o wielu POFs (ang. points of failure).
 
 ## Inne problemy oraz wątpliwości
 
