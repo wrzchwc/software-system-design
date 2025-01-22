@@ -264,7 +264,7 @@ Przegląd sporządzono zgodnie z [ATAM: Method for Architecture Evaluation](http
 - asynchroniczna komunikacja między serwisami
 - automatyczne skalowanie
 - JWT
-- load balancing
+- load balancing usług
 - Kubernetes
 - PostgreSQL
 - Spring Boot
@@ -350,7 +350,28 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <th>Nie-ryzyko</th>
   </tr>
   <tr>
-    <td><b>decyzja</b></td>
+    <td><b>archietktura mikroserwisów</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>asynchroniczna komunikacja między serwisami</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>PostgreSQL</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>automatyczne skalowanie</b></td>
     <td></td>
     <td></td>
     <td></td>
@@ -396,7 +417,28 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <th>Nie-ryzyko</th>
   </tr>
   <tr>
-    <td><b>decyzja</b></td>
+    <td><b>load balancing usług</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>automatyczne skalowanie</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>Kubernetes</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>AWS SQS</b></td>
     <td></td>
     <td></td>
     <td></td>
@@ -442,7 +484,21 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <th>Nie-ryzyko</th>
   </tr>
   <tr>
-    <td><b>decyzja</b></td>
+    <td><b>Kubernetes</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>load balancing usług</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>automatyczne skalowanie</b></td>
     <td></td>
     <td></td>
     <td></td>
@@ -488,7 +544,21 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <th>Nie-ryzyko</th>
   </tr>
   <tr>
-    <td><b>decyzja</b></td>
+    <td><b>Health Check API</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>Kubernetes</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>load balancing usług</b></td>
     <td></td>
     <td></td>
     <td></td>
