@@ -291,7 +291,7 @@ Charakterystyki jakościowe dobrano zgodnie z normą ISO/IEC 25010. Priorytety o
   <tr>
     <th rowspan="2">wydajność</th>
     <th>wydajność czasowa</th>
-    <td>Użytkownik wysyła zapytanie związane z zakupem biletów w ramach normalnej pracy systemu, czas odpowiedzi nie przekracza 1 sekundy. (H, H)</td>
+    <td>Użytkownik wysyła zapytanie związane z zakupem biletów lub logistyką w ramach normalnej pracy systemu, czas odpowiedzi nie przekracza 1 sekundy. (H, H)</td>
   </tr>
   <tr>
     <th>przepustowość</th>
@@ -324,7 +324,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 <table>
   <tr>
     <th>Scenariusz<code>S1</code></th>
-    <td colspan="4">Użytkownik wysyła zapytanie związane z zakupem biletów w ramach normalnej pracy systemu, czas odpowiedzi nie przekracza 1 sekundy.</td>
+    <td colspan="4">Użytkownik wysyła zapytanie związane z zakupem biletów lub logistyką w ramach normalnej pracy systemu, czas odpowiedzi nie przekracza 1 sekundy.</td>
   </tr>
   <tr>
     <th>Atrybut</th>
@@ -336,7 +336,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Przyczyna</th>
-    <td colspan="4">Użytkownik wysyła zapytanie związane z biletami (np. dokonuje zakupu biletu).</td>
+    <td colspan="4">Użytkownik wysyła zapytanie związane z zakupem biletów lub logistyką.</td>
   </tr>
   <tr>
     <th>Odpowiedź</th>
@@ -351,42 +351,61 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <td><b>archietktura mikroserwisów</b></td>
+    <td><code>S1.S1</code></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S1.R1</code></td>
     <td></td>
   </tr>
   <tr>
     <td><b>asynchroniczna komunikacja między serwisami</b></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S1.T2</code></td>
+    <td><code>S1.R2</code></td>
     <td></td>
   </tr>
   <tr>
     <td><b>PostgreSQL</b></td>
+    <td>S1.S3</td>
+    <td>S1.T3</td>
     <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>S1.N3</td>
   </tr>
   <tr>
     <td><b>automatyczne skalowanie</b></td>
+    <td><code>S1.S4</code></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td><code>S1.N4</code></td>
   </tr>
   <tr>
     <th>Analiza</th>
-    <td colspan="4"></td>
+    <td colspan="4">Podjęte decyzje architektoniczne determinują wydajność czasową systemu. Architektura mikroserwisowa może utrudniać osiągnięcie zakładnych czasów przetwarzania, jednak jej zastosowanie jest zrozumiałe z perspektywy innych atrybutów jakościowych. Wybór PostgreSQL jako RDBMS jest zrozumiały, jednak moze nie być optymalny w każdym przypadku. Należy również dobrze przemyśleć dobór indeksów bazodanowych, jak również konfigurację load balancingu.</td>
     </td>
   </tr>
   <tr>
     <th>Diagram architektoniczny</th>
-    <td colspan="4"></td>
+    <td colspan="4"><img src="./images/deployment-diagram.svg" /></td>
   </tr>
 </table>
+
+- `S1.S1`: Projekt i implementacja architektury mikroserwisowej jest trudniejszy, niż architektury monolitycznej.
+- `S1.R1`: Architektura mikroserwisowa wprowadza dodatkowe opóźnienie ze względu na przesył danych przez sieć.
+
+---
+
+- `S1.T2`: Asynchroniczna komunikacja między serwisami zwiększa niezawodność, jednak może wprowadzać opóźnienia związane z transferem danych przez sieć.
+- `S1.R2`: Osiągnięcie czasu realizacji zakupu biletu w czasie nie przekraczającym 1 sekundy może stanowić wyzwanie, ze względu na wykorzystanie co najmniej 3 kolejek.
+
+---
+
+- `S1.S3`: Dobór indeksów bazodanowych może istotnie wpływać na efektywność przetwarzania transakcji, zarówno korzystnie, jak i negatywnie.
+- `S1.T3`: Powszechne zastosowanie PostgreSQL dla wszystkich mikroserwisów ułatwi zarządzanie modelami danych, jednak nie będzie to optymalny wybór pod kątem wydajności dla wszytkich mikroserwisów pod kątem wydajności.
+- `S1.N3`: PostgreSQL to jeden z wiodących systemów do zarządzania relacyjnymi bazami danych, dobrze sprawdzający się w OLTP.
+
+---
+
+- `S1.S4`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów, algorytm balansowania), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
+- `S1.N4`: Mechanizm umożliwia optymalizację zużycia zasobów przy zmiennej liczbie użytkowników jednocześnie korzystających z systemu (np. w czasie porannych lub popołudniowych godzin szczytu).
 
 <table>
   <tr>
@@ -694,11 +713,24 @@ Poniżej zaagregowano punkty wrażliwości, kompromisy, ryzyka oraz nie-ryzyka d
 ### Punkty wrażliwości
 Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W związku z tym, każdy z punktów wrażliwości został sklasyfikowany jako ryzyko lub nie-ryzyko.
 
+- `S1.S1`: Projekt i implementacja architektury mikroserwisowej jest trudniejszy, niż architektury monolitycznej.
+- `S1.S3`: Dobór indeksów bazodanowych może istotnie wpływać na efektywność przetwarzania transakcji, zarówno korzystnie, jak i negatywnie.
+- `S1.S4`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów, algorytm balansowania), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
+
 ### Kompromisy
+
+- `S1.T2`: Asynchroniczna komunikacja między serwisami zwiększa niezawodność, jednak może wprowadzać opóźnienia związane z transferem danych przez sieć.
+- `S1.T3`: Powszechne zastosowanie PostgreSQL dla wszystkich mikroserwisów ułatwi zarządzanie modelami danych, jednak nie będzie to optymalny wybór pod kątem wydajności dla wszytkich mikroserwisów pod kątem wydajności.
 
 ### Ryzyka
 
+- `S1.R1`: Architektura mikroserwisowa wprowadza dodatkowe opóźnienie ze względu na przesył danych przez sieć.
+- `S1.R2`: Osiągnięcie czasu realizacji zakupu biletu w czasie nie przekraczającym 1 sekundy może stanowić wyzwanie, ze względu na wykorzystanie co najmniej 3 kolejek.
+
 ### Nie-ryzyka
+
+- `S1.N3`: PostgreSQL to jeden z wiodących systemów do zarządzania relacyjnymi bazami danych, dobrze sprawdzający się w OLTP.
+- `S1.N4`: Mechanizm umożliwia optymalizację zużycia zasobów przy zmiennej liczbie użytkowników jednocześnie korzystających z systemu (np. w czasie porannych lub popołudniowych godzin szczytu).
 
 ## Inne problemy oraz wątpliwości
 
