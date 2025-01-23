@@ -255,6 +255,35 @@ Decyzja: W projekcie zdecydowano się na wdrożenie VPC, aby zapewnić pełną k
 
 #### Oddzielne bazy danych dla mikroserwisów
 
+Zagadnienie: W tradycyjnych monolitycznych aplikacjach często stosuje się jedną wspólną bazę danych dla całej aplikacji. W architekturze mikroserwisowej, gdzie każdy mikroserwis jest niezależnym bytem, współdzielenie jednej bazy danych może prowadzić do silnych zależności między serwisami, co utrudnia ich niezależny rozwój i skalowanie. Dodatkowo, różne mikroserwisy mogą mieć różne wymagania dotyczące przechowywania danych, co sprawia, że jedna wspólna baza danych nie zawsze jest optymalnym rozwiązaniem.
+
+Rozwiązanie: Każdy mikroserwis powinien posiadać własną, dedykowaną bazę danych. Takie podejście zapewnia pełną autonomię mikroserwisów, umożliwiając im niezależny rozwój, skalowanie oraz wybór najbardziej odpowiedniego typu bazy danych dla swoich potrzeb. Dodatkowo, izolacja danych między mikroserwisami zwiększa bezpieczeństwo i ułatwia zarządzanie danymi.
+
+Kluczowe cechy:
+- Autonomia mikroserwisów: Każdy mikroserwis zarządza swoimi danymi, co pozwala na niezależny rozwój i wdrażanie.
+- Izolacja danych: Brak współdzielenia bazy danych między mikroserwisami zwiększa bezpieczeństwo i ułatwia zarządzanie danymi.
+- Optymalny dobór technologii: Możliwość wyboru najbardziej odpowiedniego typu bazy danych (SQL, NoSQL) dla konkretnego mikroserwisu.
+- Skalowalność: Niezależne bazy danych pozwalają na skalowanie poszczególnych mikroserwisów zgodnie z ich wymaganiami.
+
+### Zalety
+
+| **Zaleta**                                  | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Niezależność mikroserwisów**              | Każdy mikroserwis może być rozwijany, wdrażany i skalowany niezależnie od innych.                |
+| **Izolacja danych**                         | Brak współdzielenia bazy danych zwiększa bezpieczeństwo i ułatwia zarządzanie danymi.              |
+| **Optymalny dobór technologii**             | Możliwość wyboru najbardziej odpowiedniego typu bazy danych (SQL, NoSQL) dla konkretnego mikroserwisu. |
+| **Skalowalność**                            | Niezależne bazy danych pozwalają na skalowanie poszczególnych mikroserwisów zgodnie z ich wymaganiami. |
+
+### Wady
+
+| **Wada**                                    | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Złożoność zarządzania danymi**            | Rozproszenie danych może prowadzić do trudności w zarządzaniu spójnością i integracją danych między mikroserwisami. |
+| **Brak transakcji rozproszonych**           | Brak wspólnej bazy danych uniemożliwia stosowanie tradycyjnych transakcji ACID między mikroserwisami. |
+| **Potrzebna synchronizacja danych**         | Wymaga implementacji mechanizmów synchronizacji i spójności danych między mikroserwisami. |
+
+Decyzja: W projekcie zdecydowano się na implementację oddzielnych baz danych dla każdego mikroserwisu, aby zapewnić pełną autonomię, bezpieczeństwo oraz optymalny dobór technologii dla poszczególnych komponentów systemu.
+
 #### Amazon S3 Bucket
 
 #### Nat Gateway
