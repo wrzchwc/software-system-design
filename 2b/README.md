@@ -404,7 +404,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 
 ---
 
-- `S1.S4`: Automatyczne skalowanie może zostać źle skonfiguraowane (np. dobór parametrów), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
+- `S1.S4`: Automatyczne skalowanie może zostać źle skonfigurowane (np. dobór parametrów), co może negatywnie wpływać na zużycie zasobów oraz efektywność obsługi transakcji.
 - `S1.N4`: Mechanizm umożliwia optymalizację zużycia zasobów przy zmiennej liczbie użytkowników jednocześnie korzystających z systemu (np. w czasie porannych lub popołudniowych godzin szczytu).
 
 <table>
