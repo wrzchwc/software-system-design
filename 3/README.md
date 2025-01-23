@@ -54,7 +54,7 @@ Niniejszy dokument stanowi podsumowanie prac nad systemem do rezerwacji przestrz
   </tr>
   <tr>
     <td><code>AWS Cognito</code> <code>AWS Lambda</code> </td>
-    <td>Integracja AWS Cognito z AWS Lambda w celu nadawania ról systemowychs</td>
+    <td>Integracja AWS Cognito z AWS Lambda w celu nadawania ról systemowych</td>
     <td>✅ Completed</td>
   </tr>
   <tr>
@@ -212,12 +212,25 @@ Niniejszy dokument stanowi podsumowanie prac nad systemem do rezerwacji przestrz
     <td>Zarządzanie serwerami przy użyciu skryptów automatyzujących</td>
     <td>✅ Completed</td>
   </tr>
-    </tr>
+  </tr>
     <tr>
     <td><code>Terraform</code></td>
     <td>Tworzenie infrastruktury w chmurze AWS jako Infrastructure As Code</td>
     <td>✅ Completed</td>
   </tr>
+  </tr>
+    <tr>
+    <td><code>Docker</code></td>
+    <td>Konteneryzacja mikroserwisów</td>
+    <td>✅ Completed</td>
+  </tr>
+    </tr>
+    <tr>
+    <td><code>Postman</code></td>
+    <td>Dokumentowanie API</td>
+    <td>✅ Completed</td>
+  </tr>
+
 </table>
 
 ### Realizacja wymagań funkcjonalnych
