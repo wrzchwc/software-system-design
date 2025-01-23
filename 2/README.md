@@ -454,6 +454,38 @@ Decyzja: JWT zostało wybrane do implementacji w naszym systemie, aby umożliwi�
 
 #### Relacyjna baza danych Amazon RDS
 
+Zagadnienie: W wielu aplikacjach występuje potrzeba przechowywania danych w sposób uporządkowany i zorganizowany, co często wiąże się z użyciem baz danych. W przypadku dużych i dynamicznych systemów aplikacyjnych zarządzanie infrastrukturą bazy danych, jej dostępnością, wydajnością oraz skalowalnością może być wyzwaniem, zwłaszcza w środowiskach chmurowych. Tradycyjne podejścia wiążą się z koniecznością ręcznego zarządzania instancjami baz danych, aktualizacjami, kopiami zapasowymi oraz monitorowaniem wydajności.
+
+Rozwiązanie: Amazon RDS (Relational Database Service) jest zarządzanym rozwiązaniem bazy danych oferowanym przez AWS, które umożliwia łatwe wdrażanie, zarządzanie i skalowanie relacyjnych baz danych w chmurze. RDS obsługuje różne silniki bazodanowe, takie jak MySQL, PostgreSQL, MariaDB, Oracle i Microsoft SQL Server. Dzięki RDS, wszystkie zadania związane z zarządzaniem bazą danych (np. automatyczne tworzenie kopii zapasowych, monitorowanie, łatwe skalowanie, automatyczne aktualizacje) są zautomatyzowane, co pozwala deweloperom skoncentrować się na tworzeniu aplikacji zamiast na zarządzaniu infrastrukturą.
+
+Kluczowe cechy
+- Zarządzana infrastruktura: Amazon RDS obsługuje wszystkie aspekty zarządzania bazą danych, takie jak tworzenie kopii zapasowych, aktualizacje i monitorowanie, co upraszcza administrację bazą danych.
+- Wysoka dostępność: RDS oferuje opcje replikacji i automatycznego przełączania awaryjnego (failover), zapewniając wysoki poziom dostępności i odporności na awarie.
+- Skalowalność: Możliwość łatwego skalowania instancji bazy danych w górę lub w dół, w zależności od wymagań aplikacji, bez konieczności przestojów.
+- Bezpieczeństwo: Amazon RDS zapewnia szyfrowanie danych w spoczynku i w trakcie przesyłania, kontrolę dostępu za pomocą AWS IAM, a także integrację z usługami monitorowania i audytu.
+- Zintegrowane z AWS: RDS jest w pełni zintegrowane z innymi usługami AWS, takimi jak Amazon EC2, Amazon S3 czy AWS Lambda, co ułatwia tworzenie złożonych aplikacji chmurowych.
+
+### Zalety
+
+| **Zaleta**                                    | **Opis**                                                                                           |
+|-----------------------------------------------|---------------------------------------------------------------------------------------------------|
+| **Zarządzana infrastruktura**                 | Amazon RDS automatycznie zarządza bazą danych, co pozwala na łatwe tworzenie kopii zapasowych, aktualizowanie i monitorowanie. |
+| **Wysoka dostępność**                          | RDS oferuje replikację w wielu strefach dostępności (Multi-AZ), zapewniając niezawodność i minimalizując ryzyko utraty danych. |
+| **Łatwa skalowalność**                        | Możliwość łatwego skalowania mocy obliczeniowej, pamięci RAM oraz przestrzeni dyskowej bez przestojów w działaniu aplikacji. |
+| **Bezpieczeństwo**                            | RDS zapewnia szyfrowanie danych zarówno w spoczynku, jak i w trakcie przesyłania, oraz możliwość stosowania własnych kluczy szyfrujących. |
+| **Integracja z ekosystemem AWS**              | Amazon RDS jest w pełni zintegrowane z innymi usługami AWS, takimi jak EC2, S3 i CloudWatch, co ułatwia tworzenie aplikacji chmurowych. |
+
+### Wady
+
+| **Wada**                                      | **Opis**                                                                                           |
+|-----------------------------------------------|---------------------------------------------------------------------------------------------------|
+| **Brak pełnej kontroli nad konfiguracją**     | Ponieważ RDS to usługa zarządzana, użytkownik nie ma pełnej kontroli nad konfiguracją bazy danych oraz jej administracją. |
+| **Potrzebna jest dobra znajomość kosztów**    | Koszt korzystania z Amazon RDS może szybko wzrosnąć w zależności od wymagań dotyczących wydajności, przestrzeni dyskowej oraz liczby instancji. |
+| **Brak wsparcia dla niestandardowych silników** | Chociaż RDS obsługuje popularne silniki baz danych, nie obsługuje wszystkich niestandardowych lub mniej popularnych silników. |
+| **Zależność od dostawcy chmurowego**          | Korzystając z RDS, jesteśmy uzależnieni od AWS, co może stanowić problem w przypadku chęci migracji do innego dostawcy. |
+
+Decyzja: Amazon RDS zostało wybrane jako rozwiązanie do przechowywania danych w naszej aplikacji, ponieważ zapewnia zarządzaną, skalowalną i bezpieczną infrastrukturę bazy danych, co pozwala zespołowi deweloperskiemu skupić się na rozwoju aplikacji, a nie na zarządzaniu bazą danych. Dzięki RDS, mamy pewność, że baza danych będzie wysoko dostępna, bezpieczna i skalowalna, co jest kluczowe dla rozwoju naszego systemu w długim okresie.
+
 #### Amazon Cognito
 
 
