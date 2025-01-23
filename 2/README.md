@@ -488,6 +488,37 @@ Decyzja: Amazon RDS zostało wybrane jako rozwiązanie do przechowywania danych 
 
 #### Amazon Cognito
 
+Zagadnienie: Współczesne aplikacje wymagają bezpiecznego i elastycznego systemu zarządzania tożsamościami użytkowników oraz autoryzacji dostępu. Projektowanie i wdrażanie takich systemów od podstaw może być czasochłonne, kosztowne i skomplikowane. Wymaga to zapewnienia mechanizmów rejestracji, logowania, zarządzania sesjami oraz integracji z różnymi źródłami tożsamości. Ponadto, bezpieczne zarządzanie danymi użytkowników i zgodność z regulacjami, takimi jak RODO, stawia dodatkowe wyzwania przed zespołami technicznymi.
+
+Rozwiązanie: Amazon Cognito to zarządzana usługa AWS do zarządzania tożsamościami użytkowników, która ułatwia tworzenie i utrzymywanie systemów logowania, rejestracji, autoryzacji oraz zarządzania sesjami. Cognito pozwala na integrację z istniejącymi źródłami tożsamości (np. Facebook, Google, Amazon, Active Directory), a także wspiera tworzenie aplikacji z własnym systemem logowania.
+
+Kluczowe cechy
+- Zarządzanie użytkownikami: Amazon Cognito obsługuje rejestrację, logowanie, resetowanie haseł oraz zarządzanie profilami użytkowników.
+- Integracja z tożsamościami zewnętrznymi: Możliwość łatwego integracji z popularnymi systemami logowania, takimi jak Google, Facebook czy Apple.
+- Skalowalność: Cognito obsługuje miliony użytkowników, umożliwiając łatwą skalowalność w miarę rozwoju aplikacji.
+- Bezpieczeństwo: Usługa oferuje szyfrowanie danych, obsługę multi-factor authentication (MFA), integrację z AWS IAM oraz zgodność z regulacjami, takimi jak RODO.
+- Autoryzacja i kontrola dostępu: Integracja z Amazon API Gateway, AWS Lambda oraz innymi usługami AWS umożliwia zarządzanie dostępem do zasobów na poziomie aplikacji.
+
+### Zalety
+
+| **Zaleta**                                     | **Opis**                                                                                                      |
+|------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| **Łatwe wdrożenie systemu logowania**          | Amazon Cognito pozwala na szybkie wdrożenie systemu rejestracji, logowania i zarządzania sesjami użytkowników bez konieczności budowania wszystkiego od podstaw. |
+| **Integracja z tożsamościami zewnętrznymi**    | Wbudowana obsługa popularnych systemów logowania, takich jak Google, Facebook, Apple, umożliwia łatwą integrację z zewnętrznymi źródłami tożsamości. |
+| **Skalowalność**                               | Usługa jest skalowalna i może obsługiwać miliony użytkowników, co czyni ją odpowiednią dla aplikacji o dużym zasięgu. |
+| **Bezpieczeństwo**                             | Amazon Cognito oferuje wbudowane mechanizmy bezpieczeństwa, takie jak szyfrowanie, MFA, kontrola dostępu oraz zgodność z przepisami ochrony danych osobowych. |
+| **Współpraca z innymi usługami AWS**           | Cognito bezproblemowo integruje się z innymi usługami AWS, takimi jak API Gateway, Lambda, S3 czy DynamoDB, co pozwala na łatwe rozszerzanie aplikacji. |
+
+### Wady
+
+| **Wada**                                       | **Opis**                                                                                                      |
+|------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| **Ograniczenia w dostosowywaniu UI**           | Chociaż Cognito oferuje gotowe komponenty UI, ich personalizacja jest ograniczona w porównaniu do rozwiązań stworzonych na miarę. |
+| **Złożoność integracji z niestandardowymi źródłami tożsamości** | Integracja z niestandardowymi źródłami tożsamości (np. własne bazy danych) może wymagać dodatkowego nakładu pracy. |
+| **Koszty mogą rosnąć przy dużej liczbie użytkowników** | Amazon Cognito oferuje model rozliczeń na podstawie liczby aktywnych użytkowników, co w przypadku dużych aplikacji może prowadzić do znacznych kosztów. |
+| **Brak wsparcia dla zaawansowanych funkcji IAM** | Cognito może nie zapewniać pełnej funkcjonalności dostępnej w pełnym IAM AWS, co może być ograniczeniem w bardziej złożonych przypadkach użycia. |
+
+Decyzja: Amazon Cognito zostało wybrane jako rozwiązanie do zarządzania tożsamościami użytkowników i autoryzacją w naszej aplikacji, ponieważ oferuje wbudowaną skalowalność, bezpieczeństwo oraz łatwą integrację z popularnymi źródłami tożsamości. Dzięki temu możemy szybko wdrożyć system logowania, zachowując pełną kontrolę nad dostępem do zasobów w chmurze AWS.
 
 ### Aplikacyjne
 
