@@ -318,6 +318,36 @@ Decyzja: Zdecydowano się na wykorzystanie Amazon S3 Bucket jako rozwiązania do
 
 #### Nat Gateway
 
+Zagadnienie: W architekturach chmurowych często pojawia się potrzeba udostępniania instancji w prywatnych subnetach dostępu do Internetu, bez konieczności bezpośredniego narażania tych instancji na dostęp z sieci publicznej. To wyzwanie rozwiązuje NAT Gateway. NAT (Network Address Translation) pozwala na przekierowanie ruchu wychodzącego z prywatnych instancji do Internetu, ale uniemożliwia dostęp do tych instancji z zewnątrz. Jest to szczególnie istotne w przypadku, gdy chcemy zapewnić bezpieczeństwo, izolując zasoby od publicznego Internetu, ale nadal umożliwiając im pobieranie aktualizacji, pakietów lub innych zasobów online.
+
+Rozwiązanie: NAT Gateway to zarządzana usługa AWS, która pozwala na łatwe konfiguracje trasowania i translacji adresów IP w chmurze. W konfiguracji, instancje w prywatnym subnetcie mogą komunikować się z Internetem za pomocą NAT Gateway umieszczonego w publicznym subnetcie. NAT Gateway obsługuje automatyczne skalowanie, co zapewnia wysoką dostępność i niezawodność. Dzięki tej usłudze można utrzymać instancje w prywatnych subnetach w pełni zabezpieczone, a jednocześnie umożliwić im dostęp do zasobów zewnętrznych. 
+
+Kluczowe cechy
+- Bezpieczeństwo: NAT Gateway zapewnia bezpieczeństwo, ponieważ nie pozwala na dostęp z Internetu do instancji w prywatnym subnetcie.
+- Skalowalność: Automatyczne skalowanie w odpowiedzi na wzrost obciążenia.
+- Wysoka dostępność: Dostępność przez cały czas z automatycznym failoverem.
+- Łatwość integracji: Łatwe w konfiguracji w ramach architektury AWS, szczególnie w przypadku VPC (Virtual Private Cloud).
+
+### Zalety
+
+| **Zaleta**                                  | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Bezpieczeństwo**                          | NAT Gateway umożliwia instancjom w prywatnym subnetcie dostęp do Internetu, ale nie umożliwia im bezpośredniego dostępu z sieci publicznej. |
+| **Automatyczne skalowanie**                 | Usługa automatycznie skalowalna, co oznacza, że nie trzeba ręcznie dostosowywać jej mocy w zależności od ruchu. |
+| **Prostota zarządzania**                    | Natychmiastowa konfiguracja i minimalne wymagania dotyczące zarządzania w porównaniu do tradycyjnych rozwiązań NAT. |
+| **Wysoka dostępność**                       | NAT Gateway jest zarządzany przez AWS, co zapewnia wysoką dostępność i niezawodność bez konieczności zarządzania infrastrukturą. |
+| **Bez dodatkowych zasobów**                 | Nat Gateway nie wymaga użycia dodatkowych instancji EC2 do obsługi NAT, co obniża koszty operacyjne. |
+
+### Wady
+
+| **Wada**                                    | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Koszty**                                  | NAT Gateway jest usługą płatną, a koszty mogą wzrosnąć w przypadku dużego ruchu lub dużej liczby instancji. |
+| **Limitowana ilość zasobów**                | NAT Gateway może być stosunkowo kosztowną opcją przy dużej ilości instancji, szczególnie gdy potrzebujemy wielu usług w różnych regionach. |
+| **Brak wsparcia dla niektórych protokołów**  | NAT Gateway może nie obsługiwać niektórych protokołów, takich jak ICMP (używanego do diagnostyki), co może być ograniczeniem w niektórych przypadkach. |
+
+Decyzja: Zdecydowano się na implementację NAT Gateway w naszej infrastrukturze chmurowej, aby umożliwić instancjom w prywatnych subnetach dostęp do zasobów z Internetu bez ujawniania tych instancji publicznie. Dzięki automatycznemu skalowaniu i wysokiej dostępności NAT Gateway stanowi solidne, bezpieczne rozwiązanie w architekturze VPC.
+
 #### Amazon Lambda
 
 #### Internet Gateway
