@@ -385,6 +385,38 @@ Decyzja: Zdecydowano się na implementację Amazon Lambda w celu stworzenia skal
 
 #### Internet Gateway
 
+Zagadnienie: Aplikacje chmurowe często muszą komunikować się z zasobami znajdującymi się w Internecie, takimi jak serwisy zewnętrzne, API lub zasoby publiczne. W tradycyjnych środowiskach sieciowych, komunikacja ta odbywa się za pośrednictwem routerów, które łączą lokalne sieci z siecią globalną. W środowisku chmurowym, potrzeba jest komponentu, który umożliwi komunikację między prywatnymi zasobami w chmurze a światem zewnętrznym, zachowując odpowiednią kontrolę nad bezpieczeństwem i dostępem.
+
+Rozwiązanie: Internet Gateway w Amazon Web Services (AWS) jest usługą, która umożliwia instancjom wirtualnym (np. EC2) znajdującym się w prywatnej sieci VPC (Virtual Private Cloud) łączenie się z Internetem. Jest to most, który pozwala na przesyłanie danych między zasobami wewnętrznymi w chmurze a zasobami zewnętrznymi w Internecie.
+Internet Gateway zapewnia dostęp do internetu zarówno dla instancji w publicznych subnetach, jak i dla instancji w prywatnych subnetach z odpowiednimi regułami routingowymi. Dodatkowo, zapewnia odpowiednie mechanizmy bezpieczeństwa, takie jak kontrola dostępu i NAT (Network Address Translation), aby umożliwić komunikację wychodzącą, a jednocześnie chronić zasoby wewnętrzne.
+
+Kluczowe cechy
+- Bezpośredni dostęp do Internetu: Dzięki Internet Gateway, zasoby w VPC mogą komunikować się z zasobami zewnętrznymi w Internecie.
+- Bezpieczeństwo i kontrola: Możliwość ustawienia reguł bezpieczeństwa, takich jak grupy zabezpieczeń i ACL (Access Control List), które kontrolują dostęp do zasobów w sieci.
+- Wsparcie dla NAT: Internet Gateway umożliwia przekierowanie ruchu NAT w celu zapewnienia wychodzącej komunikacji z prywatnych subnetów.
+- Brak kosztów: Korzystanie z Internet Gateway w AWS jest bezpłatne – opłaty naliczane są za dane przesyłane przez Internet.
+
+### Zalety
+
+| **Zaleta**                                    | **Opis**                                                                                          |
+|-----------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Prosty dostęp do Internetu**                | Internet Gateway umożliwia łatwy dostęp do Internetu, co jest niezbędne dla aplikacji wymagających komunikacji z zasobami zewnętrznymi. |
+| **Wsparcie dla różnych usług AWS**            | Możliwość integracji z innymi usługami AWS, np. EC2, Lambda, S3, pozwala na elastyczną i kompleksową architekturę. |
+| **Skalowalność**                              | Automatycznie skalowalny komponent, który dostosowuje się do zmieniającego się ruchu w sieci. |
+| **Brak kosztów**                              | Internet Gateway nie wiąże się z dodatkowymi opłatami za użycie samej usługi – płacisz tylko za dane przesyłane przez Internet. |
+| **Integracja z NAT Gateway**                  | Dzięki integracji z NAT Gateway, zasoby w prywatnych subnetach mogą nawiązywać połączenia wychodzące z Internetem. |
+
+### Wady
+
+| **Wada**                                      | **Opis**                                                                                          |
+|-----------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Ograniczenie do regionu AWS**               | Internet Gateway działa tylko w obrębie jednego regionu AWS, co może wymagać odpowiedniej konfiguracji w przypadku wieloregionowych aplikacji. |
+| **Brak wsparcia dla ruchu przychodzącego**    | Internet Gateway umożliwia tylko wychodzący ruch z instancji do Internetu. Do ruchu przychodzącego potrzebne są dodatkowe mechanizmy (np. Load Balancer). |
+| **Wymaga odpowiedniej konfiguracji VPC**     | Aby Internet Gateway działał poprawnie, wymagana jest odpowiednia konfiguracja VPC oraz tabel routingu. |
+| **Bezpieczeństwo**                            | Choć Internet Gateway zapewnia dostęp do Internetu, wymaga poprawnej konfiguracji grup bezpieczeństwa i ACL, aby uniknąć nieautoryzowanego dostępu. |
+
+Decyzja: Internet Gateway został wybrany do implementacji w naszej architekturze w celu umożliwienia zasobom w naszej VPC komunikacji z Internetem, co jest niezbędne dla aplikacji korzystających z zewnętrznych API i innych zasobów dostępnych publicznie.
+
 #### Autoryzacja z wykorzystaniem JWT
 
 #### Relacyjna baza danych Amazon RDS
