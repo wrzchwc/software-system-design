@@ -61,7 +61,7 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 #### Wdrożenie w chmurze AWS
 Zagadnienie: Wybór infrastruktury wdrożeniowej stanowi strategiczne wyzwanie, które wpływa na późniejszą wydajność i elastyczność systemu. Kluczowe są tutaj takie kwestie, jak skalowalność, optymalizacja kosztów oraz zdolność do adaptacji wobec zmieniających się wymagań biznesowych. Tradycyjna infrastruktura lokalna (on-premise) często ogranicza możliwości szybkiej reakcji na te zmiany, co rodzi potrzebę poszukiwania bardziej elastycznych rozwiązań, takich jak infrastruktura chmurowa.
 
-Przyjęte rozwiązanie: W ramach projektu postanowiono wykorzystać chmurę Amazon Web Services (AWS) jako podstawową platformę wdrożeniową. Decyzja ta opierała się na analizie kluczowych wymagań projektu, takich jak szybka dostępność zasobów, globalny zasięg, a także szeroki wachlarz usług umożliwiających zaawansowaną personalizację infrastruktury.
+Rozwiązanie: W ramach projektu postanowiono wykorzystać chmurę Amazon Web Services (AWS) jako podstawową platformę wdrożeniową. Decyzja ta opierała się na analizie kluczowych wymagań projektu, takich jak szybka dostępność zasobów, globalny zasięg, a także szeroki wachlarz usług umożliwiających zaawansowaną personalizację infrastruktury.
 AWS pozwala na elastyczne zarządzanie zasobami w oparciu o model „pay-as-you-go”. Dzięki temu unika się kosztów związanych z nadmiarową infrastrukturą, co jest szczególnie istotne w projektach, które charakteryzują się dużymi wahaniami obciążenia. Ponadto, AWS oferuje zaawansowane funkcje zabezpieczeń oraz dostępność na poziomie globalnym.
 
 Różnice między podejściami wdrożeniowymi:
@@ -95,7 +95,7 @@ Wybór AWS jako infrastruktury wdrożeniowej wynikał z potrzeby elastyczności,
 
 Zagadnienie: W systemach rozproszonych lub aplikacjach obsługujących dużą liczbę użytkowników kluczowym wyzwaniem jest równomierne rozdzielanie ruchu sieciowego. Brak odpowiedniego mechanizmu prowadzi do przeciążenia jednych serwerów, podczas gdy inne pozostają niewykorzystane. Przeciążone serwery mogą skutkować opóźnieniami, błędami aplikacji lub całkowitą niedostępnością usług.
 
-Przyjęte rozwiązanie: Load Balancing (równoważenie obciążenia) to technika dystrybucji ruchu sieciowego pomiędzy wiele serwerów w celu zapewnienia optymalnego wykorzystania zasobów, minimalizacji opóźnień oraz zapewnienia wysokiej dostępności aplikacji. Mechanizm ten może być wdrażany na różnych poziomach, takich jak warstwa aplikacyjna, sieciowa lub infrastrukturalna.
+Rozwiązanie: Load Balancing (równoważenie obciążenia) to technika dystrybucji ruchu sieciowego pomiędzy wiele serwerów w celu zapewnienia optymalnego wykorzystania zasobów, minimalizacji opóźnień oraz zapewnienia wysokiej dostępności aplikacji. Mechanizm ten może być wdrażany na różnych poziomach, takich jak warstwa aplikacyjna, sieciowa lub infrastrukturalna.
 
 ### Zalety i wady różnych rozwiązań Load Balancing  
 
@@ -111,6 +111,41 @@ Mechanizm Load Balancingu dostępny w wybranej chmurze - AWS Elastic Load Balanc
 - Wady: Koszty mogą być wysokie w przypadku dużego ruchu.
 
 #### Amazon Simple Queue Service
+
+Zagadnienie: W aplikacjach rozproszonych oraz mikroserwisowych, często pojawia się konieczność niezawodnego i skalowalnego przesyłania wiadomości między komponentami. Bez odpowiednich mechanizmów, ryzyko utraty danych, przeciążenia systemu czy trudności w zarządzaniu kolejnością i priorytetem wiadomości znacząco rośnie.
+
+Rozwiązanie: Amazon Simple Queue Service (SQS) to w pełni zarządzana usługa kolejkowania wiadomości, która umożliwia aplikacjom rozproszonym komunikację w sposób asynchroniczny. Dzięki temu różne komponenty systemu mogą działać niezależnie, skalować się w różnym tempie i przetwarzać dane w odpowiednim momencie, co zwiększa elastyczność i odporność całej infrastruktury.
+
+Rodzaje kolejek w SQS
+1. Standard Queue
+- Zapewnia wysoką przepustowość przesyłania wiadomości.
+- Gwarantuje co najmniej jednokrotne dostarczenie wiadomości, ale ich kolejność nie jest gwarantowana.
+- Idealne do aplikacji, w których kolejność wiadomości nie jest kluczowa.
+2. FIFO Queue (First-In-First-Out)
+- Zapewnia kolejność wiadomości zgodnie z ich wysyłaniem.
+- Gwarantuje dokładnie jednokrotne dostarczenie wiadomości.
+- Odpowiednie dla aplikacji wymagających ścisłej kontroli kolejności.
+
+### Zalety Amazon Simple Queue Service (SQS)
+
+| **Zaleta**                                   | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Brak zarządzania infrastrukturą**         | SQS jest w pełni zarządzaną usługą, co eliminuje konieczność obsługi serwerów.                   |
+| **Skalowalność**                             | Automatycznie skaluje się, aby obsłużyć dowolną ilość wiadomości i obciążenie systemu.            |
+| **Bezpieczeństwo**                           | Integracja z AWS IAM umożliwia kontrolę dostępu do kolejek.                                       |
+| **Elastyczność**                             | Obsługuje zarówno kolejki Standard, jak i FIFO, co pozwala dostosować się do potrzeb aplikacji.   |
+| **Niezawodność**                             | Dane są przechowywane na wielu serwerach w centrach danych AWS, co minimalizuje ryzyko ich utraty.|
+| **Integracja**                               | Działa bezproblemowo z innymi usługami AWS, np. Lambda, EC2 czy SNS.                             |
+
+### Wady Amazon Simple Queue Service (SQS)
+
+| **Wada**                                    | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Koszty**                                  | W przypadku dużej liczby operacji koszty mogą rosnąć.                                             |
+| **Opóźnienia w dostarczaniu wiadomości**    | W przypadku kolejek Standard, wiadomości mogą być dostarczone więcej niż raz i w innej kolejności.|
+| **Limit długości wiadomości**               | Maksymalny rozmiar wiadomości wynosi 256 KB, co może wymagać podziału dużych danych.              |
+
+Decyzja: W projekcie Amazon SQS został wybrany jako rozwiązanie do zarządzania asynchroniczną komunikacją między mikroserwisami. Usługa ta zapewnia skalowalność, niezawodność oraz integrację z innymi komponentami AWS, co ułatwia rozwój i utrzymanie systemu.
 
 #### Architektura mikroserwisowa
 
