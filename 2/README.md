@@ -185,6 +185,39 @@ Decyzja: Architektura mikroserwisowa została wybrana w projekcie, aby zapewnić
 
 #### Wzorzec API Gateway
 
+Zagadnienie: W dużych systemach rozproszonych, szczególnie w architekturze mikroserwisowej, zarządzanie komunikacją między wieloma serwisami może stać się trudne. Każdy mikroserwis może mieć różne interfejsy API, co prowadzi do złożoności w obsłudze połączeń, uwierzytelniania, monitorowania i zarządzania ruchem. Brak centralnego punktu kontroli w systemie powoduje konieczność replikowania tych funkcji w każdym mikroserwisie, co jest nieefektywne.
+
+Rozwiązanie: Wzorzec API Gateway to podejście, w którym cała komunikacja między klientami a mikroserwisami przechodzi przez jeden centralny punkt, który pełni funkcje proxy. API Gateway odpowiada za przekazywanie zapytań do odpowiednich serwisów, zarządzanie bezpieczeństwem, logowaniem, monitorowaniem oraz transformacją danych. Może także oferować mechanizmy cache'owania, load balancing czy throttlingu.
+
+Kluczowe cechy API Gateway;
+- Centralizacja komunikacji: Wszystkie zapytania przychodzące do systemu są kierowane do API Gateway, który następnie rozdziela je do odpowiednich mikroserwisów.
+- Ujednolicone API: Klient komunikuje się z jednym API, a nie z wieloma mikroserwisami.
+- Bezpieczeństwo: API Gateway może przejąć odpowiedzialność za uwierzytelnianie i autoryzację, np. za pomocą tokenów JWT.
+- Monitorowanie i logowanie: API Gateway może agregować dane o ruchu w systemie, zapewniając centralne logowanie i monitorowanie.
+- Load balancing: Może pełnić funkcję load balancera, rozdzielając obciążenie między różne instancje mikroserwisów.
+- Modyfikacja danych: API Gateway może również transformować dane przed ich wysłaniem do mikroserwisów lub przed przekazaniem odpowiedzi do klienta.
+
+### Zalety wzorca API Gateway
+
+| **Zaleta**                                  | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Centralizacja zarządzania**               | API Gateway centralizuje komunikację i kontrolę nad ruchem do wszystkich mikroserwisów.          |
+| **Redukcja złożoności dla klientów**        | Klient łączy się z jednym API zamiast z wieloma mikroserwisami, co upraszcza interfejs.           |
+| **Bezpieczeństwo**                          | Ujednolicenie mechanizmów uwierzytelniania i autoryzacji w jednym miejscu (np. OAuth, JWT).        |
+| **Łatwiejsze monitorowanie**                | Łatwiejsze zbieranie logów, metryk i monitorowanie ruchu w jednym miejscu.                        |
+| **Optymalizacja wydajności**                | API Gateway może implementować cache'owanie, co zmniejsza liczbę zapytań do mikroserwisów.          |
+
+### Wady wzorca API Gateway
+
+| **Wada**                                    | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Pojedynczy punkt awarii**                 | Jeśli API Gateway ulegnie awarii, może to sparaliżować całą komunikację z mikroserwisami.          |
+| **Wąskie gardło**                           | Może stanowić wąskie gardło, jeśli nie jest odpowiednio skalowany, szczególnie przy dużym ruchu.   |
+| **Złożoność zarządzania**                   | Dodanie warstwy API Gateway może zwiększyć złożoność infrastruktury, wymagając dodatkowego zarządzania.|
+| **Opóźnienia**                              | Może wprowadzać dodatkowe opóźnienie w komunikacji, zwłaszcza gdy wykonuje dodatkowe operacje, takie jak transformacja danych. |
+
+Decyzja: W projekcie zdecydowano się na zastosowanie wzorca API Gateway, aby uprościć komunikację między klientami a mikroserwisami, zapewniając centralne zarządzanie ruchem, bezpieczeństwem oraz monitorowaniem. Dzięki temu możliwe jest łatwiejsze zarządzanie całą aplikacją oraz zapewnienie jej elastyczności i skalowalności.
+
 #### Sieć wewnętrzna VPC
 
 #### Oddzielne bazy danych dla mikroserwisów
