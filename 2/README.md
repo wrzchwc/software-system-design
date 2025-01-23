@@ -350,6 +350,39 @@ Decyzja: Zdecydowano się na implementację NAT Gateway w naszej infrastrukturze
 
 #### Amazon Lambda
 
+Zaganienie: W tradycyjnych systemach aplikacyjnych zasoby obliczeniowe (serwery, maszyny wirtualne) są zarządzane przez użytkownika, co wiąże się z koniecznością ich skalowania, monitorowania oraz zarządzania stanem. W związku z tym, tworzenie i zarządzanie skalowalnymi aplikacjami może być czasochłonne i kosztowne. Potrzebna jest technologia, która umożliwi uruchamianie kodu w sposób serverless (bez potrzeby zarządzania serwerami) i która automatycznie dostosowuje zasoby w zależności od zapotrzebowania.
+
+Rozwiązanie: Amazon Lambda to usługa obliczeniowa typu serverless, która pozwala uruchamiać kod bez konieczności zarządzania infrastrukturą. Użytkownicy mogą wgrać kod, który zostanie automatycznie uruchomiony przez AWS w odpowiedzi na określone zdarzenie, takie jak przesłanie pliku do S3, zmiana danych w bazie danych czy wywołanie HTTP API.
+Lambda obsługuje szeroki zakres scenariuszy, od prostych funkcji wywoływanych na zdarzeniach, po złożone aplikacje opierające się na mikroserwisach. W tym podejściu, użytkownicy płacą tylko za czas wykonywania kodu (tzw. "pay-as-you-go"), co pozwala na optymalizację kosztów.
+
+Kluczowe cechy:
+- Brak zarządzania serwerami: AWS zarządza całą infrastrukturą, co eliminuje konieczność skalowania, monitorowania i konserwacji serwerów.
+- Skalowalność: Funkcje Lambda automatycznie skalują się w zależności od liczby wywołań, co umożliwia elastyczność.
+- Model płatności "pay-as-you-go": Płacisz tylko za czas, w którym kod jest wykonywany, bez konieczności utrzymywania stałej infrastruktury.
+- Integracja z innymi usługami AWS: Lambda może być wywoływana przez różne usługi, takie jak Amazon S3, DynamoDB, API Gateway, SNS i inne.
+
+### Zalety
+
+| **Zaleta**                                  | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Brak konieczności zarządzania serwerami**  | Lambda umożliwia uruchamianie kodu bez zarządzania infrastrukturą, co zmniejsza koszty operacyjne i czas poświęcony na konserwację. |
+| **Automatyczna skalowalność**               | Funkcje Lambda automatycznie skalują się w zależności od zapotrzebowania, bez potrzeby ręcznego dostosowywania zasobów. |
+| **Płatności za rzeczywiste użycie**         | Model płatności oparty na czasie wykonywania kodu sprawia, że opłaty są precyzyjnie dopasowane do faktycznego zużycia. |
+| **Integracja z szerokim zakresem usług AWS**| Lambda łatwo integruje się z innymi usługami AWS, co ułatwia tworzenie rozproszonych aplikacji i mikroserwisów. |
+| **Szeroki zakres zastosowań**               | Może być używana do przetwarzania plików, przetwarzania danych w czasie rzeczywistym, obsługi API i wielu innych scenariuszy. |
+
+### Wady
+
+| **Wada**                                    | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Ograniczenia czasowe**                    | Każda funkcja Lambda ma limit czasu działania, który wynosi 15 minut. Może to stanowić problem w przypadku długotrwałych operacji. |
+| **Brak dostępu do stanu**                   | Funkcje Lambda są "stateless", co oznacza, że każda funkcja nie przechowuje żadnego stanu między wywołaniami, co może wymagać dodatkowej logiki do zarządzania stanem. |
+| **Koszty przy dużej liczbie wywołań**       | Choć model płatności za czas wykonania jest opłacalny, duża liczba wywołań może prowadzić do wyższych kosztów w porównaniu do tradycyjnych serwerów. |
+| **Trudności w debugowaniu**                 | Praca z funkcjami Lambda może być trudna do debugowania, szczególnie przy bardziej złożonych aplikacjach, wymagających zaawansowanego śledzenia błędów. |
+| **Ograniczone zasoby wykonawcze**           | Funkcje Lambda mają ograniczenia dotyczące pamięci i mocy obliczeniowej, co może ograniczać ich wykorzystanie w bardziej wymagających zadaniach. |
+
+Decyzja: Zdecydowano się na implementację Amazon Lambda w celu stworzenia skalowalnych aplikacji mikroserwisowych, które nie wymagają zarządzania infrastrukturą. Dzięki modelowi płatności "pay-as-you-go" oraz automatycznej skalowalności, Lambda stanowi elastyczne i opłacalne rozwiązanie w naszej architekturze chmurowej.
+
 #### Internet Gateway
 
 #### Autoryzacja z wykorzystaniem JWT
