@@ -419,6 +419,39 @@ Decyzja: Internet Gateway został wybrany do implementacji w naszej architekturz
 
 #### Autoryzacja z wykorzystaniem JWT
 
+Zagadnienie: W nowoczesnych aplikacjach, szczególnie w mikroserwisach, zachodzi potrzeba zapewnienia bezpiecznego i efektywnego mechanizmu autoryzacji i autentykacji użytkowników. W tradycyjnych podejściach do autentykacji, każda aplikacja musi przechowywać dane użytkowników i ich sesje. To może prowadzić do problemów z wydajnością, skalowalnością i bezpieczeństwem, zwłaszcza w przypadku rozproszonych systemów.
+
+Rozwiązanie: JWT (JSON Web Token) jest popularnym standardem do realizacji autoryzacji i autentykacji w aplikacjach webowych i chmurowych. Token JWT zawiera zakodowane dane użytkownika, takie jak jego identyfikator, role, czas wygaśnięcia tokena oraz inne metadane. Dzięki temu JWT pozwala na delegowanie autoryzacji pomiędzy różnymi mikroserwisami, bez potrzeby przechowywania sesji w każdej z aplikacji.
+W JWT dane są bezpiecznie zaszyfrowane i podpisane, co zapewnia, że token nie może zostać zmanipulowany. Dodatkowo JWT jest przechowywany po stronie klienta (np. w lokalnej pamięci przeglądarki lub ciasteczkach), co pozwala na łatwe skalowanie aplikacji i niezależność od stanu serwera.
+
+Kluczowe cechy
+- Bezstanowość: Nie ma potrzeby przechowywania sesji po stronie serwera, co znacząco poprawia skalowalność aplikacji.
+- Szybkość: JWT jest samodzielnym tokenem zawierającym wszystkie potrzebne dane, co eliminuje konieczność przechowywania sesji i zapytań do bazy danych.
+- Łatwa integracja: JWT jest zgodny z wieloma technologiami i łatwy do integracji z aplikacjami opartymi na mikroserwisach.
+- Bezpieczeństwo: JWT używa podpisów cyfrowych, co zapewnia integralność danych i ochronę przed ich manipulowaniem.
+- Szerokie wsparcie: JWT jest szeroko wspierane w popularnych frameworkach i bibliotekach, co umożliwia łatwą implementację w wielu językach programowania.
+
+### Zalety
+
+| **Zaleta**                                    | **Opis**                                                                                          |
+|-----------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Bezstanowość**                              | JWT eliminuje konieczność przechowywania sesji po stronie serwera, co ułatwia skalowanie aplikacji. |
+| **Bezpieczeństwo**                            | Dzięki podpisom cyfrowym, JWT zapewnia, że tokeny są autentyczne i nie zostały zmienione. |
+| **Elastyczność**                              | JWT jest stosunkowo prosty w implementacji i wspierany przez większość popularnych frameworków. |
+| **Szerokie wsparcie dla różnych środowisk**   | JWT jest wspierane przez szeroką gamę platform i technologii, w tym systemy chmurowe i mikroserwisy. |
+| **Skalowalność**                              | Umożliwia rozproszone zarządzanie autoryzacją, co jest kluczowe w aplikacjach mikroserwisowych. |
+
+### Wady
+
+| **Wada**                                      | **Opis**                                                                                          |
+|-----------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Brak możliwości łatwego unieważnienia**    | Po wygenerowaniu tokenu JWT, nie ma łatwego sposobu na jego unieważnienie przed upływem czasu życia. |
+| **Zbyt długi czas życia tokena**              | Długi czas życia tokena może prowadzić do problemów bezpieczeństwa w przypadku wycieku tokena. |
+| **Brak mechanizmów do ścisłej kontroli sesji**| JWT nie zapewnia mechanizmu zarządzania sesją, co może prowadzić do trudności w monitorowaniu i kontrolowaniu użytkowników. |
+| **Potrzebna odpowiednia konfiguracja**       | Wymaga odpowiedniej konfiguracji oraz bezpiecznego przechowywania kluczy do podpisywania tokenów. |
+
+Decyzja: JWT zostało wybrane do implementacji w naszym systemie, aby umożliwić bezpieczną i skalowalną autoryzację użytkowników w aplikacji rozproszonej. Dzięki łatwej integracji z mikroserwisami i eliminacji konieczności przechowywania sesji na serwerze, pozwala to na prostsze zarządzanie dostępem oraz lepszą skalowalność systemu. Zastosowanie JWT jest również korzystne z punktu widzenia wydajności, ponieważ pozwala na szybszą autoryzację użytkowników bez potrzeby wielokrotnego zapytania do bazy danych.
+
 #### Relacyjna baza danych Amazon RDS
 
 #### Amazon Cognito
