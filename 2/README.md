@@ -149,6 +149,40 @@ Decyzja: W projekcie Amazon SQS został wybrany jako rozwiązanie do zarządzani
 
 #### Architektura mikroserwisowa
 
+Zagadnienie: W miarę jak aplikacje rosną, stają się coraz bardziej złożone i trudne do zarządzania. Monolityczne podejście, w którym cały system jest jednym, dużym komponentem, staje się coraz mniej efektywne, gdy chodzi o rozwój, skalowanie czy utrzymanie. Zwiększa się ryzyko awarii, trudności w zarządzaniu zespołami deweloperskimi, a także problematyczna staje się elastyczność w implementacji nowych funkcji.
+
+Rozwiązanie: Architektura mikroserwisowa to podejście, w którym aplikacja jest rozdzielona na szereg niezależnych, małych serwisów, które komunikują się ze sobą za pomocą interfejsów API. Każdy mikroserwis odpowiada za konkretną funkcjonalność i może być rozwijany, wdrażany oraz skalowany niezależnie od innych. W ramach tej architektury zespół deweloperski może skoncentrować się na mniejszych częściach aplikacji, co przyspiesza rozwój i zwiększa niezawodność systemu.
+
+Kluczowe cechy mikroserwisów:
+- Rozdzielenie funkcji: Każdy mikroserwis realizuje jeden, dobrze zdefiniowany aspekt biznesowy lub techniczny aplikacji.
+- Autonomiczność: Mikroserwisy są niezależne w zakresie wdrożeń, testów i skalowania.
+- Komunikacja między serwisami: Mikroserwisy komunikują się za pomocą API, często przy użyciu REST lub gRPC.
+- Niezależność technologiczna: Każdy mikroserwis może być napisany w innej technologii, języku programowania czy bazie danych.
+- Skalowalność: Możliwość skalowania każdego mikroserwisu niezależnie w odpowiedzi na zmieniające się potrzeby.
+- Zarządzanie awariami: W przypadku awarii jednego mikroserwisu reszta systemu nie musi przestawać działać.
+
+### Zalety architektury mikroserwisowej
+
+| **Zaleta**                                  | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Skalowalność**                           | Możliwość skalowania poszczególnych serwisów w zależności od ich obciążenia.                      |
+| **Niezależność wdrożeń**                    | Każdy mikroserwis może być rozwijany i wdrażany niezależnie od innych.                           |
+| **Elastyczność technologiczna**             | Każdy mikroserwis może być oparty na innym stosie technologicznym.                               |
+| **Zwiększona niezawodność**                 | Awaria jednego mikroserwisu nie powoduje awarii całego systemu.                                  |
+| **Szybszy rozwój i czas reakcji na zmiany**  | Zespoły mogą pracować nad różnymi mikroserwisami równolegle, co skraca czas implementacji nowych funkcji. |
+
+### Wady architektury mikroserwisowej
+
+| **Wada**                                    | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Złożoność zarządzania**                   | Większa liczba usług może prowadzić do trudności w monitorowaniu i zarządzaniu całą infrastrukturą. |
+| **Kompleksowość komunikacji między serwisami**| Konieczność zarządzania i monitorowania komunikacji oraz zapewnienia niezawodności API.           |
+| **Wydajność**                               | Możliwość opóźnień wynikających z komunikacji między mikroserwisami, zwłaszcza przy dużej liczbie serwisów. |
+| **Zarządzanie danymi**                       | Rozproszone bazy danych mogą prowadzić do trudności w synchronizacji i zarządzaniu stanem aplikacji. |
+| **Dodatkowe wymagania na infrastrukturę**   | Większe wymagania dotyczące infrastruktury, np. zarządzanie kontenerami, orkiestracja (np. Kubernetes). |
+
+Decyzja: Architektura mikroserwisowa została wybrana w projekcie, aby zapewnić elastyczność w rozwoju i zarządzaniu aplikacją, a także umożliwić skalowanie jej poszczególnych elementów. Dzięki rozdzieleniu odpowiedzialności na mniejsze, niezależne serwisy, aplikacja jest bardziej odporna na awarie i łatwiejsza w rozwoju.
+
 #### Wzorzec API Gateway
 
 #### Sieć wewnętrzna VPC
