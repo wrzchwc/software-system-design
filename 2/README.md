@@ -59,6 +59,37 @@ Dokument przedstawia decyzje i ich uzasadnienie oraz ograniczenia i ważne eleme
 ### Infrastrukturalne
 
 #### Wdrożenie w chmurze AWS
+Zagadnienie: Wybór infrastruktury wdrożeniowej stanowi strategiczne wyzwanie, które wpływa na późniejszą wydajność i elastyczność systemu. Kluczowe są tutaj takie kwestie, jak skalowalność, optymalizacja kosztów oraz zdolność do adaptacji wobec zmieniających się wymagań biznesowych. Tradycyjna infrastruktura lokalna (on-premise) często ogranicza możliwości szybkiej reakcji na te zmiany, co rodzi potrzebę poszukiwania bardziej elastycznych rozwiązań, takich jak infrastruktura chmurowa.
+
+Przyjęte rozwiązanie: W ramach projektu postanowiono wykorzystać chmurę Amazon Web Services (AWS) jako podstawową platformę wdrożeniową. Decyzja ta opierała się na analizie kluczowych wymagań projektu, takich jak szybka dostępność zasobów, globalny zasięg, a także szeroki wachlarz usług umożliwiających zaawansowaną personalizację infrastruktury.
+AWS pozwala na elastyczne zarządzanie zasobami w oparciu o model „pay-as-you-go”. Dzięki temu unika się kosztów związanych z nadmiarową infrastrukturą, co jest szczególnie istotne w projektach, które charakteryzują się dużymi wahaniami obciążenia. Ponadto, AWS oferuje zaawansowane funkcje zabezpieczeń oraz dostępność na poziomie globalnym.
+
+Różnice między podejściami wdrożeniowymi:
+
+- Infrastruktura lokalna (on-premise):
+Wybór infrastruktury lokalnej zapewnia pełną kontrolę nad danymi i fizycznym sprzętem, co bywa kluczowe w przypadku organizacji o szczególnych wymogach bezpieczeństwa. Jednak wdrożenie tego modelu wiąże się z wysokimi kosztami początkowymi, koniecznością zatrudnienia wykwalifikowanego zespołu IT oraz ograniczeniami w elastyczności skalowania.
+
+- Chmura publiczna (AWS):
+Z kolei infrastruktura oparta na chmurze publicznej umożliwia dynamiczne skalowanie w zależności od potrzeb, co pozwala na optymalizację kosztów i zasobów. AWS daje także dostęp do globalnej sieci centrów danych, co minimalizuje opóźnienia i zwiększa komfort użytkowników końcowych. Chmura publiczna eliminuje również konieczność zakupu sprzętu oraz ponoszenia kosztów jego utrzymania.
+
+### Porównanie dostawców chmurowych  
+
+| **Dostawca**               | **Zalety**                                                                                          | **Wady**                                                                                       |
+| -------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `Amazon Web Services (AWS)`| - Największy wybór usług<br>- Globalna sieć centrów danych<br>- Dojrzały ekosystem i renoma<br>- Wysoka niezawodność i bezpieczeństwo<br>- Elastyczne ceny w modelu „pay-as-you-go” | - Brak pełnego wsparcia dla hybrydowych rozwiązań<br>- Kompleksowość może utrudnić początkową konfigurację |
+| `Microsoft Azure`          | - Doskonała integracja z ekosystemem Microsoft (np. Active Directory, Office 365)<br>- Wsparcie dla hybrydowej infrastruktury<br>- Szerokie możliwości PaaS<br>- Popularność w środowiskach korporacyjnych | - Mniejszy wybór usług w porównaniu z AWS<br>- Mniejsza liczba globalnych centrów danych<br>- Koszty licencji Microsoft mogą zwiększać wydatki |
+| `Google Cloud (GCP)`       | - Lider w zakresie big data i uczenia maszynowego (BigQuery, TensorFlow)<br>- 100% infrastruktury zasilanej odnawialną energią<br>- Najlepsze wsparcie dla Kubernetes<br>- Wysoka jakość narzędzi analitycznych | - Mniejszy zasięg globalny niż AWS i Azure<br>- Skupienie na big data, co może ograniczać przydatność w innych środowiskach<br>- Mniej popularny na rynku korporacyjnym |
+
+Kluczowe cechy AWS:
+AWS oferuje setki usług, takich jak przechowywanie danych (Amazon S3), maszyny wirtualne (EC2), systemy bazodanowe (RDS) oraz narzędzia do analizy danych. Dodatkowo, platforma wyróżnia się:
+
+- Globalnym zasięgiem: AWS posiada centra danych w wielu regionach świata, co zapewnia niskie opóźnienia i wysoką niezawodność.
+- Elastycznością: Użytkownicy mogą łatwo dostosowywać zasoby do zmieniających się wymagań.
+- Bezpieczeństwem: Zaawansowane mechanizmy szyfrowania oraz certyfikaty zgodności z międzynarodowymi standardami (np. ISO 27001).
+- Innowacyjnością: AWS regularnie wprowadza nowe usługi wspierające innowacyjne technologie, takie jak uczenie maszynowe czy Internet Rzeczy (IoT).
+
+Podsumowanie:
+Wybór AWS jako infrastruktury wdrożeniowej wynikał z potrzeby elastyczności, niezawodności oraz globalnego wsparcia. Dzięki różnorodności oferowanych usług i możliwości szybkiego skalowania, AWS okazał się optymalnym rozwiązaniem dla tego projektu.
 
 #### Load Balancing
 
