@@ -220,6 +220,39 @@ Decyzja: W projekcie zdecydowano się na zastosowanie wzorca API Gateway, aby up
 
 #### Sieć wewnętrzna VPC
 
+Zagadnienie: W tradycyjnych infrastrukturach IT, sieć wewnętrzna jest zarządzana w obrębie firmy, gdzie wszystkie urządzenia są połączone w obrębie jednej sieci lokalnej (LAN). W przypadku rozwiązań chmurowych, gdzie zasoby są rozproszone geograficznie i mogą być zarządzane przez różne podmioty, zarządzanie siecią wewnętrzną staje się wyzwaniem. Wymaga to zapewnienia bezpiecznej, izolowanej sieci, która pozwala na komunikację między usługami w chmurze, zapewniając jednocześnie ochronę przed nieautoryzowanym dostępem z zewnątrz.
+
+Rozwiązanie: VPC (Virtual Private Cloud) to rozwiązanie oferowane przez dostawców chmurowych, które pozwala na tworzenie prywatnych sieci w chmurze. VPC umożliwia pełną kontrolę nad tym, jak są połączone zasoby w chmurze, jakie mają adresy IP, jakie usługi są dostępne, oraz jak wygląda komunikacja z innymi sieciami (np. z Internetem). VPC zapewnia izolację od innych klientów chmury oraz możliwość konfiguracji zaawansowanych mechanizmów zabezpieczeń, takich jak firewalle, subnets, czy VPN.
+
+Kluczowe cechy VPC
+- Izolacja i prywatność: Użytkownicy mogą tworzyć izolowane sieci, które są oddzielone od innych klientów chmury.
+- Kontrola nad konfiguracją: Umożliwia dokładną konfigurację podsieci, routingu, bramek internetowych, połączeń VPN i innych elementów sieciowych.
+- Skalowalność: VPC może być łatwo skalowane w miarę wzrostu potrzeb organizacji.
+- Bezpieczeństwo: Wbudowane mechanizmy kontroli dostępu (ACL, security groups) pozwalają na zarządzanie dostępem do zasobów w VPC.
+- Integracja z innymi usługami chmurowymi: VPC umożliwia łatwą integrację z innymi usługami chmurowymi, takimi jak bazy danych, load balancers, czy usługi obliczeniowe.
+
+### Zalety VPC
+
+| **Zaleta**                                  | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Izolacja i prywatność**                   | VPC zapewnia pełną izolację zasobów, co umożliwia większe bezpieczeństwo aplikacji i danych.       |
+| **Skalowalność**                            | Możliwość łatwego skalowania zasobów w chmurze, dostosowując je do zmieniających się potrzeb organizacji. |
+| **Zaawansowane zarządzanie ruchem**         | Pełna kontrola nad ruchem przychodzącym i wychodzącym, w tym konfiguracja subnets, route tables, VPN. |
+| **Integracja z innymi usługami chmurowymi** | Łatwa integracja z szeroką gamą usług chmurowych, co umożliwia elastyczność i adaptację infrastruktury. |
+| **Bezpieczeństwo**                          | Mechanizmy takie jak firewalle, security groups oraz ACL zapewniają kontrolę nad dostępem i ochronę zasobów. |
+
+### Wady VPC
+
+| **Wada**                                    | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Złożoność konfiguracji**                  | Konfiguracja VPC, podsieci, routingu i polityk zabezpieczeń może być skomplikowana, szczególnie w dużych systemach. |
+| **Potrzebna wiedza specjalistyczna**        | Aby poprawnie zaprojektować i zarządzać VPC, potrzebna jest znajomość sieci i zasad chmurowych usług. |
+| **Ograniczenia wydajności**                 | W przypadku niewłaściwej konfiguracji VPC mogą wystąpić problemy z wydajnością, np. z opóźnieniami w komunikacji. |
+| **Potrzebna infrastruktura do integracji**  | Integracja z innymi sieciami lub systemami on-premise może wymagać dodatkowej infrastruktury (np. VPN, Direct Connect). |
+
+
+Decyzja: W projekcie zdecydowano się na wdrożenie VPC, aby zapewnić pełną kontrolę nad siecią wewnętrzną, zwiększyć bezpieczeństwo zasobów w chmurze oraz umożliwić łatwą integrację z innymi usługami chmurowymi. Dzięki tej architekturze możliwe było uzyskanie pełnej izolacji sieci oraz precyzyjnej konfiguracji polityk dostępu.
+
 #### Oddzielne bazy danych dla mikroserwisów
 
 #### Amazon S3 Bucket
