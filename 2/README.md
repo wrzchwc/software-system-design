@@ -286,6 +286,36 @@ Decyzja: W projekcie zdecydowano się na implementację oddzielnych baz danych d
 
 #### Amazon S3 Bucket
 
+Zagadnienie: Amazon S3 (Simple Storage Service) to usługa przechowywania obiektów, która pozwala na łatwe przechowywanie i odzyskiwanie dowolnych ilości danych z dowolnego miejsca w Internecie. Problem pojawia się, gdy aplikacje potrzebują przechowywać duże pliki, takie jak obrazy, filmy, pliki tekstowe czy pliki dzienników w sposób bezpieczny, skalowalny i dostępny z wielu różnych lokalizacji. Rozwiązaniem jest użycie usługi S3 w celu zarządzania przechowywaniem danych w sposób bardziej elastyczny i wydajny.
+
+Rozwiązanie: Amazon S3 Bucket pozwala na tworzenie "wiader" (buckets), w których przechowywane są dane. Dzięki wysokiej dostępności, skalowalności, bezpieczeństwu i integracji z innymi usługami AWS, S3 stało się podstawowym rozwiązaniem do przechowywania danych w chmurze. Zaletą jest również możliwość ustawiania polityk dostępu, integracja z AWS Lambda oraz łatwa integracja z systemami zewnętrznymi.
+
+Kluczowe cechy
+- Skalowalność: Amazon S3 jest wysoce skalowalne i może pomieścić dowolną ilość danych.
+- Bezpieczeństwo: S3 zapewnia zaawansowane mechanizmy ochrony danych, takie jak szyfrowanie oraz kontrola dostępu.
+- Dostępność: S3 zapewnia wyjątkową dostępność danych dzięki rozproszeniu danych w wielu centrach danych.
+- Integracja: S3 dobrze współpracuje z innymi usługami AWS, takimi jak Lambda, CloudFront, Glacier.
+
+### Zalety
+
+| **Zaleta**                                  | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Skalowalność**                            | Amazon S3 automatycznie dostosowuje się do wzrostu ilości danych bez konieczności manualnej interwencji. |
+| **Bezpieczeństwo**                          | Możliwość szyfrowania danych i kontrolowania dostępu do obiektów za pomocą polityk IAM oraz kluczy szyfrowania. |
+| **Wysoka dostępność**                       | Dane przechowywane w S3 są automatycznie replikowane w wielu regionach, zapewniając wysoką dostępność. |
+| **Prostota użytkowania**                    | Łatwe w użyciu API oraz interfejs użytkownika do zarządzania danymi. |
+| **Niskie koszty**                           | Płacisz tylko za przechowywaną ilość danych i liczbę operacji, co pozwala na optymalizację kosztów. |
+
+### Wady
+
+| **Wada**                                    | **Opis**                                                                                          |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| **Koszty mogą wzrosnąć przy dużym ruchu**   | Wysokie koszty przy dużej liczbie operacji na plikach, zwłaszcza przy korzystaniu z różnych klas przechowywania. |
+| **Ograniczenia rozmiaru obiektu**          | Maksymalny rozmiar pojedynczego obiektu to 5 TB, co może być niewystarczające w przypadku bardzo dużych plików. |
+| **Brak wsparcia dla zaawansowanych baz danych** | S3 jest usługą przechowywania obiektów, a nie bazą danych, co oznacza, że nie nadaje się do przechowywania danych wymagających transakcji. |
+
+Decyzja: Zdecydowano się na wykorzystanie Amazon S3 Bucket jako rozwiązania do przechowywania danych w chmurze ze względu na jego wysoką dostępność, łatwość integracji oraz skalowalność.
+
 #### Nat Gateway
 
 #### Amazon Lambda
