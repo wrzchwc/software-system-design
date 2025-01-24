@@ -11,6 +11,7 @@ Niniejszy dokument stanowi ocenę architektury systemu [System biletowy dla komu
 Lista została opracowa w oparciu o [Architecture Review Checklist - System Engineering / Overall Architecture](http://www.opengroup.org/public/arch/p4/comp/clists/syseng.htm).
 
 Legenda:
+
 - A - opisano w pełni
 - B - opisano cześciowo
 - C - nie opisano
@@ -506,7 +507,6 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 - `S2.R5`: Samodzielna implementacja API gateway rodzi ryzyko nieoptymalności implementacji oraz może niepotrzebnie komplikować rozwój systemu.
 - `S2.N5`: Wzorzec API gateway sam w sobie to "eleganckie" rozwiązanie pozwalające na uproszczenie integracji z klientami oraz centralizację niektórych funckjonalności systemu (np. uwierzytelnianie).
 
-
 <table>
   <tr>
     <th>Scenariusz<code>S3</code></th>
@@ -565,7 +565,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Analiza</th>
-    <td colspan="4">Decyzja o korzystaniu z usług zewnętrznego dostawcy usług chmurowych to kompromis, jednakże znajdujący racjonalne uzasadnienie w przypadku analizowanego systemu. Architekutra mikroserwisowa korzystnie wpłynie na dostępność systemu tworząc układ o wielu POF. Zastosowanie Kubernetesa należy uznać za uzasdnione biorąc pod uwagę skalę systemu oraz wymagania dotyczace jego niezawaodności. K8s posiada wiele rozwiązań takich jak np. ReplicaSet, które zwiększają poziom niezawodności systemu gwarantując szybkie zastępowanie niesprawnych podów. Samodzielna implementacja API gateway to duża odpowiedzialność w kontekście zapewnienie wysokiej dostępności systemu.</td>
+    <td colspan="4">Decyzja o korzystaniu z usług zewnętrznego dostawcy usług chmurowych to kompromis, jednakże znajdujący racjonalne uzasadnienie w przypadku analizowanego systemu. Architekutra mikroserwisowa korzystnie wpłynie na dostępność systemu, dzięki system nie posiada Single Point Of Failure. Zastosowanie Kubernetesa należy uznać za uzasdnione biorąc pod uwagę skalę systemu oraz wymagania dotyczace jego niezawaodności. K8s posiada wiele rozwiązań takich jak np. ReplicaSet, które zwiększają poziom niezawodności systemu gwarantując szybkie zastępowanie niesprawnych podów. Samodzielna implementacja API Gateway zwiększa dodatkowo złożoność systemu i naraża stabilność systemu.</td>
     </td>
   </tr>
   <tr>
@@ -590,7 +590,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 ---
 
 - `S3.T4`: API gateway upraszcza integrację części backendowej z klientami, jednakże awaria tego kompentu odcina klientów od części backendowej systemu.
-- `S3.R4`: Samodzielna implementacja API gateway rodzi ryzyko błędów w implementacji. Ten komponent jest szczególnie istotny w kontekście dostępności, dlatego, że stanowi pojedynczy POF.
+- `S3.R4`: Samodzielna implementacja API gateway rodzi ryzyko błędów w implementacji. Ten komponent jest szczególnie istotny w kontekście dostępności, dlatego, że stanowi Single Point Of Failure.
 
 <table>
   <tr>
@@ -688,7 +688,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Środowisko</th>
-    <td colspan="4">środowisko</td>
+    <td colspan="4">Testowe</td>
   </tr>
   <tr>
     <th>Przyczyna</th>
@@ -705,11 +705,46 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <th>Ryzyko</th>
     <th>Nie-ryzyko</th>
   </tr>
+    <tr>
+    <td><b>Podejście Clean Architecture</b></td>
+    <td></td>
+    <td><code>S6.C1</code></td>
+    <td></td>
+    <td><code>S6.N1</code></td>
+  </tr>
   <tr>
-    <td><b>decyzja</b></td>
+    <td><b>Testy jednostkowe</b></td>
     <td></td>
     <td></td>
+    <td><code>S6.R1</code></td>
     <td></td>
+  </tr>
+    <tr>
+    <td><b>Testy integracyjne</b></td>
+    <td></td>
+    <td><code>S6.C2</code></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>Testy obciążeniowe</b></td>
+    <td></td>
+    <td><code>S6.C3</code</td>
+    <td><code>S6.R2</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><b>Testy E2E</b></td>
+    <td><code>S6.S1</code></td>
+    <td></td>
+    <td><code>S6.C4</code></td>
+    <td><code>S6.R4</code></td>
+  </tr>
+    <tr>
+    <td><b>Testy Security</b></td>
+    <td><code>S6.S2</code></td>
+    <td></td>
+    <td><code>S6.C5</code></td>
     <td></td>
   </tr>
   <tr>
@@ -722,6 +757,26 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <td colspan="4"></td>
   </tr>
 </table>
+
+- `S6.C1` - Architektura portów i adapterów zwiększa elastyczność systemu i jego testowanie, ale komplikuje jego projektowanie.
+- `S6.N1` - Dzięki wyraźnemu rozdzieleniu odpowiedzialności można łatwo testować logikę domenową i logikę integracyjną.
+---
+- `S6.R1` - Jeżeli testy jednostkowe nie obejmują kluczowych przypadków, mogą prowadzić do przeoczenia błędów w logice aplikacji.
+
+---
+- `S6.C2` - Testy integracyjne mogą wymagać więcej czasu niż testy jednostkowe, ale oferują lepsze pokrycie współdziałania komponentów.
+- `S6.N2` - Testy integracyjne pomagają zagwarantować, że system działa jako spójna całość, nawet w przypadku zmian w poszczególnych modułach.
+---
+- `S6.C3` - Testy obciążeniowe mogą wymagać znacznych zasobów obliczeniowych i regularnego dostosowywania.
+- `S6.R2` - Jeśli testy obciążeniowe nie są odpowiednio zaprojektowane, mogą prowadzić do błędnych wniosków na temat wydajności systemu.
+---
+- `S6.S1` - Testy E2E są czasochłonne, co może wpływać na czas działania pipeline CI/CD i wyniki testów.
+- `S6.C4` - Testy E2E będą uruchamiane wyłącznie na środowiskach stagingowych.
+- `S6.R4` - Włączenie dużej ilości testów E2E w proces CI/CD na środowisku deweloperskim może spowolnić proces dostarczania 
+
+---
+- `S6.S2` - Automatyczne skanowanie może generować fałszywe wyniki, które wymagają ręcznej weryfikacji.
+- `S6.C5` -   Testy bezpieczeństwa mogą spowolnić proces CI/CD, ale zwiększają pewność co do bezpieczeństwa systemu.
 
 <table>
   <tr>
@@ -770,9 +825,11 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
 </table>
 
 ## Wyniki
+
 Poniżej zaagregowano punkty wrażliwości, kompromisy, ryzyka oraz nie-ryzyka dla analizowanch scenariuszy.
 
 ### Punkty wrażliwości
+
 Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W związku z tym, każdy z punktów wrażliwości został sklasyfikowany jako ryzyko (`R`) lub nie-ryzyko (`N`).
 
 - `S1.S1`: Projekt i implementacja architektury mikroserwisowej jest trudniejszy, niż architektury monolitycznej. (`R`)
@@ -820,7 +877,7 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 
 ## Inne problemy oraz wątpliwości
 
-- Rezygnację z SSR dla aplikacji klienckiej należy uznać za rozwiązanie mocno kompromisowe ze względu na gorsze wsparcie dla SEO (aplikacja użytku publicznego) oraz dłuższy czas renderowania aplikacji (pogorszenie web vitals). 
+- Rezygnację z SSR dla aplikacji klienckiej należy uznać za rozwiązanie mocno kompromisowe ze względu na gorsze wsparcie dla SEO (aplikacja użytku publicznego) oraz dłuższy czas renderowania aplikacji (pogorszenie web vitals).
 - Stosunkowo wysokie wykorzystanie na urządzeniach mobilnych oraz wykorzystanie zasobów sprzętowych (kamera wideo) sugerowałoby implementację w formie PWA lub natywnej aplikacji mobilnej. Wybór Angulara jako technologii frontendowej w tym przypadku może nie być optymalnym wyborem, ze względu na to, że technologia ta tergetowana jest bardziej na urządzenia desktopowe (nie jest tak lightweight jak React, Flutter lub Next.js).
 - Różnorodność w doborze technologii backendowych wykorzystuje agnostycyzm technologiczny REST oraz protokołu HTTP, jednak może utrudniać procesy wymiany wiedzy oraz code review pomiędzy członkami zespołu.
 - Deno to niszowe środowisko uruchomieniowe JavaScript, o znacznie niższej popularności rynkowej niż Node.js, co może rodzić problemy ze wsparciem oraz kompatybilnością w fazie utrzymania systemu po jego wdrożeniu produkcyjnym.
@@ -828,9 +885,13 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - Dokumentacja nie wskazuje wprost na zastosowanie EKS, czytelnik musi domyślić się tej informacji.
 - Abstrakcyjne nazwy dla podsystemów są elastyczne i mogą zmniejszać koszt utrzymania dokumentacji, jednakże nie informują o domenie, za którą odpowiada dany podsystem, co wymusza opanowanie "słownika nazw" i zwiększa poziom wejścia w architekturę projektu. (personalna opinia).
 - Wymaganie niefunkcjonalne `NF/PRF/01` wymaga doprecyzowania. Zdefiniowano maksymalne czasy odpowiedzi dla 90% przypadków, nie zdefiniowano jakie są maksymalne czasy dla 10% pozostałych przypadków (nieskończone czasy są nieakceptowalne; dobrze byłoby podać estymacje lub określić czasy dla szerszych zakresów, najlepiej 99.9% lub więcej).
+- Load Balancer nie został uwzględniony na diagramie wdrożenia.
+- Brak informacji na temat integracji Ingress Resource z Elastic Load Balancer. Wykorzystując AWS EKS do orchiestracji mikroserwisami można zintegrować Ingress Resource z Network Load Balancerem lub Application Load Balancerem różnica jest w warstie na której operuje dany load balancer.
 
 ## Wnioski
+
 <!-- Przepisać na tekst ciągły, na razie wolny strumień myśli -->
+
 - Obszerne uzasadnienia dla doboru technologii oraz podejść architekotnicznych, biorące pod uwagę mocne oraz słabe strony rozważanych rozwiązań.
 - Szczegółowa dokumentacja przypadków użycia w formie diagramów sekwencji.
 - Optymalizacja wykorzystania umiejętności członków zespołu poprzez swobodę w wyborze technologii backendowych, co powinno przyspieszyć rozwój systemu w jego początkowej fazie.
