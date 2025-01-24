@@ -12,6 +12,13 @@ System został wdrożony na AWS i jest dostępny do użytku publicznego.
 - [frontend](http://deskly-lb-1156685114.us-east-1.elb.amazonaws.com/)
 - [API gateway](https://o3pm5tkex5.execute-api.us-east-1.amazonaws.com/staging)
 
+## Artefakty
+Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Dockerhub.
+
+- [Deskly FE](https://hub.docker.com/repository/docker/wrzchwc/deskly)
+- [Deskly Location](https://hub.docker.com/r/kamilbonkowski/deskly-location)
+- [Deskly Core](https://hub.docker.com/r/kamilbonkowski/deskly-core)
+
 ## Status implementacji elementów systemu
 
 ### Legenda:
