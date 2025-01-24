@@ -15,7 +15,7 @@ System został wdrożony na AWS i jest dostępny do użytku publicznego.
 ## Artefakty
 Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Dockerhub.
 
-- [Deskly FE](https://hub.docker.com/repository/docker/wrzchwc/deskly)
+- [Deskly FE](https://hub.docker.com/r/wrzchwc/deskly)
 - [Deskly Location](https://hub.docker.com/r/kamilbonkowski/deskly-location)
 - [Deskly Core](https://hub.docker.com/r/kamilbonkowski/deskly-core)
 
