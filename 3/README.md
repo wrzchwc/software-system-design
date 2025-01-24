@@ -355,7 +355,7 @@ System został wdrożony na AWS i jest dostępny do użytku publicznego.
   <tr>
     <td><code>FR/LM/06</code></td>
     <td>Jako Location Manager chciałbym mieć możliwość aktualizacji danych lokalizacji oraz dostępnych zasobów.</td>
-    <td>🔵<</td>
+    <td>🔵</td>
   </tr>
     <tr>
     <td><code>FR/LM/07</code></td>
@@ -366,7 +366,7 @@ System został wdrożony na AWS i jest dostępny do użytku publicznego.
     <tr>
     <td><code>FR/LM/08</code></td>
     <td>Jako Location Manager chciałbym mieć możliwość wypisywania zasobów z danej lokacji.</td>
-    <td>🔵<</td>
+    <td>🔵</td>
   </tr>
   <tr>
     <td><code>FR/CM/01</code></td>
