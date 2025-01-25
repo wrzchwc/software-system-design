@@ -7,12 +7,14 @@
 Niniejszy dokument stanowi podsumowanie prac nad systemem do rezerwacji przestrzeni biurowych Deskly.
 
 ## Wdrożenie systemu
+
 System został wdrożony na AWS i jest dostępny do użytku publicznego.
 
 - [frontend](http://deskly-lb-1156685114.us-east-1.elb.amazonaws.com/)
 - [API gateway](https://o3pm5tkex5.execute-api.us-east-1.amazonaws.com/staging)
 
 ## Artefakty
+
 Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Dockerhub.
 
 - [Deskly FE](https://hub.docker.com/r/wrzchwc/deskly)
@@ -53,7 +55,6 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
 
 ### Infrastruktura wdrożeniowa
 
-
 <table>
   <tr>
     <th style="width: 300px;">Usługa/Mechanizm</th>
@@ -62,7 +63,7 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
   </tr>
   <tr>
     <td><code>AWS Cognito</code></td>
-    <td>Uwierzytelnianie użytkowników odbywa się poprzez integrację z AWS Cognito</td>
+    <td>Uwierzytelnianie użytkowników odbywa się poprzez integrację z AWS Cognito</td>
     <td>✅</td>
   </tr>
   <tr>
@@ -202,7 +203,7 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
   <tr>
     <td><code>Jenkins</code></td>
     <td>Deployment nowego obrazu do klastra Kubernetes</td>
-    <td>🔄</td>
+    <td>🔵</td>
   </tr>
   <tr>
     <td><code>Jenkins</code></td>
@@ -214,7 +215,6 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
     <td>Integracja narzędzi do analizy zależności między pakietami oraz modułami</td>
     <td>🔴</td>
   </tr>
-    </tr>
     <tr>
     <td><code>Jenkins</code></td>
     <td>Parametryzacja haseł, kluczy prywatnych, tokenów itd. wykorzystując Jenkins Credentials </td>
@@ -225,19 +225,16 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
     <td>Zarządzanie serwerami przy użyciu skryptów automatyzujących</td>
     <td>✅</td>
   </tr>
-  </tr>
     <tr>
     <td><code>Terraform</code></td>
     <td>Tworzenie infrastruktury w chmurze AWS jako Infrastructure As Code</td>
     <td>✅</td>
-  </tr>
   </tr>
     <tr>
     <td><code>Docker</code></td>
     <td>Konteneryzacja mikroserwisów</td>
     <td>✅</td>
   </tr>
-    </tr>
     <tr>
     <td><code>Postman</code></td>
     <td>Dokumentowanie API</td>
@@ -272,12 +269,12 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
   <tr>
     <td><code>FR/KD/04</code></td>
     <td>Jako klient Deskly chciałbym mieć podgląd wszystkich wynajętych zasobów oraz szczegółów każdej z aktywnych rezerwacji.</td>
-    <td>🔄</td>
+    <td>🔵</td>
   </tr>
   <tr>
     <td><code>FR/KD/05</code></td>
     <td>Jako klient Deskly chciałbym mieć możliwość rezerwacji zasobu w dowolnie wybranej lokacji.</td>
-    <td>🔄</td>
+    <td>🔵</td>
   </tr>
   <tr>
     <td><code>FR/KD/06</code></td>
@@ -342,12 +339,12 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
   <tr>
     <td><code>FR/LM/02</code></td>
     <td>Jako Location Manager mogę zlecić konserwację zasobu.</td>
-    <td>🔄</td>
+    <td>🔵</td>
   </tr>
   <tr>
     <td><code>FR/LM/03</code></td>
     <td>Jako Location Manager mogę wyłączyć dany zasób z użytkowania (nawet jeśli jest aktualnie zarezerwowany).</td>
-    <td>🔄</td>
+    <td>🔵</td>
   </tr>
   <tr>
     <td><code>FR/LM/04</code></td>
@@ -362,18 +359,17 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
   <tr>
     <td><code>FR/LM/06</code></td>
     <td>Jako Location Manager chciałbym mieć możliwość aktualizacji danych lokalizacji oraz dostępnych zasobów.</td>
-    <td>🔵</td>
+    <td>✅</td>
   </tr>
     <tr>
     <td><code>FR/LM/07</code></td>
     <td>Jako Location Manager chciałbym mieć możliwość przypisywania zasobów do danej lokacji.</td>
-    <td>🔵</td>
-  </tr>
+    <td>✅</td>
   </tr>
     <tr>
     <td><code>FR/LM/08</code></td>
     <td>Jako Location Manager chciałbym mieć możliwość wypisywania zasobów z danej lokacji.</td>
-    <td>🔵</td>
+    <td>✅</td>
   </tr>
   <tr>
     <td><code>FR/CM/01</code></td>
@@ -487,7 +483,7 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
 </tr>
 <tr>
     <td><code>NFR/SYS/06</code></td>
-    <td>System powinien wymagać weryfikacji użytkownika poprzez e-mail przy zakładaniu konta</td>
+    <td>System powinien wymagać weryfikacji użytkownika poprzez e-mail przy zakładaniu konta</td>
     <td>✅</td>
 </tr>
 <tr>
@@ -513,7 +509,7 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
 <tr>
     <td><code>NFR/LEG/02</code></td>
     <td>Musi istnieć możliwość prowadzenia logów audytowych dla wszystkich danych związanych z negocjacją umowy oraz danych związanych z rezerwacjami.</td>
-    <td>🔄</td>
+    <td>🔵</td>
 </tr>
 <tr>
     <td><code>NFR/SEC/01</code></td>
@@ -527,7 +523,7 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
 </tr>
 <tr>
     <td><code>NFR/AVA/02</code></td>
-    <td>W przypadku awarii, system powinien być w stanie przywrócić dostępność w ciągu maksymalnie 1h.</td>
+    <td>W przypadku awarii system powinien być w stanie przywrócić dostępność w ciągu maksymalnie 1h.</td>
     <td>✅</td>
 </tr>
 <tr>
