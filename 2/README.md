@@ -851,15 +851,15 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
 
 #### API Publiczne
 
-<table>
+<table style="width: 2800px; table-layout: fixed">
   <tr>
-    <th style="width:300px;">Rola</th>
-    <th style="width: 100px;">Metoda</th>
-    <th style="width: 1000px;">Endpoint</th>
-    <th style="width: 200px;">Wymagania</th>
-    <th style="width: 500px;">Opis</th>
-    <th style="width: 300px;">Model</th>
-    <th style="width: 300px;">Mikroserwis</th>
+    <th style="width:300px">Rola</th>
+    <th style="width: 100px">Metoda</th>
+    <th style="width: 900px">Endpoint</th>
+    <th style="width: 200px">Wymagania</th>
+    <th style="width: 500px">Opis</th>
+    <th style="width: 300px">Model</th>
+    <th style="width: 200px">Mikroserwis</th>
   </tr>
   <tr>
     <td><code>location manager</code></td>
