@@ -10,16 +10,16 @@ Niniejszy dokument stanowi podsumowanie prac nad systemem do rezerwacji przestrz
 
 System został wdrożony na AWS i jest dostępny do użytku publicznego.
 
-- [frontend](http://deskly-lb-1156685114.us-east-1.elb.amazonaws.com/)
-- [API gateway](https://o3pm5tkex5.execute-api.us-east-1.amazonaws.com/staging)
+- [Frontend](https://staging.d1nut4sm1yxsm3.amplifyapp.com/)
+- [Backend API Gateway](https://o3pm5tkex5.execute-api.us-east-1.amazonaws.com/staging)
 
 ## Artefakty
 
 Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Dockerhub.
 
-- [Deskly FE](https://hub.docker.com/r/wrzchwc/deskly)
-- [Deskly Location](https://hub.docker.com/r/kamilbonkowski/deskly-location)
-- [Deskly Core](https://hub.docker.com/r/kamilbonkowski/deskly-core)
+  - [Deskly Frontend](https://hub.docker.com/r/wrzchwc/deskly/tags)
+  - [Deskly Location](https://hub.docker.com/r/kamilbonkowski/deskly-location/tags)
+  - [Deskly Core](https://hub.docker.com/r/kamilbonkowski/deskly-core/tags)
 
 ## Status implementacji elementów systemu
 
