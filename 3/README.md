@@ -207,6 +207,16 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
   </tr>
   <tr>
     <td><code>Jenkins</code></td>
+    <td>Konfiguracja etapów w pipeline jest zależna od wykrytych zmian</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><code>Jenkins</code></td>
+    <td>Zrównoleglenie etapów budowania, testowania i deploymentu dla każdego mikroserwisu</td>
+    <td>✅</td>
+  </tr>
+  <tr>
+    <td><code>Jenkins</code></td>
     <td>Integracja z SonarQube</td>
     <td>🔴</td>
   </tr>
