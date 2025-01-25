@@ -12,7 +12,7 @@ System został wdrożony na AWS i jest dostępny do użytku publicznego.
 
 - [Frontend](https://staging.d1nut4sm1yxsm3.amplifyapp.com/)
 - [Backend API Gateway](https://o3pm5tkex5.execute-api.us-east-1.amazonaws.com/staging)
-
+- [Jenkins](http://52.55.103.166:8080/)
 ## Artefakty
 
 Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Dockerhub.
