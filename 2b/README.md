@@ -692,11 +692,11 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
   </tr>
   <tr>
     <th>Przyczyna</th>
-    <td colspan="4">przyczyna</td>
+    <td colspan="4">System powinien działać poprawnie na środowisku produkcyjnym</td>
   </tr>
   <tr>
     <th>Odpowiedź</th>
-    <td colspan="4">odpowiedź</td>
+    <td colspan="4">Zapewnienie mechanizmów testujących w procesie wytwórczym przekłada się stabilność i poprawność działania systemu</td>
   </tr>
   <tr>
     <th>Decyzje architektoniczne</th>
@@ -708,7 +708,7 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <tr>
     <td><b>Podejście Clean Architecture</b></td>
     <td></td>
-    <td><code>S6.C1</code></td>
+    <td><code>S6.T1</code></td>
     <td></td>
     <td><code>S6.N1</code></td>
   </tr>
@@ -722,107 +722,54 @@ W analizowanym projekcie nie wskazano wymagań, na podstawie których możnaby u
     <tr>
     <td><b>Testy integracyjne</b></td>
     <td></td>
-    <td><code>S6.C2</code></td>
+    <td><code>S6.T2</code></td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <td><b>Testy obciążeniowe</b></td>
     <td></td>
-    <td><code>S6.C3</code</td>
+    <td><code>S6.T3</code></td>
     <td><code>S6.R2</code></td>
     <td></td>
   </tr>
   <tr>
     <td><b>Testy E2E</b></td>
     <td><code>S6.S1</code></td>
+    <td><code>S6.T4</code></td>
     <td></td>
-    <td><code>S6.C4</code></td>
     <td><code>S6.R4</code></td>
   </tr>
     <tr>
     <td><b>Testy Security</b></td>
     <td><code>S6.S2</code></td>
-    <td></td>
-    <td><code>S6.C5</code></td>
-    <td></td>
-  </tr>
-  <tr>
-    <th>Analiza</th>
-    <td colspan="4"></td>
-    </td>
-  </tr>
-  <tr>
-    <th>Diagram architektoniczny</th>
-    <td colspan="4"></td>
-  </tr>
-</table>
-
-- `S6.C1` - Architektura portów i adapterów zwiększa elastyczność systemu i jego testowanie, ale komplikuje jego projektowanie.
-- `S6.N1` - Dzięki wyraźnemu rozdzieleniu odpowiedzialności można łatwo testować logikę domenową i logikę integracyjną.
----
-- `S6.R1` - Jeżeli testy jednostkowe nie obejmują kluczowych przypadków, mogą prowadzić do przeoczenia błędów w logice aplikacji.
-
----
-- `S6.C2` - Testy integracyjne mogą wymagać więcej czasu niż testy jednostkowe, ale oferują lepsze pokrycie współdziałania komponentów.
-- `S6.N2` - Testy integracyjne pomagają zagwarantować, że system działa jako spójna całość, nawet w przypadku zmian w poszczególnych modułach.
----
-- `S6.C3` - Testy obciążeniowe mogą wymagać znacznych zasobów obliczeniowych i regularnego dostosowywania.
-- `S6.R2` - Jeśli testy obciążeniowe nie są odpowiednio zaprojektowane, mogą prowadzić do błędnych wniosków na temat wydajności systemu.
----
-- `S6.S1` - Testy E2E są czasochłonne, co może wpływać na czas działania pipeline CI/CD i wyniki testów.
-- `S6.C4` - Testy E2E będą uruchamiane wyłącznie na środowiskach stagingowych.
-- `S6.R4` - Włączenie dużej ilości testów E2E w proces CI/CD na środowisku deweloperskim może spowolnić proces dostarczania 
-
----
-- `S6.S2` - Automatyczne skanowanie może generować fałszywe wyniki, które wymagają ręcznej weryfikacji.
-- `S6.C5` -   Testy bezpieczeństwa mogą spowolnić proces CI/CD, ale zwiększają pewność co do bezpieczeństwa systemu.
-
-<table>
-  <tr>
-    <th>Scenariusz<code>S6</code></th>
-    <td colspan="4">Wdrożenie nowej funkcjonalności nie powinno zajmować więcej niż 10 tygodni roboczych.</td>
-  </tr>
-  <tr>
-    <th>Atrybut</th>
-    <td colspan="4">modyfikowalność</td>
-  </tr>
-  <tr>
-    <th>Środowisko</th>
-    <td colspan="4">środowisko</td>
-  </tr>
-  <tr>
-    <th>Przyczyna</th>
-    <td colspan="4">przyczyna</td>
-  </tr>
-  <tr>
-    <th>Odpowiedź</th>
-    <td colspan="4">odpowiedź</td>
-  </tr>
-  <tr>
-    <th>Decyzje architektoniczne</th>
-    <th>Wrażliwość</th>
-    <th>Kompromis</th>
-    <th>Ryzyko</th>
-    <th>Nie-ryzyko</th>
-  </tr>
-  <tr>
-    <td><b>decyzja</b></td>
-    <td></td>
-    <td></td>
+    <td><code>S6.T4</code></td>
     <td></td>
     <td></td>
   </tr>
   <tr>
     <th>Analiza</th>
-    <td colspan="4"></td>
-    </td>
-  </tr>
-  <tr>
-    <th>Diagram architektoniczny</th>
-    <td colspan="4"></td>
+    <td colspan="4"> Separacja logiki domenowej i logiki integracyjnej w podejściu Clean Architecture pozwala na łatwiejsze testowanie logiki biznesowej. Łatwiej dzięki temu wykorzystać techniki takie jak TDD (Test Driven Development) lub BDD (Behaviour Driven Development) i "odciąć" się od warstwy IO. W tym podejściu testy jednostkowe mogą zostać również re-użyte i posłużyć jako testy integracyjne, ponieważ wystarczy zmienić jedynie dostarczaną konfigurację testową. W dokumentacji nie zostały opisane narzędzia do testowania integracyjnego serwisów backendowych, do tego świetnie nadaje się biblioteka TestContainers. Włączenie testów E2E w proces CI to dobre rozwiązanie, warto pamiętać o tym, że testy te wykonują się długo i powinny być uruchamiane w określonych odstępach czasowych na odpowiednich środowiskach (np. testing, staging, UAT). Testy obciążeniowe są ważnym elementem, który definiuje jakość systemu, warto uruchamiać je cyklicznie, aby monitorować czy wprowadzane zmiany nie wprowadzają regresji w tym obszarze. Testy security takie jak testy penetracyjne pomogą w namierzeniu luk w zabezpieczeniach systemu na poziomie: architektury wdrożeniowej, konfiguracji sieciowej, zależności z innymi dostawcami. Na początkowym etapie projektu delegacja tego typu testów firmie zewnętrznej to rozsądna decyzja, w przyszłości można zastanowić się nad pozyskaniem specjalisty w tym zakresie. Dobrym pomysłem jest również wprowadzenie OWASP ZAP do procesu CI w celu minimalizacji ryzyka wprowadzenia zmian podatnych na ataki.</td>
   </tr>
 </table>
+
+- `S5.T1` - Architektura portów i adapterów zwiększa elastyczność systemu i jego testowanie, ale komplikuje jego projektowanie.
+- `S5.N1` - Dzięki wyraźnemu rozdzieleniu odpowiedzialności można łatwo testować logikę domenową i logikę integracyjną.
+---
+- `S5.R1` - Jeżeli testy jednostkowe nie obejmują kluczowych przypadków, mogą prowadzić do przeoczenia błędów w logice aplikacji.
+---
+- `S5.T2` - Testy integracyjne mogą wymagać więcej czasu niż testy jednostkowe, ale oferują lepsze pokrycie współdziałania komponentów.
+- `S5.N2` - Testy integracyjne pomagają zagwarantować, że system działa jako spójna całość, nawet w przypadku zmian w poszczególnych modułach.
+---
+- `S5.T3` - Testy obciążeniowe mogą wymagać znacznych zasobów obliczeniowych i regularnego dostosowywania.
+- `S5.R2` - Jeśli testy obciążeniowe nie są odpowiednio zaprojektowane i nie są wykonywane na odpowiednim środowisku, mogą prowadzić do błędnych wniosków na temat wydajności systemu.
+---
+- `S5.S1` - Testy E2E są czasochłonne, co może wpływać na czas działania pipeline CI/CD i wyniki testów.
+- `S5.T4` - Testy E2E będą uruchamiane wyłącznie na środowiskach stagingowych.
+- `S5.R4` - Włączenie dużej ilości testów E2E w proces CI/CD na środowisku deweloperskim może spowolnić proces dostarczania
+---
+- `S5.S2` - Automatyczne skanowanie może generować fałszywe wyniki, które wymagają ręcznej weryfikacji.
+- `S5.T5` - Testy bezpieczeństwa mogą spowolnić proces CI/CD, ale zwiększają pewność co do bezpieczeństwa systemu.
 
 ## Wyniki
 
@@ -841,6 +788,8 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - `S3.S1`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu. (`N`)
 - `S4.S2`: CloudWatch to rozbudowane narzędzie do monitoriwania logów, należy je jednak skonfigurować prawidłowo, aby uniknąć fałszywych alarmów (o ile funkcja ta jest używana). (`R`)
 - `S4.S3`: Kuberenetes to rozbudowane narzędzie, w którym dużą rolę odgrywa prawidłowa konfiguracja, co może stanowić wyzwanie, szczególnie w początkowej fazie rozwoju systemu. (`N`)
+- `S5.S1` - Testy E2E są czasochłonne, co może wpływać na czas działania pipeline CI/CD i wyniki testów. (`R`)
+- `S5.S2` - Automatyczne skanowanie może generować fałszywe wyniki, które wymagają ręcznej weryfikacji. (`N`)
 
 ### Kompromisy
 
@@ -850,15 +799,22 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - `S3.T2`: Korzystanie z usług zewnętrznego dostawcy chmurowych częściowo ogranicza swobodę implementacyjną oraz w zależności od skali przedsięwzięcia może być mniej opłacalne ekonomicznie, jednakże pozwala na ograniczenie wydatków związanych z infrastruktrą, i co ważniejsze, redukuje wyzwania dla zespołu inżynierskiego związane z zapewnieniem wysokiej dostępności.
 - `S3.T4`: API gateway upraszcza integrację części backendowej z klientami, jednakże awaria tego kompentu odcina klientów od części backendowej systemu.
 - `S4.T1`: HC API generuje niewielki narzut na monitorwany system/podsystem, może jednak generować fałszywie pozytywne alaramy.
+- `S5.T1` - Architektura portów i adapterów zwiększa elastyczność systemu i jego testowanie, ale komplikuje jego projektowanie.
+- `S5.T2` - Testy integracyjne mogą wymagać więcej czasu niż testy jednostkowe, ale oferują lepsze pokrycie współdziałania komponentów.
+- `S5.T3` - Testy obciążeniowe mogą wymagać znacznych zasobów obliczeniowych i regularnego dostosowywania.
+- `S5.T4` - Testy E2E będą uruchamiane wyłącznie na środowiskach stagingowych.
+- `S5.T5` - Testy bezpieczeństwa mogą spowolnić proces CI/CD, ale zwiększają pewność co do bezpieczeństwa systemu.
 
 ### Ryzyka
 
 - `S1.R1`: Architektura mikroserwisowa wprowadza dodatkowe opóźnienie ze względu na przesył danych przez sieć.
-- `S1.R2`: Osiągnięcie czasu realizacji zakupu biletu w czasie nie przekraczającym 1 sekundy może stanowić wyzwanie, ze względu na wykorzystanie co najmniej 3 kolejek.
-- `S2.R5`: Samodzielna implementacja API gateway rodzi ryzyko nieoptymalności implementacji oraz może niepotrzebnie komplikować rozwój systemu.
-- `S3.R3`: Awaria jednego mikroserwisu może wpływać na fukcjonowanie innego, który jest od niego zależny.
+- `S1.R2`: Osiągnięcie czasu realizacji zakupu biletu w czasie nie przekraczającym 1 sekundy może stanowić wyzwanie, ze względu na wykorzystanie co najmniej trzech kolejek.
+- `S2.R5`: Samodzielna implementacja API gateway rodzi ryzyko nie optymalności implementacji oraz może niepotrzebnie komplikować rozwój systemu.
+- `S3.R3`: Awaria jednego mikroserwisu może wpływać na funkcjonowanie innego, który jest od niego zależny.
 - `S3.R4`: Samodzielna implementacja API gateway rodzi ryzyko błędów w implementacji. Ten komponent jest szczególnie istotny w kontekście dostępności, dlatego, że stanowi pojedynczy POF.
 - `S4.R1`: System może raportować prawidłowe działanie, pomimo, że jego działanie może być zaburzone pomiędzy sprawdzeniami.
+- `S5.R1` - Jeżeli testy jednostkowe nie obejmują kluczowych przypadków, mogą prowadzić do przeoczenia błędów w logice aplikacji.
+- `S5.R2` - Jeśli testy obciążeniowe nie są odpowiednio zaprojektowane i nie są wykonywane na odpowiednim środowisku, mogą prowadzić do błędnych wniosków na temat wydajności systemu.
 
 ### Nie-ryzyka
 
@@ -866,14 +822,16 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - `S1.N4`: Mechanizm umożliwia optymalizację zużycia zasobów przy zmiennej liczbie użytkowników jednocześnie korzystających z systemu (np. w czasie porannych lub popołudniowych godzin szczytu).
 - `S2.N1`: Mechanizm umożliwia optymalizację zużycia zasobów poprzez równomierne rozdzielenie workloadu, co jest szczególnie przy wysokim obciążeniu systemu.
 - `S2.N2`: Mechanizm umożliwia optymalizację zużycia zasobów przy zmiennej liczbie użytkowników jednocześnie korzystających z systemu (np. w czasie porannych lub popołudniowych godzin szczytu).
-- `S2.N3`: Kubernets to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe oraz adaptacyjne.
+- `S2.N3`: Kubernetes to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe oraz adaptacyjne.
 - `S2.N4`: Mechanizm kolejki (realizowany za pośrednictwem SQS) umożliwia rozluźnienie powiązań pomiędzy mikroserwiasmi oraz zapobiega tworzeniu się wąskich gardeł podczas złożonych transakcji.
 - `S2.N5`: Wzorzec API gateway sam w sobie to "eleganckie" rozwiązanie pozwalające na uproszczenie integracji z klientami oraz centralizację niektórych funckjonalności systemu (np. uwierzytelnianie).
-- `S3.N1`: Kubernets to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe (np. ReplicaSet).
+- `S3.N1`: Kubernetes to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe (np. ReplicaSet).
 - `S3.N2`: AWS to lider usług chmurowych, oferujących szeroką gammę rozwiązań zwiększającą dostępność systemów informatycznych oraz globalną siatkę centrów danych oraz serwerowni.
 - `S3.N3`: Architektura mikroserwisowa korzystnie wpływa na zapewnienie wysokiej dostępności, tworząc układ o wielu POFs (ang. points of failure).
-- `S4.N4`: Kubernets to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe (np. ReplicaSet).
-- `S4.N5`: AWS zoobowiązuje się do zapewnienia wysokiej dostępności swoim usług (pod rygorem odszkodowań), ponadto oferuje kompleksowe wsparcie techniczne dla kluczowych usług.
+- `S4.N4`: Kubernetes to zaawansowane rozwiązanie do zarządzania dużą liczbą konterów, posiadające wbudowane mechanizmy niezawodnościowe (np. ReplicaSet).
+- `S4.N5`: AWS zobowiązuje się do zapewnienia wysokiej dostępności swoim usług (pod rygorem odszkodowań), ponadto oferuje kompleksowe wsparcie techniczne dla kluczowych usług.
+- `S5.N1` - Dzięki wyraźnemu rozdzieleniu odpowiedzialności można łatwo testować logikę domenową i logikę integracyjną.
+- `S5.N2` - Testy integracyjne pomagają zagwarantować, że system działa jako spójna całość, nawet w przypadku zmian w poszczególnych modułach.
 
 ## Inne problemy oraz wątpliwości
 
@@ -885,8 +843,8 @@ Każdy z punktów wrażliwości stanowi potencjalne ryzyko lub nie-ryzyko. W zwi
 - Dokumentacja nie wskazuje wprost na zastosowanie EKS, czytelnik musi domyślić się tej informacji.
 - Abstrakcyjne nazwy dla podsystemów są elastyczne i mogą zmniejszać koszt utrzymania dokumentacji, jednakże nie informują o domenie, za którą odpowiada dany podsystem, co wymusza opanowanie "słownika nazw" i zwiększa poziom wejścia w architekturę projektu. (personalna opinia).
 - Wymaganie niefunkcjonalne `NF/PRF/01` wymaga doprecyzowania. Zdefiniowano maksymalne czasy odpowiedzi dla 90% przypadków, nie zdefiniowano jakie są maksymalne czasy dla 10% pozostałych przypadków (nieskończone czasy są nieakceptowalne; dobrze byłoby podać estymacje lub określić czasy dla szerszych zakresów, najlepiej 99.9% lub więcej).
-- Load Balancer nie został uwzględniony na diagramie wdrożenia.
-- Brak informacji na temat integracji Ingress Resource z Elastic Load Balancer. Wykorzystując AWS EKS do orchiestracji mikroserwisami można zintegrować Ingress Resource z Network Load Balancerem lub Application Load Balancerem różnica jest w warstie na której operuje dany load balancer.
+- Load Balancer oraz Ingress Resource nie zostały uwzględnione na diagramie wdrożenia.
+- Brak informacji na temat integracji Ingress Resource z Elastic Load Balancer. Wykorzystując AWS EKS do orchiestracji mikroserwisami można zintegrować Ingress Resource z Network Load Balancerem lub Application Load Balancerem różnica jest w warstie na której operuje dany load balancer.
 
 ## Wnioski
 
