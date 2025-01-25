@@ -853,9 +853,9 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
 
 <table>
   <tr>
-    <th style="width: 300px;">Rola</th>
+    <th style="width:300px;">Rola</th>
     <th style="width: 100px;">Metoda</th>
-    <th style="width: 800px;">Endpoint</th>
+    <th style="width: 1000px;">Endpoint</th>
     <th style="width: 200px;">Wymagania</th>
     <th style="width: 500px;">Opis</th>
     <th style="width: 300px;">Model</th>
@@ -867,8 +867,8 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-location/resource</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Stworzenie nowego zasobu</td>
-    <td>Location</td>
-    <td>deskly-location</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
   <tr>
     <td><code>location manager</code></td>
@@ -876,6 +876,8 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-location/resource/{resourceId}</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Modyfikacja informacji o istniejącym zasobie</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
   <tr>
     <td><code>location manager</code></td>
@@ -883,6 +885,8 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-location/resource/{resourceId}</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Pobranie informacji na temat konkretnego zasobu</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
     <tr>
     <td><code>location manager</code></td>
@@ -890,6 +894,8 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-location/resources</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Pobranie informacji o wszystkich zasobach klienta</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
     <tr>
     <td><code>location manager</code></td>
@@ -897,6 +903,8 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-location/resource/{resourceId}/upload</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Dodaj zdjęcie zasobu</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
   <tr>
     <td><code>location manager</code></td>
@@ -904,6 +912,8 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-location/location/{locationId}/resource/assign</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Przypisanie zasobu do lokacji</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
   <tr>
     <td><code>location manager</code></td>
@@ -911,6 +921,8 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-location/location/{locationId}/resource/unassign</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Wypisanie zasobu z lokacji</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
     <tr>
     <td><code>location manager</code></td>
@@ -918,6 +930,8 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-location/location/{locationId}/resource</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Pobranie informacji o zasobach w danej lokacji</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
       <tr>
     <td><code>location manager</code></td>
@@ -925,13 +939,17 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-location/location</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Stworzenie nowej lokacji</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
     <tr>
     <td><code>location manager</code></td>
      <td><code>POST</code></td>
     <td><code>/api/v1/deskly-location/location/{locationId}/upload</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
-    <td>Dodanie zdjęć lokacji</td>
+    <td>Dodanie zdjęć lokacji</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
   <tr>
     <td><code>location manager</code></td>
@@ -939,6 +957,8 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-location/location/{locationId}</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Modyfikacja informacji o istniejącej lokacji</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
     <tr>
     <td><code>location manager</code></td>
@@ -946,6 +966,8 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-location/location/{locationId}</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Pobranie informacji o konkretnej lokacji</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
   <tr>
     <td><code>location manager</code></td>
@@ -953,6 +975,8 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-location/locations</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Pobranie informacji o wszystkich lokacjach klienta</td>
+    <td><code>Location</code></td>
+    <td><code>deskly-location</code></td>
   </tr>
   <tr>
     <td><code>basic user</code></td>
@@ -960,6 +984,26 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-core/availability/{resourceId}?from={YYYY-MM-DD}&to={YYYY-MM-DD}</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Pobranie informacji o dostępności zasobu w określonym terminie</td>
+    <td><code>Availability</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>location manager</code></td>
+    <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/availability/resource/{resourceId}/disable</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Wyłączenie danego zasobu z użytku</td>
+    <td><code>Availability</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>location manager</code></td>
+    <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/availability/resource/{resourceId}/enable</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Włącz ponownie zasób do użytku</td>
+    <td><code>Availability</code></td>
+    <td><code>deskly-core</code></td>
   </tr>
   <tr>
   <td><code>basic user</code></td>
@@ -967,6 +1011,265 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td><code>/api/v1/deskly-core/reservation</code></td>
     <td><code>asdf</code> <code>asdf</code></td>
     <td>Złożenie rezerwacji na dany zasób w danym terminie</td>
+    <td><code>Reservation</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+  <td><code>basic user</code></td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/reservation/{reservationId}</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Pobranie informacji na temat konkretnej rezerwacji</td>
+    <td><code>Reservation</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+  <td><code>basic user</code></td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/reservations</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Pobranie informacji o wszystkich rezerwacjach klienta</td>
+    <td><code>Reservation</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+    <tr>
+  <td><code>basic user</code></td>
+     <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/reservation/{reservationId}/cancel</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Anulowanie rezerwacji</td>
+    <td><code>Reservation</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+  <td><code>booking manager</code></td>
+     <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/reservation/{reservationId}/deactivate</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Wyłączenie trwającej rezerwacji klienta</td>
+    <td><code>Reservation</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+    <tr>
+  <td><code>booking manager</code></td>
+     <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/reservation/{reservationId}/activate</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Ponowne włączenie rezerwacji klienta</td>
+    <td><code>Reservation</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+     <tr>
+  <td><code>booking manager</code></td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/reservation/{reservationId}/changelog</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Pobranie informacji na temat zmian stanu rezerwacji</td>
+    <td><code>Reservation</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>basic user</code></td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/waitlist/assign</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Zapisanie się do kolejki na dany zasób w danym terminie</td>
+    <td><code>Waitlist</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>basic user</code></td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/waitlist/unassign/{waitlistId}</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Wypisanie się z kolejki oczekujących na zasób w danym terminie</td>
+    <td><code>Waitlist</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>booking manager</code></td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/waitlist/{waitlistId}/move</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Przesunięcie klienta na wskazane miejsce w kolejce</td>
+    <td><code>Waitlist</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>booking manager</code></td>
+     <td><code>DELETE</code></td>
+    <td><code>/api/v1/deskly-core/waitlist/{waitlistId}/resolve</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Rozwiązanie kolejki oczekującej na dany zasób w danym terminie</td>
+    <td><code>Waitlist</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>booking manager</code></td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/waitlist/{waitlistId}</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Pobranie informacji o danej kolejce</td>
+    <td><code>Waitlist</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>booking manager</code></td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/waitlist?resourceId={resourceId}&locationId={locationId}</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Wyszukiwanie kolejek dla danego zasobu lub danej lokacji</td>
+    <td><code>Waitlist</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>location manager</code></td>
+     <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/pricing/list</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Przypisanie cennika do klienta</td>
+    <td><code>Pricing</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>location manager</code></td>
+     <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/pricing/list/location</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Dodanie aktualnie obowiązującego cennika w lokacji</td>
+    <td><code>Pricing</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>location manager</code></td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/pricing/list/location/{locationId}</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Pobranie informacji o wszystkich cennikach w danej lokacji</td>
+    <td><code>Pricing</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>location manager</code></td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/pricing/list?client={clientId}</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Pobranie wszystkich dotychczasowych cenników przypisanych do klienta</td>
+    <td><code>Pricing</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>location manager</code></td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/pricing/list/{listId}</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Pobranie informacji o konkretnym cenniku</td>
+    <td><code>Pricing</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>basic user</code></td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/pricing/list/active</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Pobranie informacji o aktywnym cenniku klienta</td>
+    <td><code>Pricing</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td>
+      <div><code>basic user</code></div>
+      <div><code>organization member</code></div>
+    </td>
+     <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/resource/access/validate</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Sprawdzenie ważności kodu QR</td>
+    <td><code>Resource Access Control</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+    <tr>
+    <td>
+      <div><code>booking manager</code></div>
+      <div><code>organization manager</code></div>
+    </td>
+     <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/resource/access/grant</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Nadanie uprawnień do korzystania z zasobu</td>
+    <td><code>Resource Access Control</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td>
+    <div><code>booking manager</code> </div>
+    <div><code>organization manager</code></div></td>
+     <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/resource/access/revoke</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Odebranie uprawnień do korzystania z zasobu</td>
+    <td><code>Resource Access Control</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+    <tr>
+    <td>
+      <div><code>basic user</code></div>
+      <div><code>organization member</code></div>
+    </td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/resource/access/token</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Pobranie tokenu dostępu do zasobu</td>
+    <td><code>Resource Access Control</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td>
+      <div><code>booking manager</code></div>
+      <div><code>organization manager</code></div>
+    </td>
+     <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/resource/access?issuee={issueeId}</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Pobranie informacji o zasobach, do których dany klient ma dostęp</td>
+    <td><code>Resource Access Control</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>finance manager</code></td>
+     <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/financials/invoice</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Stworzenie faktury</td>
+    <td><code>Financials</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>finance manager</code></td>
+    <td><code>GET</code></td>
+    <td><code>/api/v1/deskly-core/financials/invoice/{invoiceId}</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Pobieranie informacji o danej fakturze</td>
+    <td><code>Financials</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>finance manager</code></td>
+    <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/financials/invoice/send</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Wysłanie faktury</td>
+    <td><code>Financials</code></td>
+    <td><code>deskly-core</code></td>
+  </tr>
+  <tr>
+    <td><code>finance manager</code></td>
+    <td><code>POST</code></td>
+    <td><code>/api/v1/deskly-core/financials/invoices?status={status}&from={YYYY-MM-DD}&to={YYYY-MM-DD}</code></td>
+    <td><code>asdf</code> <code>asdf</code></td>
+    <td>Wyszukiwanie faktur po ich statusie oraz przedziale czasowym, kiedy zostały wystawione</td>
+    <td><code>Financials</code></td>
+    <td><code>deskly-core</code></td>
   </tr>
 </table>
 
