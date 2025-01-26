@@ -883,7 +883,7 @@ Poniżej zamiszczeno zestawienie najważniejszych parametrów bazy danych.
 |klasa instancji|`db.t3.micro`|
 |typ składowania|gp3|
 |szyfrowanie bazy|tak|
-|początkowa pojemność|10|
+|początkowa pojemność (GiB)|10|
 |backup (retencja w dniach)|7|
 |replikacja multi AZ|tak|
 
