@@ -48,7 +48,7 @@ wpływają na jego implementację.
 
 ### Architektura wdrożeniowa
 
-| <div style="width:700px">Drivery Architektoniczne</div>                            | <div style="width:500px">Decyzja</div>                                                                                   |
+| <div style="width:600px">Drivery Architektoniczne</div>                            | <div style="width:500px">Decyzja</div>                                                                                   |
 |------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | `NFR/PER/01`, `NFR/AVA/01`, `NFR/SCL/01`, `NFR/SCL/03`                             | [`D/08` Architektura mikroserwisowa](#architektura-mikroserwisowa)                                                       |
 | `NFR/PER/01`, `NFR/PER/02`, `NFR/PER/03`, `NFR/SCL/02`                             | [`D/09` Load Balancing](#load-balancing)                                                                                 |
