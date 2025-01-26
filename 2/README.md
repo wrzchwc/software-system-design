@@ -785,6 +785,58 @@ chmurze AWS.
 | Wolumetria                        | 250 kB / s          |
 | Wymagana dostępność               | 99.9%               |
 
+| Aspekt                            | Opis                |
+|-----------------------------------|---------------------|
+| Aplikacja źródłowa                | Deskly FE           |
+| Aplikacja docelowa                | Deskly Core         |
+| Technika integracji               | HTTPS               |
+| Mechanizm uwierzytelniania        | JWT                 |
+| Manipulacja na danych wrażliwych? | tak                 |
+| Strona inicjująca                 | Deskly FE           |
+| Model komunikacji                 | synchroniczny, REST |
+| Wydajność                         | 1000 zapytań / s    |
+| Wolumetria                        | 250 kB / s          |
+| Wymagana dostępność               | 99.9%               |
+
+| Aspekt                            | Opis                          |
+|-----------------------------------|-------------------------------|
+| Aplikacja źródłowa                | Deskly Location               |
+| Aplikacja docelowa                | Deskly Core                   |
+| Technika integracji               | AWS SDK                       |
+| Mechanizm uwierzytelniania        | access key, secret access key |
+| Manipulacja na danych wrażliwych? | nie                           |
+| Strona inicjująca                 | Deskly Location               |
+| Model komunikacji                 | asynchroniczny, SQS           |
+| Wydajność                         | 500 zapytań / s               |
+| Wolumetria                        | 100 kB / s                    |
+| Wymagana dostępność               | 99.9%                         |
+
+| Aspekt                            | Opis                          |
+|-----------------------------------|-------------------------------|
+| Aplikacja źródłowa                | Deskly Core                   |
+| Aplikacja docelowa                | Deskly Location               |
+| Technika integracji               | AWS SDK                       |
+| Mechanizm uwierzytelniania        | access key, secret access key |
+| Manipulacja na danych wrażliwych? | nie                           |
+| Strona inicjująca                 | Deskly Core                   |
+| Model komunikacji                 | asynchroniczny, SQS           |
+| Wydajność                         | 500 zapytań / s               |
+| Wolumetria                        | 100 kB / s                    |
+| Wymagana dostępność               | 99.9%                         |
+
+| Aspekt                            | Opis                         |
+|-----------------------------------|------------------------------|
+| Aplikacja źródłowa                | Deskly Core, Deskly Location |
+| Aplikacja docelowa                | Deskly DB                    |
+| Technika integracji               | JDBC                         |
+| Mechanizm uwierzytelniania        | nazwa użytkownika, hasło     |
+| Manipulacja na danych wrażliwych? | tak                          |
+| Strona inicjująca                 | Deskly Core, Deskly Location |
+| Model komunikacji                 | synchroniczny                |
+| Wydajność                         | 500 zapytań / s              |
+| Wolumetria                        | 100 kB / s                   |
+| Wymagana dostępność               | 99.9%                        |
+
 ## Widok funkcyjny (C4 Component)
 
 ![structurizr-Component-001 (1)](https://github.com/user-attachments/assets/36f9e1bf-a9a1-4deb-bf15-8b0a395fba53)
