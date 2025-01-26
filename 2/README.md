@@ -15,10 +15,9 @@ wpływają na jego implementację.
 - System będzie umożliwiać zarządzanie zasobami biurowymi w zakresie możliwości ich rezerwacji oraz inwentaryzacji.
 - System będzie umożliwiać zawieranie umów najmu zasobów oraz korzystania z zasobów będących przedmiotem ww. umów.
 - System umożliwi kontakt z klientami za pośrednictwem wiadomości e-mail.
-- Oczekiwana dostępność systemu to 99% czasu jego działania.
+- Oczekiwana dostępność systemu to 99,9% czasu jego działania.
 - System powinien być w stanie obsłużyć zmienną liczbę użytkowników w ciągu doby, sięgającą 10000 jednoczesnych
   użytkowników w godzinach szczytu.
-- System zapewni bezpieczeństwo danych poufnych oraz zgodność z przepisami RODO.
 - Architektura systemu umożliwi łatwe skalowalnie i rozszerzanie rozwiązania.
 - Użytkownicy końcowi będą wchodzić w interakcję z systemem za pośrednictwem intuicyjnych i responsywnych interfejsów
   użytkownika.
@@ -31,26 +30,26 @@ wpływają na jego implementację.
 - Aplikacje backendowe muszą zostać zaimplementowane we frameworku Spring Boot, z wykorzystaniem języka Java.
 - Warstwa backendowa systemu powstanie w architekturze mikroserwisowej.
 - Średni czas odpowiedzi dla mikroserwisów nie może przekraczać 10s.
+- System musi zapewniać bezpieczeństwo danych poufnych oraz zgodność z przepisami RODO.
 
 ## Decyzje i ich uzasadnienia
 
-### Aplikacyjne
+### Architektura aplikacyjna
 
-| Drivery architektoniczne | Decyzje                                                            |
-|--------------------------|--------------------------------------------------------------------|
-|                          |                                                                    |
-| `asdf`, `asdf`           | [`D/01` Architektura heksagonalna](#architektura-heksagonalna)     |
-| `asdf`, `asdf`           | [`D/02` Architektura warstwowa](#architektura-warstwowa)           |
-| `asdf`, `asdf`           | [`D/03` Architektura mikroserwisowa](#architektura-mikroserwisowa) |
-| `asdf`, `asdf`           | [`D/04` Optimistic Locking](#architektura-mikroserwisowa)          |
-| `asdf`, `asdf`           | [`D/05` Wzorzec Agregat](#wzorzec-agregat)                         |
-| `asdf`, `asdf`           | [`D/06` Wzorzec Fasady](#wzorzec-fasady)                           |
-| `asdf`, `asdf`           | [`D/07` Strkuktury Dużej Skali](#struktury-dużej-skali)            |
+| Drivery architektoniczne | Decyzje                                                        |
+|--------------------------|----------------------------------------------------------------|
+| `asdf`, `asdf`           | [`D/01` Architektura heksagonalna](#architektura-heksagonalna) |
+| `asdf`, `asdf`           | [`D/02` Architektura warstwowa](#architektura-warstwowa)       |
+| `asdf`, `asdf`           | [`D/03` Optimistic Locking](#architektura-mikroserwisowa)      |
+| `asdf`, `asdf`           | [`D/04` Wzorzec Agregat](#wzorzec-agregat)                     |
+| `asdf`, `asdf`           | [`D/05` Wzorzec Fasady](#wzorzec-fasady)                       |
+| `asdf`, `asdf`           | [`D/06` Strkuktury Dużej Skali](#struktury-dużej-skali)        |
 
-### Infrastrukturalne
+### Architektura wdrożeniowa
 
 | Drivery architektoniczne | Decyzje                                                                                    |
 |--------------------------|--------------------------------------------------------------------------------------------|
+| `asdf`, `asdf`           | [`D/07` Architektura mikroserwisowa](#architektura-mikroserwisowa)                         |
 | `asdf`, `asdf`           | [`D/08` Load Balancing](#load-balancing)                                                   |
 | `asdf`, `asdf`           | [`D/09` Amazon Simple Queue Service](#amazon-simple-queue-service)                         |
 | `asdf`, `asdf`           | [`D/10` Wzorzez API Gateway](#wzorzec-api-gateway)                                         |
@@ -62,12 +61,31 @@ wpływają na jego implementację.
 | `asdf`, `asdf`           | [`D/16` Internet Gateway](#internet-gateway)                                               |
 | `asdf`, `asdf`           | [`D/17` Autoryzacja z wykorzystaniem JWT](#autoryzacja-z-wykorzystaniem-jwt)               |
 | `asdf`, `asdf`           | [`D/18` Wdrożenie w chmurze AWS](#wdrożenie-w-chmurze-aws)                                 |
+| `asdf`, `asdf`           | [`D/19` Kubernetes](./ADR/adr-014-containers-orchiestration-platform.md)                   |
+| `asdf`, `asdf`           | [`D/20` AWS Cognito](./ADR/adr-015-authentication-and-authorization.md)                    |
+| `asdf`, `asdf`           | [`D/21` Silnik bazodanowy PostgreSQL](./ADR/adr-012-database.md)                           |
+|
+
+### Modele domenowe
+
+| Drivery architektoniczne | Model                                                                            |
+|--------------------------|----------------------------------------------------------------------------------|
+| `asdf`, `asdf`           | [`D/22` Location](./ADR/adr-002-model-location.md)                               |
+| `asdf`, `asdf`           | [`D/23` Availability](./ADR/adr-003-model-availability.md)                       |
+| `asdf`, `asdf`           | [`D/24` Resource Access Control](./ADR/adr-004-model-resource-access-control.md) |
+| `asdf`, `asdf`           | [`D/25` Reservation](./ADR/adr-005-model-reservation.md)                         |
+| `asdf`, `asdf`           | [`D/26` Pricing](./ADR/adr-006-model-pricing.md)                                 |
+| `asdf`, `asdf`           | [`D/27` Contract Negotiation](./ADR/adr-007-model-contract-negotiation.md)       |
+| `asdf`, `asdf`           | [`D/28` Documents](./ADR/adr-008-model-documents.md)                             |
+| `asdf`, `asdf`           | [`D/29` Financials](./ADR/adr-009-model-financials.md)                           |
+| `asdf`, `asdf`           | [`D/30` System Access Control](./ADR/adr-010-model-system-access-control.md)     |
+| `asdf`, `asdf`           | [`D/31` Waitlist](./ADR/adr-011-model-waitlist.md)                               |
 
 ## Mechanizmy Architektoniczne
 
 ### Infrastrukturalne
 
-#### Wdrożenie w chmurze AWS
+### Wdrożenie w chmurze AWS
 
 Zagadnienie: Wybór infrastruktury wdrożeniowej stanowi strategiczne wyzwanie, które wpływa na późniejszą wydajność i
 elastyczność systemu. Kluczowe są tutaj takie kwestie, jak skalowalność, optymalizacja kosztów oraz zdolność do
@@ -95,7 +113,7 @@ Różnice między podejściami wdrożeniowymi:
   opóźnienia i zwiększa komfort użytkowników końcowych. Chmura publiczna eliminuje również konieczność zakupu sprzętu
   oraz ponoszenia kosztów jego utrzymania.
 
-### Porównanie dostawców chmurowych
+#### Porównanie dostawców chmurowych
 
 | **Dostawca**                | **Zalety**                                                                                                                                                                                                      | **Wady**                                                                                                                                                                |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -120,7 +138,7 @@ Wybór AWS jako infrastruktury wdrożeniowej wynikał z potrzeby elastyczności,
 Dzięki różnorodności oferowanych usług i możliwości szybkiego skalowania, AWS okazał się optymalnym rozwiązaniem dla
 tego projektu.
 
-#### Load Balancing
+### Load Balancing
 
 Zagadnienie: W systemach rozproszonych lub aplikacjach obsługujących dużą liczbę użytkowników kluczowym wyzwaniem jest
 równomierne rozdzielanie ruchu sieciowego. Brak odpowiedniego mechanizmu prowadzi do przeciążenia jednych serwerów,
@@ -132,7 +150,7 @@ celu zapewnienia optymalnego wykorzystania zasobów, minimalizacji opóźnień o
 aplikacji. Mechanizm ten może być wdrażany na różnych poziomach, takich jak warstwa aplikacyjna, sieciowa lub
 infrastrukturalna.
 
-### Zalety i wady różnych rozwiązań Load Balancing
+#### Zalety i wady różnych rozwiązań Load Balancing
 
 | **Rodzaj**                   | **Zalety**                                                                                                                                                         | **Wady**                                                                                                                     |
 |------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
@@ -148,7 +166,7 @@ Mechanizm Load Balancingu dostępny w wybranej chmurze - AWS Elastic Load Balanc
 - Zalety: Automatyczna integracja z EC2, wysokie bezpieczeństwo, globalna dostępność.
 - Wady: Koszty mogą być wysokie w przypadku dużego ruchu.
 
-#### Amazon Simple Queue Service
+### Amazon Simple Queue Service
 
 Zagadnienie: W aplikacjach rozproszonych oraz mikroserwisowych, często pojawia się konieczność niezawodnego i
 skalowalnego przesyłania wiadomości między komponentami. Bez odpowiednich mechanizmów, ryzyko utraty danych,
@@ -173,7 +191,7 @@ Rodzaje kolejek w SQS
 - Gwarantuje dokładnie jednokrotne dostarczenie wiadomości.
 - Odpowiednie dla aplikacji wymagających ścisłej kontroli kolejności.
 
-### Zalety Amazon Simple Queue Service (SQS)
+#### Zalety Amazon Simple Queue Service (SQS)
 
 | **Zaleta**                          | **Opis**                                                                                           |
 |-------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -184,7 +202,7 @@ Rodzaje kolejek w SQS
 | **Niezawodność**                    | Dane są przechowywane na wielu serwerach w centrach danych AWS, co minimalizuje ryzyko ich utraty. |
 | **Integracja**                      | Działa bezproblemowo z innymi usługami AWS, np. Lambda, EC2 czy SNS.                               |
 
-### Wady Amazon Simple Queue Service (SQS)
+#### Wady Amazon Simple Queue Service (SQS)
 
 | **Wada**                                 | **Opis**                                                                                           |
 |------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -196,7 +214,7 @@ Decyzja: W projekcie Amazon SQS został wybrany jako rozwiązanie do zarządzani
 mikroserwisami. Usługa ta zapewnia skalowalność, niezawodność oraz integrację z innymi komponentami AWS, co ułatwia
 rozwój i utrzymanie systemu.
 
-#### Architektura mikroserwisowa
+### Architektura mikroserwisowa
 
 Zagadnienie: W miarę jak aplikacje rosną, stają się coraz bardziej złożone i trudne do zarządzania. Monolityczne
 podejście, w którym cały system jest jednym, dużym komponentem, staje się coraz mniej efektywne, gdy chodzi o rozwój,
@@ -220,7 +238,7 @@ Kluczowe cechy mikroserwisów:
 - Skalowalność: Możliwość skalowania każdego mikroserwisu niezależnie w odpowiedzi na zmieniające się potrzeby.
 - Zarządzanie awariami: W przypadku awarii jednego mikroserwisu reszta systemu nie musi przestawać działać.
 
-### Zalety architektury mikroserwisowej
+#### Zalety architektury mikroserwisowej
 
 | **Zaleta**                                  | **Opis**                                                                                                  |
 |---------------------------------------------|-----------------------------------------------------------------------------------------------------------|
@@ -230,7 +248,7 @@ Kluczowe cechy mikroserwisów:
 | **Zwiększona niezawodność**                 | Awaria jednego mikroserwisu nie powoduje awarii całego systemu.                                           |
 | **Szybszy rozwój i czas reakcji na zmiany** | Zespoły mogą pracować nad różnymi mikroserwisami równolegle, co skraca czas implementacji nowych funkcji. |
 
-### Wady architektury mikroserwisowej
+#### Wady architektury mikroserwisowej
 
 | **Wada**                                       | **Opis**                                                                                                    |
 |------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
@@ -244,7 +262,7 @@ Decyzja: Architektura mikroserwisowa została wybrana w projekcie, aby zapewnić
 aplikacją, a także umożliwić skalowanie jej poszczególnych elementów. Dzięki rozdzieleniu odpowiedzialności na mniejsze,
 niezależne serwisy, aplikacja jest bardziej odporna na awarie i łatwiejsza w rozwoju.
 
-#### Wzorzec API Gateway
+### Wzorzec API Gateway
 
 Zagadnienie: W dużych systemach rozproszonych, szczególnie w architekturze mikroserwisowej, zarządzanie komunikacją
 między wieloma serwisami może stać się trudne. Każdy mikroserwis może mieć różne interfejsy API, co prowadzi do
@@ -269,7 +287,7 @@ Kluczowe cechy API Gateway;
 - Modyfikacja danych: API Gateway może również transformować dane przed ich wysłaniem do mikroserwisów lub przed
   przekazaniem odpowiedzi do klienta.
 
-### Zalety wzorca API Gateway
+#### Zalety wzorca API Gateway
 
 | **Zaleta**                           | **Opis**                                                                                    |
 |--------------------------------------|---------------------------------------------------------------------------------------------|
@@ -279,7 +297,7 @@ Kluczowe cechy API Gateway;
 | **Łatwiejsze monitorowanie**         | Łatwiejsze zbieranie logów, metryk i monitorowanie ruchu w jednym miejscu.                  |
 | **Optymalizacja wydajności**         | API Gateway może implementować cache'owanie, co zmniejsza liczbę zapytań do mikroserwisów.  |
 
-### Wady wzorca API Gateway
+#### Wady wzorca API Gateway
 
 | **Wada**                    | **Opis**                                                                                                                       |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------|
@@ -292,7 +310,7 @@ Decyzja: W projekcie zdecydowano się na zastosowanie wzorca API Gateway, aby up
 mikroserwisami, zapewniając centralne zarządzanie ruchem, bezpieczeństwem oraz monitorowaniem. Dzięki temu możliwe jest
 łatwiejsze zarządzanie całą aplikacją oraz zapewnienie jej elastyczności i skalowalności.
 
-#### Sieć wewnętrzna VPC
+### Sieć wewnętrzna VPC
 
 Zagadnienie: W tradycyjnych infrastrukturach IT, sieć wewnętrzna jest zarządzana w obrębie firmy, gdzie wszystkie
 urządzenia są połączone w obrębie jednej sieci lokalnej (LAN). W przypadku rozwiązań chmurowych, gdzie zasoby są
@@ -317,7 +335,7 @@ Kluczowe cechy VPC
 - Integracja z innymi usługami chmurowymi: VPC umożliwia łatwą integrację z innymi usługami chmurowymi, takimi jak bazy
   danych, load balancers, czy usługi obliczeniowe.
 
-### Zalety VPC
+#### Zalety VPC
 
 | **Zaleta**                                  | **Opis**                                                                                                     |
 |---------------------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -327,7 +345,7 @@ Kluczowe cechy VPC
 | **Integracja z innymi usługami chmurowymi** | Łatwa integracja z szeroką gamą usług chmurowych, co umożliwia elastyczność i adaptację infrastruktury.      |
 | **Bezpieczeństwo**                          | Mechanizmy takie jak firewalle, security groups oraz ACL zapewniają kontrolę nad dostępem i ochronę zasobów. |
 
-### Wady VPC
+#### Wady VPC
 
 | **Wada**                                   | **Opis**                                                                                                                |
 |--------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -340,7 +358,7 @@ Decyzja: W projekcie zdecydowano się na wdrożenie VPC, aby zapewnić pełną k
 bezpieczeństwo zasobów w chmurze oraz umożliwić łatwą integrację z innymi usługami chmurowymi. Dzięki tej architekturze
 możliwe było uzyskanie pełnej izolacji sieci oraz precyzyjnej konfiguracji polityk dostępu.
 
-#### Oddzielne bazy danych dla mikroserwisów
+### Oddzielne bazy danych dla mikroserwisów
 
 Zagadnienie: W tradycyjnych monolitycznych aplikacjach często stosuje się jedną wspólną bazę danych dla całej aplikacji.
 W architekturze mikroserwisowej, gdzie każdy mikroserwis jest niezależnym bytem, współdzielenie jednej bazy danych może
@@ -362,7 +380,7 @@ Kluczowe cechy:
   mikroserwisu.
 - Skalowalność: Niezależne bazy danych pozwalają na skalowanie poszczególnych mikroserwisów zgodnie z ich wymaganiami.
 
-### Zalety
+#### Zalety
 
 | **Zaleta**                      | **Opis**                                                                                               |
 |---------------------------------|--------------------------------------------------------------------------------------------------------|
@@ -371,7 +389,7 @@ Kluczowe cechy:
 | **Optymalny dobór technologii** | Możliwość wyboru najbardziej odpowiedniego typu bazy danych (SQL, NoSQL) dla konkretnego mikroserwisu. |
 | **Skalowalność**                | Niezależne bazy danych pozwalają na skalowanie poszczególnych mikroserwisów zgodnie z ich wymaganiami. |
 
-### Wady
+#### Wady
 
 | **Wada**                            | **Opis**                                                                                                            |
 |-------------------------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -382,7 +400,7 @@ Kluczowe cechy:
 Decyzja: W projekcie zdecydowano się na implementację oddzielnych baz danych dla każdego mikroserwisu, aby zapewnić
 pełną autonomię, bezpieczeństwo oraz optymalny dobór technologii dla poszczególnych komponentów systemu.
 
-#### Amazon S3 Bucket
+### Amazon S3 Bucket
 
 Zagadnienie: Amazon S3 (Simple Storage Service) to usługa przechowywania obiektów, która pozwala na łatwe przechowywanie
 i odzyskiwanie dowolnych ilości danych z dowolnego miejsca w Internecie. Problem pojawia się, gdy aplikacje potrzebują
@@ -402,7 +420,7 @@ Kluczowe cechy
 - Dostępność: S3 zapewnia wyjątkową dostępność danych dzięki rozproszeniu danych w wielu centrach danych.
 - Integracja: S3 dobrze współpracuje z innymi usługami AWS, takimi jak Lambda, CloudFront, Glacier.
 
-### Zalety
+#### Zalety
 
 | **Zaleta**               | **Opis**                                                                                                        |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -412,7 +430,7 @@ Kluczowe cechy
 | **Prostota użytkowania** | Łatwe w użyciu API oraz interfejs użytkownika do zarządzania danymi.                                            |
 | **Niskie koszty**        | Płacisz tylko za przechowywaną ilość danych i liczbę operacji, co pozwala na optymalizację kosztów.             |
 
-### Wady
+#### Wady
 
 | **Wada**                                        | **Opis**                                                                                                                                   |
 |-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -423,7 +441,7 @@ Kluczowe cechy
 Decyzja: Zdecydowano się na wykorzystanie Amazon S3 Bucket jako rozwiązania do przechowywania danych w chmurze ze
 względu na jego wysoką dostępność, łatwość integracji oraz skalowalność.
 
-#### Nat Gateway
+### Nat Gateway
 
 Zagadnienie: W architekturach chmurowych często pojawia się potrzeba udostępniania instancji w prywatnych subnetach
 dostępu do Internetu, bez konieczności bezpośredniego narażania tych instancji na dostęp z sieci publicznej. To wyzwanie
@@ -447,7 +465,7 @@ Kluczowe cechy
 - Łatwość integracji: Łatwe w konfiguracji w ramach architektury AWS, szczególnie w przypadku VPC (Virtual Private
   Cloud).
 
-### Zalety
+#### Zalety
 
 | **Zaleta**                  | **Opis**                                                                                                                                    |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -457,7 +475,7 @@ Kluczowe cechy
 | **Wysoka dostępność**       | NAT Gateway jest zarządzany przez AWS, co zapewnia wysoką dostępność i niezawodność bez konieczności zarządzania infrastrukturą.            |
 | **Bez dodatkowych zasobów** | Nat Gateway nie wymaga użycia dodatkowych instancji EC2 do obsługi NAT, co obniża koszty operacyjne.                                        |
 
-### Wady
+#### Wady
 
 | **Wada**                                    | **Opis**                                                                                                                                               |
 |---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -469,7 +487,7 @@ Decyzja: Zdecydowano się na implementację NAT Gateway w naszej infrastrukturze
 prywatnych subnetach dostęp do zasobów z Internetu bez ujawniania tych instancji publicznie. Dzięki automatycznemu
 skalowaniu i wysokiej dostępności NAT Gateway stanowi solidne, bezpieczne rozwiązanie w architekturze VPC.
 
-#### Amazon Lambda
+### Amazon Lambda
 
 Zaganienie: W tradycyjnych systemach aplikacyjnych zasoby obliczeniowe (serwery, maszyny wirtualne) są zarządzane przez
 użytkownika, co wiąże się z koniecznością ich skalowania, monitorowania oraz zarządzania stanem. W związku z tym,
@@ -494,7 +512,7 @@ Kluczowe cechy:
 - Integracja z innymi usługami AWS: Lambda może być wywoływana przez różne usługi, takie jak Amazon S3, DynamoDB, API
   Gateway, SNS i inne.
 
-### Zalety
+#### Zalety
 
 | **Zaleta**                                   | **Opis**                                                                                                                            |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -504,7 +522,7 @@ Kluczowe cechy:
 | **Integracja z szerokim zakresem usług AWS** | Lambda łatwo integruje się z innymi usługami AWS, co ułatwia tworzenie rozproszonych aplikacji i mikroserwisów.                     |
 | **Szeroki zakres zastosowań**                | Może być używana do przetwarzania plików, przetwarzania danych w czasie rzeczywistym, obsługi API i wielu innych scenariuszy.       |
 
-### Wady
+#### Wady
 
 | **Wada**                              | **Opis**                                                                                                                                                               |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -518,7 +536,7 @@ Decyzja: Zdecydowano się na implementację Amazon Lambda w celu stworzenia skal
 nie wymagają zarządzania infrastrukturą. Dzięki modelowi płatności "pay-as-you-go" oraz automatycznej skalowalności,
 Lambda stanowi elastyczne i opłacalne rozwiązanie w naszej architekturze chmurowej.
 
-#### Internet Gateway
+### Internet Gateway
 
 Zagadnienie: Aplikacje chmurowe często muszą komunikować się z zasobami znajdującymi się w Internecie, takimi jak
 serwisy zewnętrzne, API lub zasoby publiczne. W tradycyjnych środowiskach sieciowych komunikacja ta odbywa się za
@@ -545,7 +563,7 @@ Kluczowe cechy
 - Brak kosztów: Korzystanie z Internet Gateway w AWS jest bezpłatne – opłaty naliczane są za dane przesyłane przez
   Internet.
 
-### Zalety
+#### Zalety
 
 | **Zaleta**                         | **Opis**                                                                                                                                |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -555,7 +573,7 @@ Kluczowe cechy
 | **Brak kosztów**                   | Internet Gateway nie wiąże się z dodatkowymi opłatami za użycie samej usługi – płacisz tylko za dane przesyłane przez Internet.         |
 | **Integracja z NAT Gateway**       | Dzięki integracji z NAT Gateway, zasoby w prywatnych subnetach mogą nawiązywać połączenia wychodzące z Internetem.                      |
 
-### Wady
+#### Wady
 
 | **Wada**                                   | **Opis**                                                                                                                                                  |
 |--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -568,7 +586,7 @@ Decyzja: Internet Gateway został wybrany do implementacji w naszej architekturz
 VPC komunikacji z Internetem, co jest niezbędne dla aplikacji korzystających z zewnętrznych API i innych zasobów
 dostępnych publicznie.
 
-#### Autoryzacja z wykorzystaniem JWT
+### Autoryzacja z wykorzystaniem JWT
 
 Zagadnienie: W nowoczesnych aplikacjach, szczególnie w mikroserwisach, zachodzi potrzeba zapewnienia bezpiecznego i
 efektywnego mechanizmu autoryzacji i autentykacji użytkowników. W tradycyjnych podejściach do autentykacji, każda
@@ -594,7 +612,7 @@ Kluczowe cechy
 - Szerokie wsparcie: JWT jest szeroko wspierane w popularnych frameworkach i bibliotekach, co umożliwia łatwą
   implementację w wielu językach programowania.
 
-### Zalety
+#### Zalety
 
 | **Zaleta**                                  | **Opis**                                                                                             |
 |---------------------------------------------|------------------------------------------------------------------------------------------------------|
@@ -604,7 +622,7 @@ Kluczowe cechy
 | **Szerokie wsparcie dla różnych środowisk** | JWT jest wspierane przez szeroką gamę platform i technologii, w tym systemy chmurowe i mikroserwisy. |
 | **Skalowalność**                            | Umożliwia rozproszone zarządzanie autoryzacją, co jest kluczowe w aplikacjach mikroserwisowych.      |
 
-### Wady
+#### Wady
 
 | **Wada**                                       | **Opis**                                                                                                                    |
 |------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
@@ -647,7 +665,7 @@ Kluczowe cechy
 - Zintegrowane z AWS: RDS jest w pełni zintegrowane z innymi usługami AWS, takimi jak Amazon EC2, Amazon S3 czy AWS
   Lambda, co ułatwia tworzenie złożonych aplikacji chmurowych.
 
-### Zalety
+#### Zalety
 
 | **Zaleta**                       | **Opis**                                                                                                                                  |
 |----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
@@ -657,7 +675,7 @@ Kluczowe cechy
 | **Bezpieczeństwo**               | RDS zapewnia szyfrowanie danych zarówno w spoczynku, jak i w trakcie przesyłania, oraz możliwość stosowania własnych kluczy szyfrujących. |
 | **Integracja z ekosystemem AWS** | Amazon RDS jest w pełni zintegrowane z innymi usługami AWS, takimi jak EC2, S3 i CloudWatch, co ułatwia tworzenie aplikacji chmurowych.   |
 
-### Wady
+#### Wady
 
 | **Wada**                                        | **Opis**                                                                                                                                        |
 |-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -671,7 +689,7 @@ zarządzaną, skalowalną i bezpieczną infrastrukturę bazy danych, co pozwala 
 rozwoju aplikacji, a nie na zarządzaniu bazą danych. Dzięki RDS, mamy pewność, że baza danych będzie wysoko dostępna,
 bezpieczna i skalowalna, co jest kluczowe dla rozwoju naszego systemu w długim okresie.
 
-#### Amazon Cognito
+### Amazon Cognito
 
 Zagadnienie: Współczesne aplikacje wymagają bezpiecznego i elastycznego systemu zarządzania tożsamościami użytkowników
 oraz autoryzacji dostępu. Projektowanie i wdrażanie takich systemów od podstaw może być czasochłonne, kosztowne i
@@ -696,7 +714,7 @@ Kluczowe cechy
 - Autoryzacja i kontrola dostępu: Integracja z Amazon API Gateway, AWS Lambda oraz innymi usługami AWS umożliwia
   zarządzanie dostępem do zasobów na poziomie aplikacji.
 
-### Zalety
+#### Zalety
 
 | **Zaleta**                                  | **Opis**                                                                                                                                                         |
 |---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -706,7 +724,7 @@ Kluczowe cechy
 | **Bezpieczeństwo**                          | Amazon Cognito oferuje wbudowane mechanizmy bezpieczeństwa, takie jak szyfrowanie, MFA, kontrola dostępu oraz zgodność z przepisami ochrony danych osobowych.    |
 | **Współpraca z innymi usługami AWS**        | Cognito bezproblemowo integruje się z innymi usługami AWS, takimi jak API Gateway, Lambda, S3 czy DynamoDB, co pozwala na łatwe rozszerzanie aplikacji.          |
 
-### Wady
+#### Wady
 
 | **Wada**                                                        | **Opis**                                                                                                                                                |
 |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -720,23 +738,23 @@ naszej aplikacji, ponieważ oferuje wbudowaną skalowalność, bezpieczeństwo o
 tożsamości. Dzięki temu możemy szybko wdrożyć system logowania, zachowując pełną kontrolę nad dostępem do zasobów w
 chmurze AWS.
 
-### Aplikacyjne
+## Aplikacyjne
 
-#### Architektura heksagonalna
+### Architektura heksagonalna
 
-#### Architektura warstwowa
+### Architektura warstwowa
 
-#### Event Sourcing
+### Event Sourcing
 
-#### Optimistic Locking
+### Optimistic Locking
 
-#### Wzorzec Agregat
+### Wzorzec Agregat
 
-#### Wzorzec Fasady
+### Wzorzec Fasady
 
-#### Struktury Dużej Skali
+### Struktury Dużej Skali
 
-## Widoki architekotniczne
+## Widoki architektoniczne
 
 ### Widok kontekstowy (C4 Context)
 
@@ -752,10 +770,10 @@ chmurze AWS.
 |-----------------------------------|---------------------|
 | Aplikacja źródłowa                | Deskly FE           |
 | Aplikacja docelowa                | Deskly Location     |
-| Techinika integracji              | HTTPS               |
+| Technika integracji               | HTTPS               |
 | Mechanizm uwierzytelniania        | JWT                 |
-| Manipulacja na danych wrazliwych? | nie                 |
-| Strona inicujująca                | Deskly FE           |
+| Manipulacja na danych wrażliwych? | nie                 |
+| Strona inicjująca                 | Deskly FE           |
 | Model komunikacji                 | synchroniczny, REST |
 | Wydajność                         | 1000 zapytań / s    |
 | Wolumetria                        | 250 kB / s          |
@@ -765,10 +783,10 @@ chmurze AWS.
 |-----------------------------------|---------------------|
 | Aplikacja źródłowa                | Deskly FE           |
 | Aplikacja docelowa                | Deskly Core         |
-| Techinika integracji              | HTTPS               |
+| Technika integracji               | HTTPS               |
 | Mechanizm uwierzytelniania        | JWT                 |
-| Manipulacja na danych wrazliwych? | tak                 |
-| Strona inicujująca                | Deskly FE           |
+| Manipulacja na danych wrażliwych? | tak                 |
+| Strona inicjująca                 | Deskly FE           |
 | Model komunikacji                 | synchroniczny, REST |
 | Wydajność                         | 1000 zapytań / s    |
 | Wolumetria                        | 250 kB / s          |
@@ -778,10 +796,10 @@ chmurze AWS.
 |-----------------------------------|-------------------------------|
 | Aplikacja źródłowa                | Deskly Location               |
 | Aplikacja docelowa                | Deskly Core                   |
-| Techinika integracji              | AWS SDK                       |
+| Technika integracji               | AWS SDK                       |
 | Mechanizm uwierzytelniania        | access key, secret access key |
-| Manipulacja na danych wrazliwych? | nie                           |
-| Strona inicujująca                | Deskly Location               |
+| Manipulacja na danych wrażliwych? | nie                           |
+| Strona inicjująca                 | Deskly Location               |
 | Model komunikacji                 | asynchroniczny, SQS           |
 | Wydajność                         | 500 zapytań / s               |
 | Wolumetria                        | 100 kB / s                    |
@@ -791,11 +809,11 @@ chmurze AWS.
 |-----------------------------------|-------------------------------|
 | Aplikacja źródłowa                | Deskly Core                   |
 | Aplikacja docelowa                | Deskly Location               |
-| Techinika integracji              | AWS SDK                       |
+| Technika integracji               | AWS SDK                       |
 | Mechanizm uwierzytelniania        | access key, secret access key |
-| Manipulacja na danych wrazliwych? | nie                           |
-| Strona inicujująca                | Deskly Core                   |
-| Model komunikacji                 | asynchorniczny, SQS           |
+| Manipulacja na danych wrażliwych? | nie                           |
+| Strona inicjująca                 | Deskly Core                   |
+| Model komunikacji                 | asynchroniczny, SQS           |
 | Wydajność                         | 500 zapytań / s               |
 | Wolumetria                        | 100 kB / s                    |
 | Wymagana dostępność               | 99.9%                         |
@@ -804,11 +822,11 @@ chmurze AWS.
 |-----------------------------------|------------------------------|
 | Aplikacja źródłowa                | Deskly Core, Deskly Location |
 | Aplikacja docelowa                | Deskly DB                    |
-| Techinika integracji              | JDBC                         |
-| Mechanizm uwierzytelniania        | nazwa uytkownika, hasło      |
-| Manipulacja na danych wrazliwych? | tak                          |
-| Strona inicujująca                | Deskly Core, Deskly Location |
-| Model komunikacji                 | synchorniczny                |
+| Technika integracji               | JDBC                         |
+| Mechanizm uwierzytelniania        | nazwa użytkownika, hasło     |
+| Manipulacja na danych wrażliwych? | tak                          |
+| Strona inicjująca                 | Deskly Core, Deskly Location |
+| Model komunikacji                 | synchroniczny                |
 | Wydajność                         | 500 zapytań / s              |
 | Wolumetria                        | 100 kB / s                   |
 | Wymagana dostępność               | 99.9%                        |
@@ -820,8 +838,9 @@ chmurze AWS.
 
 ## Widok rozmieszczenia (Architekrura Wdrożeniowa)
 
-![image](https://github.com/user-attachments/assets/b4edfb2f-85bd-409c-b8b2-1ad3bdb29208)
+![image](./images/deskly-backend-deployment-diagram.png)
 
+### Opisy węzłów
 
 ## Widok informacyjny
 
@@ -1317,7 +1336,7 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
   </tr>
   </table>
 
-## Realizacja przypadku użycia 
+## Realizacja przypadku użycia
 
 ### Przypisanie zasobu do lokacji
 
@@ -1338,7 +1357,6 @@ curl --location 'localhost:8080/api/v1/location/6f0a36c6-6814-4e38-b40b-0a65b2f7
 Diagram sekwencji
 
 ![Diagram sekwencji](./images/deskly-backend-sequence-diagram-assignment.jpg)
-
 
 ### Tworzenie konta dla klienta Deskly
 
