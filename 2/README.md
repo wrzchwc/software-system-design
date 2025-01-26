@@ -36,7 +36,7 @@ wpływają na jego implementację.
 
 ### Architektura aplikacyjna
 
-| <div style="width:700px">Uzasadnienie</div>                                                                                              | <div style="width:300px">Model</div>                           |
+| <div style="width:500px">Uzasadnienie</div>                                                                                              | <div style="width:400px">Model</div>                           |
 |------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
 | Ułatwienie testowania i zapewnienie wysokiej jakości w modelach typu Core Domain                                                         | [`D/01` Architektura heksagonalna](#architektura-heksagonalna) |
 | Niski koszt implementacji dla problemów klasy CRUD                                                                                       | [`D/02` Architektura warstwowa](#architektura-warstwowa)       |
@@ -48,7 +48,7 @@ wpływają na jego implementację.
 
 ### Architektura wdrożeniowa
 
-| <div style="width:700px">Drivery Architektoniczne</div>                            | <div style="width:300px">Decyzja</div>                                                                                   |
+| <div style="width:700px">Drivery Architektoniczne</div>                            | <div style="width:500px">Decyzja</div>                                                                                   |
 |------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | `NFR/PER/01`, `NFR/AVA/01`, `NFR/SCL/01`, `NFR/SCL/03`                             | [`D/08` Architektura mikroserwisowa](#architektura-mikroserwisowa)                                                       |
 | `NFR/PER/01`, `NFR/PER/02`, `NFR/PER/03`, `NFR/SCL/02`                             | [`D/09` Load Balancing](#load-balancing)                                                                                 |
@@ -70,7 +70,7 @@ wpływają na jego implementację.
 
 ### Modele domenowe
 
-| <div style="width:700px">Drivery architektoniczne</div>                            | <div style="width:300px">Model</div>                                             |
+| <div style="width:700px">Drivery architektoniczne</div>                            | <div style="width:400px">Model</div>                                             |
 |------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 | `FR/KD/06`, `FR/LM/01`, `FR/LM/04`, `FR/LM/05`, `FR/LM/06`, `FR/LM/07`, `FR/LM/08` | [`D/25` Location](./ADR/adr-002-model-location.md)                               |
 | `FR/KD/13`, `FR/LM/02`, `FR/LM/03`, `FR/BM/03`, `FR/BM/04`                         | [`D/26` Availability](./ADR/adr-003-model-availability.md)                       |
