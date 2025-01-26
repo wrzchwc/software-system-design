@@ -830,7 +830,7 @@ Poniżej zamiszczeno zestawienie najważniejszych parametrów bazy danych.
 |silnik i wersja|PostgreSQL 14|
 |klasa instancji|`db.t3.micro`|
 |typ składowania|gp3|
-|szyfrowanie bazy|nie|
+|szyfrowanie bazy|tak|
 |początkowa pojemność|10|
 |backup (retencja w dniach)|7|
 |replikacja multi AZ|tak|
