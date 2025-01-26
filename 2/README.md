@@ -34,15 +34,23 @@ wpływają na jego implementację.
 
 ## Decyzje i ich uzasadnienia
 
+### Aplikacyjne
+
+| Drivery architektoniczne | Decyzje                                                            |
+|--------------------------|--------------------------------------------------------------------|
+|                          |                                                                    |
+| `asdf`, `asdf`           | [`D/01` Architektura heksagonalna](#architektura-heksagonalna)     |
+| `asdf`, `asdf`           | [`D/02` Architektura warstwowa](#architektura-warstwowa)           |
+| `asdf`, `asdf`           | [`D/03` Architektura mikroserwisowa](#architektura-mikroserwisowa) |
+| `asdf`, `asdf`           | [`D/04` Optimistic Locking](#architektura-mikroserwisowa)          |
+| `asdf`, `asdf`           | [`D/05` Wzorzec Agregat](#wzorzec-agregat)                         |
+| `asdf`, `asdf`           | [`D/06` Wzorzec Fasady](#wzorzec-fasady)                           |
+| `asdf`, `asdf`           | [`D/07` Strkuktury Dużej Skali](#struktury-dużej-skali)            |
+
+### Infrastrukturalne
+
 | Drivery architektoniczne | Decyzje                                                                                    |
 |--------------------------|--------------------------------------------------------------------------------------------|
-| `asdf`, `asdf`           | [`D/01` Architektura heksagonalna](#architektura-heksagonalna)                             |
-| `asdf`, `asdf`           | [`D/02` Architektura warstwowa](#architektura-warstwowa)                                   |
-| `asdf`, `asdf`           | [`D/03` Architektura mikroserwisowa](#architektura-mikroserwisowa)                         |
-| `asdf`, `asdf`           | [`D/04` Optimistic Locking](#architektura-mikroserwisowa)                                  |
-| `asdf`, `asdf`           | [`D/05` Wzorzec Agregat](#wzorzec-agregat)                                                 |
-| `asdf`, `asdf`           | [`D/06` Wzorzec Fasady](#wzorzec-fasady)                                                   |
-| `asdf`, `asdf`           | [`D/07` Strkuktury Dużej Skali](#struktury-dużej-skali)                                    |
 | `asdf`, `asdf`           | [`D/08` Load Balancing](#load-balancing)                                                   |
 | `asdf`, `asdf`           | [`D/09` Amazon Simple Queue Service](#amazon-simple-queue-service)                         |
 | `asdf`, `asdf`           | [`D/10` Wzorzez API Gateway](#wzorzec-api-gateway)                                         |
@@ -1308,7 +1316,9 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
   </tr>
   </table>
 
-## Realizacja przypadku użycia (Przypisanie zasobu do lokacji)
+## Realizacja przypadku użycia 
+
+### Przypisanie zasobu do lokacji
 
 Przypisanie zasobu jest inicjowane przez Location Managera z poziomu klienta Deskly. Polega na przesłaniu zapytania POST
 zawierającego identyfikatory przypisywanych zasobów.
@@ -1326,4 +1336,9 @@ curl --location 'localhost:8080/api/v1/location/6f0a36c6-6814-4e38-b40b-0a65b2f7
 
 Diagram sekwencji
 
-![Diagram sekwencji](./images/sequence-diagram.png)
+![Diagram sekwencji](./images/deskly-backend-sequence-diagram-assignment.jpg)
+
+
+### Tworzenie konta dla klienta Deskly
+
+![Diagram sekwencji](./images/deskly-backend-sequence-diagram-sign-up.jpg)
