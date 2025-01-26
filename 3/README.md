@@ -13,19 +13,22 @@ System został wdrożony na AWS i jest dostępny do użytku publicznego.
 - [Frontend](https://staging.d1nut4sm1yxsm3.amplifyapp.com/)
 - [Backend API Gateway](https://o3pm5tkex5.execute-api.us-east-1.amazonaws.com/staging)
 - [Jenkins](http://52.55.103.166:8080/)
+
 ## Artefakty
 
 Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Dockerhub.
 
 ### DockerHub
-  - [Deskly Frontend](https://hub.docker.com/r/wrzchwc/deskly/tags)
-  - [Deskly Location](https://hub.docker.com/r/kamilbonkowski/deskly-location/tags)
-  - [Deskly Core](https://hub.docker.com/r/kamilbonkowski/deskly-core/tags)
 
-	
+- [Deskly Frontend](https://hub.docker.com/r/wrzchwc/deskly/tags)
+- [Deskly Location](https://hub.docker.com/r/kamilbonkowski/deskly-location/tags)
+- [Deskly Core](https://hub.docker.com/r/kamilbonkowski/deskly-core/tags)
+
 ### Github
-  - [Repozytorium Deskly Frontend](https://github.com/wrzchwc/deskly)
-  - [Repozytorium Deskly Backend](https://github.com/KamilB00/deskly-system)
+
+- [Repozytorium Deskly Frontend](https://github.com/wrzchwc/deskly)
+- [Repozytorium Deskly Backend](https://github.com/KamilB00/deskly-system)
+
 ## Status implementacji elementów systemu
 
 ### Legenda:
@@ -158,6 +161,11 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
 <tr>
     <td><code>VPC Endpoints</code></td>
     <td>Ruch wychodzący z klastra do AWS CloudWatch, AWS SQS, AWS S3 odbywa się poprzez VPC Endpoints</td>
+    <td>🔴</td>
+</tr>
+<tr>
+    <td><code>AWS SNS</code></td>
+    <td>Mikroserwisy publikują wiadomości dotyczące wysyłki maili na kolejce SQS, które następnie są konsumowane przez AWS SNS</td>
     <td>🔴</td>
 </tr>
 
