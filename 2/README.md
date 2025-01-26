@@ -846,7 +846,24 @@ chmurze AWS.
 
 ![image](./images/deskly-backend-deployment-diagram.png)
 
-### Opisy węzłów
+Frontend aplikacji wdrożona z wykorzystaniem usług AWS Amplify oraz S3.
+
+Backend aplikacji został wdrożony z wykorzystaniem usługi EKS. Zdecydowano się na wdrożenie z wykorzystaniem usługi EKS. Kluster Kuberenetes będzie domyślnie operował na 2 (minimalnie 1, maksymalnie 5) węzłach roboczych operujących na instancjach EC2 klasy `t3.large`. Każdy z mikroserwisów operować będzie na zmiennnej liczbie podów - od 1 do 5. Liczba podów kontorlowana będzie przez HorizontalPodAutoscaler (przyjęto założenia, że warunkiem zwiększania będzie 90% zużycia mocy oblieczeniowej lub 90% zużycia pamięci operacyjnej).
+
+Specyfikacja techniczna instacji `t3.medium`
+
+|parametr|wartość|
+|--------|-------|
+|vCPUs|2|
+|Pamięć (GiB)|4|
+|Przepustowość sieci w trybie burst (Gbps)|5|
+
+Specyfikacja techniczna poda Kuberenetes
+
+|parametr|wartość|
+|--------|-------|
+|vCPUs|0.5|
+|Pamięć (MiB)|720|
 
 ## Widok informacyjny
 
@@ -854,9 +871,21 @@ chmurze AWS.
 
 ![Model_Informacyjny1 drawio (2)](https://github.com/user-attachments/assets/c3eb8814-428e-40b2-828d-c305f32d8abc)
 
-### Projekt Bazy Danych
+### Projekt bazy danych
 
 ![deskly-db-diagram drawio (3)](https://github.com/user-attachments/assets/237edf3e-e0eb-480c-b409-7d7b942fb9b8)
+
+Poniżej zamiszczeno zestawienie najważniejszych parametrów bazy danych.
+
+|parametr|wartość|
+|--------|-------|
+|silnik i wersja|PostgreSQL 14|
+|klasa instancji|`db.t3.micro`|
+|typ składowania|gp3|
+|szyfrowanie bazy|tak|
+|początkowa pojemność|10|
+|backup (retencja w dniach)|7|
+|replikacja multi AZ|tak|
 
 ## Widok wytwarzania
 
