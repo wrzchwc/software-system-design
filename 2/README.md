@@ -36,50 +36,52 @@ wpływają na jego implementację.
 
 ### Architektura aplikacyjna
 
-| Drivery architektoniczne | Decyzje                                                        |
-|--------------------------|----------------------------------------------------------------|
-| `asdf`, `asdf`           | [`D/01` Architektura heksagonalna](#architektura-heksagonalna) |
-| `asdf`, `asdf`           | [`D/02` Architektura warstwowa](#architektura-warstwowa)       |
-| `asdf`, `asdf`           | [`D/03` Optimistic Locking](#architektura-mikroserwisowa)      |
-| `asdf`, `asdf`           | [`D/04` Wzorzec Agregat](#wzorzec-agregat)                     |
-| `asdf`, `asdf`           | [`D/05` Wzorzec Fasady](#wzorzec-fasady)                       |
-| `asdf`, `asdf`           | [`D/06` Strkuktury Dużej Skali](#struktury-dużej-skali)        |
+| <div style="width:700px">Uzasadnienie</div>                                                                                              | <div style="width:300px">Model</div>                           |
+|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| Ułatwienie testowania i zapewnienie wysokiej jakości w modelach typu Core Domain                                                         | [`D/01` Architektura heksagonalna](#architektura-heksagonalna) |
+| Niski koszt implementacji dla problemów klasy CRUD                                                                                       | [`D/02` Architektura warstwowa](#architektura-warstwowa)       |
+| Zapewnienie audytowalnych zmian stanu rezerwacji `NFR/LEG/02`                                                                            | [`D/03` Event Sourcing](#event-sourcing)                       |
+| Zapewnienie mechanizmów concurrency control dla problemów klasy Konkurencja o zasoby                                                     | [`D/04` Optimistic Locking](#architektura-mikroserwisowa)      |
+| Zapewnienie spójności logiki biznesowej w problemach klasy Konkurencja o zasoby                                                          | [`D/05` Wzorzec Agregat](#wzorzec-agregat)                     |
+| Uproszczenie komunikacji pomiędzy modelami dostarczając stabilny interfejs do komunikacji dla każdego z modeli                           | [`D/06` Wzorzec Fasady](#wzorzec-fasady)                       |
+| Separacja warstw: potencjału, operacyjnej, polityk, podejmowania decyzji w modelach typu Core Domain w celu zapewnienia wysokiej jakości | [`D/07` Struktury Dużej Skali](#struktury-dużej-skali)         |
 
 ### Architektura wdrożeniowa
 
-| Drivery architektoniczne | Decyzje                                                                                    |
-|--------------------------|--------------------------------------------------------------------------------------------|
-| `asdf`, `asdf`           | [`D/07` Architektura mikroserwisowa](#architektura-mikroserwisowa)                         |
-| `asdf`, `asdf`           | [`D/08` Load Balancing](#load-balancing)                                                   |
-| `asdf`, `asdf`           | [`D/09` Amazon Simple Queue Service](#amazon-simple-queue-service)                         |
-| `asdf`, `asdf`           | [`D/10` Wzorzez API Gateway](#wzorzec-api-gateway)                                         |
-| `asdf`, `asdf`           | [`D/11` Sieć wewnętrzna VPC](#sieć-wewnętrzna-vpc)                                         |
-| `asdf`, `asdf`           | [`D/12` Oddzielne bazy danych dla mikroserwisów](#oddzielne-bazy-danych-dla-mikroserwisów) |
-| `asdf`, `asdf`           | [`D/13` Amazon S3 Bucket](#amazon-s3-bucket)                                               |
-| `asdf`, `asdf`           | [`D/14` Nat Gateway](#nat-gateway)                                                         |
-| `asdf`, `asdf`           | [`D/15` Amazon Lambda](#amazon-lambda)                                                     |
-| `asdf`, `asdf`           | [`D/16` Internet Gateway](#internet-gateway)                                               |
-| `asdf`, `asdf`           | [`D/17` Autoryzacja z wykorzystaniem JWT](#autoryzacja-z-wykorzystaniem-jwt)               |
-| `asdf`, `asdf`           | [`D/18` Wdrożenie w chmurze AWS](#wdrożenie-w-chmurze-aws)                                 |
-| `asdf`, `asdf`           | [`D/19` Kubernetes](./ADR/adr-014-containers-orchiestration-platform.md)                   |
-| `asdf`, `asdf`           | [`D/20` AWS Cognito](./ADR/adr-015-authentication-and-authorization.md)                    |
-| `asdf`, `asdf`           | [`D/21` Silnik bazodanowy PostgreSQL](./ADR/adr-012-database.md)                           |
-|
+| <div style="width:700px">Drivery Architektoniczne</div>                            | <div style="width:300px">Decyzja</div>                                                                                   |
+|------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| `NFR/PER/01`, `NFR/AVA/01`, `NFR/SCL/01`, `NFR/SCL/03`                             | [`D/08` Architektura mikroserwisowa](#architektura-mikroserwisowa)                                                       |
+| `NFR/PER/01`, `NFR/PER/02`, `NFR/PER/03`, `NFR/SCL/02`                             | [`D/09` Load Balancing](#load-balancing)                                                                                 |
+| `NFR/PER/01`, `NFR/SCL/03`                                                         | [`D/10` Amazon Simple Queue Service](#amazon-simple-queue-service)                                                       |
+| `NFR/PER/01`, `NFR/PER/02`, `NFR/AVA/01`                                           | [`D/11` Wzorzec API Gateway](#wzorzec-api-gateway)                                                                       |
+| `NFR/PER/02`, `NFR/LEG/01`                                                         | [`D/12` Sieć wewnętrzna VPC](#sieć-wewnętrzna-vpc)                                                                       |
+| `NFR/PER/02`, `NFR/SCL/01`, `NFR/SCL/03`                                           | [`D/13` Oddzielne bazy danych dla mikroserwisów](#oddzielne-bazy-danych-dla-mikroserwisów)                               |
+| `NFR/LEG/01`, `NFR/SEC/01`                                                         | [`D/14` Amazon S3 Bucket](#amazon-s3-bucket)                                                                             |
+| `NFR/SEC/01`                                                                       | [`D/15` Nat Gateway](#nat-gateway)                                                                                       |
+| `FR/KD/01`, `FR/PK/01`                                                             | [`D/16` Amazon Lambda](#amazon-lambda)                                                                                   |
+| `NFR/SEC/01`                                                                       | [`D/17` Internet Gateway](#internet-gateway)                                                                             |
+| `FR/KD/01`, `FR/PK/01`                                                             | [`D/18` Autoryzacja z wykorzystaniem JWT](#autoryzacja-z-wykorzystaniem-jwt)                                             |
+| `NFR/PER/02`, `NFR/SEC/01`, `NFR/AVA/01`, `NFR/AVA/02`                             | [`D/19` Wdrożenie w chmurze AWS](#wdrożenie-w-chmurze-aws)                                                               |
+| `NFR/PER/02`, `NFR/SEC/01`, `NFR/AVA/01`, `NFR/AVA/02`, `NFR/SCL/01`, `NFR/SCL/03` | [`D/20` Kubernetes (EKS) jako platforma od zarządzania kontenerami](./ADR/adr-014-containers-orchiestration-platform.md) |
+| `FR/KD/01`, `FR/KD/14`, `FR/KD/15`, `FR/PK/01`                                     | [`D/21` Wykorzystanie AWS Cognito do uwierzytelniania i autoryzacji](./ADR/adr-015-authentication-and-authorization.md)  |
+| `NFR/SYS/03`, `NFR/PER/02`, `NFR/SCL/03`                                           | [`D/22` Silnik bazodanowy PostgreSQL](./ADR/adr-012-database.md)                                                         |
+| `NFR/SYS/03`, `NFR/PER/02`, `NFR/LEG/01`, `NFR/SEC/01`, `NFR/AVA/03`, `NFR/SCL/03` | [`D/23` Relacyjna baza danych Amazon RDS](#relacyjna-baza-danych-amazon-rds)                                             |
+| `FR/KD/03`, `FR/KD/09`, `FR/KD/10`                                                 | [`D/24` AWS Simple Notification Service](#amazon-simple-notification-service)                                            |
 
 ### Modele domenowe
 
-| Drivery architektoniczne | Model                                                                            |
-|--------------------------|----------------------------------------------------------------------------------|
-| `asdf`, `asdf`           | [`D/22` Location](./ADR/adr-002-model-location.md)                               |
-| `asdf`, `asdf`           | [`D/23` Availability](./ADR/adr-003-model-availability.md)                       |
-| `asdf`, `asdf`           | [`D/24` Resource Access Control](./ADR/adr-004-model-resource-access-control.md) |
-| `asdf`, `asdf`           | [`D/25` Reservation](./ADR/adr-005-model-reservation.md)                         |
-| `asdf`, `asdf`           | [`D/26` Pricing](./ADR/adr-006-model-pricing.md)                                 |
-| `asdf`, `asdf`           | [`D/27` Contract Negotiation](./ADR/adr-007-model-contract-negotiation.md)       |
-| `asdf`, `asdf`           | [`D/28` Documents](./ADR/adr-008-model-documents.md)                             |
-| `asdf`, `asdf`           | [`D/29` Financials](./ADR/adr-009-model-financials.md)                           |
-| `asdf`, `asdf`           | [`D/30` System Access Control](./ADR/adr-010-model-system-access-control.md)     |
-| `asdf`, `asdf`           | [`D/31` Waitlist](./ADR/adr-011-model-waitlist.md)                               |
+| <div style="width:700px">Drivery architektoniczne</div>                            | <div style="width:300px">Model</div>                                             |
+|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| `FR/KD/06`, `FR/LM/01`, `FR/LM/04`, `FR/LM/05`, `FR/LM/06`, `FR/LM/07`, `FR/LM/08` | [`D/25` Location](./ADR/adr-002-model-location.md)                               |
+| `FR/KD/13`, `FR/LM/02`, `FR/LM/03`, `FR/BM/03`, `FR/BM/04`                         | [`D/26` Availability](./ADR/adr-003-model-availability.md)                       |
+| `FR/KD/02`, `FR/KD/14`, `FR/KD/15`                                                 | [`D/27` Resource Access Control](./ADR/adr-004-model-resource-access-control.md) |
+| `FR/KD/04`, `FR/KD/05`, `FR/KD/12`, `FR/KD/13`, `FR/LM/02`, `FR/BM/02`             | [`D/28` Reservation](./ADR/adr-005-model-reservation.md)                         |
+| `FR/LM/01`                                                                         | [`D/29` Pricing](./ADR/adr-006-model-pricing.md)                                 |
+| `FR/CM/01`, `FR/CM/02`, `FR/CM/03`, `FR/PK/02`                                     | [`D/30` Contract Negotiation](./ADR/adr-007-model-contract-negotiation.md)       |
+| `FR/CM/01`                                                                         | [`D/31` Documents](./ADR/adr-008-model-documents.md)                             |
+| `FR/FM/01`, `FR/FM/02`, `FR/FM/03`, `FR/FM/04`, `FR/FM/05`                         | [`D/32` Financials](./ADR/adr-009-model-financials.md)                           |
+| `FR/KD/01`, `FR/KD/13`                                                             | [`D/33` System Access Control](./ADR/adr-010-model-system-access-control.md)     |
+| `FR/KD/07`, `FR/KD/08`, `FR/KD/09`, `FR/BM/01`, `FR/BM/05`                         | [`D/34` Waitlist](./ADR/adr-011-model-waitlist.md)                               |
 
 ## Mechanizmy Architektoniczne
 
@@ -213,6 +215,10 @@ Rodzaje kolejek w SQS
 Decyzja: W projekcie Amazon SQS został wybrany jako rozwiązanie do zarządzania asynchroniczną komunikacją między
 mikroserwisami. Usługa ta zapewnia skalowalność, niezawodność oraz integrację z innymi komponentami AWS, co ułatwia
 rozwój i utrzymanie systemu.
+
+### Amazon Simple Notification Service
+
+#TODO
 
 ### Architektura mikroserwisowa
 
@@ -637,7 +643,7 @@ przechowywania sesji na serwerze, pozwala to na prostsze zarządzanie dostępem 
 Zastosowanie JWT jest również korzystne z punktu widzenia wydajności, ponieważ pozwala na szybszą autoryzację
 użytkowników bez potrzeby wielokrotnego zapytania do bazy danych.
 
-#### Relacyjna baza danych Amazon RDS
+### Relacyjna baza danych Amazon RDS
 
 Zagadnienie: W wielu aplikacjach występuje potrzeba przechowywania danych w sposób uporządkowany i zorganizowany, co
 często wiąże się z użyciem baz danych. W przypadku dużych i dynamicznych systemów aplikacyjnych zarządzanie
