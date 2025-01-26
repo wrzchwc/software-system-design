@@ -115,7 +115,7 @@ Różnice między podejściami wdrożeniowymi:
   opóźnienia i zwiększa komfort użytkowników końcowych. Chmura publiczna eliminuje również konieczność zakupu sprzętu
   oraz ponoszenia kosztów jego utrzymania.
 
-#### Porównanie dostawców chmurowych
+##### Porównanie dostawców chmurowych
 
 | **Dostawca**                | **Zalety**                                                                                                                                                                                                      | **Wady**                                                                                                                                                                |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1370,6 +1370,22 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
     <td>Dostęp do konsoli bazy danych H2</td>
   </tr>
   </table>
+
+## Strategia testowania
+Poprawność działania systemu będzie weryfikowana za pomocą szeregu testów automatycznych wchodzących w skład CI/CD pipeline, odpowiednio dla aplikacji klienkckiej, jak również mikroserwisów.
+
+### klient
+- testy jednostkowe z wykorzystaniem frameworka Jest
+- testy E2E z wykorzystaniem frameworka Cypress
+
+### mikroserwisy
+- testy jednostkowe z wykorzystaniem frameworków JUnit oraz Mockito
+- test mutacyjne z wykorzystaniem narzędzia pitest 
+- testy integracyjne z wykorzystaniem biblioteki Testcontainers
+- testy E2E z wykorzystaniem biblioteki RESTAssured
+- testy wydajnościowe z urzędziem narzędzia Gatling
+
+Dodatkową weryfikację wchodzą w skład CI/CD piperline stanowić będzie weryfikacja narzędziem OWASP ZAP w celu wykrywania podatności. Pondato regularnie (np. raz na pół roku) prowadzone będą testy penetracyjne, a wnioski pozyskiwane w trakcie kontroli stanowić będą dalszą oś rozwoju strategii testowania systemu w zakresie bezpieczeństwa.
 
 ## Realizacja przypadku użycia
 
