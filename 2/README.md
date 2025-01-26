@@ -820,7 +820,8 @@ chmurze AWS.
 
 ## Widok rozmieszczenia (Architekrura Wdrożeniowa)
 
-![image](https://github.com/user-attachments/assets/8854b070-17c7-459a-bbc0-40e0458714e8)
+![image](https://github.com/user-attachments/assets/b4edfb2f-85bd-409c-b8b2-1ad3bdb29208)
+
 
 ## Widok informacyjny
 
