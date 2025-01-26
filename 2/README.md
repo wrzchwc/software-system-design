@@ -83,7 +83,7 @@ wpływają na jego implementację.
 | `FR/KD/01`, `FR/KD/13`                                                             | [`D/33` System Access Control](./ADR/adr-010-model-system-access-control.md)     |
 | `FR/KD/07`, `FR/KD/08`, `FR/KD/09`, `FR/BM/01`, `FR/BM/05`                         | [`D/34` Waitlist](./ADR/adr-011-model-waitlist.md)                               |
 
-## Mechanizmy Architektoniczne
+## Mechanizmy architektoniczne
 
 ### Infrastrukturalne
 
@@ -447,7 +447,7 @@ Kluczowe cechy
 Decyzja: Zdecydowano się na wykorzystanie Amazon S3 Bucket jako rozwiązania do przechowywania danych w chmurze ze
 względu na jego wysoką dostępność, łatwość integracji oraz skalowalność.
 
-### Nat Gateway
+### NAT Gateway
 
 Zagadnienie: W architekturach chmurowych często pojawia się potrzeba udostępniania instancji w prywatnych subnetach
 dostępu do Internetu, bez konieczności bezpośredniego narażania tych instancji na dostęp z sieci publicznej. To wyzwanie
@@ -760,6 +760,15 @@ chmurze AWS.
 
 ### Struktury Dużej Skali
 
+## Bezpieczeństwo
+Poniższe zestawienie prezentuje kluczowe rozwiązania techniczne w zakresie bezpieczeństwa systemu.
+- powszechne zastosowanie protokołu HTTPS - przesyłane dane są szyfrowane za pośrednictem protokołu TLS
+- JWT - tokeny generowane za pośrednictwem usługi Cognito, umożliwiają sprawne uwierzytelnianie i autoryzację uzytkowników
+- dane przechowywane w bazie danych są szyfrowane
+- VPC, prywatne podsieci, NAT Gateway - kluczowe zasoby biznesowe systemu tj. mikroserwisy oraz bazy danych umieszczono w prywantych podsieciach bez dostępu z poziomu publicznego Internetu
+- name mangling - w trakcie bundlowania aplikacji klienckiej opisowe nazwy funkcji oraz zmiennych są zmienianne na krótsze (np `x`, `y` zamiast `createInvoice`, `readPermission` ) co utrudnia odczytanie kodu źródłowego aplikacji, w celu znalezienia luk oraz podatności
+- OWASP ZAP oraz testy penetracyjne - regularne testowanie zmniejsza ryzyko wystąpienia podatności w systemie
+
 ## Widoki architektoniczne
 
 ### Widok kontekstowy (C4 Context)
@@ -842,7 +851,7 @@ chmurze AWS.
 ![structurizr-Component-001 (1)](https://github.com/user-attachments/assets/36f9e1bf-a9a1-4deb-bf15-8b0a395fba53)
 ![structurizr-Component-002](https://github.com/user-attachments/assets/50619c36-690b-4ad8-aeee-d7a60bba9579)
 
-## Widok rozmieszczenia (Architekrura Wdrożeniowa)
+## Widok rozmieszczenia (Architekrura wdrożeniowa)
 
 ![image](./images/deskly-backend-deployment-diagram.png)
 
