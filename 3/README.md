@@ -17,10 +17,15 @@ System został wdrożony na AWS i jest dostępny do użytku publicznego.
 
 Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Dockerhub.
 
+### DockerHub
   - [Deskly Frontend](https://hub.docker.com/r/wrzchwc/deskly/tags)
   - [Deskly Location](https://hub.docker.com/r/kamilbonkowski/deskly-location/tags)
   - [Deskly Core](https://hub.docker.com/r/kamilbonkowski/deskly-core/tags)
 
+	
+### Github
+  - [Repozytorium Deskly Frontend](https://github.com/wrzchwc/deskly)
+  - [Repozytorium Deskly Backend](https://github.com/KamilB00/deskly-system)
 ## Status implementacji elementów systemu
 
 ### Legenda:
