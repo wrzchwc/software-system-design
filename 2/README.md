@@ -1342,3 +1342,8 @@ Diagram sekwencji
 ### Tworzenie konta dla klienta Deskly
 
 ![Diagram sekwencji](./images/deskly-backend-sequence-diagram-sign-up.jpg)
+
+### Dodanie zdjęć dla zasobu
+
+![Diagram sekwencji](./images/deskly-backend-sequence-diagram-photos.jpg)
+
