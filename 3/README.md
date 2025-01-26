@@ -123,7 +123,7 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
 <tr>
     <td><code>Horizontal Node Scaling</code></td>
     <td>Horyzontalne skalowanie nodeów w zależności od stanu zużycia CPU lub pamięci</td>
-    <td>🔴</td>
+    <td>🔵</td>
 </tr>
 <tr>
     <td><code>AWS CloudWatch Logs</code></td>
@@ -434,7 +434,7 @@ Artefakty w postaci obrazów Dockerowych zostały udostępnione w serwisie Docke
   <tr>
     <td><code>FR/BM/02</code></td>
     <td>Jako Booking Manager chciałbym mieć podgląd do obłożenia rezerwacjami w danej lokacji (ile aktualnie jest zarezerwowanych zasobów przez kogo i na jak długo).</td>
-    <td>🔄</td>
+    <td>🔵</td>
   </tr>
   <tr>
     <td><code>FR/BM/03</code></td>
