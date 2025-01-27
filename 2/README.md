@@ -750,7 +750,7 @@ chmurze AWS.
 
 Architektura heksagonalna (znana także jako porty i adaptery) została zaprojektowana w celu oddzielenia logiki
 biznesowej (Core Domain) od szczegółów technicznych, takich jak interfejsy użytkownika, bazy danych czy integracje z
-zewnętrznymi systemami. Oto główne powody jej wykorzystania:
+zewnętrznymi systemami.
 
 **Kluczowe cechy:**
 
@@ -997,7 +997,7 @@ Decision)). Dzięki temu możliwe jest unikanie mieszania odpowiedzialności ora
 | **Możliwość konfliktów między zespołami** | Niewyraźny podział odpowiedzialności może prowadzić do problemów z integracją i współpracą. |
 
 **Decyzja**: W systemie zostaną wykorzystane struktury dużej skali w celu lepszej organizacji pracy zespołów oraz
-ułatwienia zarządzania złożónością
+ułatwienia zarządzania złożonością.
 
 ## Bezpieczeństwo
 
