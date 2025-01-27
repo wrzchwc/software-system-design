@@ -748,25 +748,270 @@ chmurze AWS.
 
 ### Architektura heksagonalna
 
+Architektura heksagonalna (znana także jako porty i adaptery) została zaprojektowana w celu oddzielenia logiki
+biznesowej (Core Domain) od szczegółów technicznych, takich jak interfejsy użytkownika, bazy danych czy integracje z
+zewnętrznymi systemami. Oto główne powody jej wykorzystania:
+
+**Kluczowe cechy:**
+
+- **Separacja odpowiedzialności** Dzięki wyraźnemu podziałowi na domenę (Core Domain), porty i adaptery, kod biznesowy
+  jest
+  niezależny od implementacji technicznych, co ułatwia rozwój i utrzymanie systemu.
+
+- **Łatwość testowania** Logika biznesowa w modelu Core Domain jest niezależna od infrastruktury, co pozwala testować
+  ją w
+  izolacji. Adaptery i szczegóły techniczne można mockować w testach jednostkowych.
+
+- **Elastyczność technologiczna** Możliwość łatwej wymiany adapterów, np. zmiana systemu bazodanowego czy frameworka
+  interfejsu użytkownika, bez wpływu na logikę domenową.
+
+- **Zgodność z Domain-Driven Design (DDD)** Architektura heksagonalna naturalnie wspiera modelowanie domeny i
+  realizację
+  jej logiki, co jest kluczowe w podejściu DDD. Pozwala to na utrzymanie wysokiej jakości kodu i koncentrację na
+  kluczowych regułach biznesowych.
+
+| **Zaleta**                               | **Opis**                                                                                                         |
+|------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| **Niezależność technologiczna**          | Pozwala uniezależnić logikę biznesową od bibliotek, frameworków i narzędzi.                                      |
+| **Łatwiejsze testowanie**                | Możliwość testowania logiki domenowej bez konieczności uruchamiania infrastruktury.                              |
+| **Łatwość integracji**                   | Dzięki portom i adapterom integracja z systemami zewnętrznymi jest uporządkowana i modularna.                    |
+| **Czystość kodu domenowego**             | Logika biznesowa nie jest zanieczyszczona szczegółami technicznymi, co zwiększa czytelność i zrozumiałość kodu.  |
+| **Wspieranie wielokrotnego użycia kodu** | Logika domenowa może być używana w różnych kontekstach (np. aplikacje mobilne, webowe, API) bez duplikacji kodu. |
+
+| **Wady**                                 | **Opis**                                                                                                                                                  |
+|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Złożoność początkowa**                 | Wprowadzenie portów i adapterów wymaga więcej wysiłku na początku projektu, co może być trudne w małych zespołach lub projektach o ograniczonym budżecie. |
+| **Przerost formy w prostych projektach** | W małych aplikacjach, gdzie logika biznesowa jest trywialna, architektura heksagonalna może być zbyt rozbudowana i nieopłacalna.                          |
+| **Koszt utrzymania**                     | Rozdzielenie domeny od technologii wymaga dodatkowej warstwy abstrakcji, co może zwiększać nakład pracy przy wprowadzaniu zmian.                          |
+| **Wysoki próg wejścia**                  | Nie wszyscy deweloperzy znają dobrze tę architekturę, co może wymagać dodatkowego szkolenia i czasu na naukę.                                             |
+
+**Decyzja:** Wybieramy architekturę heksagonalną do implementacji modeli typu Core Domain, ponieważ modele te stanowią
+wyróżnik biznesowy, dzięki któremu firma będzie zarabiać. Aspekty takie jak: wysoka jakość kodu, łatwość w utrzymaniu
+oraz łatwość testowania tego fragmentu systemu mają wysoki priorytet.
+
 ### Architektura warstwowa
+
+Architektura warstwowa jest szczególnie dobrze dopasowana do problemów klasy CRUD (Create, Read, Update, Delete),
+ponieważ oferuje jasny podział odpowiedzialności i organizację kodu. W problemach CRUD często operujemy na danych, które
+muszą być pobierane, przetwarzane i przechowywane w sposób przewidywalny, co doskonale wpisuje się w strukturalny
+charakter architektury warstwowej.
+
+**Kluczowe cechy:**
+
+- **Podział na warstwy**
+	- Warstwa prezentacji (ang. Presentation Layer): odpowiada za interakcję z użytkownikiem.
+	- Warstwa aplikacyjna (ang. Application/Service Layer): zawiera logikę biznesową.
+	- Warstwa dostępu do danych (ang. Data Access Layer): obsługuje operacje na bazie danych.
+	- Warstwa danych (ang. Data Layer): przechowuje dane.
+- **Izolacja** Każda warstwa ma jasno określone zadania i odpowiedzialności, co ułatwia zarządzanie kodem.
+- **Interfejsy komunikacji** Warstwy komunikują się ze sobą poprzez dobrze zdefiniowane interfejsy, co ogranicza
+  zależności między komponentami.
+
+| **Zaleta**                     | **Opis**                                                                                                                           |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| **Modularność**                | Łatwiej zarządzać i rozwijać aplikację, ponieważ zmiany w jednej warstwie nie wpływają bezpośrednio na inne.                       |
+| **Przewidywalność**            | Struktura kodu jest łatwa do zrozumienia, nawet dla nowych członków zespołu.                                                       |
+| **Wielokrotne użycie**         | Logikę biznesową i warstwę dostępu do danych można wielokrotnie wykorzystywać w różnych częściach aplikacji lub innych projektach. |
+| **Izolacja logiki biznesowej** | Logika biznesowa jest oddzielona od szczegółów implementacji interfejsu użytkownika czy bazy danych.                               |
+
+| **Wady**                                         | **Opis**                                                                                                   |
+|--------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| **Łatwe przekraczanie granic odpowiedzialności** | Wraz z rosnącą liczbą wymagań logika może zacząć przeciekać przez warstwy                                  |
+| **Potencjał na Big Ball of Mud**                 | Splątanie logiki może doprowadzić do powstania Big Ball of Mud                                             |
+| **Testowanie**                                   | Pomimo separacji odpowiedzialności zależność z infrastrukturą po czasie mogą spowodować cięższe testowanie |
+
+**Decyzja:** Wybieramy architekturę warstwową do implementacji modeli, w których występują problemy klasy CRUD.
+Jest to kompromis pomiędzy jakością kodu, czasem wdrożenia i łatwością utrzymania.
 
 ### Event Sourcing
 
+Event Sourcing to wzorzec architektoniczny, który zapisuje wszystkie zmiany stanu aplikacji w postaci zdarzeń (events),
+a nie poprzez zapisywanie bezpośrednio aktualnego stanu. Jest wykorzystywany w systemach gdzie:
+
+- **Audyt i historia zmian** – Konieczne jest zachowanie pełnej historii zmian w systemie.
+- **Odwracalność operacji** – Istnieje potrzeba cofania operacji.
+- **Asynchroniczność i skalowalność** – System wymaga wysokiej skalowalności i wsparcia dla asynchronicznej komunikacji
+  między komponentami.
+- **Event-driven architecture** – Istnieje potrzeba budowania systemów zorientowanych na zdarzenia, co ułatwia
+  integrację z innymi usługami i obsługę złożonych procesów biznesowych.
+- **Rekonstrukcja stanu** – Chcemy być w stanie odtworzyć dowolny stan systemu na podstawie sekwencji zdarzeń.
+
+| **Zaleta**                        | **Opis**                                                                        |
+|-----------------------------------|---------------------------------------------------------------------------------|
+| **Pełna historia zmian**          | Możliwość śledzenia i audytu każdej zmiany w systemie.                          |
+| **Łatwe debugowanie**             | Dzięki zapisanym zdarzeniom łatwiej identyfikować i rozwiązywać problemy.       |
+| **Możliwość odtworzenia stanu**   | System pozwala odtworzyć dowolny stan historyczny.                              |
+| **Asynchroniczność**              | Zdarzenia mogą być przetwarzane asynchronicznie, co zwiększa wydajność systemu. |
+| **Integracja z innymi systemami** | Możliwość łatwego publikowania zdarzeń do zewnętrznych systemów.                |
+| **Wysoka skalowalność**           | Event Sourcing ułatwia obsługę systemów rozproszonych.                          |
+
+| **Wady**                         | **Opis**                                                                                                                        |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| **Złożoność implementacji**      | Event Sourcing wymaga innego podejścia do projektowania systemu, co zwiększa krzywą uczenia.                                    |
+| **Wzrost objętości danych**      | Przechowywanie wszystkich zdarzeń może prowadzić do szybkiego wzrostu ilości danych.                                            |
+| **Trudności w ewolucji zdarzeń** | Zmiana struktury zdarzeń w systemie wymaga ostrożnego zarządzania wersjonowaniem.                                               |
+| **Koszt rekonstrukcji stanu**    | W przypadku dużej liczby zdarzeń odtworzenie stanu może być czasochłonne.                                                       |
+| **Performacne**                  | Jeśli zdarzenia nie zostaną dobrze przemyślane odbudowa stanu z eventów może być czasochłonna i wymagać wprowadzenia snapshotów |
+
+**Decyzja:** Wybieramy Event Sourcing jako podejście do implementacji audytu stanu Rezerwacji w modelu Reservation.
+
 ### Optimistic Locking
+
+Optimistic Locking (optymistyczne blokowanie) to technika zarządzania współbieżnym dostępem do danych w systemach
+bazodanowych lub innych środowiskach współdzielonego dostępu. Zakłada, że konflikty w dostępie do danych występują
+rzadko, dlatego pozwala użytkownikom na swobodny dostęp do danych bez wcześniejszego ich blokowania. Dopiero w momencie
+zapisu do bazy danych następuje weryfikacja, czy dane nie zostały zmodyfikowane przez inną transakcję.
+
+**Kluczowe cechy:**
+
+- **Brak wcześniejszego blokowania danych** - Dane nie są blokowane w momencie odczytu, co pozwala na równoczesny
+  dostęp wielu użytkowników.
+- **Weryfikacja przy zapisie** - Przy próbie zapisu do bazy danych sprawdzana jest wersja danych. Jeśli dane zostały
+  zmodyfikowane przez inną transakcję, operacja zapisu kończy się niepowodzeniem.
+- **Wersjonowanie danych** - Do realizacji tego podejścia najczęściej używa się mechanizmu wersjonowania (np. pola z
+  numerem wersji lub znacznikiem czasu).
+- Konflikty wykrywane późno - Konflikty wykrywane są w momencie próby zapisu, a nie w trakcie odczytu danych
+
+| **Zaleta**                      | **Opis**                                                                                       |
+|---------------------------------|------------------------------------------------------------------------------------------------|
+| **Wysoka wydajność**            | Brak konieczności blokowania danych w momencie odczytu, co redukuje obciążenie systemu.        |
+| **Brak zablokowanych zasobówe** | Pozwala uniknąć sytuacji, w której zasoby są zablokowane na długi czas przez jedną transakcję. |
+| **Elastyczność**                | Idealne w środowiskach, gdzie występuje niewielka liczba konfliktów w dostępie do danych.      |
+
+| **Wady**                                                | **Opis**                                                                                                                                                     |
+|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Ryzyko konfliktów**                                   | Przy dużej liczbie równoczesnych modyfikacji danych wzrasta ryzyko odrzucenia zapisów, co może prowadzić do konieczności wielokrotnego powtarzania operacji. |
+| **Większa złożoność**                                   | Implementacja wymaga dodania mechanizmów wersjonowania lub innych metod śledzenia zmian.                                                                     |
+| **Słabe wsparcie dla środowisk z częstymi konfliktami** | Jeśli dane są często modyfikowane równocześnie, podejście to może powodować więcej problemów niż rozwiązań.                                                  |
+
+**Decyzja:** System będzie wykorzystywał optimistic locking jako mechanizm concurrency control. Agregaty użyte w
+modelach gdzie występuje klasa problemu rywalizacja o zasoby będą wersjonowane.
 
 ### Wzorzec Agregat
 
+Agregat to wzorzec projektowy stosowany w Domain-Driven Design (DDD). Jest to grupa obiektów
+domenowych, które są traktowane jako jedna jednostka transakcyjna. Agregat zapewnia spójność i integralność danych
+poprzez wyznaczenie reguł, które muszą być spełnione w jego granicach. Agregaty służą do modelowania złożonych
+zależności w domenie biznesowej, organizując dane i reguły w taki sposób, aby unikać złożonych relacji między obiektami
+i minimalizować zależności między różnymi częściami systemu.
+
+**Kluczowe cechy:**
+
+- **Granice agregatu** - Agregat definiuje logiczne granice grupy obiektów, które są silnie ze sobą powiązane. Wszystkie
+  obiekty w ramach agregatu powinny być ze sobą powiązane za pomocą określonych zasad i powinny współdziałać w zgodzie z
+  tymi zasadami.
+
+- **Root (korzeń) agregatu**- Każdy agregat ma jeden główny obiekt, zwany rootem agregatu (Aggregate Root). Dostęp do
+  obiektów wewnątrz agregatu odbywa się tylko przez jego root.
+
+- **Spójność w granicach agregatu** - Wszystkie operacje na agregacie muszą zapewniać jego spójność. Oznacza to, że
+  reguły biznesowe muszą być spełnione w całości lub wcale.
+
+- **Oddzielenie od innych agregatów** - Relacje między agregatami powinny być minimalne i realizowane za pomocą
+  identyfikatorów, a nie bezpośrednich referencji.
+
+| **Zaleta**                       | **Opis**                                                                                                                  |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| **Zapewnienie spójności danych** | Dzięki wyraźnym granicom łatwiej zapewnić, że dane pozostają spójne w ramach jednej transakcji.                           |
+| **Izolacja zmian**               | Każdy agregat można modyfikować niezależnie od innych, co zmniejsza ryzyko efektów ubocznych podczas modyfikacji systemu. |
+| **Zarządzanie złożonością**      | Agregaty upraszczają modelowanie domeny, dzieląc ją na mniejsze, logiczne jednostki.                                      |
+| **Łatwiejsze skalowanie**        | Ograniczenie relacji między agregatami pozwala na łatwiejsze skalowanie systemu i dystrybucję danych.                     |
+| **Poprawa czytelności kod**      | Dzięki jednoznacznym granicom agregatów, kod jest bardziej zrozumiały i łatwiejszy w utrzymaniu.                          |
+
+| **Wady**                                | **Opis**                                                                                                                                                                                 |
+|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Skutki uboczne ograniczania relacji** | Użycie identyfikatorów zamiast bezpośrednich referencji może prowadzić do bardziej złożonych zapytań i dodatkowego obciążenia systemu (np. przez potrzebę dodatkowego ładowania danych). |
+| **Nadmiarowe modelowanie**              | Zbyt rygorystyczne stosowanie agregatów może prowadzić do sztucznie skomplikowanego modelu domeny.                                                                                       |
+| **Granice transakcji**                  | Ponieważ każda transakcja powinna dotyczyć jednego agregatu, modelowanie procesów biznesowych obejmujących wiele agregatów może być trudniejsze.                                         |
+| **Koszty wydajnościowe**                | Utrzymanie spójności w ramach jednego agregatu może być kosztowne, szczególnie w systemach rozproszonych.                                                                                |
+
+**Decyzja**: Wybieramy wzorzec agragat do implementacji modeli, których klasa problemów to konkurencja o zasoby.
+
 ### Wzorzec Fasady
+
+Wzorzec fasady (Facade Pattern) jest jednym z wzorców strukturalnych w programowaniu obiektowym. Jego głównym celem jest
+dostarczenie uproszczonego interfejsu do bardziej złożonego systemu. Fasada pozwala ukryć skomplikowaną logikę
+implementacji i dostarcza wygodny punkt wejścia dla klienta, co upraszcza korzystanie z systemu.
+
+**Kluczowe cechy:**
+
+- **Uproszczenie złożonych systemów** – Fasada zapewnia prosty interfejs do skomplikowanego systemu.
+- **Izolacja klienta od implementacji** – Klient nie musi znać szczegółów implementacyjnych poszczególnych komponentów.
+- **Zmniejszenie zależności** – Klient komunikuje się tylko z fasadą, co zmniejsza powiązania między różnymi częściami
+  systemu.
+- **Zwiększenie czytelności kodu** – Dzięki fasadzie kod staje się bardziej czytelny i łatwiejszy do zrozumienia.
+- **Możliwość modyfikacji systemu** – Wewnętrzne zmiany systemu mogą być ukryte przed klientem, jeśli nie wpływają na
+  interfejs fasady.
+
+### Zalety
+
+| Zalety                   | Opis                                                                    |
+|--------------------------|-------------------------------------------------------------------------|
+| Uproszczony interfejs    | Fasada dostarcza łatwy w użyciu punkt dostępu do złożonych systemów.    |
+| Izolacja klienta         | Klient nie musi znać szczegółów implementacji poszczególnych modułów.   |
+| Redukcja zależności      | Klient komunikuje się tylko z fasadą, co zmniejsza zależności w kodzie. |
+| Poprawa czytelności kodu | Kod staje się bardziej zrozumiały i łatwiejszy w utrzymaniu.            |
+
+### Wady
+
+| Wady                             | Opis                                                                               |
+|----------------------------------|------------------------------------------------------------------------------------|
+| Potencjalne ukrycie problemów    | Fasada może ukrywać problemy wewnętrzne, co utrudnia ich diagnozowanie.            |
+| Możliwość nadmiarowej abstrakcji | Zbyt rozbudowana fasada może prowadzić do niepotrzebnej komplikacji kodu.          |
+| Dodatkowa warstwa                | Fasada jest dodatkową warstwą, co może zwiększyć nakład pracy przy jej utrzymaniu. |
+
+**Decyzja**: Wybieramy wzorzec fasady jako sposób komunikacji z modelem. Każdy model do komunikacji będzie udostępniał
+interfejs przez który będzie można się z nim komunikować.
 
 ### Struktury Dużej Skali
 
+Struktury na dużą skalę w projektowaniu opartym na domenie (Domain-Driven Design) to sposoby organizowania złożonych
+systemów, które ułatwiają zarządzanie ich rozwojem oraz komunikacją między zespołami. Ich celem jest uproszczenie
+zrozumienia systemu jako całości, nadanie mu spójności oraz umożliwienie pracy wielu zespołom w ramach jednej wizji.
+
+Jednym z kluczowych elementów struktur na dużą skalę są warstwy odpowiedzialności (Responsibility Layers). Pozwalają one
+podzielić system na logiczne części, gdzie każda warstwa ma jasno określoną rolę i odpowiedzialność (np. warstwa
+operacyjne (ang. Operation), warstwa potencjału (ang. Potential), warstwa polityk (ang. Policy), warstwa decyzji (ang.
+Decision)). Dzięki temu możliwe jest unikanie mieszania odpowiedzialności oraz utrzymanie porządku w kodzie.
+
+**Kluczowe cechy**:
+
+- Zapewniają wspólną wizję systemu.
+- Określają wyraźne podziały odpowiedzialności między częściami systemu.
+- Są wystarczająco elastyczne, aby adaptować się do zmieniających się wymagań.
+
+| **Zalety**                            | **Opis**                                                                                                     |
+|---------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| **Ułatwione zarządzanie złożonością** | Struktury te upraszczają zrozumienie, jak różne części systemu współdziałają.                                |
+| **Spójność i komunikacja**            | Tworzą wspólny język, który ułatwia współpracę i zapewnia lepsze dopasowanie między komponentami.            |
+| **Skalowalność systemu**              | Pozwalają na łatwiejsze rozdzielenie pracy między zespoły i dodawanie nowych komponentów.                    |
+| **Lepsza organizacja pracy zespołów** | Wyznaczają granice odpowiedzialności, co minimalizuje konflikty i usprawnia pracę zespołów.                  |
+| **Wsparcie dla modularności**         | Ułatwiają wymianę elementów systemu bez ingerencji w inne części dzięki podejściom jak pluggable components. |
+
+| **Wady**                                  | **Opis**                                                                                    |
+|-------------------------------------------|---------------------------------------------------------------------------------------------|
+| **Ryzyko nadmiernego sformalizowania**    | Zbyt sztywne struktury mogą ograniczać innowacyjność i elastyczność w reagowaniu na zmiany. |
+| **Złożoność w utrzymaniu**                | Struktury wymagają regularnej aktualizacji i adaptacji, co może być czasochłonne.           |
+| **Dłuższy czas wdrożenia**                | Tworzenie i wdrażanie struktur na dużą skalę na początku może być czasochłonne i kosztowne. |
+| **Trudność w doborze podejścia**          | Niewłaściwa struktura (np. błędny systemowy metafor) może prowadzić do problemów w rozwoju. |
+| **Możliwość konfliktów między zespołami** | Niewyraźny podział odpowiedzialności może prowadzić do problemów z integracją i współpracą. |
+
+**Decyzja**: W systemie zostaną wykorzystane struktury dużej skali w celu lepszej organizacji pracy zespołów oraz
+ułatwienia zarządzania złożónością
+
 ## Bezpieczeństwo
+
 Poniższe zestawienie prezentuje kluczowe rozwiązania techniczne w zakresie bezpieczeństwa systemu.
+
 - powszechne zastosowanie protokołu HTTPS - przesyłane dane są szyfrowane za pośrednictem protokołu TLS
-- JWT - tokeny generowane za pośrednictwem usługi Cognito, umożliwiają sprawne uwierzytelnianie i autoryzację uzytkowników
+- JWT - tokeny generowane za pośrednictwem usługi Cognito, umożliwiają sprawne uwierzytelnianie i autoryzację
+  uzytkowników
 - dane przechowywane w bazie danych są szyfrowane
-- VPC, prywatne podsieci, NAT Gateway - kluczowe zasoby biznesowe systemu tj. mikroserwisy oraz bazy danych umieszczono w prywantych podsieciach bez dostępu z poziomu publicznego Internetu
-- name mangling - w trakcie bundlowania aplikacji klienckiej opisowe nazwy funkcji oraz zmiennych są zmienianne na krótsze (np `x`, `y` zamiast `createInvoice`, `readPermission` ) co utrudnia odczytanie kodu źródłowego aplikacji, w celu znalezienia luk oraz podatności
+- VPC, prywatne podsieci, NAT Gateway - kluczowe zasoby biznesowe systemu tj. mikroserwisy oraz bazy danych umieszczono
+  w prywantych podsieciach bez dostępu z poziomu publicznego Internetu
+- name mangling - w trakcie bundlowania aplikacji klienckiej opisowe nazwy funkcji oraz zmiennych są zmienianne na
+  krótsze (np `x`, `y` zamiast `createInvoice`, `readPermission` ) co utrudnia odczytanie kodu źródłowego aplikacji, w
+  celu znalezienia luk oraz podatności
 - OWASP ZAP oraz testy penetracyjne - regularne testowanie zmniejsza ryzyko wystąpienia podatności w systemie
 
 ## Widoki architektoniczne
@@ -1344,20 +1589,26 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
   </table>
 
 ## Strategia testowania
-Poprawność działania systemu będzie weryfikowana za pomocą szeregu testów automatycznych wchodzących w skład CI/CD pipeline, odpowiednio dla aplikacji klienkckiej, jak również mikroserwisów.
+
+Poprawność działania systemu będzie weryfikowana za pomocą szeregu testów automatycznych wchodzących w skład CI/CD
+pipeline, odpowiednio dla aplikacji klienkckiej, jak również mikroserwisów.
 
 ### klient
+
 - testy jednostkowe z wykorzystaniem frameworka Jest
 - testy E2E z wykorzystaniem frameworka Cypress
 
 ### mikroserwisy
+
 - testy jednostkowe z wykorzystaniem frameworków JUnit oraz Mockito
-- test mutacyjne z wykorzystaniem narzędzia pitest 
+- test mutacyjne z wykorzystaniem narzędzia pitest
 - testy integracyjne z wykorzystaniem biblioteki Testcontainers
 - testy E2E z wykorzystaniem biblioteki RESTAssured
 - testy wydajnościowe z urzędziem narzędzia Gatling
 
-Dodatkową weryfikację wchodzą w skład CI/CD piperline stanowić będzie weryfikacja narzędziem OWASP ZAP w celu wykrywania podatności. Pondato regularnie (np. raz na pół roku) prowadzone będą testy penetracyjne, a wnioski pozyskiwane w trakcie kontroli stanowić będą dalszą oś rozwoju strategii testowania systemu w zakresie bezpieczeństwa.
+Dodatkową weryfikację wchodzą w skład CI/CD piperline stanowić będzie weryfikacja narzędziem OWASP ZAP w celu wykrywania
+podatności. Pondato regularnie (np. raz na pół roku) prowadzone będą testy penetracyjne, a wnioski pozyskiwane w trakcie
+kontroli stanowić będą dalszą oś rozwoju strategii testowania systemu w zakresie bezpieczeństwa.
 
 ## Realizacja przypadku użycia
 
