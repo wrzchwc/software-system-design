@@ -218,7 +218,42 @@ rozwój i utrzymanie systemu.
 
 ### Amazon Simple Notification Service
 
-#TODO
+AWS SNS to w pełni zarządzana usługa publikowania/subskrybowania (pub/sub), która pozwala na wysyłanie powiadomień do
+aplikacji, urządzeń oraz użytkowników. Jest często wykorzystywana w aplikacjach rozproszonych do efektywnej wymiany
+wiadomości pomiędzy różnymi systemami i usługami.
+
+**Kluczowe cechy**:
+
+- **Model publikowania/subskrybowania (pub/sub):** umożliwia jednoczesne wysyłanie wiadomości do wielu subskrybentów.
+- **Wielokanałowość:** obsługuje różne kanały komunikacji, takie jak e-maile, SMS-y, powiadomienia push i HTTP/HTTPS.
+- **Elastyczność:** możliwość integracji z wieloma innymi usługami AWS, np. Lambda, SQS.
+- **Wysoka dostępność:** działa w modelu wysokiej dostępności, co zapewnia niezawodność przesyłania wiadomości.
+- **Skalowalność:** automatycznie dostosowuje się do zmiennego obciążenia.
+- **Bezpieczeństwo:** obsługuje mechanizmy uwierzytelniania i autoryzacji przy użyciu IAM.
+- **Monitorowanie:** integracja z Amazon CloudWatch umożliwia monitorowanie wydajności i stanu usługi.
+
+### Zalety
+
+| Zalety                               | Opis                                                               |
+|--------------------------------------|--------------------------------------------------------------------|
+| **Szybkość i niezawodność**          | Zapewnia szybkie dostarczanie wiadomości do subskrybentów.         |
+| **Łatwość integracji**               | Integracja z wieloma usługami AWS, jak Lambda czy SQS.             |
+| **Wielokanałowość**                  | Obsługuje różnorodne kanały komunikacji, w tym SMS, e-mail i HTTP. |
+| **Wysoka dostępność i skalowalność** | Automatyczne skalowanie w zależności od obciążenia.                |
+| **Monitorowanie i bezpieczeństwo**   | Obsługa CloudWatch i mechanizmów IAM dla bezpieczeństwa.           |
+
+### Wady
+
+| Wady                              | Opis                                                                |
+|-----------------------------------|---------------------------------------------------------------------|
+| **Brak mechanizmu kolejkowania**  | Nie przechowuje wiadomości, jeśli subskrybent nie jest dostępny.    |
+| **Ograniczenia kosztowe**         | Może generować wysokie koszty przy dużej liczbie wiadomości.        |
+| **Złożoność konfiguracji**        | Może wymagać wiedzy o innych usługach AWS do efektywnej integracji. |
+| **Ograniczenia w personalizacji** | Personalizacja wiadomości (np. e-maili) jest ograniczona.           |
+
+**Decyzja:** AWS SNS zostanie wykorzystany w systemie ze względu na możliwość obsługi dużej liczby e-maili w krótkim
+czasie, prostą integrację z innymi usługami AWS, gwarancję szybkiego dostarczania powiadomień oraz wysoką dostępność
+usługi, co minimalizuje ryzyko utraty wiadomości.
 
 ### Architektura mikroserwisowa
 
@@ -770,6 +805,8 @@ zewnętrznymi systemami.
   jej logiki, co jest kluczowe w podejściu DDD. Pozwala to na utrzymanie wysokiej jakości kodu i koncentrację na
   kluczowych regułach biznesowych.
 
+#### Zalety
+
 | **Zaleta**                               | **Opis**                                                                                                         |
 |------------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | **Niezależność technologiczna**          | Pozwala uniezależnić logikę biznesową od bibliotek, frameworków i narzędzi.                                      |
@@ -777,6 +814,8 @@ zewnętrznymi systemami.
 | **Łatwość integracji**                   | Dzięki portom i adapterom integracja z systemami zewnętrznymi jest uporządkowana i modularna.                    |
 | **Czystość kodu domenowego**             | Logika biznesowa nie jest zanieczyszczona szczegółami technicznymi, co zwiększa czytelność i zrozumiałość kodu.  |
 | **Wspieranie wielokrotnego użycia kodu** | Logika domenowa może być używana w różnych kontekstach (np. aplikacje mobilne, webowe, API) bez duplikacji kodu. |
+
+#### Wady
 
 | **Wady**                                 | **Opis**                                                                                                                                                  |
 |------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -807,12 +846,16 @@ charakter architektury warstwowej.
 - **Interfejsy komunikacji** Warstwy komunikują się ze sobą poprzez dobrze zdefiniowane interfejsy, co ogranicza
   zależności między komponentami.
 
+#### Zalety
+
 | **Zaleta**                     | **Opis**                                                                                                                           |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | **Modularność**                | Łatwiej zarządzać i rozwijać aplikację, ponieważ zmiany w jednej warstwie nie wpływają bezpośrednio na inne.                       |
 | **Przewidywalność**            | Struktura kodu jest łatwa do zrozumienia, nawet dla nowych członków zespołu.                                                       |
 | **Wielokrotne użycie**         | Logikę biznesową i warstwę dostępu do danych można wielokrotnie wykorzystywać w różnych częściach aplikacji lub innych projektach. |
 | **Izolacja logiki biznesowej** | Logika biznesowa jest oddzielona od szczegółów implementacji interfejsu użytkownika czy bazy danych.                               |
+
+#### Wady
 
 | **Wady**                                         | **Opis**                                                                                                   |
 |--------------------------------------------------|------------------------------------------------------------------------------------------------------------|
@@ -836,6 +879,8 @@ a nie poprzez zapisywanie bezpośrednio aktualnego stanu. Jest wykorzystywany w 
   integrację z innymi usługami i obsługę złożonych procesów biznesowych.
 - **Rekonstrukcja stanu** – Chcemy być w stanie odtworzyć dowolny stan systemu na podstawie sekwencji zdarzeń.
 
+#### Zalety
+
 | **Zaleta**                        | **Opis**                                                                        |
 |-----------------------------------|---------------------------------------------------------------------------------|
 | **Pełna historia zmian**          | Możliwość śledzenia i audytu każdej zmiany w systemie.                          |
@@ -844,6 +889,8 @@ a nie poprzez zapisywanie bezpośrednio aktualnego stanu. Jest wykorzystywany w 
 | **Asynchroniczność**              | Zdarzenia mogą być przetwarzane asynchronicznie, co zwiększa wydajność systemu. |
 | **Integracja z innymi systemami** | Możliwość łatwego publikowania zdarzeń do zewnętrznych systemów.                |
 | **Wysoka skalowalność**           | Event Sourcing ułatwia obsługę systemów rozproszonych.                          |
+
+#### Wady
 
 | **Wady**                         | **Opis**                                                                                                                        |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -872,11 +919,15 @@ zapisu do bazy danych następuje weryfikacja, czy dane nie zostały zmodyfikowan
   numerem wersji lub znacznikiem czasu).
 - Konflikty wykrywane późno - Konflikty wykrywane są w momencie próby zapisu, a nie w trakcie odczytu danych
 
+#### Zalety
+
 | **Zaleta**                      | **Opis**                                                                                       |
 |---------------------------------|------------------------------------------------------------------------------------------------|
 | **Wysoka wydajność**            | Brak konieczności blokowania danych w momencie odczytu, co redukuje obciążenie systemu.        |
 | **Brak zablokowanych zasobówe** | Pozwala uniknąć sytuacji, w której zasoby są zablokowane na długi czas przez jedną transakcję. |
 | **Elastyczność**                | Idealne w środowiskach, gdzie występuje niewielka liczba konfliktów w dostępie do danych.      |
+
+#### Wady
 
 | **Wady**                                                | **Opis**                                                                                                                                                     |
 |---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -910,6 +961,8 @@ i minimalizować zależności między różnymi częściami systemu.
 - **Oddzielenie od innych agregatów** - Relacje między agregatami powinny być minimalne i realizowane za pomocą
   identyfikatorów, a nie bezpośrednich referencji.
 
+#### Zalety
+
 | **Zaleta**                       | **Opis**                                                                                                                  |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | **Zapewnienie spójności danych** | Dzięki wyraźnym granicom łatwiej zapewnić, że dane pozostają spójne w ramach jednej transakcji.                           |
@@ -917,6 +970,8 @@ i minimalizować zależności między różnymi częściami systemu.
 | **Zarządzanie złożonością**      | Agregaty upraszczają modelowanie domeny, dzieląc ją na mniejsze, logiczne jednostki.                                      |
 | **Łatwiejsze skalowanie**        | Ograniczenie relacji między agregatami pozwala na łatwiejsze skalowanie systemu i dystrybucję danych.                     |
 | **Poprawa czytelności kod**      | Dzięki jednoznacznym granicom agregatów, kod jest bardziej zrozumiały i łatwiejszy w utrzymaniu.                          |
+
+#### Wady
 
 | **Wady**                                | **Opis**                                                                                                                                                                                 |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -943,7 +998,7 @@ implementacji i dostarcza wygodny punkt wejścia dla klienta, co upraszcza korzy
 - **Możliwość modyfikacji systemu** – Wewnętrzne zmiany systemu mogą być ukryte przed klientem, jeśli nie wpływają na
   interfejs fasady.
 
-### Zalety
+#### Zalety
 
 | Zalety                   | Opis                                                                    |
 |--------------------------|-------------------------------------------------------------------------|
@@ -952,7 +1007,7 @@ implementacji i dostarcza wygodny punkt wejścia dla klienta, co upraszcza korzy
 | Redukcja zależności      | Klient komunikuje się tylko z fasadą, co zmniejsza zależności w kodzie. |
 | Poprawa czytelności kodu | Kod staje się bardziej zrozumiały i łatwiejszy w utrzymaniu.            |
 
-### Wady
+#### Wady
 
 | Wady                             | Opis                                                                               |
 |----------------------------------|------------------------------------------------------------------------------------|
@@ -980,6 +1035,8 @@ Decision)). Dzięki temu możliwe jest unikanie mieszania odpowiedzialności ora
 - Określają wyraźne podziały odpowiedzialności między częściami systemu.
 - Są wystarczająco elastyczne, aby adaptować się do zmieniających się wymagań.
 
+#### Zalety
+
 | **Zalety**                            | **Opis**                                                                                                     |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | **Ułatwione zarządzanie złożonością** | Struktury te upraszczają zrozumienie, jak różne części systemu współdziałają.                                |
@@ -987,6 +1044,8 @@ Decision)). Dzięki temu możliwe jest unikanie mieszania odpowiedzialności ora
 | **Skalowalność systemu**              | Pozwalają na łatwiejsze rozdzielenie pracy między zespoły i dodawanie nowych komponentów.                    |
 | **Lepsza organizacja pracy zespołów** | Wyznaczają granice odpowiedzialności, co minimalizuje konflikty i usprawnia pracę zespołów.                  |
 | **Wsparcie dla modularności**         | Ułatwiają wymianę elementów systemu bez ingerencji w inne części dzięki podejściom jak pluggable components. |
+
+#### Wady
 
 | **Wady**                                  | **Opis**                                                                                    |
 |-------------------------------------------|---------------------------------------------------------------------------------------------|
