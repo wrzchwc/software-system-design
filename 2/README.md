@@ -36,15 +36,15 @@ wpływają na jego implementację.
 
 ### Architektura aplikacyjna
 
-| <div style="width:500px">Uzasadnienie</div>                                                                                              | <div style="width:400px">Model</div>                           |
-|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
-| Ułatwienie testowania i zapewnienie wysokiej jakości w modelach typu Core Domain                                                         | [`D/01` Architektura heksagonalna](#architektura-heksagonalna) |
-| Niski koszt implementacji dla problemów klasy CRUD                                                                                       | [`D/02` Architektura warstwowa](#architektura-warstwowa)       |
-| Zapewnienie audytowalnych zmian stanu rezerwacji `NFR/LEG/02`                                                                            | [`D/03` Event Sourcing](#event-sourcing)                       |
-| Zapewnienie mechanizmów concurrency control dla problemów klasy Konkurencja o zasoby                                                     | [`D/04` Optimistic Locking](#architektura-mikroserwisowa)      |
-| Zapewnienie spójności logiki biznesowej w problemach klasy Konkurencja o zasoby                                                          | [`D/05` Wzorzec Agregat](#wzorzec-agregat)                     |
-| Uproszczenie komunikacji pomiędzy modelami dostarczając stabilny interfejs do komunikacji dla każdego z modeli                           | [`D/06` Wzorzec Fasady](#wzorzec-fasady)                       |
-| Separacja warstw: potencjału, operacyjnej, polityk, podejmowania decyzji w modelach typu Core Domain w celu zapewnienia wysokiej jakości | [`D/07` Struktury Dużej Skali](#struktury-dużej-skali)         |
+| <div style="width:500px">Uzasadnienie</div>                                                                    | <div style="width:400px">Model</div>                           |
+|----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| Ułatwienie testowania i zapewnienie wysokiej jakości w modelach typu Core Domain                               | [`D/01` Architektura heksagonalna](#architektura-heksagonalna) |
+| Niski koszt implementacji dla problemów klasy CRUD                                                             | [`D/02` Architektura warstwowa](#architektura-warstwowa)       |
+| Zapewnienie audytowalnych zmian stanu rezerwacji `NFR/LEG/02`                                                  | [`D/03` Event Sourcing](#event-sourcing)                       |
+| Zapewnienie mechanizmów concurrency control dla problemów klasy Konkurencja o zasoby                           | [`D/04` Optimistic Locking](#architektura-mikroserwisowa)      |
+| Zapewnienie spójności logiki biznesowej w problemach klasy Konkurencja o zasoby                                | [`D/05` Wzorzec Agregat](#wzorzec-agregat)                     |
+| Uproszczenie komunikacji pomiędzy modelami dostarczając stabilny interfejs do komunikacji dla każdego z modeli | [`D/06` Wzorzec Fasady](#wzorzec-fasady)                       |
+| Lepszej organizacji pracy zespołów oraz ułatwienia zarządzania złożonością                                     | [`D/07` Struktury Dużej Skali](#struktury-dużej-skali)         |
 
 ### Architektura wdrożeniowa
 
