@@ -83,7 +83,7 @@ wpływają na jego implementację.
 | `FR/KD/01`, `FR/KD/13`                                                             | [`D/33` System Access Control](./ADR/adr-010-model-system-access-control.md)     |
 | `FR/KD/07`, `FR/KD/08`, `FR/KD/09`, `FR/BM/01`, `FR/BM/05`                         | [`D/34` Waitlist](./ADR/adr-011-model-waitlist.md)                               |
 
-## Mechanizmy architektoniczne
+## Mechanizmy Architektoniczne
 
 ### Infrastrukturalne
 
@@ -115,7 +115,7 @@ Różnice między podejściami wdrożeniowymi:
   opóźnienia i zwiększa komfort użytkowników końcowych. Chmura publiczna eliminuje również konieczność zakupu sprzętu
   oraz ponoszenia kosztów jego utrzymania.
 
-##### Porównanie dostawców chmurowych
+#### Porównanie dostawców chmurowych
 
 | **Dostawca**                | **Zalety**                                                                                                                                                                                                      | **Wady**                                                                                                                                                                |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -851,28 +851,32 @@ Poniższe zestawienie prezentuje kluczowe rozwiązania techniczne w zakresie bez
 ![structurizr-Component-001 (1)](https://github.com/user-attachments/assets/36f9e1bf-a9a1-4deb-bf15-8b0a395fba53)
 ![structurizr-Component-002](https://github.com/user-attachments/assets/50619c36-690b-4ad8-aeee-d7a60bba9579)
 
-## Widok rozmieszczenia (Architekrura wdrożeniowa)
+## Widok rozmieszczenia (Architektura wdrożeniowa)
 
 ![image](./images/deskly-backend-deployment-diagram.png)
 
 Frontend aplikacji wdrożona z wykorzystaniem usług AWS Amplify oraz S3.
 
-Backend aplikacji został wdrożony z wykorzystaniem usługi EKS. Zdecydowano się na wdrożenie z wykorzystaniem usługi EKS. Kluster Kuberenetes będzie domyślnie operował na 2 (minimalnie 1, maksymalnie 5) węzłach roboczych operujących na instancjach EC2 klasy `t3.large`. Każdy z mikroserwisów operować będzie na zmiennnej liczbie podów - od 1 do 5. Liczba podów kontorlowana będzie przez HorizontalPodAutoscaler (przyjęto założenia, że warunkiem zwiększania będzie 90% zużycia mocy oblieczeniowej lub 90% zużycia pamięci operacyjnej).
+Backend aplikacji został wdrożony z wykorzystaniem usługi EKS. Zdecydowano się na wdrożenie z wykorzystaniem usługi EKS.
+Kluster Kuberenetes będzie domyślnie operował na 2 (minimalnie 1, maksymalnie 5) węzłach roboczych operujących na
+instancjach EC2 klasy `t3.large`. Każdy z mikroserwisów operować będzie na zmiennnej liczbie podów - od 1 do 5. Liczba
+podów kontorlowana będzie przez HorizontalPodAutoscaler (przyjęto założenia, że warunkiem zwiększania będzie 90% zużycia
+mocy oblieczeniowej lub 90% zużycia pamięci operacyjnej).
 
 Specyfikacja techniczna instancji `t3.medium`
 
-|parametr|wartość|
-|--------|-------|
-|vCPUs|2|
-|Pamięć (GiB)|4|
-|Przepustowość sieci w trybie burst (Gbps)|5|
+| parametr                                  | wartość |
+|-------------------------------------------|---------|
+| vCPUs                                     | 2       |
+| Pamięć (GiB)                              | 4       |
+| Przepustowość sieci w trybie burst (Gbps) | 5       |
 
 Specyfikacja techniczna poda Kuberenetes
 
-|parametr|wartość|
-|--------|-------|
-|vCPUs|0.5|
-|Pamięć (MiB)|720|
+| parametr     | wartość |
+|--------------|---------|
+| vCPUs        | 0.5     |
+| Pamięć (MiB) | 720     |
 
 ## Widok informacyjny
 
@@ -886,15 +890,15 @@ Specyfikacja techniczna poda Kuberenetes
 
 Poniżej zamiszczeno zestawienie najważniejszych parametrów bazy danych.
 
-|parametr|wartość|
-|--------|-------|
-|silnik i wersja|PostgreSQL 14|
-|klasa instancji|`db.t3.micro`|
-|typ składowania|gp3|
-|szyfrowanie bazy|tak|
-|początkowa pojemność (GiB)|10|
-|backup (retencja w dniach)|7|
-|replikacja multi AZ|tak|
+| parametr                   | wartość       |
+|----------------------------|---------------|
+| silnik i wersja            | PostgreSQL 14 |
+| klasa instancji            | `db.t3.micro` |
+| typ składowania            | gp3           |
+| szyfrowanie bazy           | tak           |
+| początkowa pojemność (GiB) | 10            |
+| backup (retencja w dniach) | 7             |
+| replikacja multi AZ        | tak           |
 
 ## Widok wytwarzania
 
@@ -918,6 +922,10 @@ Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendo
 ![Widok wytwarzania](./images/fe.png)
 
 ### Backend
+
+![Widok wytwarzania](./images/deskly-packages-diagram-deskly-core.jpg)
+
+![Widok wytwarzania](./images/deskly-packages-diagram-deskly-location.jpg)
 
 ### API
 
@@ -1398,14 +1406,18 @@ Dodatkową weryfikację wchodzą w skład CI/CD piperline stanowić będzie wery
 
 ## Realizacja przypadku użycia
 
-### Przypisanie zasobu do lokacji
+### System umożliwia przypisanie zasobu do lokacji
+
+```{note}
+Jako Location Manager chciałbym mieć możliwość przypisywania zasobów do danej lokacji.
+```
 
 Przypisanie zasobu jest inicjowane przez Location Managera z poziomu klienta Deskly. Polega na przesłaniu zapytania POST
 zawierającego identyfikatory przypisywanych zasobów.
 
-Przykład zapytania
+#### Przykład zapytania
 
-```
+```http request
 curl --location 'localhost:8080/api/v1/location/6f0a36c6-6814-4e38-b40b-0a65b2f7c3c6/resource/assign' \
 --header 'Content-Type: application/json' \
 --request POST \
@@ -1414,15 +1426,41 @@ curl --location 'localhost:8080/api/v1/location/6f0a36c6-6814-4e38-b40b-0a65b2f7
 }'
 ```
 
-Diagram sekwencji
+#### Diagram sekwencji
 
 ![Diagram sekwencji](./images/deskly-backend-sequence-diagram-assignment.jpg)
 
-### Tworzenie konta dla klienta Deskly
+### System umożliwia stworzenie konta użytkownika
+
+```{note}
+Jako potencjalny klient Deskly chciałbym mieć możliwość stworzenia konta użytkownika.
+Jako klient biznesowy Deskly chciałbym móc stworzyć konto nowemu pracownikowi i nadać mu uprawnienia do korzystania z zarezerwowanych zasobów.
+Jako klient biznesowy Deskly chciałbym posiadać konto użytkownika, które będzie pozwalać mi jako pracodawcy zarządzać dostępem do zarezerwowanych zasobów dla pracowników.
+```
+
+Stworzenie konta użytkownika odbywa się z wykorzystaniem AWS Cognito Hosted UI, do którego użytkownik jest przekierowany
+w momencie kliknięcia przycisku `Sign up` w Deskly Frontend. Logika rejestracji znajduje się po stronie dostawcy usług
+chmurowych.
 
 ![Diagram sekwencji](./images/deskly-backend-sequence-diagram-sign-up.jpg)
 
-### Dodanie zdjęć dla zasobu
+### System umożliwia dodanie zdjęć dla danego zasobu
+
+```{note}
+Jako Location Manager chciałbym móc dodać lokację, zdefiniować cennik zasobów oraz zdefiniować zasoby w danej lokacji
+(rodzaj zasobu, zdjęcia, dane seryjne (w przyadku biurek oraz sprzętu audio-wideo), liczba miejsc(w przypadku sali 
+konferencyjnej), opis).
+```
+
+Dodanie zdjęć zasobu inicjowane jest przez Location Managera z poziomu klienta Deskly. Polega na przesłaniu zapytania
+POST
+zawierającego identyfikator zasobu oraz dodane wcześniej zdjęcia.
+
+```http request
+curl --location 'localhost:8080/api/v1/deskly-location/resource/3bb9ce2d-c7d9-41ec-ba46-d8a5d99673cb/upload' \
+--header 'Authorization: ••••••' \
+--form 'files=@"/Users/kamilbonkowski/Downloads/desk-2.jpg"
+```
 
 ![Diagram sekwencji](./images/deskly-backend-sequence-diagram-photos.jpg)
 
