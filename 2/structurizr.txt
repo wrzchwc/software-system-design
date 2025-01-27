@@ -49,9 +49,10 @@ workspace "Name" "Description"
                 assignmentFacade  = component "Resource Location Assignment Facade" "Provides functinality related to assigning and unassigning resource from location" "Spring Bean"
                 eventPublisher = component "Evnet Publisher" "Handles posting events to message broker" "Spring Bean"
             }
-            db = container "Database" "" "PostgreSQL" "Database"
+            db_location = container "Database Location" "" "PostgreSQL" "Database"
+            db_core = container "Database Core" "" "PostgreSQL" "Database"
         }
-        
+
         individualClient -> desklySystem.desklyForntendContainer "makes REST API call to"
         organizationManager -> desklySystem.desklyForntendContainer "makes REST API call to"
         organizationMember -> desklySystem.desklyForntendContainer "makes REST API call to"
@@ -59,32 +60,32 @@ workspace "Name" "Description"
         contractManager -> desklySystem.desklyForntendContainer "makes REST API call to"
         financeManager -> desklySystem.desklyForntendContainer "makes REST API call to"
         bookingManager -> desklySystem.desklyForntendContainer "makes REST API call to"
-        
+
         desklySystem.apiGatewayContainer -> identityProviderSystem "authenticate"
         desklySystem.desklyLocationContainer -> fileStorageSystem "Reads from and writes to"
-    
+
 
         desklySystem.desklyForntendContainer -> desklySystem.apiGatewayContainer "forward API Call to"
         desklySystem.apiGatewayContainer -> desklySystem.applicationLoadBalancerContainer "forward API call to"
         desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer "forward API call to"
-        desklySystem.desklyCoreContainer -> desklySystem.db "Reads from and writes to"
-        desklySystem.desklyLocationContainer -> desklySystem.db "Reads from and writes to"
-        
-        
+        desklySystem.desklyCoreContainer -> desklySystem.db_core "Reads from and writes to"
+        desklySystem.desklyLocationContainer -> desklySystem.db_location "Reads from and writes to"
+
+
         desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyLocationContainer.resourceController "forward API call"
         desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyLocationContainer.locationController "forward API call"
         desklySystem.desklyLocationContainer.locationController -> desklySystem.desklyLocationContainer.locationFacade "uses"
         desklySystem.desklyLocationContainer.locationController -> desklySystem.desklyLocationContainer.assignmentFacade "uses"
         desklySystem.desklyLocationContainer.resourceController -> desklySystem.desklyLocationContainer.resourceFacade "uses"
-        
-        desklySystem.desklyLocationContainer.locationFacade -> desklySystem.db "Reads from and writes to "
-        desklySystem.desklyLocationContainer.resourceFacade -> desklySystem.db "Reads from and writes to "
-        desklySystem.desklyLocationContainer.assignmentFacade -> desklySystem.db "Reads from and writes to "
+
+        desklySystem.desklyLocationContainer.locationFacade -> desklySystem.db_location "Reads from and writes to "
+        desklySystem.desklyLocationContainer.resourceFacade -> desklySystem.db_location "Reads from and writes to "
+        desklySystem.desklyLocationContainer.assignmentFacade -> desklySystem.db_location "Reads from and writes to "
         desklySystem.desklyLocationContainer.locationFacade -> fileStorageSystem "upload to"
         desklySystem.desklyLocationContainer.resourceFacade -> fileStorageSystem "upload to"
         desklySystem.desklyLocationContainer.assignmentFacade -> desklySystem.desklyLocationContainer.eventPublisher "user"
         desklySystem.desklyLocationContainer.eventPublisher -> messageBroker "send events to"
-        
+
         desklySystem.desklyCoreContainer.reservationController -> desklySystem.desklyCoreContainer.reservationFacade "uses"
         desklySystem.desklyCoreContainer.resourceAccessControlController -> desklySystem.desklyCoreContainer.resourceAccessControlFacade "uses"
         desklySystem.desklyCoreContainer.priceController -> desklySystem.desklyCoreContainer.priceFacade "uses"
@@ -96,26 +97,26 @@ workspace "Name" "Description"
         desklySystem.desklyCoreContainer.reservationFacade -> desklySystem.desklyCoreContainer.availabilityAPI "uses"
         desklySystem.desklyCoreContainer.availabilityFacade -> desklySystem.desklyCoreContainer.eventListener "uses"
         desklySystem.desklyCoreContainer.eventListener -> messageBroker "read events from"
-        
-        desklySystem.desklyCoreContainer.negotiationFacade -> desklySystem.db "Reads from and writes to"
-        desklySystem.desklyCoreContainer.documentFacade -> desklySystem.db "Reads from and writes to"
-        desklySystem.desklyCoreContainer.waitlistFacade -> desklySystem.db "Reads from and writes to"
-        desklySystem.desklyCoreContainer.priceFacade -> desklySystem.db "Reads from and writes to"
-        desklySystem.desklyCoreContainer.resourceAccessControlFacade -> desklySystem.db "Reads from and writes to"
-        desklySystem.desklyCoreContainer.reservationFacade -> desklySystem.db "Reads from and writes to"
-        desklySystem.desklyCoreContainer.availabilityFacade -> desklySystem.db "Reads from and writes to"
+
+        desklySystem.desklyCoreContainer.negotiationFacade -> desklySystem.db_core "Reads from and writes to"
+        desklySystem.desklyCoreContainer.documentFacade -> desklySystem.db_core "Reads from and writes to"
+        desklySystem.desklyCoreContainer.waitlistFacade -> desklySystem.db_core "Reads from and writes to"
+        desklySystem.desklyCoreContainer.priceFacade -> desklySystem.db_core "Reads from and writes to"
+        desklySystem.desklyCoreContainer.resourceAccessControlFacade -> desklySystem.db_core "Reads from and writes to"
+        desklySystem.desklyCoreContainer.reservationFacade -> desklySystem.db_core "Reads from and writes to"
+        desklySystem.desklyCoreContainer.availabilityFacade -> desklySystem.db_core "Reads from and writes to"
         desklySystem.desklyCoreContainer.waitlistResolver -> desklySystem.desklyCoreContainer.availabilityAPI "makes API call to"
         desklySystem.desklyCoreContainer.waitlistResolver -> desklySystem.desklyLocationContainer.locationController "make REST API calls to"
-        
+
         desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer.reservationController "forward API Call to"
         desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer.resourceAccessControlController  "forward API Call to"
         desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer.priceController  "forward API Call to"
         desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer.waitlistController  "forward API Call to"
         desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer.documentController  "forward API Call to"
         desklySystem.applicationLoadBalancerContainer -> desklySystem.desklyCoreContainer.negotiationController  "forward API Call to"
-        
-        
-        
+
+
+
     }
 
     views {
@@ -146,7 +147,8 @@ workspace "Name" "Description"
                 desklySystem.apiGatewayContainer
                 desklySystem.applicationLoadBalancerContainer
                 desklySystem.desklyForntendContainer
-                desklySystem.db
+                desklySystem.db_location
+                desklySystem.db_core
             }
             autoLayout
             description "The container diagram for the Internet Banking System."

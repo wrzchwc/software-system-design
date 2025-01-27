@@ -1081,7 +1081,7 @@ Poniższe zestawienie prezentuje kluczowe rozwiązania techniczne w zakresie bez
 
 ### Scenariusze interakcji (C4 Container)
 
-![structurizr-Container-001](https://github.com/user-attachments/assets/e7d28b4e-aae6-441e-a1d4-c07a8b7ccf8c)
+![structurizr-Container-001](./images/deskly-c4-container.png)
 
 ### Interfejsy integracyjne
 
@@ -1152,8 +1152,8 @@ Poniższe zestawienie prezentuje kluczowe rozwiązania techniczne w zakresie bez
 
 ## Widok funkcyjny (C4 Component)
 
-![structurizr-Component-001 (1)](https://github.com/user-attachments/assets/36f9e1bf-a9a1-4deb-bf15-8b0a395fba53)
-![structurizr-Component-002](https://github.com/user-attachments/assets/50619c36-690b-4ad8-aeee-d7a60bba9579)
+![structurizr-Component-001 (1)](./images/deskly-c4-component-core.png)
+![structurizr-Component-002](./images/deskly-c4-component-location.png)
 
 ## Widok rozmieszczenia (Architektura wdrożeniowa)
 
