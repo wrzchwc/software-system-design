@@ -18,7 +18,7 @@ wpływają na jego implementację.
 - Oczekiwana dostępność systemu to 99,9% czasu jego działania.
 - System powinien być w stanie obsłużyć zmienną liczbę użytkowników w ciągu doby, sięgającą 10000 jednoczesnych
   użytkowników w godzinach szczytu.
-- Architektura systemu umożliwi łatwe skalowalnie i rozszerzanie rozwiązania.
+- Architektura systemu umożliwi łatwe skalowanie i rozszerzanie rozwiązania.
 - Użytkownicy końcowi będą wchodzić w interakcję z systemem za pośrednictwem intuicyjnych i responsywnych interfejsów
   użytkownika.
 
@@ -488,7 +488,7 @@ względu na jego wysoką dostępność, łatwość integracji oraz skalowalnoś�
 
 ### NAT Gateway
 
-Zagadnienie: W architekturach chmurowych często pojawia się potrzeba udostępniania instancji w prywatnych subnetach
+Zagadnienie: W architekturach chmurowych często pojawia się potrzeba udostępniania instancji w prywatnych podsieciach
 dostępu do Internetu, bez konieczności bezpośredniego narażania tych instancji na dostęp z sieci publicznej. To wyzwanie
 rozwiązuje NAT Gateway. NAT (Network Address Translation) pozwala na przekierowanie ruchu wychodzącego z prywatnych
 instancji do Internetu, ale uniemożliwia dostęp do tych instancji z zewnątrz. Jest to szczególnie istotne w przypadku,
@@ -496,9 +496,9 @@ gdy chcemy zapewnić bezpieczeństwo, izolując zasoby od publicznego Internetu,
 aktualizacji, pakietów lub innych zasobów online.
 
 Rozwiązanie: NAT Gateway to zarządzana usługa AWS, która pozwala na łatwe konfiguracje trasowania i translacji adresów
-IP w chmurze. W konfiguracji, instancje w prywatnym subnetcie mogą komunikować się z Internetem za pomocą NAT Gateway
-umieszczonego w publicznym subnetcie. NAT Gateway obsługuje automatyczne skalowanie, co zapewnia wysoką dostępność i
-niezawodność. Dzięki tej usłudze można utrzymać instancje w prywatnych subnetach w pełni zabezpieczone, a jednocześnie
+IP w chmurze. W konfiguracji, instancje w prywatnej podsieci mogą komunikować się z Internetem za pomocą NAT Gateway
+umieszczonego w publicznej podsieci. NAT Gateway obsługuje automatyczne skalowanie, co zapewnia wysoką dostępność i
+niezawodność. Dzięki tej usłudze można utrzymać instancje w prywatnej podsieci w pełni zabezpieczone, a jednocześnie
 umożliwić im dostęp do zasobów zewnętrznych.
 
 **Kluczowe cechy:**
@@ -529,12 +529,12 @@ umożliwić im dostęp do zasobów zewnętrznych.
 | **Brak wsparcia dla niektórych protokołów** | NAT Gateway może nie obsługiwać niektórych protokołów, takich jak ICMP (używanego do diagnostyki), co może być ograniczeniem w niektórych przypadkach. |
 
 **Decyzja:** Zdecydowano się na implementację NAT Gateway w naszej infrastrukturze chmurowej, aby umożliwić instancjom w
-prywatnych subnetach dostęp do zasobów z Internetu bez ujawniania tych instancji publicznie. Dzięki automatycznemu
+prywatnych podsieciach dostęp do zasobów z Internetu bez ujawniania tych instancji publicznie. Dzięki automatycznemu
 skalowaniu i wysokiej dostępności NAT Gateway stanowi solidne, bezpieczne rozwiązanie w architekturze VPC.
 
 ### Amazon Lambda
 
-**Zaganienie:** W tradycyjnych systemach aplikacyjnych zasoby obliczeniowe (serwery, maszyny wirtualne) są zarządzane
+**Zagadnienie:** W tradycyjnych systemach aplikacyjnych zasoby obliczeniowe (serwery, maszyny wirtualne) są zarządzane
 przez
 użytkownika, co wiąże się z koniecznością ich skalowania, monitorowania oraz zarządzania stanem. W związku z tym,
 tworzenie i zarządzanie skalowalnymi aplikacjami może być czasochłonne i kosztowne. Potrzebna jest technologia, która
@@ -595,8 +595,8 @@ nad bezpieczeństwem i dostępem.
 EC2)
 znajdującym się w prywatnej sieci VPC (Virtual Private Cloud) łączenie się z Internetem. Jest to most, który pozwala na
 przesyłanie danych między zasobami wewnętrznymi w chmurze a zasobami zewnętrznymi w Internecie.
-Internet Gateway zapewnia dostęp do internetu zarówno dla instancji w publicznych subnetach, jak i dla instancji w
-prywatnych subnetach z odpowiednimi regułami routingowymi. Dodatkowo zapewnia odpowiednie mechanizmy bezpieczeństwa,
+Internet Gateway zapewnia dostęp do internetu zarówno dla instancji w publicznych podsieciach, jak i dla instancji w
+prywatnych podsieciach z odpowiednimi regułami routingowymi. Dodatkowo zapewnia odpowiednie mechanizmy bezpieczeństwa,
 takie jak kontrola dostępu i NAT (Network Address Translation), aby umożliwić komunikację wychodzącą, a jednocześnie
 chronić zasoby wewnętrzne.
 
@@ -619,7 +619,7 @@ chronić zasoby wewnętrzne.
 | **Wsparcie dla różnych usług AWS** | Możliwość integracji z innymi usługami AWS, np. EC2, Lambda, S3, pozwala na elastyczną i kompleksową architekturę.                      |
 | **Skalowalność**                   | Automatycznie skalowalny komponent, który dostosowuje się do zmieniającego się ruchu w sieci.                                           |
 | **Brak kosztów**                   | Internet Gateway nie wiąże się z dodatkowymi opłatami za użycie samej usługi – płacisz tylko za dane przesyłane przez Internet.         |
-| **Integracja z NAT Gateway**       | Dzięki integracji z NAT Gateway, zasoby w prywatnych subnetach mogą nawiązywać połączenia wychodzące z Internetem.                      |
+| **Integracja z NAT Gateway**       | Dzięki integracji z NAT Gateway, zasoby w prywatnych podsieciach mogą nawiązywać połączenia wychodzące z Internetem.                    |
 
 #### Wady
 
@@ -638,16 +638,16 @@ dostępnych publicznie.
 ### Autoryzacja z wykorzystaniem JWT
 
 **Zagadnienie:** W nowoczesnych aplikacjach, szczególnie w mikroserwisach, zachodzi potrzeba zapewnienia bezpiecznego i
-efektywnego mechanizmu autoryzacji i autentykacji użytkowników. W tradycyjnych podejściach do autentykacji, każda
+efektywnego mechanizmu autoryzacji i autentykacji użytkowników. W tradycyjnych podejściach do uwierzytelniania, każda
 aplikacja musi przechowywać dane użytkowników i ich sesje. To może prowadzić do problemów z wydajnością, skalowalnością
 i bezpieczeństwem, zwłaszcza w przypadku rozproszonych systemów.
 
-**Rozwiązanie:** JWT (JSON Web Token) jest popularnym standardem do realizacji autoryzacji i autentykacji w aplikacjach
-webowych i chmurowych. Token JWT zawiera zakodowane dane użytkownika, takie jak jego identyfikator, role, czas
-wygaśnięcia tokena oraz inne metadane. Dzięki temu JWT pozwala na delegowanie autoryzacji pomiędzy różnymi
-mikroserwisami, bez potrzeby przechowywania sesji w każdej z aplikacji.
-W JWT dane są bezpiecznie zaszyfrowane i podpisane, co zapewnia, że token nie może zostać zmanipulowany. Dodatkowo JWT
-jest przechowywany po stronie klienta (np. w lokalnej pamięci przeglądarki lub ciasteczkach), co pozwala na łatwe
+**Rozwiązanie:** JWT (JSON Web Token) jest popularnym standardem do realizacji autoryzacji i uwierzytelniania w
+aplikacjach webowych i chmurowych. Token JWT zawiera zakodowane dane użytkownika, takie jak jego identyfikator, role,
+czas wygaśnięcia tokena oraz inne metadane. Dzięki temu JWT pozwala na delegowanie autoryzacji pomiędzy różnymi
+mikroserwisami, bez potrzeby przechowywania sesji w każdej z aplikacji. W JWT dane są bezpiecznie zaszyfrowane i
+podpisane, co zapewnia, że token nie może zostać zmanipulowany. Dodatkowo JWT jest przechowywany po stronie klienta (np.
+w lokalnej pamięci przeglądarki lub ciasteczkach), co pozwala na łatwe
 skalowanie aplikacji i niezależność od stanu serwera.
 
 **Kluczowe cechy:**
@@ -904,7 +904,7 @@ a nie poprzez zapisywanie bezpośrednio aktualnego stanu. Jest wykorzystywany w 
 | **Wzrost objętości danych**      | Przechowywanie wszystkich zdarzeń może prowadzić do szybkiego wzrostu ilości danych.                                            |
 | **Trudności w ewolucji zdarzeń** | Zmiana struktury zdarzeń w systemie wymaga ostrożnego zarządzania wersjonowaniem.                                               |
 | **Koszt rekonstrukcji stanu**    | W przypadku dużej liczby zdarzeń odtworzenie stanu może być czasochłonne.                                                       |
-| **Performacne**                  | Jeśli zdarzenia nie zostaną dobrze przemyślane odbudowa stanu z eventów może być czasochłonna i wymagać wprowadzenia snapshotów |
+| **Performance**                  | Jeśli zdarzenia nie zostaną dobrze przemyślane odbudowa stanu z eventów może być czasochłonna i wymagać wprowadzenia snapshotów |
 
 **Decyzja:** Wybieramy Event Sourcing jako podejście do implementacji audytu stanu Rezerwacji w modelu Reservation.
 
@@ -938,7 +938,7 @@ zapisu do bazy danych następuje weryfikacja, czy dane nie zostały zmodyfikowan
 | **Słabe wsparcie dla środowisk z częstymi konfliktami** | Jeśli dane są często modyfikowane równocześnie, podejście to może powodować więcej problemów niż rozwiązań.                                                  |
 
 **Decyzja:** System będzie wykorzystywał optimistic locking jako mechanizm concurrency control. Agregaty użyte w
-modelach gdzie występuje klasa problemu rywalizacja o zasoby będą wersjonowane.
+modelach, gdzie występuje klasa problemu rywalizacja o zasoby, będą wersjonowane.
 
 ### Wzorzec Agregat
 
@@ -978,7 +978,7 @@ i minimalizować zależności między różnymi częściami systemu.
 | **Granice transakcji**                  | Ponieważ każda transakcja powinna dotyczyć jednego agregatu, modelowanie procesów biznesowych obejmujących wiele agregatów może być trudniejsze.                                         |
 | **Koszty wydajnościowe**                | Utrzymanie spójności w ramach jednego agregatu może być kosztowne, szczególnie w systemach rozproszonych.                                                                                |
 
-**Decyzja**: Wybieramy wzorzec agragat do implementacji modeli, których klasa problemów to konkurencja o zasoby.
+**Decyzja**: Wybieramy wzorzec agregat do implementacji modeli, których klasa problemów to konkurencja o zasoby.
 
 ### Wzorzec Fasady
 
@@ -1010,7 +1010,7 @@ implementacji i dostarcza wygodny punkt wejścia dla klienta, co upraszcza korzy
 | Dodatkowa warstwa                | Fasada jest dodatkową warstwą, co może zwiększyć nakład pracy przy jej utrzymaniu. |
 
 **Decyzja**: Wybieramy wzorzec fasady jako sposób komunikacji z modelem. Każdy model do komunikacji będzie udostępniał
-interfejs przez który będzie można się z nim komunikować.
+interfejs, przez który będzie można się z nim komunikować.
 
 ### Struktury Dużej Skali
 
@@ -1020,7 +1020,7 @@ zrozumienia systemu jako całości, nadanie mu spójności oraz umożliwienie pr
 
 Jednym z kluczowych elementów struktur na dużą skalę są warstwy odpowiedzialności (Responsibility Layers). Pozwalają one
 podzielić system na logiczne części, gdzie każda warstwa ma jasno określoną rolę i odpowiedzialność (np. warstwa
-operacyjne (ang. Operation), warstwa potencjału (ang. Potential), warstwa polityk (ang. Policy), warstwa decyzji (ang.
+operacyjna (ang. Operation), warstwa potencjału (ang. Potential), warstwa polityk (ang. Policy), warstwa decyzji (ang.
 Decision)). Dzięki temu możliwe jest unikanie mieszania odpowiedzialności oraz utrzymanie porządku w kodzie.
 
 **Kluczowe cechy**:
@@ -1052,13 +1052,13 @@ ułatwienia zarządzania złożonością.
 
 Poniższe zestawienie prezentuje kluczowe rozwiązania techniczne w zakresie bezpieczeństwa systemu.
 
-- powszechne zastosowanie protokołu HTTPS - przesyłane dane są szyfrowane za pośrednictem protokołu TLS
+- powszechne zastosowanie protokołu HTTPS - przesyłane dane są szyfrowane za pośrednictwem protokołu TLS
 - JWT - tokeny generowane za pośrednictwem usługi Cognito, umożliwiają sprawne uwierzytelnianie i autoryzację
-  uzytkowników
+  użytkowników
 - dane przechowywane w bazie danych są szyfrowane
 - VPC, prywatne podsieci, NAT Gateway - kluczowe zasoby biznesowe systemu tj. mikroserwisy oraz bazy danych umieszczono
-  w prywantych podsieciach bez dostępu z poziomu publicznego Internetu
-- name mangling - w trakcie bundlowania aplikacji klienckiej opisowe nazwy funkcji oraz zmiennych są zmienianne na
+  w prywatnych podsieciach bez dostępu z poziomu publicznego Internetu
+- name mangling - w trakcie bundlowania aplikacji klienckiej opisowe nazwy funkcji oraz zmiennych są zamieniane na
   krótsze (np `x`, `y` zamiast `createInvoice`, `readPermission` ) co utrudnia odczytanie kodu źródłowego aplikacji, w
   celu znalezienia luk oraz podatności
 - OWASP ZAP oraz testy penetracyjne - regularne testowanie zmniejsza ryzyko wystąpienia podatności w systemie
@@ -1152,9 +1152,9 @@ Poniższe zestawienie prezentuje kluczowe rozwiązania techniczne w zakresie bez
 Frontend aplikacji został wdrożony z wykorzystaniem usług AWS Amplify oraz S3.
 
 Backend aplikacji został wdrożony z wykorzystaniem usługi EKS.
-Kluster Kuberenetes będzie domyślnie operował na 2 (minimalnie 1, maksymalnie 5) węzłach roboczych operujących na
+Klaster Kubernetes będzie domyślnie operował na 2 (minimalnie 1, maksymalnie 5) węzłach roboczych operujących na
 instancjach EC2 klasy `t3.large`. Każdy z mikroserwisów operować będzie na zmiennej liczbie podów - od 1 do 5. Liczba
-podów kontorlowana będzie przez HorizontalPodAutoscaler (przyjęto założenia, że warunkiem zwiększania będzie 90% zużycia
+podów kontrolowana będzie przez HorizontalPodAutoscaler (przyjęto założenia, że warunkiem zwiększania będzie 90% zużycia
 mocy obliczeniowej lub 90% zużycia pamięci operacyjnej).
 
 Specyfikacja techniczna instancji `t3.medium`
@@ -1245,11 +1245,14 @@ Poniżej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontend
 
 ### Backend
 
-Mikroserwisy zostały zaimplementowane w języku **Java 21** z wykorzystaniem **Spring Boot 3**. Do zapisu i obsługi bazy danych
-zastosowano **JDBC Template**, **Hibernate** oraz **Spring Data JPA**, co umożliwia elastyczną pracę z danymi oraz wsparcie dla
+Mikroserwisy zostały zaimplementowane w języku **Java 21** z wykorzystaniem **Spring Boot 3**. Do zapisu i obsługi bazy
+danych
+zastosowano **JDBC Template**, **Hibernate** oraz **Spring Data JPA**, co umożliwia elastyczną pracę z danymi oraz
+wsparcie dla
 różnych podejść do mapowania obiektowo-relacyjnego. Obsługę żądań HTTP zrealizowano przy użyciu **Spring MVC**, który
 pozwala na efektywne zarządzanie logiką aplikacji oraz jej komunikacją z klientami. Integracja z usługami chmurowymi
-Amazon Web Services (AWS) została zrealizowana przy pomocy **AWS SDK**, co umożliwia łatwe korzystanie z usług takich jak
+Amazon Web Services (AWS) została zrealizowana przy pomocy **AWS SDK**, co umożliwia łatwe korzystanie z usług takich
+jak
 S3, RDS czy SQS. Bezpieczeństwo mikroserwisów zapewniono dzięki wykorzystaniu **Spring Security 6**, który umożliwia
 implementację zaawansowanych mechanizmów autoryzacji, dostosowanych do wymagań projektu.
 
@@ -1684,23 +1687,23 @@ warstwami oraz zapewnia większą elastyczność i łatwość testowania. W rama
 ## Strategia testowania
 
 Poprawność działania systemu będzie weryfikowana za pomocą szeregu testów automatycznych wchodzących w skład CI/CD
-pipeline, odpowiednio dla aplikacji klienkckiej, jak również mikroserwisów.
+pipeline, odpowiednio dla aplikacji klienckiej, jak również mikroserwisów.
 
-### klient
+### Klient
 
 - testy jednostkowe z wykorzystaniem frameworka Jest
 - testy E2E z wykorzystaniem frameworka Cypress
 
-### mikroserwisy
+### Mikroserwisy
 
-- testy jednostkowe z wykorzystaniem frameworków JUnit oraz Mockito
-- test mutacyjne z wykorzystaniem narzędzia pitest
-- testy integracyjne z wykorzystaniem biblioteki Testcontainers
-- testy E2E z wykorzystaniem biblioteki RESTAssured
-- testy wydajnościowe z urzędziem narzędzia Gatling
+- testy jednostkowe z wykorzystaniem biblioteki **Spock**
+- test mutacyjne z wykorzystaniem narzędzia **pitest**
+- testy integracyjne z wykorzystaniem biblioteki **Testcontainers**
+- testy E2E z wykorzystaniem biblioteki **RESTAssured**
+- testy wydajnościowe z wykorzystaniem narzędzia **Gatling**
 
-Dodatkową weryfikację wchodzą w skład CI/CD piperline stanowić będzie weryfikacja narzędziem OWASP ZAP w celu wykrywania
-podatności. Pondato regularnie (np. raz na pół roku) prowadzone będą testy penetracyjne, a wnioski pozyskiwane w trakcie
+Dodatkową weryfikację wchodzą w skład CI/CD pipeline stanowić będzie weryfikacja narzędziem OWASP ZAP w celu wykrywania
+podatności. Ponadto regularnie (np. raz na pół roku) prowadzone będą testy penetracyjne, a wnioski pozyskiwane w trakcie
 kontroli stanowić będą dalszą oś rozwoju strategii testowania systemu w zakresie bezpieczeństwa.
 
 ## Realizacja przypadku użycia
