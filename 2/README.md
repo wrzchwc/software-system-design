@@ -1256,7 +1256,7 @@ jak
 S3, RDS czy SQS. Bezpieczeństwo mikroserwisów zapewniono dzięki wykorzystaniu **Spring Security 6**, który umożliwia
 implementację zaawansowanych mechanizmów autoryzacji, dostosowanych do wymagań projektu.
 
-Architektura w części wykorzystano architekturę heksagonalną, co ułatwia separację zależności między
+W części systemu wykorzystano architekturę heksagonalną, co ułatwia separację zależności między
 warstwami oraz zapewnia większą elastyczność i łatwość testowania. W ramach projektu wyróżniono następujące pakiety:
 
 - `application` – logika aplikacyjna, przypadki użycia
