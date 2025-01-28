@@ -158,7 +158,7 @@ infrastrukturalna.
 
 | **Rodzaj**                   | **Zalety**                                                                                                                                                         | **Wady**                                                                                                                     |
 |------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| **Sprzętowy Load Balancer**  | - Bardzo wysoka wydajność<br>- Dedykowane urządzenia z wyspecjalizowanym oprogramowaniem<br>- Dobre wsparcie dla dużych sieci korporacyjnych                       | - Wysoki koszt zakupu i utrzymania<br>- Trudności z elastycznym skalowaniem<br>- Zależność od dostawcy sprzętu               |
+| **Sprzętowy Load Balancer**  | - Bardzo wysoka wydajność<br> - Dedykowane urządzenia z wyspecjalizowanym oprogramowaniem<br> Dobre wsparcie dla dużych sieci korporacyjnych                       | - Wysoki koszt zakupu i utrzymania<br>- Trudności z elastycznym skalowaniem<br>- Zależność od dostawcy sprzętu               |
 | **Programowy Load Balancer** | - Możliwość wdrożenia na serwerach w chmurze lub lokalnych<br>- Wysoka elastyczność i integracja z narzędziami DevOps<br>- Niższe koszty niż rozwiązania sprzętowe | - Może nie osiągać wydajności sprzętowych rozwiązań<br>- Wymaga odpowiedniej konfiguracji i optymalizacji                    |
 | **Load Balancing w chmurze** | - Automatyczne skalowanie i łatwość konfiguracji<br>- Integracja z innymi usługami chmurowymi<br>- Rozliczenie w modelu pay-as-you-go                              | - Zależność od dostawcy chmury<br>- Opóźnienia związane z komunikacją między regionami<br>- Koszty mogą rosnąć wraz z ruchem |
 
@@ -181,15 +181,15 @@ aplikacjom rozproszonym komunikację w sposób asynchroniczny. Dzięki temu ró�
 niezależnie, skalować się w różnym tempie i przetwarzać dane w odpowiednim momencie, co zwiększa elastyczność i
 odporność całej infrastruktury.
 
-Rodzaje kolejek w SQS
+**Rodzaje kolejek w SQS**
 
-1. Standard Queue
+#### Standard Queue
 
 - Zapewnia wysoką przepustowość przesyłania wiadomości.
 - Gwarantuje co najmniej jednokrotne dostarczenie wiadomości, ale ich kolejność nie jest gwarantowana.
 - Idealne do aplikacji, w których kolejność wiadomości nie jest kluczowa.
 
-2. FIFO Queue (First-In-First-Out)
+#### FIFO Queue (First-In-First-Out)
 
 - Zapewnia kolejność wiadomości zgodnie z ich wysyłaniem.
 - Gwarantuje dokładnie jednokrotne dostarczenie wiadomości.
@@ -203,7 +203,6 @@ Rodzaje kolejek w SQS
 | **Elastyczność**                    | Obsługuje zarówno kolejki Standard, jak i FIFO, co pozwala dostosować się do potrzeb aplikacji.    |
 | **Niezawodność**                    | Dane są przechowywane na wielu serwerach w centrach danych AWS, co minimalizuje ryzyko ich utraty. |
 | **Integracja**                      | Działa bezproblemowo z innymi usługami AWS, np. Lambda, EC2 czy SNS.                               |
-
 
 | **Wada**                                 | **Opis**                                                                                           |
 |------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -223,14 +222,13 @@ wiadomości pomiędzy różnymi systemami i usługami.
 
 **Kluczowe cechy**:
 
-- **Model publikowania/subskrybowania (pub/sub):** umożliwia jednoczesne wysyłanie wiadomości do wielu subskrybentów.
-- **Wielokanałowość:** obsługuje różne kanały komunikacji, takie jak e-maile, SMS-y, powiadomienia push i HTTP/HTTPS.
-- **Elastyczność:** możliwość integracji z wieloma innymi usługami AWS, np. Lambda, SQS.
-- **Wysoka dostępność:** działa w modelu wysokiej dostępności, co zapewnia niezawodność przesyłania wiadomości.
-- **Skalowalność:** automatycznie dostosowuje się do zmiennego obciążenia.
-- **Bezpieczeństwo:** obsługuje mechanizmy uwierzytelniania i autoryzacji przy użyciu IAM.
-- **Monitorowanie:** integracja z Amazon CloudWatch umożliwia monitorowanie wydajności i stanu usługi.
-
+- **Model publikowania/subskrybowania (pub/sub)** - umożliwia jednoczesne wysyłanie wiadomości do wielu subskrybentów.
+- **Wielokanałowość** - obsługuje różne kanały komunikacji, takie jak e-maile, SMS-y, powiadomienia push i HTTP/HTTPS.
+- **Elastyczność** - możliwość integracji z wieloma innymi usługami AWS, np. Lambda, SQS.
+- **Wysoka dostępność** - działa w modelu wysokiej dostępności, co zapewnia niezawodność przesyłania wiadomości.
+- **Skalowalność** - automatycznie dostosowuje się do zmiennego obciążenia.
+- **Bezpieczeństwo** - obsługuje mechanizmy uwierzytelniania i autoryzacji przy użyciu IAM.
+- **Monitorowanie** - integracja z Amazon CloudWatch umożliwia monitorowanie wydajności i stanu usługi.
 
 | Zaleta                               | Opis                                                               |
 |--------------------------------------|--------------------------------------------------------------------|
@@ -239,7 +237,6 @@ wiadomości pomiędzy różnymi systemami i usługami.
 | **Wielokanałowość**                  | Obsługuje różnorodne kanały komunikacji, w tym SMS, e-mail i HTTP. |
 | **Wysoka dostępność i skalowalność** | Automatyczne skalowanie w zależności od obciążenia.                |
 | **Monitorowanie i bezpieczeństwo**   | Obsługa CloudWatch i mechanizmów IAM dla bezpieczeństwa.           |
-
 
 | Wada                              | Opis                                                                |
 |-----------------------------------|---------------------------------------------------------------------|
@@ -259,7 +256,7 @@ podejście, w którym cały system jest jednym, dużym komponentem, staje się c
 skalowanie czy utrzymanie. Zwiększa się ryzyko awarii, trudności w zarządzaniu zespołami deweloperskimi, a także
 problematyczna staje się elastyczność w implementacji nowych funkcji.
 
-Rozwiązanie: Architektura mikroserwisowa to podejście, w którym aplikacja jest rozdzielona na szereg niezależnych,
+**Rozwiązanie:** Architektura mikroserwisowa to podejście, w którym aplikacja jest rozdzielona na szereg niezależnych,
 małych serwisów, które komunikują się ze sobą za pomocą interfejsów API. Każdy mikroserwis odpowiada za konkretną
 funkcjonalność i może być rozwijany, wdrażany oraz skalowany niezależnie od innych. W ramach tej architektury zespół
 deweloperski może skoncentrować się na mniejszych częściach aplikacji, co przyspiesza rozwój i zwiększa niezawodność
@@ -276,7 +273,6 @@ systemu.
 - Skalowalność: Możliwość skalowania każdego mikroserwisu niezależnie w odpowiedzi na zmieniające się potrzeby.
 - Zarządzanie awariami: W przypadku awarii jednego mikroserwisu reszta systemu nie musi przestawać działać.
 
-
 | **Zaleta**                                  | **Opis**                                                                                                  |
 |---------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | **Skalowalność**                            | Możliwość skalowania poszczególnych serwisów w zależności od ich obciążenia.                              |
@@ -284,7 +280,6 @@ systemu.
 | **Elastyczność technologiczna**             | Każdy mikroserwis może być oparty na innym stosie technologicznym.                                        |
 | **Zwiększona niezawodność**                 | Awaria jednego mikroserwisu nie powoduje awarii całego systemu.                                           |
 | **Szybszy rozwój i czas reakcji na zmiany** | Zespoły mogą pracować nad różnymi mikroserwisami równolegle, co skraca czas implementacji nowych funkcji. |
-
 
 | **Wada**                                       | **Opis**                                                                                                    |
 |------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
@@ -298,13 +293,13 @@ systemu.
 aplikacją, a także umożliwić skalowanie jej poszczególnych elementów. Dzięki rozdzieleniu odpowiedzialności na mniejsze,
 niezależne serwisy, aplikacja jest bardziej odporna na awarie i łatwiejsza w rozwoju.
 
-
 **Zagadnienie:** W dużych systemach rozproszonych, szczególnie w architekturze mikroserwisowej, zarządzanie komunikacją
 między wieloma serwisami może stać się trudne. Każdy mikroserwis może mieć różne interfejsy API, co prowadzi do
 złożoności w obsłudze połączeń, uwierzytelniania, monitorowania i zarządzania ruchem. Brak centralnego punktu kontroli w
 systemie powoduje konieczność replikowania tych funkcji w każdym mikroserwisie, co jest nieefektywne.
 
-**Rozwiązanie:** Wzorzec API Gateway to podejście, w którym cała komunikacja między klientami a mikroserwisami przechodzi
+**Rozwiązanie:** Wzorzec API Gateway to podejście, w którym cała komunikacja między klientami a mikroserwisami
+przechodzi
 przez jeden centralny punkt, który pełni funkcje proxy. API Gateway odpowiada za przekazywanie zapytań do odpowiednich
 serwisów, zarządzanie bezpieczeństwem, logowaniem, monitorowaniem oraz transformacją danych. Może także oferować
 mechanizmy cache'owania, load balancing czy throttlingu.
@@ -330,7 +325,6 @@ mechanizmy cache'owania, load balancing czy throttlingu.
 | **Łatwiejsze monitorowanie**         | Łatwiejsze zbieranie logów, metryk i monitorowanie ruchu w jednym miejscu.                  |
 | **Optymalizacja wydajności**         | API Gateway może implementować cache'owanie, co zmniejsza liczbę zapytań do mikroserwisów.  |
 
-
 | **Wada**                    | **Opis**                                                                                                                       |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | **Pojedynczy punkt awarii** | Jeśli API Gateway ulegnie awarii, może to sparaliżować całą komunikację z mikroserwisami.                                      |
@@ -350,7 +344,8 @@ rozproszone geograficznie i mogą być zarządzane przez różne podmioty, zarz�
 Wymaga to zapewnienia bezpiecznej, izolowanej sieci, która pozwala na komunikację między usługami w chmurze, zapewniając
 jednocześnie ochronę przed nieautoryzowanym dostępem z zewnątrz.
 
-**Rozwiązanie:** VPC (Virtual Private Cloud) to rozwiązanie oferowane przez dostawców chmurowych, które pozwala na tworzenie
+**Rozwiązanie:** VPC (Virtual Private Cloud) to rozwiązanie oferowane przez dostawców chmurowych, które pozwala na
+tworzenie
 prywatnych sieci w chmurze. VPC umożliwia pełną kontrolę nad tym, jak są połączone zasoby w chmurze, jakie mają adresy
 IP, jakie usługi są dostępne, oraz jak wygląda komunikacja z innymi sieciami (np. z Internetem). VPC zapewnia izolację
 od innych klientów chmury oraz możliwość konfiguracji zaawansowanych mechanizmów zabezpieczeń, takich jak firewalle,
@@ -358,15 +353,15 @@ subnets, czy VPN.
 
 **Kluczowe cechy:**
 
-- Izolacja i prywatność: Użytkownicy mogą tworzyć izolowane sieci, które są oddzielone od innych klientów chmury.
-- Kontrola nad konfiguracją: Umożliwia dokładną konfigurację podsieci, routingu, bramek internetowych, połączeń VPN i
+- **Izolacja i prywatność** - Użytkownicy mogą tworzyć izolowane sieci, które są oddzielone od innych klientów chmury.
+- **Kontrola nad konfiguracją** - Umożliwia dokładną konfigurację podsieci, routingu, bramek internetowych, połączeń VPN
+  i
   innych elementów sieciowych.
-- Skalowalność: VPC może być łatwo skalowane w miarę wzrostu potrzeb organizacji.
-- Bezpieczeństwo: Wbudowane mechanizmy kontroli dostępu (ACL, security groups) pozwalają na zarządzanie dostępem do
+- **Skalowalność** - VPC może być łatwo skalowane w miarę wzrostu potrzeb organizacji.
+- **Bezpieczeństwo** - Wbudowane mechanizmy kontroli dostępu (ACL, security groups) pozwalają na zarządzanie dostępem do
   zasobów w VPC.
-- Integracja z innymi usługami chmurowymi: VPC umożliwia łatwą integrację z innymi usługami chmurowymi, takimi jak bazy
-  danych, load balancers, czy usługi obliczeniowe.
-
+- **Integracja z innymi usługami chmurowymi** - VPC umożliwia łatwą integrację z innymi usługami chmurowymi, takimi jak
+  bazy danych, load balancers, czy usługi obliczeniowe.
 
 | **Zaleta**                                  | **Opis**                                                                                                     |
 |---------------------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -375,7 +370,6 @@ subnets, czy VPN.
 | **Zaawansowane zarządzanie ruchem**         | Pełna kontrola nad ruchem przychodzącym i wychodzącym, w tym konfiguracja subnets, route tables, VPN.        |
 | **Integracja z innymi usługami chmurowymi** | Łatwa integracja z szeroką gamą usług chmurowych, co umożliwia elastyczność i adaptację infrastruktury.      |
 | **Bezpieczeństwo**                          | Mechanizmy takie jak firewalle, security groups oraz ACL zapewniają kontrolę nad dostępem i ochronę zasobów. |
-
 
 | **Wada**                                   | **Opis**                                                                                                                |
 |--------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -404,13 +398,15 @@ zarządzanie danymi.
 
 **Kluczowe cechy:**
 
-- Autonomia mikroserwisów: Każdy mikroserwis zarządza swoimi danymi, co pozwala na niezależny rozwój i wdrażanie.
-- Izolacja danych: Brak współdzielenia bazy danych między mikroserwisami zwiększa bezpieczeństwo i ułatwia zarządzanie
+- **Autonomia mikroserwisów** - Każdy mikroserwis zarządza swoimi danymi, co pozwala na niezależny rozwój i wdrażanie.
+- **Izolacja danych** - Brak współdzielenia bazy danych między mikroserwisami zwiększa bezpieczeństwo i ułatwia
+  zarządzanie
   danymi.
-- Optymalny dobór technologii: Możliwość wyboru najbardziej odpowiedniego typu bazy danych (SQL, NoSQL) dla konkretnego
+- **Optymalny dobór technologii** - Możliwość wyboru najbardziej odpowiedniego typu bazy danych (SQL, NoSQL) dla
+  konkretnego
   mikroserwisu.
-- Skalowalność: Niezależne bazy danych pozwalają na skalowanie poszczególnych mikroserwisów zgodnie z ich wymaganiami.
-
+- **Skalowalność** - Niezależne bazy danych pozwalają na skalowanie poszczególnych mikroserwisów zgodnie z ich
+  wymaganiami.
 
 | **Zaleta**                      | **Opis**                                                                                               |
 |---------------------------------|--------------------------------------------------------------------------------------------------------|
@@ -418,7 +414,6 @@ zarządzanie danymi.
 | **Izolacja danych**             | Brak współdzielenia bazy danych zwiększa bezpieczeństwo i ułatwia zarządzanie danymi.                  |
 | **Optymalny dobór technologii** | Możliwość wyboru najbardziej odpowiedniego typu bazy danych (SQL, NoSQL) dla konkretnego mikroserwisu. |
 | **Skalowalność**                | Niezależne bazy danych pozwalają na skalowanie poszczególnych mikroserwisów zgodnie z ich wymaganiami. |
-
 
 | **Wada**                            | **Opis**                                                                                                            |
 |-------------------------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -431,25 +426,25 @@ pełną autonomię, bezpieczeństwo oraz optymalny dobór technologii dla poszcz
 
 ### Amazon S3 Bucket
 
-**Zagadnienie:** Amazon S3 (Simple Storage Service) to usługa przechowywania obiektów, która pozwala na łatwe przechowywanie
+**Zagadnienie:** Amazon S3 (Simple Storage Service) to usługa przechowywania obiektów, która pozwala na łatwe
+przechowywanie
 i odzyskiwanie dowolnych ilości danych z dowolnego miejsca w Internecie. Problem pojawia się, gdy aplikacje potrzebują
 przechowywać duże pliki, takie jak obrazy, filmy, pliki tekstowe czy pliki dzienników w sposób bezpieczny, skalowalny i
 dostępny z wielu różnych lokalizacji. Rozwiązaniem jest użycie usługi S3 w celu zarządzania przechowywaniem danych w
 sposób bardziej elastyczny i wydajny.
 
 **Rozwiązanie:** Amazon S3 Bucket pozwala na tworzenie "wiader" (buckets), w których przechowywane są dane. Dzięki
-wysokiej
-dostępności, skalowalności, bezpieczeństwu i integracji z innymi usługami AWS, S3 stało się podstawowym rozwiązaniem do
-przechowywania danych w chmurze. Zaletą jest również możliwość ustawiania polityk dostępu, integracja z AWS Lambda oraz
+wysokiej dostępności, skalowalności, bezpieczeństwu i integracji z innymi usługami AWS, S3 stało się podstawowym
+rozwiązaniem do przechowywania danych w chmurze. Zaletą jest również możliwość ustawiania polityk dostępu, integracja z
+AWS Lambda oraz
 łatwa integracja z systemami zewnętrznymi.
 
 **Kluczowe cechy:**
 
-- Skalowalność: Amazon S3 jest wysoce skalowalne i może pomieścić dowolną ilość danych.
-- Bezpieczeństwo: S3 zapewnia zaawansowane mechanizmy ochrony danych, takie jak szyfrowanie oraz kontrola dostępu.
-- Dostępność: S3 zapewnia wyjątkową dostępność danych dzięki rozproszeniu danych w wielu centrach danych.
-- Integracja: S3 dobrze współpracuje z innymi usługami AWS, takimi jak Lambda, CloudFront, Glacier.
-
+- **Skalowalność** - Amazon S3 jest wysoce skalowalne i może pomieścić dowolną ilość danych.
+- **Bezpieczeństwo** - S3 zapewnia zaawansowane mechanizmy ochrony danych, takie jak szyfrowanie oraz kontrola dostępu.
+- **Dostępność** - S3 zapewnia wyjątkową dostępność danych dzięki rozproszeniu danych w wielu centrach danych.
+- **Integracja** - S3 dobrze współpracuje z innymi usługami AWS, takimi jak Lambda, CloudFront, Glacier.
 
 | **Zaleta**               | **Opis**                                                                                                        |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -458,7 +453,6 @@ przechowywania danych w chmurze. Zaletą jest również możliwość ustawiania 
 | **Wysoka dostępność**    | Dane przechowywane w S3 są automatycznie replikowane w wielu regionach, zapewniając wysoką dostępność.          |
 | **Prostota użytkowania** | Łatwe w użyciu API oraz interfejs użytkownika do zarządzania danymi.                                            |
 | **Niskie koszty**        | Płacisz tylko za przechowywaną ilość danych i liczbę operacji, co pozwala na optymalizację kosztów.             |
-
 
 | **Wada**                                        | **Opis**                                                                                                                                   |
 |-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -471,14 +465,16 @@ względu na jego wysoką dostępność, łatwość integracji oraz skalowalnoś�
 
 ### NAT Gateway
 
-**Zagadnienie:** W architekturach chmurowych często pojawia się potrzeba udostępniania instancji w prywatnych podsieciach
+**Zagadnienie:** W architekturach chmurowych często pojawia się potrzeba udostępniania instancji w prywatnych
+podsieciach
 dostępu do Internetu, bez konieczności bezpośredniego narażania tych instancji na dostęp z sieci publicznej. To wyzwanie
 rozwiązuje NAT Gateway. NAT (Network Address Translation) pozwala na przekierowanie ruchu wychodzącego z prywatnych
 instancji do Internetu, ale uniemożliwia dostęp do tych instancji z zewnątrz. Jest to szczególnie istotne w przypadku,
 gdy chcemy zapewnić bezpieczeństwo, izolując zasoby od publicznego Internetu, ale nadal umożliwiając im pobieranie
 aktualizacji, pakietów lub innych zasobów online.
 
-**Rozwiązanie:** NAT Gateway to zarządzana usługa AWS, która pozwala na łatwe konfiguracje trasowania i translacji adresów
+**Rozwiązanie:** NAT Gateway to zarządzana usługa AWS, która pozwala na łatwe konfiguracje trasowania i translacji
+adresów
 IP w chmurze. W konfiguracji, instancje w prywatnej podsieci mogą komunikować się z Internetem za pomocą NAT Gateway
 umieszczonego w publicznej podsieci. NAT Gateway obsługuje automatyczne skalowanie, co zapewnia wysoką dostępność i
 niezawodność. Dzięki tej usłudze można utrzymać instancje w prywatnej podsieci w pełni zabezpieczone, a jednocześnie
@@ -486,13 +482,12 @@ umożliwić im dostęp do zasobów zewnętrznych.
 
 **Kluczowe cechy:**
 
-- Bezpieczeństwo: NAT Gateway zapewnia bezpieczeństwo, ponieważ nie pozwala na dostęp z Internetu do instancji w
+- **Bezpieczeństwo** - NAT Gateway zapewnia bezpieczeństwo, ponieważ nie pozwala na dostęp z Internetu do instancji w
   prywatnej podsieci.
-- Skalowalność: Automatyczne skalowanie w odpowiedzi na wzrost obciążenia.
-- Wysoka dostępność: Dostępność przez cały czas z automatycznym failoverem.
-- Łatwość integracji: Łatwe w konfiguracji w ramach architektury AWS, szczególnie w przypadku VPC (Virtual Private
+- **Skalowalność** - Automatyczne skalowanie w odpowiedzi na wzrost obciążenia.
+- **Wysoka dostępność** - Dostępność przez cały czas z automatycznym failoverem.
+- **Łatwość integracji** - Łatwe w konfiguracji w ramach architektury AWS, szczególnie w przypadku VPC (Virtual Private
   Cloud).
-
 
 | **Zaleta**                  | **Opis**                                                                                                                                    |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -501,7 +496,6 @@ umożliwić im dostęp do zasobów zewnętrznych.
 | **Prostota zarządzania**    | Natychmiastowa konfiguracja i minimalne wymagania dotyczące zarządzania w porównaniu do tradycyjnych rozwiązań NAT.                         |
 | **Wysoka dostępność**       | NAT Gateway jest zarządzany przez AWS, co zapewnia wysoką dostępność i niezawodność bez konieczności zarządzania infrastrukturą.            |
 | **Bez dodatkowych zasobów** | Nat Gateway nie wymaga użycia dodatkowych instancji EC2 do obsługi NAT, co obniża koszty operacyjne.                                        |
-
 
 | **Wada**                                    | **Opis**                                                                                                                                               |
 |---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -516,8 +510,7 @@ skalowaniu i wysokiej dostępności NAT Gateway stanowi solidne, bezpieczne rozw
 ### Amazon Lambda
 
 **Zagadnienie:** W tradycyjnych systemach aplikacyjnych zasoby obliczeniowe (serwery, maszyny wirtualne) są zarządzane
-przez
-użytkownika, co wiąże się z koniecznością ich skalowania, monitorowania oraz zarządzania stanem. W związku z tym,
+przez użytkownika, co wiąże się z koniecznością ich skalowania, monitorowania oraz zarządzania stanem. W związku z tym,
 tworzenie i zarządzanie skalowalnymi aplikacjami może być czasochłonne i kosztowne. Potrzebna jest technologia, która
 umożliwi uruchamianie kodu w sposób serverless (bez potrzeby zarządzania serwerami) i która automatycznie dostosowuje
 zasoby w zależności od zapotrzebowania.
@@ -531,14 +524,16 @@ co pozwala na optymalizację kosztów.
 
 **Kluczowe cechy:**
 
-- Brak zarządzania serwerami: AWS zarządza całą infrastrukturą, co eliminuje konieczność skalowania, monitorowania i
+- **Brak zarządzania serwerami** - AWS zarządza całą infrastrukturą, co eliminuje konieczność skalowania, monitorowania
+  i
   konserwacji serwerów.
-- Skalowalność: Funkcje Lambda automatycznie skalują się w zależności od liczby wywołań, co umożliwia elastyczność.
-- Model płatności "pay-as-you-go": Płacisz tylko za czas, w którym kod jest wykonywany, bez konieczności utrzymywania
+- **Skalowalność** - Funkcje Lambda automatycznie skalują się w zależności od liczby wywołań, co umożliwia elastyczność.
+- **Model płatności "pay-as-you-go"** - Płacisz tylko za czas, w którym kod jest wykonywany, bez konieczności
+  utrzymywania
   stałej infrastruktury.
-- Integracja z innymi usługami AWS: Lambda może być wywoływana przez różne usługi, takie jak Amazon S3, DynamoDB, API
+- **Integracja z innymi usługami AWS** - Lambda może być wywoływana przez różne usługi, takie jak Amazon S3, DynamoDB,
+  API
   Gateway, SNS i inne.
-
 
 | **Zaleta**                                   | **Opis**                                                                                                                            |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -547,7 +542,6 @@ co pozwala na optymalizację kosztów.
 | **Płatności za rzeczywiste użycie**          | Model płatności oparty na czasie wykonywania kodu sprawia, że opłaty są precyzyjnie dopasowane do faktycznego zużycia.              |
 | **Integracja z szerokim zakresem usług AWS** | Lambda łatwo integruje się z innymi usługami AWS, co ułatwia tworzenie rozproszonych aplikacji i mikroserwisów.                     |
 | **Szeroki zakres zastosowań**                | Może być używana do przetwarzania plików, przetwarzania danych w czasie rzeczywistym, obsługi API i wielu innych scenariuszy.       |
-
 
 | **Wada**                              | **Opis**                                                                                                                                                               |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -571,8 +565,8 @@ który umożliwi komunikację między prywatnymi zasobami w chmurze a światem z
 nad bezpieczeństwem i dostępem.
 
 **Rozwiązanie:** Internet Gateway w Amazon Web Services (AWS) jest usługą, która umożliwia instancjom wirtualnym (np.
-EC2)
-znajdującym się w prywatnej sieci VPC (Virtual Private Cloud) łączenie się z Internetem. Jest to most, który pozwala na
+EC2) znajdującym się w prywatnej sieci VPC (Virtual Private Cloud) łączenie się z Internetem. Jest to most, który
+pozwala na
 przesyłanie danych między zasobami wewnętrznymi w chmurze a zasobami zewnętrznymi w Internecie.
 Internet Gateway zapewnia dostęp do internetu zarówno dla instancji w publicznych podsieciach, jak i dla instancji w
 prywatnych podsieciach z odpowiednimi regułami routingowymi. Dodatkowo zapewnia odpowiednie mechanizmy bezpieczeństwa,
@@ -581,15 +575,15 @@ chronić zasoby wewnętrzne.
 
 **Kluczowe cechy:**
 
-- Bezpośredni dostęp do Internetu: Dzięki Internet Gateway, zasoby w VPC mogą komunikować się z zasobami zewnętrznymi w
+- **Bezpośredni dostęp do Internetu** - Dzięki Internet Gateway, zasoby w VPC mogą komunikować się z zasobami
+  zewnętrznymi w
   Internecie.
-- Bezpieczeństwo i kontrola: Możliwość ustawienia reguł bezpieczeństwa, takich jak grupy zabezpieczeń i ACL (Access
+- **Bezpieczeństwo i kontrola** - Możliwość ustawienia reguł bezpieczeństwa, takich jak grupy zabezpieczeń i ACL (Access
   Control List), które kontrolują dostęp do zasobów w sieci.
-- Wsparcie dla NAT: Internet Gateway umożliwia przekierowanie ruchu NAT w celu zapewnienia wychodzącej komunikacji z
-  prywatnych podsieci.
-- Brak kosztów: Korzystanie z Internet Gateway w AWS jest bezpłatne – opłaty naliczane są za dane przesyłane przez
+- **Wsparcie dla NAT** - Internet Gateway umożliwia przekierowanie ruchu NAT w celu zapewnienia wychodzącej komunikacji
+  z prywatnych podsieci.
+- **Brak kosztów** - Korzystanie z Internet Gateway w AWS jest bezpłatne – opłaty naliczane są za dane przesyłane przez
   Internet.
-
 
 | **Zaleta**                         | **Opis**                                                                                                                                |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -598,7 +592,6 @@ chronić zasoby wewnętrzne.
 | **Skalowalność**                   | Automatycznie skalowalny komponent, który dostosowuje się do zmieniającego się ruchu w sieci.                                           |
 | **Brak kosztów**                   | Internet Gateway nie wiąże się z dodatkowymi opłatami za użycie samej usługi – płacisz tylko za dane przesyłane przez Internet.         |
 | **Integracja z NAT Gateway**       | Dzięki integracji z NAT Gateway, zasoby w prywatnych podsieciach mogą nawiązywać połączenia wychodzące z Internetem.                    |
-
 
 | **Wada**                                   | **Opis**                                                                                                                                                  |
 |--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -629,15 +622,16 @@ skalowanie aplikacji i niezależność od stanu serwera.
 
 **Kluczowe cechy:**
 
-- Bezstanowość: Nie ma potrzeby przechowywania sesji po stronie serwera, co znacząco poprawia skalowalność aplikacji.
-- Szybkość: JWT jest samodzielnym tokenem zawierającym wszystkie potrzebne dane, co eliminuje konieczność przechowywania
+- **Bezstanowość** - Nie ma potrzeby przechowywania sesji po stronie serwera, co znacząco poprawia skalowalność
+  aplikacji.
+- **Szybkość** - JWT jest samodzielnym tokenem zawierającym wszystkie potrzebne dane, co eliminuje konieczność
+  przechowywania
   sesji i zapytań do bazy danych.
-- Łatwa integracja: JWT jest zgodny z wieloma technologiami i łatwy do integracji z aplikacjami opartymi na
+- **Łatwa integracja** - JWT jest zgodny z wieloma technologiami i łatwy do integracji z aplikacjami opartymi na
   mikroserwisach.
-- Bezpieczeństwo: JWT używa podpisów cyfrowych, co zapewnia integralność danych i ochronę przed ich manipulowaniem.
-- Szerokie wsparcie: JWT jest szeroko wspierane w popularnych frameworkach i bibliotekach, co umożliwia łatwą
+- **Bezpieczeństwo** - JWT używa podpisów cyfrowych, co zapewnia integralność danych i ochronę przed ich manipulowaniem.
+- **Szerokie wsparcie** - JWT jest szeroko wspierane w popularnych frameworkach i bibliotekach, co umożliwia łatwą
   implementację w wielu językach programowania.
-
 
 | **Zaleta**                                  | **Opis**                                                                                             |
 |---------------------------------------------|------------------------------------------------------------------------------------------------------|
@@ -646,7 +640,6 @@ skalowanie aplikacji i niezależność od stanu serwera.
 | **Elastyczność**                            | JWT jest stosunkowo prosty w implementacji i wspierany przez większość popularnych frameworków.      |
 | **Szerokie wsparcie dla różnych środowisk** | JWT jest wspierane przez szeroką gamę platform i technologii, w tym systemy chmurowe i mikroserwisy. |
 | **Skalowalność**                            | Umożliwia rozproszone zarządzanie autoryzacją, co jest kluczowe w aplikacjach mikroserwisowych.      |
-
 
 | **Wada**                                       | **Opis**                                                                                                                    |
 |------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
@@ -670,26 +663,27 @@ infrastrukturą bazy danych, jej dostępnością, wydajnością oraz skalowalno�
 aktualizacjami, kopiami zapasowymi oraz monitorowaniem wydajności.
 
 **Rozwiązanie:** Amazon RDS (Relational Database Service) jest zarządzanym rozwiązaniem bazy danych oferowanym przez
-AWS,
-które umożliwia łatwe wdrażanie, zarządzanie i skalowanie relacyjnych baz danych w chmurze. RDS obsługuje różne silniki
-bazodanowe, takie jak MySQL, PostgreSQL, MariaDB, Oracle i Microsoft SQL Server. Dzięki RDS, wszystkie zadania związane
-z zarządzaniem bazą danych (np. automatyczne tworzenie kopii zapasowych, monitorowanie, łatwe skalowanie, automatyczne
-aktualizacje) są zautomatyzowane, co pozwala deweloperom skoncentrować się na tworzeniu aplikacji zamiast na zarządzaniu
-infrastrukturą.
+AWS, które umożliwia łatwe wdrażanie, zarządzanie i skalowanie relacyjnych baz danych w chmurze. RDS obsługuje różne
+silniki bazodanowe, takie jak MySQL, PostgreSQL, MariaDB, Oracle i Microsoft SQL Server. Dzięki RDS, wszystkie zadania
+związane z zarządzaniem bazą danych (np. automatyczne tworzenie kopii zapasowych, monitorowanie, łatwe skalowanie,
+automatyczne aktualizacje) są zautomatyzowane, co pozwala deweloperom skoncentrować się na tworzeniu aplikacji zamiast
+na zarządzaniu infrastrukturą.
 
 **Kluczowe cechy:**
 
-- Zarządzana infrastruktura: Amazon RDS obsługuje wszystkie aspekty zarządzania bazą danych, takie jak tworzenie kopii
+- **Zarządzana infrastruktura** - Amazon RDS obsługuje wszystkie aspekty zarządzania bazą danych, takie jak tworzenie
+  kopii
   zapasowych, aktualizacje i monitorowanie, co upraszcza administrację bazą danych.
-- Wysoka dostępność: RDS oferuje opcje replikacji i automatycznego przełączania awaryjnego (failover), zapewniając
+- **Wysoka dostępność** - RDS oferuje opcje replikacji i automatycznego przełączania awaryjnego (failover), zapewniając
   wysoki poziom dostępności i odporności na awarie.
-- Skalowalność: Możliwość łatwego skalowania instancji bazy danych w górę lub w dół, w zależności od wymagań aplikacji,
+- **Skalowalność** - Możliwość łatwego skalowania instancji bazy danych w górę lub w dół, w zależności od wymagań
+  aplikacji,
   bez konieczności przestojów.
-- Bezpieczeństwo: Amazon RDS zapewnia szyfrowanie danych w spoczynku i w trakcie przesyłania, kontrolę dostępu za pomocą
+- **Bezpieczeństwo** - Amazon RDS zapewnia szyfrowanie danych w spoczynku i w trakcie przesyłania, kontrolę dostępu za
+  pomocą
   AWS IAM, a także integrację z usługami monitorowania i audytu.
-- Zintegrowane z AWS: RDS jest w pełni zintegrowane z innymi usługami AWS, takimi jak Amazon EC2, Amazon S3 czy AWS
+- **Zintegrowane z AWS** - RDS jest w pełni zintegrowane z innymi usługami AWS, takimi jak Amazon EC2, Amazon S3 czy AWS
   Lambda, co ułatwia tworzenie złożonych aplikacji chmurowych.
-
 
 | **Zaleta**                       | **Opis**                                                                                                                                  |
 |----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
@@ -698,7 +692,6 @@ infrastrukturą.
 | **Łatwa skalowalność**           | Możliwość łatwego skalowania mocy obliczeniowej, pamięci RAM oraz przestrzeni dyskowej bez przestojów w działaniu aplikacji.              |
 | **Bezpieczeństwo**               | RDS zapewnia szyfrowanie danych zarówno w spoczynku, jak i w trakcie przesyłania, oraz możliwość stosowania własnych kluczy szyfrujących. |
 | **Integracja z ekosystemem AWS** | Amazon RDS jest w pełni zintegrowane z innymi usługami AWS, takimi jak EC2, S3 i CloudWatch, co ułatwia tworzenie aplikacji chmurowych.   |
-
 
 | **Wada**                                        | **Opis**                                                                                                                                        |
 |-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -729,16 +722,17 @@ własnym systemem logowania.
 
 **Kluczowe cechy:**
 
-- Zarządzanie użytkownikami: Amazon Cognito obsługuje rejestrację, logowanie, resetowanie haseł oraz zarządzanie
+- **Zarządzanie użytkownikami** - Amazon Cognito obsługuje rejestrację, logowanie, resetowanie haseł oraz zarządzanie
   profilami użytkowników.
-- Integracja z tożsamościami zewnętrznymi: Możliwość łatwego integracji z popularnymi systemami logowania, takimi jak
+- **Integracja z tożsamościami zewnętrznymi** - Możliwość łatwego integracji z popularnymi systemami logowania, takimi
+  jak
   Google, Facebook czy Apple.
-- Skalowalność: Cognito obsługuje miliony użytkowników, umożliwiając łatwą skalowalność w miarę rozwoju aplikacji.
-- Bezpieczeństwo: Usługa oferuje szyfrowanie danych, obsługę multi-factor authentication (MFA), integrację z AWS IAM
+- **Skalowalność** - Cognito obsługuje miliony użytkowników, umożliwiając łatwą skalowalność w miarę rozwoju aplikacji.
+- **Bezpieczeństwo** - Usługa oferuje szyfrowanie danych, obsługę multi-factor authentication (MFA), integrację z AWS
+  IAM
   oraz zgodność z regulacjami, takimi jak RODO.
-- Autoryzacja i kontrola dostępu: Integracja z Amazon API Gateway, AWS Lambda oraz innymi usługami AWS umożliwia
+- **Autoryzacja i kontrola dostępu** - Integracja z Amazon API Gateway, AWS Lambda oraz innymi usługami AWS umożliwia
   zarządzanie dostępem do zasobów na poziomie aplikacji.
-
 
 | **Zaleta**                                  | **Opis**                                                                                                                                                         |
 |---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -747,7 +741,6 @@ własnym systemem logowania.
 | **Skalowalność**                            | Usługa jest skalowalna i może obsługiwać miliony użytkowników, co czyni ją odpowiednią dla aplikacji o dużym zasięgu.                                            |
 | **Bezpieczeństwo**                          | Amazon Cognito oferuje wbudowane mechanizmy bezpieczeństwa, takie jak szyfrowanie, MFA, kontrola dostępu oraz zgodność z przepisami ochrony danych osobowych.    |
 | **Współpraca z innymi usługami AWS**        | Cognito bezproblemowo integruje się z innymi usługami AWS, takimi jak API Gateway, Lambda, S3 czy DynamoDB, co pozwala na łatwe rozszerzanie aplikacji.          |
-
 
 | **Wada**                                                        | **Opis**                                                                                                                                                |
 |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -771,22 +764,20 @@ zewnętrznymi systemami.
 
 **Kluczowe cechy:**
 
-- **Separacja odpowiedzialności** Dzięki wyraźnemu podziałowi na domenę (Core Domain), porty i adaptery, kod biznesowy
+- **Separacja odpowiedzialności** - Dzięki wyraźnemu podziałowi na domenę (Core Domain), porty i adaptery, kod biznesowy
   jest
   niezależny od implementacji technicznych, co ułatwia rozwój i utrzymanie systemu.
 
-- **Łatwość testowania** Logika biznesowa w modelu Core Domain jest niezależna od infrastruktury, co pozwala testować
-  ją w
-  izolacji. Adaptery i szczegóły techniczne można mockować w testach jednostkowych.
+- **Łatwość testowania** - Logika biznesowa w modelu Core Domain jest niezależna od infrastruktury, co pozwala testować
+  ją w izolacji. Adaptery i szczegóły techniczne można mockować w testach jednostkowych.
 
-- **Elastyczność technologiczna** Możliwość łatwej wymiany adapterów, np. zmiana systemu bazodanowego czy frameworka
+- **Elastyczność technologiczna** - Możliwość łatwej wymiany adapterów, np. zmiana systemu bazodanowego czy frameworka
   interfejsu użytkownika, bez wpływu na logikę domenową.
 
-- **Zgodność z Domain-Driven Design (DDD)** Architektura heksagonalna naturalnie wspiera modelowanie domeny i
+- **Zgodność z Domain-Driven Design (DDD)** - Architektura heksagonalna naturalnie wspiera modelowanie domeny i
   realizację
   jej logiki, co jest kluczowe w podejściu DDD. Pozwala to na utrzymanie wysokiej jakości kodu i koncentrację na
   kluczowych regułach biznesowych.
-
 
 | **Zaleta**                               | **Opis**                                                                                                         |
 |------------------------------------------|------------------------------------------------------------------------------------------------------------------|
@@ -795,7 +786,6 @@ zewnętrznymi systemami.
 | **Łatwość integracji**                   | Dzięki portom i adapterom integracja z systemami zewnętrznymi jest uporządkowana i modularna.                    |
 | **Czystość kodu domenowego**             | Logika biznesowa nie jest zanieczyszczona szczegółami technicznymi, co zwiększa czytelność i zrozumiałość kodu.  |
 | **Wspieranie wielokrotnego użycia kodu** | Logika domenowa może być używana w różnych kontekstach (np. aplikacje mobilne, webowe, API) bez duplikacji kodu. |
-
 
 | **Wady**                                 | **Opis**                                                                                                                                                  |
 |------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -818,14 +808,13 @@ charakter architektury warstwowej.
 **Kluczowe cechy:**
 
 - **Podział na warstwy**
-	- Warstwa prezentacji (ang. Presentation Layer): odpowiada za interakcję z użytkownikiem.
-	- Warstwa aplikacyjna (ang. Application/Service Layer): zawiera logikę biznesową.
-	- Warstwa dostępu do danych (ang. Data Access Layer): obsługuje operacje na bazie danych.
-	- Warstwa danych (ang. Data Layer): przechowuje dane.
+	- **Warstwa prezentacji** (ang. Presentation Layer) - odpowiada za interakcję z użytkownikiem
+	- **Warstwa aplikacyjna** (ang. Application/Service Layer) - zawiera logikę biznesową
+	- **Warstwa dostępu do danych** (ang. Data Access Layer) - obsługuje operacje na bazie danych.
+	- **Warstwa danych** (ang. Data Layer) - przechowuje dane
 - **Izolacja** Każda warstwa ma jasno określone zadania i odpowiedzialności, co ułatwia zarządzanie kodem.
 - **Interfejsy komunikacji** Warstwy komunikują się ze sobą poprzez dobrze zdefiniowane interfejsy, co ogranicza
-  zależności między komponentami.
-
+  zależności między komponentami
 
 | **Zaleta**                     | **Opis**                                                                                                                           |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
@@ -833,7 +822,6 @@ charakter architektury warstwowej.
 | **Przewidywalność**            | Struktura kodu jest łatwa do zrozumienia, nawet dla nowych członków zespołu.                                                       |
 | **Wielokrotne użycie**         | Logikę biznesową i warstwę dostępu do danych można wielokrotnie wykorzystywać w różnych częściach aplikacji lub innych projektach. |
 | **Izolacja logiki biznesowej** | Logika biznesowa jest oddzielona od szczegółów implementacji interfejsu użytkownika czy bazy danych.                               |
-
 
 | **Wady**                                         | **Opis**                                                                  |
 |--------------------------------------------------|---------------------------------------------------------------------------|
