@@ -89,13 +89,13 @@ wpływają na jego implementację.
 
 ### Wdrożenie w chmurze AWS
 
-Zagadnienie: Wybór infrastruktury wdrożeniowej stanowi strategiczne wyzwanie, które wpływa na późniejszą wydajność i
+**Zagadnienie:** Wybór infrastruktury wdrożeniowej stanowi strategiczne wyzwanie, które wpływa na późniejszą wydajność i
 elastyczność systemu. Kluczowe są tutaj takie kwestie, jak skalowalność, optymalizacja kosztów oraz zdolność do
 adaptacji wobec zmieniających się wymagań biznesowych. Tradycyjna infrastruktura lokalna (on-premise) często ogranicza
 możliwości szybkiej reakcji na te zmiany, co rodzi potrzebę poszukiwania bardziej elastycznych rozwiązań, takich jak
 infrastruktura chmurowa.
 
-Rozwiązanie: W ramach projektu postanowiono wykorzystać chmurę Amazon Web Services (AWS) jako podstawową platformę
+**Rozwiązanie:** W ramach projektu postanowiono wykorzystać chmurę Amazon Web Services (AWS) jako podstawową platformę
 wdrożeniową. Decyzja ta opierała się na analizie kluczowych wymagań projektu, takich jak szybka dostępność zasobów,
 globalny zasięg, a także wiele usług umożliwiających zaawansowaną personalizację infrastruktury.
 AWS pozwala na elastyczne zarządzanie zasobami w oparciu o model „pay-as-you-go”. Dzięki temu unika się kosztów
@@ -123,7 +123,7 @@ Różnice między podejściami wdrożeniowymi:
 | `Microsoft Azure`           | - Doskonała integracja z ekosystemem Microsoft (np. Active Directory, Office 365)<br>- Wsparcie dla hybrydowej infrastruktury<br>- Szerokie możliwości PaaS<br>- Popularność w środowiskach korporacyjnych      | - Mniejszy wybór usług w porównaniu z AWS<br>- Mniejsza liczba globalnych centrów danych<br>- Koszty licencji Microsoft mogą zwiększać wydatki                          |
 | `Google Cloud (GCP)`        | - Lider w zakresie big data i uczenia maszynowego (BigQuery, TensorFlow)<br>- 100% infrastruktury zasilanej odnawialną energią<br>- Najlepsze wsparcie dla Kubernetes<br>- Wysoka jakość narzędzi analitycznych | - Mniejszy zasięg globalny niż AWS i Azure<br>- Skupienie na big data, co może ograniczać przydatność w innych środowiskach<br>- Mniej popularny na rynku korporacyjnym |
 
-Kluczowe cechy AWS:
+**Kluczowe cechy:**
 AWS oferuje setki usług, takich jak przechowywanie danych (Amazon S3), maszyny wirtualne (EC2), systemy bazodanowe (RDS)
 oraz narzędzia do analizy danych. Dodatkowo, platforma wyróżnia się:
 
@@ -195,8 +195,6 @@ Rodzaje kolejek w SQS
 - Gwarantuje dokładnie jednokrotne dostarczenie wiadomości.
 - Odpowiednie dla aplikacji wymagających ścisłej kontroli kolejności.
 
-#### Zalety Amazon Simple Queue Service (SQS)
-
 | **Zaleta**                          | **Opis**                                                                                           |
 |-------------------------------------|----------------------------------------------------------------------------------------------------|
 | **Brak zarządzania infrastrukturą** | SQS jest w pełni zarządzaną usługą, co eliminuje konieczność obsługi serwerów.                     |
@@ -206,7 +204,6 @@ Rodzaje kolejek w SQS
 | **Niezawodność**                    | Dane są przechowywane na wielu serwerach w centrach danych AWS, co minimalizuje ryzyko ich utraty. |
 | **Integracja**                      | Działa bezproblemowo z innymi usługami AWS, np. Lambda, EC2 czy SNS.                               |
 
-#### Wady Amazon Simple Queue Service (SQS)
 
 | **Wada**                                 | **Opis**                                                                                           |
 |------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -234,9 +231,8 @@ wiadomości pomiędzy różnymi systemami i usługami.
 - **Bezpieczeństwo:** obsługuje mechanizmy uwierzytelniania i autoryzacji przy użyciu IAM.
 - **Monitorowanie:** integracja z Amazon CloudWatch umożliwia monitorowanie wydajności i stanu usługi.
 
-### Zalety
 
-| Zalety                               | Opis                                                               |
+| Zaleta                               | Opis                                                               |
 |--------------------------------------|--------------------------------------------------------------------|
 | **Szybkość i niezawodność**          | Zapewnia szybkie dostarczanie wiadomości do subskrybentów.         |
 | **Łatwość integracji**               | Integracja z wieloma usługami AWS, jak Lambda czy SQS.             |
@@ -244,9 +240,8 @@ wiadomości pomiędzy różnymi systemami i usługami.
 | **Wysoka dostępność i skalowalność** | Automatyczne skalowanie w zależności od obciążenia.                |
 | **Monitorowanie i bezpieczeństwo**   | Obsługa CloudWatch i mechanizmów IAM dla bezpieczeństwa.           |
 
-### Wady
 
-| Wady                              | Opis                                                                |
+| Wada                              | Opis                                                                |
 |-----------------------------------|---------------------------------------------------------------------|
 | **Brak mechanizmu kolejkowania**  | Nie przechowuje wiadomości, jeśli subskrybent nie jest dostępny.    |
 | **Ograniczenia kosztowe**         | Może generować wysokie koszty przy dużej liczbie wiadomości.        |
@@ -281,7 +276,6 @@ systemu.
 - Skalowalność: Możliwość skalowania każdego mikroserwisu niezależnie w odpowiedzi na zmieniające się potrzeby.
 - Zarządzanie awariami: W przypadku awarii jednego mikroserwisu reszta systemu nie musi przestawać działać.
 
-#### Zalety architektury mikroserwisowej
 
 | **Zaleta**                                  | **Opis**                                                                                                  |
 |---------------------------------------------|-----------------------------------------------------------------------------------------------------------|
@@ -291,7 +285,6 @@ systemu.
 | **Zwiększona niezawodność**                 | Awaria jednego mikroserwisu nie powoduje awarii całego systemu.                                           |
 | **Szybszy rozwój i czas reakcji na zmiany** | Zespoły mogą pracować nad różnymi mikroserwisami równolegle, co skraca czas implementacji nowych funkcji. |
 
-#### Wady architektury mikroserwisowej
 
 | **Wada**                                       | **Opis**                                                                                                    |
 |------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
@@ -305,14 +298,13 @@ systemu.
 aplikacją, a także umożliwić skalowanie jej poszczególnych elementów. Dzięki rozdzieleniu odpowiedzialności na mniejsze,
 niezależne serwisy, aplikacja jest bardziej odporna na awarie i łatwiejsza w rozwoju.
 
-### Wzorzec API Gateway
 
-Zagadnienie: W dużych systemach rozproszonych, szczególnie w architekturze mikroserwisowej, zarządzanie komunikacją
+**Zagadnienie:** W dużych systemach rozproszonych, szczególnie w architekturze mikroserwisowej, zarządzanie komunikacją
 między wieloma serwisami może stać się trudne. Każdy mikroserwis może mieć różne interfejsy API, co prowadzi do
 złożoności w obsłudze połączeń, uwierzytelniania, monitorowania i zarządzania ruchem. Brak centralnego punktu kontroli w
 systemie powoduje konieczność replikowania tych funkcji w każdym mikroserwisie, co jest nieefektywne.
 
-Rozwiązanie: Wzorzec API Gateway to podejście, w którym cała komunikacja między klientami a mikroserwisami przechodzi
+**Rozwiązanie:** Wzorzec API Gateway to podejście, w którym cała komunikacja między klientami a mikroserwisami przechodzi
 przez jeden centralny punkt, który pełni funkcje proxy. API Gateway odpowiada za przekazywanie zapytań do odpowiednich
 serwisów, zarządzanie bezpieczeństwem, logowaniem, monitorowaniem oraz transformacją danych. Może także oferować
 mechanizmy cache'owania, load balancing czy throttlingu.
@@ -330,8 +322,6 @@ mechanizmy cache'owania, load balancing czy throttlingu.
 - Modyfikacja danych: API Gateway może również transformować dane przed ich wysłaniem do mikroserwisów lub przed
   przekazaniem odpowiedzi do klienta.
 
-#### Zalety wzorca API Gateway
-
 | **Zaleta**                           | **Opis**                                                                                    |
 |--------------------------------------|---------------------------------------------------------------------------------------------|
 | **Centralizacja zarządzania**        | API Gateway centralizuje komunikację i kontrolę nad ruchem do wszystkich mikroserwisów.     |
@@ -340,7 +330,6 @@ mechanizmy cache'owania, load balancing czy throttlingu.
 | **Łatwiejsze monitorowanie**         | Łatwiejsze zbieranie logów, metryk i monitorowanie ruchu w jednym miejscu.                  |
 | **Optymalizacja wydajności**         | API Gateway może implementować cache'owanie, co zmniejsza liczbę zapytań do mikroserwisów.  |
 
-#### Wady wzorca API Gateway
 
 | **Wada**                    | **Opis**                                                                                                                       |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------|
@@ -355,13 +344,13 @@ mikroserwisami, zapewniając centralne zarządzanie ruchem, bezpieczeństwem ora
 
 ### Sieć wewnętrzna VPC
 
-Zagadnienie: W tradycyjnych infrastrukturach IT, sieć wewnętrzna jest zarządzana w obrębie firmy, gdzie wszystkie
+**Zagadnienie:** W tradycyjnych infrastrukturach IT, sieć wewnętrzna jest zarządzana w obrębie firmy, gdzie wszystkie
 urządzenia są połączone w obrębie jednej sieci lokalnej (LAN). W przypadku rozwiązań chmurowych, gdzie zasoby są
 rozproszone geograficznie i mogą być zarządzane przez różne podmioty, zarządzanie siecią wewnętrzną staje się wyzwaniem.
 Wymaga to zapewnienia bezpiecznej, izolowanej sieci, która pozwala na komunikację między usługami w chmurze, zapewniając
 jednocześnie ochronę przed nieautoryzowanym dostępem z zewnątrz.
 
-Rozwiązanie: VPC (Virtual Private Cloud) to rozwiązanie oferowane przez dostawców chmurowych, które pozwala na tworzenie
+**Rozwiązanie:** VPC (Virtual Private Cloud) to rozwiązanie oferowane przez dostawców chmurowych, które pozwala na tworzenie
 prywatnych sieci w chmurze. VPC umożliwia pełną kontrolę nad tym, jak są połączone zasoby w chmurze, jakie mają adresy
 IP, jakie usługi są dostępne, oraz jak wygląda komunikacja z innymi sieciami (np. z Internetem). VPC zapewnia izolację
 od innych klientów chmury oraz możliwość konfiguracji zaawansowanych mechanizmów zabezpieczeń, takich jak firewalle,
@@ -378,7 +367,6 @@ subnets, czy VPN.
 - Integracja z innymi usługami chmurowymi: VPC umożliwia łatwą integrację z innymi usługami chmurowymi, takimi jak bazy
   danych, load balancers, czy usługi obliczeniowe.
 
-#### Zalety VPC
 
 | **Zaleta**                                  | **Opis**                                                                                                     |
 |---------------------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -388,7 +376,6 @@ subnets, czy VPN.
 | **Integracja z innymi usługami chmurowymi** | Łatwa integracja z szeroką gamą usług chmurowych, co umożliwia elastyczność i adaptację infrastruktury.      |
 | **Bezpieczeństwo**                          | Mechanizmy takie jak firewalle, security groups oraz ACL zapewniają kontrolę nad dostępem i ochronę zasobów. |
 
-#### Wady VPC
 
 | **Wada**                                   | **Opis**                                                                                                                |
 |--------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
@@ -424,7 +411,6 @@ zarządzanie danymi.
   mikroserwisu.
 - Skalowalność: Niezależne bazy danych pozwalają na skalowanie poszczególnych mikroserwisów zgodnie z ich wymaganiami.
 
-#### Zalety
 
 | **Zaleta**                      | **Opis**                                                                                               |
 |---------------------------------|--------------------------------------------------------------------------------------------------------|
@@ -433,7 +419,6 @@ zarządzanie danymi.
 | **Optymalny dobór technologii** | Możliwość wyboru najbardziej odpowiedniego typu bazy danych (SQL, NoSQL) dla konkretnego mikroserwisu. |
 | **Skalowalność**                | Niezależne bazy danych pozwalają na skalowanie poszczególnych mikroserwisów zgodnie z ich wymaganiami. |
 
-#### Wady
 
 | **Wada**                            | **Opis**                                                                                                            |
 |-------------------------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -446,7 +431,7 @@ pełną autonomię, bezpieczeństwo oraz optymalny dobór technologii dla poszcz
 
 ### Amazon S3 Bucket
 
-Zagadnienie: Amazon S3 (Simple Storage Service) to usługa przechowywania obiektów, która pozwala na łatwe przechowywanie
+**Zagadnienie:** Amazon S3 (Simple Storage Service) to usługa przechowywania obiektów, która pozwala na łatwe przechowywanie
 i odzyskiwanie dowolnych ilości danych z dowolnego miejsca w Internecie. Problem pojawia się, gdy aplikacje potrzebują
 przechowywać duże pliki, takie jak obrazy, filmy, pliki tekstowe czy pliki dzienników w sposób bezpieczny, skalowalny i
 dostępny z wielu różnych lokalizacji. Rozwiązaniem jest użycie usługi S3 w celu zarządzania przechowywaniem danych w
@@ -465,7 +450,6 @@ przechowywania danych w chmurze. Zaletą jest również możliwość ustawiania 
 - Dostępność: S3 zapewnia wyjątkową dostępność danych dzięki rozproszeniu danych w wielu centrach danych.
 - Integracja: S3 dobrze współpracuje z innymi usługami AWS, takimi jak Lambda, CloudFront, Glacier.
 
-#### Zalety
 
 | **Zaleta**               | **Opis**                                                                                                        |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -475,7 +459,6 @@ przechowywania danych w chmurze. Zaletą jest również możliwość ustawiania 
 | **Prostota użytkowania** | Łatwe w użyciu API oraz interfejs użytkownika do zarządzania danymi.                                            |
 | **Niskie koszty**        | Płacisz tylko za przechowywaną ilość danych i liczbę operacji, co pozwala na optymalizację kosztów.             |
 
-#### Wady
 
 | **Wada**                                        | **Opis**                                                                                                                                   |
 |-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -488,14 +471,14 @@ względu na jego wysoką dostępność, łatwość integracji oraz skalowalnoś�
 
 ### NAT Gateway
 
-Zagadnienie: W architekturach chmurowych często pojawia się potrzeba udostępniania instancji w prywatnych podsieciach
+**Zagadnienie:** W architekturach chmurowych często pojawia się potrzeba udostępniania instancji w prywatnych podsieciach
 dostępu do Internetu, bez konieczności bezpośredniego narażania tych instancji na dostęp z sieci publicznej. To wyzwanie
 rozwiązuje NAT Gateway. NAT (Network Address Translation) pozwala na przekierowanie ruchu wychodzącego z prywatnych
 instancji do Internetu, ale uniemożliwia dostęp do tych instancji z zewnątrz. Jest to szczególnie istotne w przypadku,
 gdy chcemy zapewnić bezpieczeństwo, izolując zasoby od publicznego Internetu, ale nadal umożliwiając im pobieranie
 aktualizacji, pakietów lub innych zasobów online.
 
-Rozwiązanie: NAT Gateway to zarządzana usługa AWS, która pozwala na łatwe konfiguracje trasowania i translacji adresów
+**Rozwiązanie:** NAT Gateway to zarządzana usługa AWS, która pozwala na łatwe konfiguracje trasowania i translacji adresów
 IP w chmurze. W konfiguracji, instancje w prywatnej podsieci mogą komunikować się z Internetem za pomocą NAT Gateway
 umieszczonego w publicznej podsieci. NAT Gateway obsługuje automatyczne skalowanie, co zapewnia wysoką dostępność i
 niezawodność. Dzięki tej usłudze można utrzymać instancje w prywatnej podsieci w pełni zabezpieczone, a jednocześnie
@@ -510,7 +493,6 @@ umożliwić im dostęp do zasobów zewnętrznych.
 - Łatwość integracji: Łatwe w konfiguracji w ramach architektury AWS, szczególnie w przypadku VPC (Virtual Private
   Cloud).
 
-#### Zalety
 
 | **Zaleta**                  | **Opis**                                                                                                                                    |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -520,7 +502,6 @@ umożliwić im dostęp do zasobów zewnętrznych.
 | **Wysoka dostępność**       | NAT Gateway jest zarządzany przez AWS, co zapewnia wysoką dostępność i niezawodność bez konieczności zarządzania infrastrukturą.            |
 | **Bez dodatkowych zasobów** | Nat Gateway nie wymaga użycia dodatkowych instancji EC2 do obsługi NAT, co obniża koszty operacyjne.                                        |
 
-#### Wady
 
 | **Wada**                                    | **Opis**                                                                                                                                               |
 |---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -558,7 +539,6 @@ co pozwala na optymalizację kosztów.
 - Integracja z innymi usługami AWS: Lambda może być wywoływana przez różne usługi, takie jak Amazon S3, DynamoDB, API
   Gateway, SNS i inne.
 
-#### Zalety
 
 | **Zaleta**                                   | **Opis**                                                                                                                            |
 |----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -568,7 +548,6 @@ co pozwala na optymalizację kosztów.
 | **Integracja z szerokim zakresem usług AWS** | Lambda łatwo integruje się z innymi usługami AWS, co ułatwia tworzenie rozproszonych aplikacji i mikroserwisów.                     |
 | **Szeroki zakres zastosowań**                | Może być używana do przetwarzania plików, przetwarzania danych w czasie rzeczywistym, obsługi API i wielu innych scenariuszy.       |
 
-#### Wady
 
 | **Wada**                              | **Opis**                                                                                                                                                               |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -611,7 +590,6 @@ chronić zasoby wewnętrzne.
 - Brak kosztów: Korzystanie z Internet Gateway w AWS jest bezpłatne – opłaty naliczane są za dane przesyłane przez
   Internet.
 
-#### Zalety
 
 | **Zaleta**                         | **Opis**                                                                                                                                |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -621,7 +599,6 @@ chronić zasoby wewnętrzne.
 | **Brak kosztów**                   | Internet Gateway nie wiąże się z dodatkowymi opłatami za użycie samej usługi – płacisz tylko za dane przesyłane przez Internet.         |
 | **Integracja z NAT Gateway**       | Dzięki integracji z NAT Gateway, zasoby w prywatnych podsieciach mogą nawiązywać połączenia wychodzące z Internetem.                    |
 
-#### Wady
 
 | **Wada**                                   | **Opis**                                                                                                                                                  |
 |--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -661,7 +638,6 @@ skalowanie aplikacji i niezależność od stanu serwera.
 - Szerokie wsparcie: JWT jest szeroko wspierane w popularnych frameworkach i bibliotekach, co umożliwia łatwą
   implementację w wielu językach programowania.
 
-#### Zalety
 
 | **Zaleta**                                  | **Opis**                                                                                             |
 |---------------------------------------------|------------------------------------------------------------------------------------------------------|
@@ -671,7 +647,6 @@ skalowanie aplikacji i niezależność od stanu serwera.
 | **Szerokie wsparcie dla różnych środowisk** | JWT jest wspierane przez szeroką gamę platform i technologii, w tym systemy chmurowe i mikroserwisy. |
 | **Skalowalność**                            | Umożliwia rozproszone zarządzanie autoryzacją, co jest kluczowe w aplikacjach mikroserwisowych.      |
 
-#### Wady
 
 | **Wada**                                       | **Opis**                                                                                                                    |
 |------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
@@ -715,7 +690,6 @@ infrastrukturą.
 - Zintegrowane z AWS: RDS jest w pełni zintegrowane z innymi usługami AWS, takimi jak Amazon EC2, Amazon S3 czy AWS
   Lambda, co ułatwia tworzenie złożonych aplikacji chmurowych.
 
-#### Zalety
 
 | **Zaleta**                       | **Opis**                                                                                                                                  |
 |----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
@@ -725,7 +699,6 @@ infrastrukturą.
 | **Bezpieczeństwo**               | RDS zapewnia szyfrowanie danych zarówno w spoczynku, jak i w trakcie przesyłania, oraz możliwość stosowania własnych kluczy szyfrujących. |
 | **Integracja z ekosystemem AWS** | Amazon RDS jest w pełni zintegrowane z innymi usługami AWS, takimi jak EC2, S3 i CloudWatch, co ułatwia tworzenie aplikacji chmurowych.   |
 
-#### Wady
 
 | **Wada**                                        | **Opis**                                                                                                                                        |
 |-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -766,7 +739,6 @@ własnym systemem logowania.
 - Autoryzacja i kontrola dostępu: Integracja z Amazon API Gateway, AWS Lambda oraz innymi usługami AWS umożliwia
   zarządzanie dostępem do zasobów na poziomie aplikacji.
 
-#### Zalety
 
 | **Zaleta**                                  | **Opis**                                                                                                                                                         |
 |---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -776,7 +748,6 @@ własnym systemem logowania.
 | **Bezpieczeństwo**                          | Amazon Cognito oferuje wbudowane mechanizmy bezpieczeństwa, takie jak szyfrowanie, MFA, kontrola dostępu oraz zgodność z przepisami ochrony danych osobowych.    |
 | **Współpraca z innymi usługami AWS**        | Cognito bezproblemowo integruje się z innymi usługami AWS, takimi jak API Gateway, Lambda, S3 czy DynamoDB, co pozwala na łatwe rozszerzanie aplikacji.          |
 
-#### Wady
 
 | **Wada**                                                        | **Opis**                                                                                                                                                |
 |-----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -816,7 +787,6 @@ zewnętrznymi systemami.
   jej logiki, co jest kluczowe w podejściu DDD. Pozwala to na utrzymanie wysokiej jakości kodu i koncentrację na
   kluczowych regułach biznesowych.
 
-#### Zalety
 
 | **Zaleta**                               | **Opis**                                                                                                         |
 |------------------------------------------|------------------------------------------------------------------------------------------------------------------|
@@ -826,7 +796,6 @@ zewnętrznymi systemami.
 | **Czystość kodu domenowego**             | Logika biznesowa nie jest zanieczyszczona szczegółami technicznymi, co zwiększa czytelność i zrozumiałość kodu.  |
 | **Wspieranie wielokrotnego użycia kodu** | Logika domenowa może być używana w różnych kontekstach (np. aplikacje mobilne, webowe, API) bez duplikacji kodu. |
 
-#### Wady
 
 | **Wady**                                 | **Opis**                                                                                                                                                  |
 |------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -857,7 +826,6 @@ charakter architektury warstwowej.
 - **Interfejsy komunikacji** Warstwy komunikują się ze sobą poprzez dobrze zdefiniowane interfejsy, co ogranicza
   zależności między komponentami.
 
-#### Zalety
 
 | **Zaleta**                     | **Opis**                                                                                                                           |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
@@ -866,7 +834,6 @@ charakter architektury warstwowej.
 | **Wielokrotne użycie**         | Logikę biznesową i warstwę dostępu do danych można wielokrotnie wykorzystywać w różnych częściach aplikacji lub innych projektach. |
 | **Izolacja logiki biznesowej** | Logika biznesowa jest oddzielona od szczegółów implementacji interfejsu użytkownika czy bazy danych.                               |
 
-#### Wady
 
 | **Wady**                                         | **Opis**                                                                  |
 |--------------------------------------------------|---------------------------------------------------------------------------|
@@ -889,7 +856,7 @@ a nie poprzez zapisywanie bezpośrednio aktualnego stanu. Jest wykorzystywany w 
   integrację z innymi usługami i obsługę złożonych procesów biznesowych.
 - **Rekonstrukcja stanu** – Chcemy być w stanie odtworzyć dowolny stan systemu na podstawie sekwencji zdarzeń.
 
-| **Zalety**                        | **Opis**                                                                        |
+| **Zaleta**                        | **Opis**                                                                        |
 |-----------------------------------|---------------------------------------------------------------------------------|
 | **Pełna historia zmian**          | Możliwość śledzenia i audytu każdej zmiany w systemie.                          |
 | **Łatwe debugowanie**             | Dzięki zapisanym zdarzeniom łatwiej identyfikować i rozwiązywać problemy.       |
@@ -898,7 +865,7 @@ a nie poprzez zapisywanie bezpośrednio aktualnego stanu. Jest wykorzystywany w 
 | **Integracja z innymi systemami** | Możliwość łatwego publikowania zdarzeń do zewnętrznych systemów.                |
 | **Wysoka skalowalność**           | Event Sourcing ułatwia obsługę systemów rozproszonych.                          |
 
-| **Wady**                         | **Opis**                                                                                                                        |
+| **Wada**                         | **Opis**                                                                                                                        |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | **Złożoność implementacji**      | Event Sourcing wymaga innego podejścia do projektowania systemu, co zwiększa krzywą uczenia.                                    |
 | **Wzrost objętości danych**      | Przechowywanie wszystkich zdarzeń może prowadzić do szybkiego wzrostu ilości danych.                                            |
@@ -925,13 +892,13 @@ zapisu do bazy danych następuje weryfikacja, czy dane nie zostały zmodyfikowan
   numerem wersji lub znacznikiem czasu).
 - Konflikty wykrywane późno - Konflikty wykrywane są w momencie próby zapisu, a nie w trakcie odczytu danych
 
-| **Zalety**                      | **Opis**                                                                                       |
+| **Zaleta**                      | **Opis**                                                                                       |
 |---------------------------------|------------------------------------------------------------------------------------------------|
 | **Wysoka wydajność**            | Brak konieczności blokowania danych w momencie odczytu, co redukuje obciążenie systemu.        |
 | **Brak zablokowanych zasobówe** | Pozwala uniknąć sytuacji, w której zasoby są zablokowane na długi czas przez jedną transakcję. |
 | **Elastyczność**                | Idealne w środowiskach, gdzie występuje niewielka liczba konfliktów w dostępie do danych.      |
 
-| **Wady**                                                | **Opis**                                                                                                                                                     |
+| **Wada**                                                | **Opis**                                                                                                                                                     |
 |---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Ryzyko konfliktów**                                   | Przy dużej liczbie równoczesnych modyfikacji danych wzrasta ryzyko odrzucenia zapisów, co może prowadzić do konieczności wielokrotnego powtarzania operacji. |
 | **Większa złożoność**                                   | Implementacja wymaga dodania mechanizmów wersjonowania lub innych metod śledzenia zmian.                                                                     |
@@ -963,7 +930,7 @@ i minimalizować zależności między różnymi częściami systemu.
 - **Oddzielenie od innych agregatów** - Relacje między agregatami powinny być minimalne i realizowane za pomocą
   identyfikatorów, a nie bezpośrednich referencji.
 
-| **Zalety**                       | **Opis**                                                                                                                  |
+| **Zaleta**                       | **Opis**                                                                                                                  |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | **Zapewnienie spójności danych** | Dzięki wyraźnym granicom łatwiej zapewnić, że dane pozostają spójne w ramach jednej transakcji.                           |
 | **Izolacja zmian**               | Każdy agregat można modyfikować niezależnie od innych, co zmniejsza ryzyko efektów ubocznych podczas modyfikacji systemu. |
@@ -971,7 +938,7 @@ i minimalizować zależności między różnymi częściami systemu.
 | **Łatwiejsze skalowanie**        | Ograniczenie relacji między agregatami pozwala na łatwiejsze skalowanie systemu i dystrybucję danych.                     |
 | **Poprawa czytelności kod**      | Dzięki jednoznacznym granicom agregatów, kod jest bardziej zrozumiały i łatwiejszy w utrzymaniu.                          |
 
-| **Wady**                                | **Opis**                                                                                                                                                                                 |
+| **Wada**                                | **Opis**                                                                                                                                                                                 |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Skutki uboczne ograniczania relacji** | Użycie identyfikatorów zamiast bezpośrednich referencji może prowadzić do bardziej złożonych zapytań i dodatkowego obciążenia systemu (np. przez potrzebę dodatkowego ładowania danych). |
 | **Nadmiarowe modelowanie**              | Zbyt rygorystyczne stosowanie agregatów może prowadzić do sztucznie skomplikowanego modelu domeny.                                                                                       |
@@ -996,14 +963,14 @@ implementacji i dostarcza wygodny punkt wejścia dla klienta, co upraszcza korzy
 - **Możliwość modyfikacji systemu** – Wewnętrzne zmiany systemu mogą być ukryte przed klientem, jeśli nie wpływają na
   interfejs fasady.
 
-| Zalety                   | Opis                                                                    |
+| Zaleta                   | Opis                                                                    |
 |--------------------------|-------------------------------------------------------------------------|
 | Uproszczony interfejs    | Fasada dostarcza łatwy w użyciu punkt dostępu do złożonych systemów.    |
 | Izolacja klienta         | Klient nie musi znać szczegółów implementacji poszczególnych modułów.   |
 | Redukcja zależności      | Klient komunikuje się tylko z fasadą, co zmniejsza zależności w kodzie. |
 | Poprawa czytelności kodu | Kod staje się bardziej zrozumiały i łatwiejszy w utrzymaniu.            |
 
-| Wady                             | Opis                                                                               |
+| Wada                             | Opis                                                                               |
 |----------------------------------|------------------------------------------------------------------------------------|
 | Potencjalne ukrycie problemów    | Fasada może ukrywać problemy wewnętrzne, co utrudnia ich diagnozowanie.            |
 | Możliwość nadmiarowej abstrakcji | Zbyt rozbudowana fasada może prowadzić do niepotrzebnej komplikacji kodu.          |
@@ -1029,7 +996,7 @@ Decision)). Dzięki temu możliwe jest unikanie mieszania odpowiedzialności ora
 - Określają wyraźne podziały odpowiedzialności między częściami systemu.
 - Są wystarczająco elastyczne, aby adaptować się do zmieniających się wymagań.
 
-| **Zalety**                            | **Opis**                                                                                                     |
+| **Zaleta**                            | **Opis**                                                                                                     |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | **Ułatwione zarządzanie złożonością** | Struktury te upraszczają zrozumienie, jak różne części systemu współdziałają.                                |
 | **Spójność i komunikacja**            | Tworzą wspólny język, który ułatwia współpracę i zapewnia lepsze dopasowanie między komponentami.            |
@@ -1037,7 +1004,7 @@ Decision)). Dzięki temu możliwe jest unikanie mieszania odpowiedzialności ora
 | **Lepsza organizacja pracy zespołów** | Wyznaczają granice odpowiedzialności, co minimalizuje konflikty i usprawnia pracę zespołów.                  |
 | **Wsparcie dla modularności**         | Ułatwiają wymianę elementów systemu bez ingerencji w inne części dzięki podejściom jak pluggable components. |
 
-| **Wady**                                  | **Opis**                                                                                    |
+| **Wada**                                  | **Opis**                                                                                    |
 |-------------------------------------------|---------------------------------------------------------------------------------------------|
 | **Ryzyko nadmiernego sformalizowania**    | Zbyt sztywne struktury mogą ograniczać innowacyjność i elastyczność w reagowaniu na zmiany. |
 | **Złożoność w utrzymaniu**                | Struktury wymagają regularnej aktualizacji i adaptacji, co może być czasochłonne.           |
