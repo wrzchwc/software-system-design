@@ -1,8 +1,8 @@
 # Wyniki etapu II - Decyzja architektury systemu
 
-- Kamil Bońkowski, 252727
-- Szymon Walasik, 283393
-- Jakub Wierzchowiec, 252738
+- Kamil Bońkowski (252727)
+- Szymon Walasik (283393)
+- Jakub Wierzchowiec (252738)
 
 ## Cel
 
@@ -1182,13 +1182,41 @@ Specyfikacja techniczna poda Kuberenetes
 | vCPUs        | 0.5     |
 | Pamięć (MiB) | 720     |
 
-## Widok informacyjny
+## Model informacyjny
 
-### Model informacyjny
+### Model Availability
 
-![Model_Informacyjny1 drawio (2)](https://github.com/user-attachments/assets/c3eb8814-428e-40b2-828d-c305f32d8abc)
+![model-informacyjny-availability](./images/deskly-information-model-availability.jpg)
 
-### Projekt bazy danych
+### Model Reservation
+
+![model-informacyjny-reservation](./images/deskly-information-model-reservation.jpg)
+
+### Model Negotiation
+
+![model-informacyjny-negotiation](./images/deskly-information-model-negotiation.jpg)
+
+### Model Resource Access Control
+
+![model-informacyjny-resource-access-control](./images/deskly-information-model-resource-access-control.jpg)
+
+### Model Pricing
+
+![model-informacyjny-pricing](./images/deskly-information-model-pricing.jpg)
+
+### Model Waitlist
+
+![model-informacyjny-waitlist](./images/deskly-information-model-waitlist.jpg)
+
+### Model System Access Control
+
+![model-informacyjny-system-access-control](./images/deskly-information-model-system-access-control.jpg)
+
+### Model Location
+
+![model-informacyjny-system-access-location](./images/deskly-information-model-location.jpg)
+
+## Projekt bazy danych
 
 ![deskly-db-diagram drawio (3)](https://github.com/user-attachments/assets/237edf3e-e0eb-480c-b409-7d7b942fb9b8)
 
@@ -1682,7 +1710,7 @@ zawierającego identyfikatory przypisywanych zasobów.
 
 #### Przykład zapytania
 
-```http request
+```{note}
 curl --location 'localhost:8080/api/v1/location/6f0a36c6-6814-4e38-b40b-0a65b2f7c3c6/resource/assign' \
 --header 'Content-Type: application/json' \
 --request POST \
@@ -1721,7 +1749,7 @@ Dodanie zdjęć zasobu inicjowane jest przez Location Managera z poziomu klienta
 POST
 zawierającego identyfikator zasobu oraz dodane wcześniej zdjęcia.
 
-```http request
+```{note}
 curl --location 'localhost:8080/api/v1/deskly-location/resource/3bb9ce2d-c7d9-41ec-ba46-d8a5d99673cb/upload' \
 --header 'Authorization: ••••••' \
 --form 'files=@"/Users/kamilbonkowski/Downloads/desk-2.jpg"
