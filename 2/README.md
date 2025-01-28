@@ -44,7 +44,7 @@ wpływają na jego implementację.
 | Zapewnienie mechanizmów concurrency control dla problemów klasy Konkurencja o zasoby                           | [`D/04` Optimistic Locking](#architektura-mikroserwisowa)      |
 | Zapewnienie spójności logiki biznesowej w problemach klasy Konkurencja o zasoby                                | [`D/05` Wzorzec Agregat](#wzorzec-agregat)                     |
 | Uproszczenie komunikacji pomiędzy modelami dostarczając stabilny interfejs do komunikacji dla każdego z modeli | [`D/06` Wzorzec Fasady](#wzorzec-fasady)                       |
-| Lepszej organizacji pracy zespołów oraz ułatwienia zarządzania złożonością                                     | [`D/07` Struktury Dużej Skali](#struktury-dużej-skali)         |
+| Zapewnienie lepszej organizacji pracy zespołów oraz ułatwienia zarządzania złożonością                         | [`D/07` Struktury Dużej Skali](#struktury-dużej-skali)         |
 
 ### Architektura wdrożeniowa
 
