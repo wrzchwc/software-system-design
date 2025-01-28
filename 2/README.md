@@ -135,19 +135,21 @@ oraz narzędzia do analizy danych. Dodatkowo, platforma wyróżnia się:
 - Innowacyjnością: AWS regularnie wprowadza nowe usługi wspierające innowacyjne technologie, takie jak uczenie maszynowe
   czy Internet Rzeczy (IoT).
 
-Podsumowanie:
-Wybór AWS jako infrastruktury wdrożeniowej wynikał z potrzeby elastyczności, niezawodności oraz globalnego wsparcia.
+**Decyzja:** Wybór AWS jako infrastruktury wdrożeniowej wynikał z potrzeby elastyczności, niezawodności oraz globalnego
+wsparcia.
 Dzięki różnorodności oferowanych usług i możliwości szybkiego skalowania, AWS okazał się optymalnym rozwiązaniem dla
 tego projektu.
 
 ### Load Balancing
 
-Zagadnienie: W systemach rozproszonych lub aplikacjach obsługujących dużą liczbę użytkowników kluczowym wyzwaniem jest
+**Zagadnienie:** W systemach rozproszonych lub aplikacjach obsługujących dużą liczbę użytkowników kluczowym wyzwaniem
+jest
 równomierne rozdzielanie ruchu sieciowego. Brak odpowiedniego mechanizmu prowadzi do przeciążenia jednych serwerów,
 podczas gdy inne pozostają niewykorzystane. Przeciążone serwery mogą skutkować opóźnieniami, błędami aplikacji lub
 całkowitą niedostępnością usług.
 
-Rozwiązanie: Load Balancing (równoważenie obciążenia) to technika dystrybucji ruchu sieciowego pomiędzy wiele serwerów w
+**Rozwiązanie:** Load Balancing (równoważenie obciążenia) to technika dystrybucji ruchu sieciowego pomiędzy wiele
+serwerów w
 celu zapewnienia optymalnego wykorzystania zasobów, minimalizacji opóźnień oraz zapewnienia wysokiej dostępności
 aplikacji. Mechanizm ten może być wdrażany na różnych poziomach, takich jak warstwa aplikacyjna, sieciowa lub
 infrastrukturalna.
@@ -170,11 +172,11 @@ Mechanizm Load Balancingu dostępny w wybranej chmurze - AWS Elastic Load Balanc
 
 ### Amazon Simple Queue Service
 
-Zagadnienie: W aplikacjach rozproszonych oraz mikroserwisowych, często pojawia się konieczność niezawodnego i
+**Zagadnienie:** W aplikacjach rozproszonych oraz mikroserwisowych, często pojawia się konieczność niezawodnego i
 skalowalnego przesyłania wiadomości między komponentami. Bez odpowiednich mechanizmów, ryzyko utraty danych,
 przeciążenia systemu czy trudności w zarządzaniu kolejnością i priorytetem wiadomości znacząco rośnie.
 
-Rozwiązanie: Amazon Simple Queue Service (SQS) to w pełni zarządzana usługa kolejkowania wiadomości, która umożliwia
+**Rozwiązanie:** Amazon Simple Queue Service (SQS) to w pełni zarządzana usługa kolejkowania wiadomości, która umożliwia
 aplikacjom rozproszonym komunikację w sposób asynchroniczny. Dzięki temu różne komponenty systemu mogą działać
 niezależnie, skalować się w różnym tempie i przetwarzać dane w odpowiednim momencie, co zwiększa elastyczność i
 odporność całej infrastruktury.
@@ -212,7 +214,7 @@ Rodzaje kolejek w SQS
 | **Opóźnienia w dostarczaniu wiadomości** | W przypadku kolejek Standard, wiadomości mogą być dostarczone więcej niż raz i w innej kolejności. |
 | **Limit długości wiadomości**            | Maksymalny rozmiar wiadomości wynosi 256 KB, co może wymagać podziału dużych danych.               |
 
-Decyzja: W projekcie Amazon SQS został wybrany jako rozwiązanie do zarządzania asynchroniczną komunikacją między
+**Decyzja:** W projekcie Amazon SQS został wybrany jako rozwiązanie do zarządzania asynchroniczną komunikacją między
 mikroserwisami. Usługa ta zapewnia skalowalność, niezawodność oraz integrację z innymi komponentami AWS, co ułatwia
 rozwój i utrzymanie systemu.
 
@@ -257,7 +259,7 @@ usługi, co minimalizuje ryzyko utraty wiadomości.
 
 ### Architektura mikroserwisowa
 
-Zagadnienie: W miarę jak aplikacje rosną, stają się coraz bardziej złożone i trudne do zarządzania. Monolityczne
+**Zagadnienie:** W miarę jak aplikacje rosną, stają się coraz bardziej złożone i trudne do zarządzania. Monolityczne
 podejście, w którym cały system jest jednym, dużym komponentem, staje się coraz mniej efektywne, gdy chodzi o rozwój,
 skalowanie czy utrzymanie. Zwiększa się ryzyko awarii, trudności w zarządzaniu zespołami deweloperskimi, a także
 problematyczna staje się elastyczność w implementacji nowych funkcji.
@@ -268,7 +270,7 @@ funkcjonalność i może być rozwijany, wdrażany oraz skalowany niezależnie o
 deweloperski może skoncentrować się na mniejszych częściach aplikacji, co przyspiesza rozwój i zwiększa niezawodność
 systemu.
 
-Kluczowe cechy mikroserwisów:
+**Kluczowe cechy:**
 
 - Rozdzielenie funkcji: Każdy mikroserwis realizuje jeden, dobrze zdefiniowany aspekt biznesowy lub techniczny
   aplikacji.
@@ -299,7 +301,7 @@ Kluczowe cechy mikroserwisów:
 | **Zarządzanie danymi**                         | Rozproszone bazy danych mogą prowadzić do trudności w synchronizacji i zarządzaniu stanem aplikacji.        |
 | **Dodatkowe wymagania na infrastrukturę**      | Większe wymagania dotyczące infrastruktury, np. zarządzanie kontenerami, orkiestracja (np. Kubernetes).     |
 
-Decyzja: Architektura mikroserwisowa została wybrana w projekcie, aby zapewnić elastyczność w rozwoju i zarządzaniu
+**Decyzja:** Architektura mikroserwisowa została wybrana w projekcie, aby zapewnić elastyczność w rozwoju i zarządzaniu
 aplikacją, a także umożliwić skalowanie jej poszczególnych elementów. Dzięki rozdzieleniu odpowiedzialności na mniejsze,
 niezależne serwisy, aplikacja jest bardziej odporna na awarie i łatwiejsza w rozwoju.
 
@@ -315,7 +317,7 @@ przez jeden centralny punkt, który pełni funkcje proxy. API Gateway odpowiada 
 serwisów, zarządzanie bezpieczeństwem, logowaniem, monitorowaniem oraz transformacją danych. Może także oferować
 mechanizmy cache'owania, load balancing czy throttlingu.
 
-Kluczowe cechy API Gateway;
+**Kluczowe cechy:**
 
 - Centralizacja komunikacji: Wszystkie zapytania przychodzące do systemu są kierowane do API Gateway, który następnie
   rozdziela je do odpowiednich mikroserwisów.
@@ -347,7 +349,7 @@ Kluczowe cechy API Gateway;
 | **Złożoność zarządzania**   | Dodanie warstwy API Gateway może zwiększyć złożoność infrastruktury, wymagając dodatkowego zarządzania.                        |
 | **Opóźnienia**              | Może wprowadzać dodatkowe opóźnienie w komunikacji, zwłaszcza gdy wykonuje dodatkowe operacje, takie jak transformacja danych. |
 
-Decyzja: W projekcie zdecydowano się na zastosowanie wzorca API Gateway, aby uprościć komunikację między klientami a
+**Decyzja:** W projekcie zdecydowano się na zastosowanie wzorca API Gateway, aby uprościć komunikację między klientami a
 mikroserwisami, zapewniając centralne zarządzanie ruchem, bezpieczeństwem oraz monitorowaniem. Dzięki temu możliwe jest
 łatwiejsze zarządzanie całą aplikacją oraz zapewnienie jej elastyczności i skalowalności.
 
@@ -365,7 +367,7 @@ IP, jakie usługi są dostępne, oraz jak wygląda komunikacja z innymi sieciami
 od innych klientów chmury oraz możliwość konfiguracji zaawansowanych mechanizmów zabezpieczeń, takich jak firewalle,
 subnets, czy VPN.
 
-Kluczowe cechy VPC
+**Kluczowe cechy:**
 
 - Izolacja i prywatność: Użytkownicy mogą tworzyć izolowane sieci, które są oddzielone od innych klientów chmury.
 - Kontrola nad konfiguracją: Umożliwia dokładną konfigurację podsieci, routingu, bramek internetowych, połączeń VPN i
@@ -395,24 +397,25 @@ Kluczowe cechy VPC
 | **Ograniczenia wydajności**                | W przypadku niewłaściwej konfiguracji VPC mogą wystąpić problemy z wydajnością, np. z opóźnieniami w komunikacji.       |
 | **Potrzebna infrastruktura do integracji** | Integracja z innymi sieciami lub systemami on-premise może wymagać dodatkowej infrastruktury (np. VPN, Direct Connect). |
 
-Decyzja: W projekcie zdecydowano się na wdrożenie VPC, aby zapewnić pełną kontrolę nad siecią wewnętrzną, zwiększyć
+**Decyzja:** W projekcie zdecydowano się na wdrożenie VPC, aby zapewnić pełną kontrolę nad siecią wewnętrzną, zwiększyć
 bezpieczeństwo zasobów w chmurze oraz umożliwić łatwą integrację z innymi usługami chmurowymi. Dzięki tej architekturze
 możliwe było uzyskanie pełnej izolacji sieci oraz precyzyjnej konfiguracji polityk dostępu.
 
 ### Oddzielne bazy danych dla mikroserwisów
 
-Zagadnienie: W tradycyjnych monolitycznych aplikacjach często stosuje się jedną wspólną bazę danych dla całej aplikacji.
+**Zagadnienie:** W tradycyjnych monolitycznych aplikacjach często stosuje się jedną wspólną bazę danych dla całej
+aplikacji.
 W architekturze mikroserwisowej, gdzie każdy mikroserwis jest niezależnym bytem, współdzielenie jednej bazy danych może
 prowadzić do silnych zależności między serwisami, co utrudnia ich niezależny rozwój i skalowanie. Dodatkowo, różne
 mikroserwisy mogą mieć różne wymagania dotyczące przechowywania danych, co sprawia, że jedna wspólna baza danych nie
 zawsze jest optymalnym rozwiązaniem.
 
-Rozwiązanie: Każdy mikroserwis powinien posiadać własną, dedykowaną bazę danych. Takie podejście zapewnia pełną
+**Rozwiązanie:** Każdy mikroserwis powinien posiadać własną, dedykowaną bazę danych. Takie podejście zapewnia pełną
 autonomię mikroserwisów, umożliwiając im niezależny rozwój, skalowanie oraz wybór najbardziej odpowiedniego typu bazy
 danych dla swoich potrzeb. Dodatkowo, izolacja danych między mikroserwisami zwiększa bezpieczeństwo i ułatwia
 zarządzanie danymi.
 
-Kluczowe cechy:
+**Kluczowe cechy:**
 
 - Autonomia mikroserwisów: Każdy mikroserwis zarządza swoimi danymi, co pozwala na niezależny rozwój i wdrażanie.
 - Izolacja danych: Brak współdzielenia bazy danych między mikroserwisami zwiększa bezpieczeństwo i ułatwia zarządzanie
@@ -438,7 +441,7 @@ Kluczowe cechy:
 | **Brak transakcji rozproszonych**   | Brak wspólnej bazy danych uniemożliwia stosowanie tradycyjnych transakcji ACID między mikroserwisami.               |
 | **Potrzebna synchronizacja danych** | Wymaga implementacji mechanizmów synchronizacji i spójności danych między mikroserwisami.                           |
 
-Decyzja: W projekcie zdecydowano się na implementację oddzielnych baz danych dla każdego mikroserwisu, aby zapewnić
+**Decyzja:** W projekcie zdecydowano się na implementację oddzielnych baz danych dla każdego mikroserwisu, aby zapewnić
 pełną autonomię, bezpieczeństwo oraz optymalny dobór technologii dla poszczególnych komponentów systemu.
 
 ### Amazon S3 Bucket
@@ -449,12 +452,13 @@ przechowywać duże pliki, takie jak obrazy, filmy, pliki tekstowe czy pliki dzi
 dostępny z wielu różnych lokalizacji. Rozwiązaniem jest użycie usługi S3 w celu zarządzania przechowywaniem danych w
 sposób bardziej elastyczny i wydajny.
 
-Rozwiązanie: Amazon S3 Bucket pozwala na tworzenie "wiader" (buckets), w których przechowywane są dane. Dzięki wysokiej
+**Rozwiązanie:** Amazon S3 Bucket pozwala na tworzenie "wiader" (buckets), w których przechowywane są dane. Dzięki
+wysokiej
 dostępności, skalowalności, bezpieczeństwu i integracji z innymi usługami AWS, S3 stało się podstawowym rozwiązaniem do
 przechowywania danych w chmurze. Zaletą jest również możliwość ustawiania polityk dostępu, integracja z AWS Lambda oraz
 łatwa integracja z systemami zewnętrznymi.
 
-Kluczowe cechy
+**Kluczowe cechy:**
 
 - Skalowalność: Amazon S3 jest wysoce skalowalne i może pomieścić dowolną ilość danych.
 - Bezpieczeństwo: S3 zapewnia zaawansowane mechanizmy ochrony danych, takie jak szyfrowanie oraz kontrola dostępu.
@@ -479,7 +483,7 @@ Kluczowe cechy
 | **Ograniczenia rozmiaru obiektu**               | Maksymalny rozmiar pojedynczego obiektu to 5 TB, co może być niewystarczające w przypadku bardzo dużych plików.                            |
 | **Brak wsparcia dla zaawansowanych baz danych** | S3 jest usługą przechowywania obiektów, a nie bazą danych, co oznacza, że nie nadaje się do przechowywania danych wymagających transakcji. |
 
-Decyzja: Zdecydowano się na wykorzystanie Amazon S3 Bucket jako rozwiązania do przechowywania danych w chmurze ze
+**Decyzja:** Zdecydowano się na wykorzystanie Amazon S3 Bucket jako rozwiązania do przechowywania danych w chmurze ze
 względu na jego wysoką dostępność, łatwość integracji oraz skalowalność.
 
 ### NAT Gateway
@@ -497,7 +501,7 @@ umieszczonego w publicznym subnetcie. NAT Gateway obsługuje automatyczne skalow
 niezawodność. Dzięki tej usłudze można utrzymać instancje w prywatnych subnetach w pełni zabezpieczone, a jednocześnie
 umożliwić im dostęp do zasobów zewnętrznych.
 
-Kluczowe cechy
+**Kluczowe cechy:**
 
 - Bezpieczeństwo: NAT Gateway zapewnia bezpieczeństwo, ponieważ nie pozwala na dostęp z Internetu do instancji w
   prywatnej podsieci.
@@ -524,26 +528,27 @@ Kluczowe cechy
 | **Limitowana ilość zasobów**                | NAT Gateway może być stosunkowo kosztowną opcją przy dużej ilości instancji, szczególnie gdy potrzebujemy wielu usług w różnych regionach.             |
 | **Brak wsparcia dla niektórych protokołów** | NAT Gateway może nie obsługiwać niektórych protokołów, takich jak ICMP (używanego do diagnostyki), co może być ograniczeniem w niektórych przypadkach. |
 
-Decyzja: Zdecydowano się na implementację NAT Gateway w naszej infrastrukturze chmurowej, aby umożliwić instancjom w
+**Decyzja:** Zdecydowano się na implementację NAT Gateway w naszej infrastrukturze chmurowej, aby umożliwić instancjom w
 prywatnych subnetach dostęp do zasobów z Internetu bez ujawniania tych instancji publicznie. Dzięki automatycznemu
 skalowaniu i wysokiej dostępności NAT Gateway stanowi solidne, bezpieczne rozwiązanie w architekturze VPC.
 
 ### Amazon Lambda
 
-Zaganienie: W tradycyjnych systemach aplikacyjnych zasoby obliczeniowe (serwery, maszyny wirtualne) są zarządzane przez
+**Zaganienie:** W tradycyjnych systemach aplikacyjnych zasoby obliczeniowe (serwery, maszyny wirtualne) są zarządzane
+przez
 użytkownika, co wiąże się z koniecznością ich skalowania, monitorowania oraz zarządzania stanem. W związku z tym,
 tworzenie i zarządzanie skalowalnymi aplikacjami może być czasochłonne i kosztowne. Potrzebna jest technologia, która
 umożliwi uruchamianie kodu w sposób serverless (bez potrzeby zarządzania serwerami) i która automatycznie dostosowuje
 zasoby w zależności od zapotrzebowania.
 
-Rozwiązanie: Amazon Lambda to usługa obliczeniowa typu serverless, która pozwala uruchamiać kod bez konieczności
+**Rozwiązanie:** Amazon Lambda to usługa obliczeniowa typu serverless, która pozwala uruchamiać kod bez konieczności
 zarządzania infrastrukturą. Użytkownicy mogą wgrać kod, który zostanie automatycznie uruchomiony przez AWS w odpowiedzi
 na określone zdarzenie, takie jak przesłanie pliku do S3, zmiana danych w bazie danych czy wywołanie HTTP API.
 Lambda obsługuje szeroki zakres scenariuszy, od prostych funkcji wywoływanych na zdarzeniach, po złożone aplikacje
 opierające się na mikroserwisach. W tym podejściu użytkownicy płacą tylko za czas wykonywania kodu (tzw. pay-as-you-go),
 co pozwala na optymalizację kosztów.
 
-Kluczowe cechy:
+**Kluczowe cechy:**
 
 - Brak zarządzania serwerami: AWS zarządza całą infrastrukturą, co eliminuje konieczność skalowania, monitorowania i
   konserwacji serwerów.
@@ -573,19 +578,21 @@ Kluczowe cechy:
 | **Trudności w debugowaniu**           | Praca z funkcjami Lambda może być trudna do debugowania, szczególnie przy bardziej złożonych aplikacjach, wymagających zaawansowanego śledzenia błędów.                |
 | **Ograniczone zasoby wykonawcze**     | Funkcje Lambda mają ograniczenia dotyczące pamięci i mocy obliczeniowej, co może ograniczać ich wykorzystanie w bardziej wymagających zadaniach.                       |
 
-Decyzja: Zdecydowano się na implementację Amazon Lambda w celu stworzenia skalowalnych aplikacji mikroserwisowych, które
+**Decyzja:** Zdecydowano się na implementację Amazon Lambda w celu stworzenia skalowalnych aplikacji mikroserwisowych,
+które
 nie wymagają zarządzania infrastrukturą. Dzięki modelowi płatności "pay-as-you-go" oraz automatycznej skalowalności,
 Lambda stanowi elastyczne i opłacalne rozwiązanie w naszej architekturze chmurowej.
 
 ### Internet Gateway
 
-Zagadnienie: Aplikacje chmurowe często muszą komunikować się z zasobami znajdującymi się w Internecie, takimi jak
+**Zagadnienie:** Aplikacje chmurowe często muszą komunikować się z zasobami znajdującymi się w Internecie, takimi jak
 serwisy zewnętrzne, API lub zasoby publiczne. W tradycyjnych środowiskach sieciowych komunikacja ta odbywa się za
 pośrednictwem routerów, które łączą lokalne sieci z siecią globalną. W środowisku chmurowym potrzeba jest komponentu,
 który umożliwi komunikację między prywatnymi zasobami w chmurze a światem zewnętrznym, zachowując odpowiednią kontrolę
 nad bezpieczeństwem i dostępem.
 
-Rozwiązanie: Internet Gateway w Amazon Web Services (AWS) jest usługą, która umożliwia instancjom wirtualnym (np. EC2)
+**Rozwiązanie:** Internet Gateway w Amazon Web Services (AWS) jest usługą, która umożliwia instancjom wirtualnym (np.
+EC2)
 znajdującym się w prywatnej sieci VPC (Virtual Private Cloud) łączenie się z Internetem. Jest to most, który pozwala na
 przesyłanie danych między zasobami wewnętrznymi w chmurze a zasobami zewnętrznymi w Internecie.
 Internet Gateway zapewnia dostęp do internetu zarówno dla instancji w publicznych subnetach, jak i dla instancji w
@@ -593,7 +600,7 @@ prywatnych subnetach z odpowiednimi regułami routingowymi. Dodatkowo zapewnia o
 takie jak kontrola dostępu i NAT (Network Address Translation), aby umożliwić komunikację wychodzącą, a jednocześnie
 chronić zasoby wewnętrzne.
 
-Kluczowe cechy
+**Kluczowe cechy:**
 
 - Bezpośredni dostęp do Internetu: Dzięki Internet Gateway, zasoby w VPC mogą komunikować się z zasobami zewnętrznymi w
   Internecie.
@@ -623,18 +630,19 @@ Kluczowe cechy
 | **Wymaga odpowiedniej konfiguracji VPC**   | Aby Internet Gateway działał poprawnie, wymagana jest odpowiednia konfiguracja VPC oraz tabel routingu.                                                   |
 | **Bezpieczeństwo**                         | Choć Internet Gateway zapewnia dostęp do Internetu, wymaga poprawnej konfiguracji grup bezpieczeństwa i ACL, aby uniknąć nieautoryzowanego dostępu.       |
 
-Decyzja: Internet Gateway został wybrany do implementacji w naszej architekturze w celu umożliwienia zasobom w naszej
+**Decyzja:** Internet Gateway został wybrany do implementacji w naszej architekturze w celu umożliwienia zasobom w
+naszej
 VPC komunikacji z Internetem, co jest niezbędne dla aplikacji korzystających z zewnętrznych API i innych zasobów
 dostępnych publicznie.
 
 ### Autoryzacja z wykorzystaniem JWT
 
-Zagadnienie: W nowoczesnych aplikacjach, szczególnie w mikroserwisach, zachodzi potrzeba zapewnienia bezpiecznego i
+**Zagadnienie:** W nowoczesnych aplikacjach, szczególnie w mikroserwisach, zachodzi potrzeba zapewnienia bezpiecznego i
 efektywnego mechanizmu autoryzacji i autentykacji użytkowników. W tradycyjnych podejściach do autentykacji, każda
 aplikacja musi przechowywać dane użytkowników i ich sesje. To może prowadzić do problemów z wydajnością, skalowalnością
 i bezpieczeństwem, zwłaszcza w przypadku rozproszonych systemów.
 
-Rozwiązanie: JWT (JSON Web Token) jest popularnym standardem do realizacji autoryzacji i autentykacji w aplikacjach
+**Rozwiązanie:** JWT (JSON Web Token) jest popularnym standardem do realizacji autoryzacji i autentykacji w aplikacjach
 webowych i chmurowych. Token JWT zawiera zakodowane dane użytkownika, takie jak jego identyfikator, role, czas
 wygaśnięcia tokena oraz inne metadane. Dzięki temu JWT pozwala na delegowanie autoryzacji pomiędzy różnymi
 mikroserwisami, bez potrzeby przechowywania sesji w każdej z aplikacji.
@@ -642,7 +650,7 @@ W JWT dane są bezpiecznie zaszyfrowane i podpisane, co zapewnia, że token nie 
 jest przechowywany po stronie klienta (np. w lokalnej pamięci przeglądarki lub ciasteczkach), co pozwala na łatwe
 skalowanie aplikacji i niezależność od stanu serwera.
 
-Kluczowe cechy
+**Kluczowe cechy:**
 
 - Bezstanowość: Nie ma potrzeby przechowywania sesji po stronie serwera, co znacząco poprawia skalowalność aplikacji.
 - Szybkość: JWT jest samodzielnym tokenem zawierającym wszystkie potrzebne dane, co eliminuje konieczność przechowywania
@@ -672,7 +680,7 @@ Kluczowe cechy
 | **Brak mechanizmów do ścisłej kontroli sesji** | JWT nie zapewnia mechanizmu zarządzania sesją, co może prowadzić do trudności w monitorowaniu i kontrolowaniu użytkowników. |
 | **Potrzebna odpowiednia konfiguracja**         | Wymaga odpowiedniej konfiguracji oraz bezpiecznego przechowywania kluczy do podpisywania tokenów.                           |
 
-Decyzja: JWT zostało wybrane do implementacji w naszym systemie, aby umożliwić bezpieczną i skalowalną autoryzację
+**Decyzja:** JWT zostało wybrane do implementacji w naszym systemie, aby umożliwić bezpieczną i skalowalną autoryzację
 użytkowników w aplikacji rozproszonej. Dzięki łatwej integracji z mikroserwisami i eliminacji konieczności
 przechowywania sesji na serwerze, pozwala to na prostsze zarządzanie dostępem oraz lepszą skalowalność systemu.
 Zastosowanie JWT jest również korzystne z punktu widzenia wydajności, ponieważ pozwala na szybszą autoryzację
@@ -680,20 +688,21 @@ użytkowników bez potrzeby wielokrotnego zapytania do bazy danych.
 
 ### Relacyjna baza danych Amazon RDS
 
-Zagadnienie: W wielu aplikacjach występuje potrzeba przechowywania danych w sposób uporządkowany i zorganizowany, co
+**Zagadnienie:** W wielu aplikacjach występuje potrzeba przechowywania danych w sposób uporządkowany i zorganizowany, co
 często wiąże się z użyciem baz danych. W przypadku dużych i dynamicznych systemów aplikacyjnych zarządzanie
 infrastrukturą bazy danych, jej dostępnością, wydajnością oraz skalowalnością może być wyzwaniem, zwłaszcza w
 środowiskach chmurowych. Tradycyjne podejścia wiążą się z koniecznością ręcznego zarządzania instancjami baz danych,
 aktualizacjami, kopiami zapasowymi oraz monitorowaniem wydajności.
 
-Rozwiązanie: Amazon RDS (Relational Database Service) jest zarządzanym rozwiązaniem bazy danych oferowanym przez AWS,
+**Rozwiązanie:** Amazon RDS (Relational Database Service) jest zarządzanym rozwiązaniem bazy danych oferowanym przez
+AWS,
 które umożliwia łatwe wdrażanie, zarządzanie i skalowanie relacyjnych baz danych w chmurze. RDS obsługuje różne silniki
 bazodanowe, takie jak MySQL, PostgreSQL, MariaDB, Oracle i Microsoft SQL Server. Dzięki RDS, wszystkie zadania związane
 z zarządzaniem bazą danych (np. automatyczne tworzenie kopii zapasowych, monitorowanie, łatwe skalowanie, automatyczne
 aktualizacje) są zautomatyzowane, co pozwala deweloperom skoncentrować się na tworzeniu aplikacji zamiast na zarządzaniu
 infrastrukturą.
 
-Kluczowe cechy
+**Kluczowe cechy:**
 
 - Zarządzana infrastruktura: Amazon RDS obsługuje wszystkie aspekty zarządzania bazą danych, takie jak tworzenie kopii
   zapasowych, aktualizacje i monitorowanie, co upraszcza administrację bazą danych.
@@ -725,25 +734,27 @@ Kluczowe cechy
 | **Brak wsparcia dla niestandardowych silników** | Chociaż RDS obsługuje popularne silniki baz danych, nie obsługuje wszystkich niestandardowych lub mniej popularnych silników.                   |
 | **Zależność od dostawcy chmurowego**            | Korzystając z RDS, jesteśmy uzależnieni od AWS, co może stanowić problem w przypadku chęci migracji do innego dostawcy.                         |
 
-Decyzja: Amazon RDS zostało wybrane jako rozwiązanie do przechowywania danych w naszej aplikacji, ponieważ zapewnia
+**Decyzja:** Amazon RDS zostało wybrane jako rozwiązanie do przechowywania danych w naszej aplikacji, ponieważ zapewnia
 zarządzaną, skalowalną i bezpieczną infrastrukturę bazy danych, co pozwala zespołowi deweloperskiemu skupić się na
 rozwoju aplikacji, a nie na zarządzaniu bazą danych. Dzięki RDS, mamy pewność, że baza danych będzie wysoko dostępna,
 bezpieczna i skalowalna, co jest kluczowe dla rozwoju naszego systemu w długim okresie.
 
 ### Amazon Cognito
 
-Zagadnienie: Współczesne aplikacje wymagają bezpiecznego i elastycznego systemu zarządzania tożsamościami użytkowników
+**Zagadnienie:** Współczesne aplikacje wymagają bezpiecznego i elastycznego systemu zarządzania tożsamościami
+użytkowników
 oraz autoryzacji dostępu. Projektowanie i wdrażanie takich systemów od podstaw może być czasochłonne, kosztowne i
 skomplikowane. Wymaga to zapewnienia mechanizmów rejestracji, logowania, zarządzania sesjami oraz integracji z różnymi
 źródłami tożsamości. Ponadto, bezpieczne zarządzanie danymi użytkowników i zgodność z regulacjami, takimi jak RODO,
 stawia dodatkowe wyzwania przed zespołami technicznymi.
 
-Rozwiązanie: Amazon Cognito to zarządzana usługa AWS do zarządzania tożsamościami użytkowników, która ułatwia tworzenie
+**Rozwiązanie:** Amazon Cognito to zarządzana usługa AWS do zarządzania tożsamościami użytkowników, która ułatwia
+tworzenie
 i utrzymywanie systemów logowania, rejestracji, autoryzacji oraz zarządzania sesjami. Cognito pozwala na integrację z
 istniejącymi źródłami tożsamości (np. Facebook, Google, Amazon, Active Directory), a także wspiera tworzenie aplikacji z
 własnym systemem logowania.
 
-Kluczowe cechy
+**Kluczowe cechy:**
 
 - Zarządzanie użytkownikami: Amazon Cognito obsługuje rejestrację, logowanie, resetowanie haseł oraz zarządzanie
   profilami użytkowników.
@@ -774,7 +785,7 @@ Kluczowe cechy
 | **Koszty mogą rosnąć przy dużej liczbie użytkowników**          | Amazon Cognito oferuje model rozliczeń na podstawie liczby aktywnych użytkowników, co w przypadku dużych aplikacji może prowadzić do znacznych kosztów. |
 | **Brak wsparcia dla zaawansowanych funkcji IAM**                | Cognito może nie zapewniać pełnej funkcjonalności dostępnej w pełnym IAM AWS, co może być ograniczeniem w bardziej złożonych przypadkach użycia.        |
 
-Decyzja: Amazon Cognito zostało wybrane jako rozwiązanie do zarządzania tożsamościami użytkowników i autoryzacją w
+**Decyzja:** Amazon Cognito zostało wybrane jako rozwiązanie do zarządzania tożsamościami użytkowników i autoryzacją w
 naszej aplikacji, ponieważ oferuje wbudowaną skalowalność, bezpieczeństwo oraz łatwą integrację z popularnymi źródłami
 tożsamości. Dzięki temu możemy szybko wdrożyć system logowania, zachowując pełną kontrolę nad dostępem do zasobów w
 chmurze AWS.
@@ -857,11 +868,10 @@ charakter architektury warstwowej.
 
 #### Wady
 
-| **Wady**                                         | **Opis**                                                                                                   |
-|--------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| **Łatwe przekraczanie granic odpowiedzialności** | Wraz z rosnącą liczbą wymagań logika może zacząć przeciekać przez warstwy                                  |
-| **Potencjał na Big Ball of Mud**                 | Splątanie logiki może doprowadzić do powstania Big Ball of Mud                                             |
-| **Testowanie**                                   | Pomimo separacji odpowiedzialności zależność z infrastrukturą po czasie mogą spowodować cięższe testowanie |
+| **Wady**                                         | **Opis**                                                                  |
+|--------------------------------------------------|---------------------------------------------------------------------------|
+| **Łatwe przekraczanie granic odpowiedzialności** | Wraz z rosnącą liczbą wymagań logika może zacząć przeciekać przez warstwy |
+| **Potencjał na Big Ball of Mud**                 | Splątanie logiki może doprowadzić do powstania Big Ball of Mud            |
 
 **Decyzja:** Wybieramy architekturę warstwową do implementacji modeli, w których występują problemy klasy CRUD.
 Jest to kompromis pomiędzy jakością kodu, czasem wdrożenia i łatwością utrzymania.
@@ -879,9 +889,7 @@ a nie poprzez zapisywanie bezpośrednio aktualnego stanu. Jest wykorzystywany w 
   integrację z innymi usługami i obsługę złożonych procesów biznesowych.
 - **Rekonstrukcja stanu** – Chcemy być w stanie odtworzyć dowolny stan systemu na podstawie sekwencji zdarzeń.
 
-#### Zalety
-
-| **Zaleta**                        | **Opis**                                                                        |
+| **Zalety**                        | **Opis**                                                                        |
 |-----------------------------------|---------------------------------------------------------------------------------|
 | **Pełna historia zmian**          | Możliwość śledzenia i audytu każdej zmiany w systemie.                          |
 | **Łatwe debugowanie**             | Dzięki zapisanym zdarzeniom łatwiej identyfikować i rozwiązywać problemy.       |
@@ -889,8 +897,6 @@ a nie poprzez zapisywanie bezpośrednio aktualnego stanu. Jest wykorzystywany w 
 | **Asynchroniczność**              | Zdarzenia mogą być przetwarzane asynchronicznie, co zwiększa wydajność systemu. |
 | **Integracja z innymi systemami** | Możliwość łatwego publikowania zdarzeń do zewnętrznych systemów.                |
 | **Wysoka skalowalność**           | Event Sourcing ułatwia obsługę systemów rozproszonych.                          |
-
-#### Wady
 
 | **Wady**                         | **Opis**                                                                                                                        |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -919,15 +925,11 @@ zapisu do bazy danych następuje weryfikacja, czy dane nie zostały zmodyfikowan
   numerem wersji lub znacznikiem czasu).
 - Konflikty wykrywane późno - Konflikty wykrywane są w momencie próby zapisu, a nie w trakcie odczytu danych
 
-#### Zalety
-
-| **Zaleta**                      | **Opis**                                                                                       |
+| **Zalety**                      | **Opis**                                                                                       |
 |---------------------------------|------------------------------------------------------------------------------------------------|
 | **Wysoka wydajność**            | Brak konieczności blokowania danych w momencie odczytu, co redukuje obciążenie systemu.        |
 | **Brak zablokowanych zasobówe** | Pozwala uniknąć sytuacji, w której zasoby są zablokowane na długi czas przez jedną transakcję. |
 | **Elastyczność**                | Idealne w środowiskach, gdzie występuje niewielka liczba konfliktów w dostępie do danych.      |
-
-#### Wady
 
 | **Wady**                                                | **Opis**                                                                                                                                                     |
 |---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -961,17 +963,13 @@ i minimalizować zależności między różnymi częściami systemu.
 - **Oddzielenie od innych agregatów** - Relacje między agregatami powinny być minimalne i realizowane za pomocą
   identyfikatorów, a nie bezpośrednich referencji.
 
-#### Zalety
-
-| **Zaleta**                       | **Opis**                                                                                                                  |
+| **Zalety**                       | **Opis**                                                                                                                  |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | **Zapewnienie spójności danych** | Dzięki wyraźnym granicom łatwiej zapewnić, że dane pozostają spójne w ramach jednej transakcji.                           |
 | **Izolacja zmian**               | Każdy agregat można modyfikować niezależnie od innych, co zmniejsza ryzyko efektów ubocznych podczas modyfikacji systemu. |
 | **Zarządzanie złożonością**      | Agregaty upraszczają modelowanie domeny, dzieląc ją na mniejsze, logiczne jednostki.                                      |
 | **Łatwiejsze skalowanie**        | Ograniczenie relacji między agregatami pozwala na łatwiejsze skalowanie systemu i dystrybucję danych.                     |
 | **Poprawa czytelności kod**      | Dzięki jednoznacznym granicom agregatów, kod jest bardziej zrozumiały i łatwiejszy w utrzymaniu.                          |
-
-#### Wady
 
 | **Wady**                                | **Opis**                                                                                                                                                                                 |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -998,16 +996,12 @@ implementacji i dostarcza wygodny punkt wejścia dla klienta, co upraszcza korzy
 - **Możliwość modyfikacji systemu** – Wewnętrzne zmiany systemu mogą być ukryte przed klientem, jeśli nie wpływają na
   interfejs fasady.
 
-#### Zalety
-
 | Zalety                   | Opis                                                                    |
 |--------------------------|-------------------------------------------------------------------------|
 | Uproszczony interfejs    | Fasada dostarcza łatwy w użyciu punkt dostępu do złożonych systemów.    |
 | Izolacja klienta         | Klient nie musi znać szczegółów implementacji poszczególnych modułów.   |
 | Redukcja zależności      | Klient komunikuje się tylko z fasadą, co zmniejsza zależności w kodzie. |
 | Poprawa czytelności kodu | Kod staje się bardziej zrozumiały i łatwiejszy w utrzymaniu.            |
-
-#### Wady
 
 | Wady                             | Opis                                                                               |
 |----------------------------------|------------------------------------------------------------------------------------|
@@ -1035,8 +1029,6 @@ Decision)). Dzięki temu możliwe jest unikanie mieszania odpowiedzialności ora
 - Określają wyraźne podziały odpowiedzialności między częściami systemu.
 - Są wystarczająco elastyczne, aby adaptować się do zmieniających się wymagań.
 
-#### Zalety
-
 | **Zalety**                            | **Opis**                                                                                                     |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | **Ułatwione zarządzanie złożonością** | Struktury te upraszczają zrozumienie, jak różne części systemu współdziałają.                                |
@@ -1044,8 +1036,6 @@ Decision)). Dzięki temu możliwe jest unikanie mieszania odpowiedzialności ora
 | **Skalowalność systemu**              | Pozwalają na łatwiejsze rozdzielenie pracy między zespoły i dodawanie nowych komponentów.                    |
 | **Lepsza organizacja pracy zespołów** | Wyznaczają granice odpowiedzialności, co minimalizuje konflikty i usprawnia pracę zespołów.                  |
 | **Wsparcie dla modularności**         | Ułatwiają wymianę elementów systemu bez ingerencji w inne części dzięki podejściom jak pluggable components. |
-
-#### Wady
 
 | **Wady**                                  | **Opis**                                                                                    |
 |-------------------------------------------|---------------------------------------------------------------------------------------------|
@@ -1159,13 +1149,13 @@ Poniższe zestawienie prezentuje kluczowe rozwiązania techniczne w zakresie bez
 
 ![image](./images/deskly-backend-deployment-diagram.png)
 
-Frontend aplikacji wdrożona z wykorzystaniem usług AWS Amplify oraz S3.
+Frontend aplikacji został wdrożony z wykorzystaniem usług AWS Amplify oraz S3.
 
-Backend aplikacji został wdrożony z wykorzystaniem usługi EKS. Zdecydowano się na wdrożenie z wykorzystaniem usługi EKS.
+Backend aplikacji został wdrożony z wykorzystaniem usługi EKS.
 Kluster Kuberenetes będzie domyślnie operował na 2 (minimalnie 1, maksymalnie 5) węzłach roboczych operujących na
-instancjach EC2 klasy `t3.large`. Każdy z mikroserwisów operować będzie na zmiennnej liczbie podów - od 1 do 5. Liczba
+instancjach EC2 klasy `t3.large`. Każdy z mikroserwisów operować będzie na zmiennej liczbie podów - od 1 do 5. Liczba
 podów kontorlowana będzie przez HorizontalPodAutoscaler (przyjęto założenia, że warunkiem zwiększania będzie 90% zużycia
-mocy oblieczeniowej lub 90% zużycia pamięci operacyjnej).
+mocy obliczeniowej lub 90% zużycia pamięci operacyjnej).
 
 Specyfikacja techniczna instancji `t3.medium`
 
@@ -1175,7 +1165,7 @@ Specyfikacja techniczna instancji `t3.medium`
 | Pamięć (GiB)                              | 4       |
 | Przepustowość sieci w trybie burst (Gbps) | 5       |
 
-Specyfikacja techniczna poda Kuberenetes
+Specyfikacja techniczna poda Kubernetes
 
 | parametr     | wartość |
 |--------------|---------|
@@ -1220,7 +1210,7 @@ Specyfikacja techniczna poda Kuberenetes
 
 ![deskly-db-diagram drawio (3)](https://github.com/user-attachments/assets/237edf3e-e0eb-480c-b409-7d7b942fb9b8)
 
-Poniżej zamiszczeno zestawienie najważniejszych parametrów bazy danych.
+Poniżej zamieszczono zestawienie najważniejszych parametrów bazy danych.
 
 | parametr                   | wartość       |
 |----------------------------|---------------|
@@ -1238,22 +1228,38 @@ Poniżej zamiszczeno zestawienie najważniejszych parametrów bazy danych.
 
 Aplikacja frontendowa zostanie zaimplementowana we frameworku Angular 18. Do zbudowania aplikacji zostanie wykorzystane
 zostanie narzędzie nx. Aplikacja została podzielona na moduły reprezentujące domeny grupujące funkcjonalności
-udostępniane uzytkownikom końcowym. Centralnym punktem aplikacji będzie katalog `src` zawierający pliki `index.html` (
-definiuje wstępną struktruę DOM) oraz `main.ts` (od tego pliku rozpoczyna sie ładowanie logiki aplikacji). Kazda z
-modułów ma zblizoną strukturę obejmującę 1 - 4 katalogów ze zbioru (`feature` - komponenty smart, `ui` - komponenty
-prezentacyjne, `data` - serwisy biznesowe, zarządzanie stanem, komunikacja z backendem oraz `domain` - modele danych).
+udostępniane użytkownikom końcowym. Centralnym punktem aplikacji będzie katalog `src` zawierający pliki `index.html` (
+definiuje wstępną strukturę DOM) oraz `main.ts` (od tego pliku rozpoczyna się ładowanie logiki aplikacji). Każda z
+modułów ma zbliżoną strukturę obejmujące 1 - 4 katalogów ze zbioru (`feature` - komponenty smart, `ui` - komponenty
+prezentacyjne, `data` - serwisy biznesowe, zarządzanie stanem, komunikacja z backend-em oraz `domain` - modele danych).
 
 W aplikacji zaimplementowany zostanie mechanizm leniwego ładowania, polegający na tym, że w trakcie budowania aplikacji
-niektóre jej części (moduły) są umieszczone w odzielnych plikach JS (tzw. chunkach), które nie muszą być wczytywane
-podczas początkowego wczytywania aplikacji, a dopiero w momencie, gdy zostaną zarządane przez użytkownika (przykładowo
+niektóre jej części (moduły) są umieszczone w oddzielnych plikach JS (tzw. chunkach), które nie muszą być wczytywane
+podczas początkowego wczytywania aplikacji, a dopiero w momencie, gdy zostaną zarządzane przez użytkownika (przykładowo
 nie ma potrzeby wczytywania kodu obsługującego funkcjonalności, które nie są dostępne dla danego użytkownika).
 Rozwiązanie to umożliwia optymalizację czasu wczytywania aplikacji oraz korzystnie na wpływa na UX.
 
-Ponizej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendowej.
+Poniżej zamieszczono diagram prezentujący widok wytwarzania aplikacji frontendowej.
 
 ![Widok wytwarzania](./images/fe.png)
 
 ### Backend
+
+Mikroserwisy zostały zaimplementowane w języku **Java 21** z wykorzystaniem **Spring Boot 3**. Do zapisu i obsługi bazy danych
+zastosowano **JDBC Template**, **Hibernate** oraz **Spring Data JPA**, co umożliwia elastyczną pracę z danymi oraz wsparcie dla
+różnych podejść do mapowania obiektowo-relacyjnego. Obsługę żądań HTTP zrealizowano przy użyciu **Spring MVC**, który
+pozwala na efektywne zarządzanie logiką aplikacji oraz jej komunikacją z klientami. Integracja z usługami chmurowymi
+Amazon Web Services (AWS) została zrealizowana przy pomocy **AWS SDK**, co umożliwia łatwe korzystanie z usług takich jak
+S3, RDS czy SQS. Bezpieczeństwo mikroserwisów zapewniono dzięki wykorzystaniu **Spring Security 6**, który umożliwia
+implementację zaawansowanych mechanizmów autoryzacji, dostosowanych do wymagań projektu.
+
+Architektura w części wykorzystano architekturę heksagonalną, co ułatwia separację zależności między
+warstwami oraz zapewnia większą elastyczność i łatwość testowania. W ramach projektu wyróżniono następujące pakiety:
+
+- `application` – logika aplikacyjna, przypadki użycia
+- `domain` – model domenowy i reguły biznesowe
+- `infrastructure` – obsługa technologiczna, integracje z zewnętrznymi systemami i bazami danych
+- `api` – warstwa odpowiedzialna za komunikację z zewnętrznymi klientami
 
 ![Widok wytwarzania](./images/deskly-packages-diagram-deskly-core.jpg)
 
